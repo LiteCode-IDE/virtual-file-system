@@ -6,22 +6,29 @@ interface CollapseBtnProps {
     id: string;
     name: string;
     type: ItemType;
-    collapsed?: boolean;
-    extension?: string;
   };
+  className?: string;
+  style?: React.CSSProperties;
   onClickE: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const CollapseBtn: React.FC<CollapseBtnProps> = ({ item, onClickE }) => {
+const CollapseBtn: React.FC<CollapseBtnProps> = ({
+  item,
+  onClickE,
+  className,
+  style,
+}) => {
   return (
     <button
       type="button"
       parent-id={item.id}
       typeof-item={item.type}
-      onClick={e => {
+      onClick={(e) => {
         onClickE(e);
       }}
-      className="transition-colors w-[14px] border-r hover:border-vscode-blue border-monaco-color"></button>
+      style={style}
+      className={`transition-colors w-[14px] border-r hover:border-vscode-blue border-monaco-color ${className}`}
+    ></button>
   );
 };
 

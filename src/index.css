@@ -212,7 +212,7 @@
 }
 
 .three-dots {
-  background-image: url("/three-dots.svg");
+  background-image: url("./assets/three-dots.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

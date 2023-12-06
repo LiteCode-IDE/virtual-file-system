@@ -11,11 +11,15 @@ import { useTypedSelector } from "../../../state/hooks";
 interface SearchResultsProps {
   matchingFile: MatchingFile;
   fileAtLineClick: (id: string, lineNum: number) => void;
+  headerClassName?: string;
+  headerStyle?: React.CSSProperties;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   matchingFile,
   fileAtLineClick,
+  headerClassName,
+  headerStyle,
 }) => {
   const [showResults, setShowResults] = useState(true);
   const searchTerm = useTypedSelector(getSearchTerm);
@@ -25,7 +29,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         onClick={() => {
           setShowResults(!showResults);
         }}
-        className="flex items-center w-full cursor-pointer hover:bg-dark-hover">
+        style={headerStyle}
+        className={`flex items-center w-full cursor-pointer hover:bg-dark-hover ${headerClassName}`}
+      >
         <img
           src={downArrowLogo}
           className={`${
@@ -37,6 +43,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           item={{
             ...matchingFile,
             type: "file",
+            logo: "typescript-logo",
           }}
           onClickE={() => {}}
         />
@@ -49,9 +56,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               hightlight={searchTerm}
               lineOfText={content}
               lineNum={line}
-              openAtLine={l => {
+              openAtLine={(l) => {
                 fileAtLineClick(matchingFile.id, l);
               }}
+              // highlightClass="bg-yellow-200 text-red-700"
             />
           ))}
         </div>

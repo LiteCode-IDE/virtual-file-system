@@ -31,7 +31,7 @@ const Dialog: React.FC<DialogProps> = ({
           <span className="text-black text-2xl font-semibold">{title}</span>
           <span className="self-start">
             <img
-              src={cross.src}
+              src={cross}
               onClick={() => {
                 close(false);
               }}
@@ -60,7 +60,7 @@ const Dialog: React.FC<DialogProps> = ({
               className="text-sm bg-red-700 hover:bg-red-500 text-black px-2 py-1 rounded-lg transition-colors flex flex-row items-center">
               <img
                 alt={"delete"}
-                src={deleteLogo.src}
+                src={deleteLogo}
                 className="w-4 h-4 mr-1"
               />
               {actionText}

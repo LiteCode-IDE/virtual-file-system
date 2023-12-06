@@ -266,7 +266,7 @@ export const structureSlice = createSlice({
   reducers: {
     addNode: (
       state,
-      action: PayloadAction<{ value: string; inputType: ItemType }>,
+      action: PayloadAction<{ value: string; inputType: ItemType }>
     ) => {
       // if (!state.contextSelected) return;
       const { value, inputType } = action.payload;
@@ -297,7 +297,7 @@ export const structureSlice = createSlice({
           } as Directory,
         ];
       } else {
-        bfsNodeAction(state.initialFolder, state.contextSelected.id, item => {
+        bfsNodeAction(state.initialFolder, state.contextSelected.id, (item) => {
           item.subFoldersAndFiles = [
             ...(item.subFoldersAndFiles as Directory[]),
             {
@@ -337,7 +337,7 @@ export const structureSlice = createSlice({
       state,
       action: PayloadAction<
         { id: string; type: ItemType } | { id: null; type: null }
-      >,
+      >
     ) => {
       const id = action.payload.id
         ? action.payload.id
@@ -354,12 +354,12 @@ export const structureSlice = createSlice({
           parent.subFoldersAndFiles = parent.subFoldersAndFiles.filter(
             ({ id }) => {
               return id !== item.id;
-            },
+            }
           );
           const parentId = parent.id;
           state.normalized.folders.byId[parentId].childrenFlat =
             state.normalized.folders.byId[parentId].childrenFlat.filter(
-              ({ id: _id }) => _id !== item.id,
+              ({ id: _id }) => _id !== item.id
             );
 
           const deleteNodes = (subItems: Array<Directory | FileInFolder>) => {
@@ -370,7 +370,7 @@ export const structureSlice = createSlice({
                 (type + "s") as keyof typeof state.normalized
               ].allIds = state.normalized[
                 (type + "s") as keyof typeof state.normalized
-              ].allIds.filter(_id => _id !== id);
+              ].allIds.filter((_id) => _id !== id);
               if (item.type === "folder") {
                 deleteNodes(item.subFoldersAndFiles);
               }
@@ -384,18 +384,18 @@ export const structureSlice = createSlice({
             state.normalized.folders.byId[parentId].collapsed = true;
           }
         },
-        [state.initialFolder],
+        [state.initialFolder]
       );
 
       // state.normalized[type + "s"].byId[id] = undefined;
       state.normalized[(type + "s") as keyof typeof state.normalized].allIds =
         state.normalized[
           (type + "s") as keyof typeof state.normalized
-        ].allIds.filter(_id => _id !== id);
+        ].allIds.filter((_id) => _id !== id);
       const allIds =
         state.normalized[(type + "s") as keyof typeof state.normalized].allIds;
 
-      if (allIds.find(id => id === state.contextSelected.id) === undefined) {
+      if (allIds.find((id) => id === state.contextSelected.id) === undefined) {
         state.contextSelected = {
           id: state.initialFolder.id,
           type: "folder",
@@ -403,11 +403,11 @@ export const structureSlice = createSlice({
         };
       }
 
-      if (allIds.find(id => id === state.selected) === undefined) {
+      if (allIds.find((id) => id === state.selected) === undefined) {
         state.selected = state.initialFolder.id;
       }
 
-      if (allIds.find(id => id === state.parentItemId) === undefined) {
+      if (allIds.find((id) => id === state.parentItemId) === undefined) {
         state.parentItemId = state.initialFolder.id;
       }
       // remove Tab
@@ -425,10 +425,10 @@ export const structureSlice = createSlice({
       if (state.contextSelected.type === "file") {
         newName = action.payload.value.substring(
           0,
-          action.payload.value.lastIndexOf("."),
+          action.payload.value.lastIndexOf(".")
         );
         newExtension = action.payload.value.substring(
-          action.payload.value.lastIndexOf(".") + 1,
+          action.payload.value.lastIndexOf(".") + 1
         );
       }
       dfsNodeAction(
@@ -439,7 +439,7 @@ export const structureSlice = createSlice({
           // item.name = action.payload.value;
           parentId = parent.id;
         },
-        [state.initialFolder],
+        [state.initialFolder]
       );
       state.normalized[
         (state.contextSelected.type + "s") as keyof typeof state.normalized
@@ -471,7 +471,7 @@ export const structureSlice = createSlice({
 
     updateFileContents: (
       state,
-      action: PayloadAction<{ id: string; value: string }>,
+      action: PayloadAction<{ id: string; value: string }>
     ) => {
       state.normalized.files.byId[action.payload.id].content =
         action.payload.value;
@@ -511,7 +511,7 @@ export const structureSlice = createSlice({
 
     collapseOrExpand: (
       state,
-      action: PayloadAction<{ item: Identifier; collapse: boolean }>,
+      action: PayloadAction<{ item: Identifier; collapse: boolean }>
     ) => {
       if (action.payload.item.type === "folder") {
         const { item, collapse } = action.payload;
@@ -538,7 +538,7 @@ export const structureSlice = createSlice({
       // state.selected = action.payload.item.id;
     },
 
-    copyNode: state => {
+    copyNode: (state) => {
       if (!state.toCopy) return;
 
       if (state.toCopy.isCut) {
@@ -551,14 +551,13 @@ export const structureSlice = createSlice({
             state.toCopy = null;
             return;
           }
-        } else {
-          const sameCut = state.normalized.folders.byId[
-            state.contextSelected.id
-          ].childrenFlat.find(({ id }) => id === state.toCopy?.id);
-          if (sameCut) {
-            state.toCopy = null;
-            return;
-          }
+        }
+        const sameCut = state.normalized.folders.byId[
+          state.contextSelected.id
+        ].childrenFlat.find(({ id }) => id === state.toCopy?.id);
+        if (sameCut) {
+          state.toCopy = null;
+          return;
         }
       }
       const item =
@@ -596,12 +595,12 @@ export const structureSlice = createSlice({
       });
       let newName = toCopyItem.wholeName;
       const isNameTaken =
-        knownNames.filter(knownName => knownName === toCopyItem.wholeName)
+        knownNames.filter((knownName) => knownName === toCopyItem.wholeName)
           .length > 0;
       if (isNameTaken) {
         let i = 1;
         while (
-          knownNames.filter(knownName => {
+          knownNames.filter((knownName) => {
             // eslint-disable-next-line
             if (toCopyItem.type === "file") {
               return (
@@ -689,18 +688,18 @@ export const structureSlice = createSlice({
               ];
               state.normalized.folders.byId[parentId].childrenFlat =
                 state.normalized.folders.byId[parentId].childrenFlat.map(
-                  existingItem => {
+                  (existingItem) => {
                     if (existingItem.id === item.id) {
                       return { ...existingItem, id: newItem.id };
                     } else {
                       return existingItem;
                     }
-                  },
+                  }
                 );
               item.id = newItem.id;
             },
             [],
-            [newNode.id],
+            [newNode.id]
           );
         }
         return newNode;
@@ -757,7 +756,7 @@ export const structureSlice = createSlice({
               newNode.id,
             ];
           },
-          [state.initialFolder],
+          [state.initialFolder]
         );
       }
 
@@ -796,7 +795,7 @@ export const structureSlice = createSlice({
       action: PayloadAction<{
         id: string;
         type: ItemType;
-      }>,
+      }>
     ) => {
       if (state.selected !== action.payload.id) {
         state.contextSelected = {
@@ -807,7 +806,7 @@ export const structureSlice = createSlice({
         state.selected = action.payload.id;
       }
     },
-    setContextSelectedForFileAction: state => {
+    setContextSelectedForFileAction: (state) => {
       const selectedItem = state.selected;
       if (state.normalized.files.allIds.includes(selectedItem)) {
         state.contextSelected = {
@@ -835,7 +834,7 @@ export const structureSlice = createSlice({
               y: number;
             }
           | false;
-      }>,
+      }>
     ) => {
       const { id, type, threeDot } = action.payload;
       // Don't run this if the user clicks on the same item
@@ -873,7 +872,7 @@ export const structureSlice = createSlice({
         id: string;
         type: ItemType;
         isCut: boolean;
-      }>,
+      }>
     ) => {
       const children: Directory[] = [];
 
@@ -895,7 +894,7 @@ export const structureSlice = createSlice({
               toCopyFolder.subFoldersAndFiles as Directory[];
             newCopy.parentId = parent.id;
           },
-          [state.initialFolder],
+          [state.initialFolder]
         );
       }
 
@@ -913,7 +912,7 @@ export const structureSlice = createSlice({
             const parent = parents[parents.length - 1];
             parentId = parent.id;
           },
-          [state.initialFolder],
+          [state.initialFolder]
         );
         state.parentItemId = parentId;
       }
@@ -934,7 +933,7 @@ export const structureSlice = createSlice({
           // fileData.path =
           //   `${filePath}/${fileData.name}.${fileData.extension}`.split("/");
         },
-        [state.initialFolder],
+        [state.initialFolder]
       );
     },
     sortFolder: (state, action: PayloadAction<{ id: string }>) => {
@@ -954,12 +953,12 @@ export const structureSlice = createSlice({
             const toSort = structure.subFoldersAndFiles.map(
               (item: Directory | FileInFolder) => {
                 return state.normalized[`${item.type}s`].byId[item.id];
-              },
+              }
             );
             toSort.sort(
               (
                 a: FileStructure | NormalizedFolder,
-                b: FileStructure | NormalizedFolder,
+                b: FileStructure | NormalizedFolder
               ) => {
                 if (a.type === "folder" && b.type === "file") {
                   return -1;
@@ -968,26 +967,26 @@ export const structureSlice = createSlice({
                 } else {
                   return a.name.localeCompare(b.name);
                 }
-              },
+              }
             );
 
             structure.subFoldersAndFiles = toSort.map(
               ({ id, type }: FileStructure | NormalizedFolder) => {
                 const subFoldersAndFiles = structure.subFoldersAndFiles.find(
-                  ({ id: _id }) => _id === id,
+                  ({ id: _id }) => _id === id
                 )?.subFoldersAndFiles;
                 return { id, type, subFoldersAndFiles };
-              },
+              }
             ) as Directory[];
           }
         },
-        action.payload.id,
+        action.payload.id
       );
     },
     search: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload.replace(
         /[-[\]{}()*+?.,\\^$|#\s]/g,
-        "\\$&",
+        "\\$&"
       );
     },
     setResizeCollapsed: (state, action: PayloadAction<boolean>) => {
@@ -1039,7 +1038,7 @@ export const contextSelectedObj = createSelector(
       wholeName = `${item.name}.${item.extension}`;
     }
     const actualPath = `${item.path
-      .filter(id => id !== "/" && id !== "head")
+      .filter((id) => id !== "/" && id !== "head")
       .map((id, i) => {
         if (contextSelected?.type === "file") {
           if (i < item.path.length - 3) {
@@ -1060,7 +1059,7 @@ export const contextSelectedObj = createSelector(
       wholeName,
       actualPath,
     };
-  },
+  }
 );
 
 export const getItem = createSelector(
@@ -1084,7 +1083,7 @@ export const getItem = createSelector(
         type: item.type,
       };
     }
-  },
+  }
 );
 
 export const getCurrentItems = createSelector(
@@ -1095,9 +1094,9 @@ export const getCurrentItems = createSelector(
     return normalized.folders.byId[`${parentItemId}`].childrenFlat.map(
       ({ id, type }) => {
         return normalized[`${type}s`].byId[id];
-      },
+      }
     );
-  },
+  }
 );
 
 // export const getFileTree = createSelector(
@@ -1120,7 +1119,7 @@ export const getSearchResults = createSelector(
     };
     if (searchTerm.trim() === "") return res;
     const foundFiles: MatchingFile[] = [];
-    files.allIds.forEach(id => {
+    files.allIds.forEach((id) => {
       const currentFile = files.byId[id];
       const content = currentFile.content;
       const regex = new RegExp(searchTerm, "g");
@@ -1148,7 +1147,7 @@ export const getSearchResults = createSelector(
     });
     res.files = foundFiles;
     return res;
-  },
+  }
 );
 
 export const {

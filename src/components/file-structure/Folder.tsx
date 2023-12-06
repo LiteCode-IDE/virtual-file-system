@@ -44,9 +44,12 @@ const Folder: React.FC<FolderProps> = ({
 
   return (
     <div className={`${children.length > 0 && "w-full"}`}>
-      {children.map(item => {
+      {children.map((item) => {
         return (
-          <div key={item.id} className={"flex flex-col select-none mr-1 w-full"}>
+          <div
+            key={item.id}
+            className={"flex flex-col select-none mr-1 w-full"}
+          >
             <div
               id={item.id}
               typeof-item={item.type}
@@ -54,14 +57,15 @@ const Folder: React.FC<FolderProps> = ({
                 selected === item.id && showBlue
                   ? "bg-vscode-overlay hover:bg-vscode-blue"
                   : contextSelected === item.id && showGray
-                    ? "bg-slate-700 hover:bg-slate-600"
-                    : ""
+                  ? "bg-slate-700 hover:bg-slate-600"
+                  : ""
               }  ${
                 cutItem?.isCut && cutItem.id === item.id ? "opacity-50" : ""
-              } }`}>
+              } }`}
+            >
               <ItemTitle
                 item={item}
-                onClickE={e => {
+                onClickE={(e) => {
                   e.stopPropagation();
                   dispatch(setSelected({ id: item.id, type: item.type }));
                   setShowBlue(true);
@@ -73,7 +77,7 @@ const Folder: React.FC<FolderProps> = ({
                       collapseOrExpand({
                         item: { id: item.id, type: item.type },
                         collapse: true,
-                      }),
+                      })
                     );
                   }
                 }}
@@ -82,7 +86,7 @@ const Folder: React.FC<FolderProps> = ({
                 item={item}
                 selected={selected}
                 showBlue={showBlue}
-                onClickE={e => {
+                onClickE={(e) => {
                   e.stopPropagation();
                   setShowBlue(false);
                   setShowGray(true);
@@ -91,7 +95,7 @@ const Folder: React.FC<FolderProps> = ({
                       id: item.id,
                       type: item.type,
                       threeDot: { x: e.clientY, y: e.clientX },
-                    }),
+                    })
                   );
                 }}
               />
@@ -102,7 +106,7 @@ const Folder: React.FC<FolderProps> = ({
                 <div className="flex flex-row sub-folder">
                   <CollapseBtn
                     item={item}
-                    onClickE={e => {
+                    onClickE={(e) => {
                       e.stopPropagation();
                       setShowBlue(true);
                       setShowGray(false);
@@ -111,13 +115,13 @@ const Folder: React.FC<FolderProps> = ({
                         collapseOrExpand({
                           item: { id: item.id, type: item.type },
                           collapse: true,
-                        }),
+                        })
                       );
                     }}
                   />
                   <Folder
                     data={(() => {
-                      const childFolder = data.find(newItem => {
+                      const childFolder = data.find((newItem) => {
                         return newItem.id === item.id;
                       });
                       return childFolder?.subFoldersAndFiles as Directory[];

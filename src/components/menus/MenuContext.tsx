@@ -20,6 +20,9 @@ interface MenuContextProps {
         disabled?: undefined;
       }
   >;
+  className?: string;
+  clickableAreaClassName?: string;
+  hrColor?: string;
 }
 
 const MenuContext: React.FC<MenuContextProps> = ({
@@ -27,6 +30,9 @@ const MenuContext: React.FC<MenuContextProps> = ({
   left,
   setShowContext,
   actions,
+  className,
+  clickableAreaClassName,
+  hrColor
 }) => {
   const contextRef = useRef<HTMLDivElement>(null);
   useOutsideAlerter(contextRef, setShowContext);
@@ -34,15 +40,14 @@ const MenuContext: React.FC<MenuContextProps> = ({
   return (
     <div
       ref={contextRef}
-      className={
-        "absolute bg-monaco-color rounded-md px-1 py-2 w-48 box-border text-sm z-50"
-      }
-      style={{ top: `${top}px`, left: `${left}px` }}>
+      className={`absolute bg-monaco-color rounded-md px-1 py-2 w-48 box-border text-sm z-50 ${className}`}
+      style={{ top: `${top}px`, left: `${left}px` }}
+    >
       <ul className="w-full">
         {actions.map((action, index) => {
           if (action.type === "hr") {
             return (
-              <hr key={index} className="my-2 border-t border-t-zinc-600" />
+              <hr key={index} style={{borderTopColor: hrColor}} className={`my-2 border-t border-t-zinc-600`} />
             );
           } else {
             return (
@@ -56,9 +61,10 @@ const MenuContext: React.FC<MenuContextProps> = ({
                 }}
                 className={`rounded-md px-7 py-1 ${
                   !action.disabled
-                    ? "hover:bg-hover-blue cursor-pointer"
+                    ? `hover:bg-hover-blue cursor-pointer ${clickableAreaClassName}`
                     : "text-zinc-500"
-                } `}>
+                } `}
+              >
                 <span className="select-none">{action.title}</span>
               </li>
             );

@@ -34,7 +34,7 @@ const downloadZip = () => {
       type: "blob",
     })
     .then(content => {
-      saveAs(content, "LiteCode_Project.zip");
+      saveAs(content, "Project.zip");
     });
 };
 

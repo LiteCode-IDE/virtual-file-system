@@ -30,7 +30,7 @@ const Tabs = () => {
     <div className="flex flex-row w-full">
       <div className={"file-tabs w-full py-1"}>
         <div className="flex flex-row items-center w-full overflow-x-scroll custom-scrollbar">
-          {tabs.map((item, i) => (
+          {tabs.map((item) => (
             <Tab
               key={item.id}
               id={item.id}

@@ -2,15 +2,18 @@ import React from "react";
 
 interface HighlightedTextProps {
   hightlight: string;
+  highlightClass?: string;
   lineOfText: string;
   lineNum: number;
   openAtLine: (lineNum: number) => void;
 }
+
 const HighlightedText: React.FC<HighlightedTextProps> = ({
   hightlight,
   lineOfText,
   lineNum,
   openAtLine,
+  highlightClass
 }) => {
 
   const parts = lineOfText.split(new RegExp(`(${hightlight})`, "gi"));
@@ -23,7 +26,7 @@ const HighlightedText: React.FC<HighlightedTextProps> = ({
       {parts.map((part) =>
         (() => {
           if (part === hightlight) {
-            return <span className="bg-orange-400 text-black">{part}</span>;
+            return <span className={`bg-orange-400 text-black ${highlightClass}`}>{part}</span>;
           }
           return part;
         })(),
