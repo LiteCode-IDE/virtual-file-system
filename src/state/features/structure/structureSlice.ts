@@ -669,8 +669,8 @@ export const structureSlice = createSlice({
       const actionOnChildren = (newNode: Directory) => {
         if (state.toCopy?.type === "folder") {
           const toCopyFolderPath =
-            state.normalized.folders.byId[newNode.id].path;
-          toCopyFolderPath.pop();
+            state.normalized.folders.byId[newNode.id].path.slice(0, -1);
+          
           dfsCbOnEach(
             newNode.subFoldersAndFiles as Directory[],
             (item, parentIds) => {
@@ -716,6 +716,7 @@ export const structureSlice = createSlice({
         ];
 
         const node = actionOnChildren(newNode as Directory);
+
         state.initialFolder.subFoldersAndFiles = [
           ...state.initialFolder.subFoldersAndFiles,
           {

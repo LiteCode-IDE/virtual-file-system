@@ -22,6 +22,13 @@ interface FolderProps {
   setShowBlue: React.Dispatch<React.SetStateAction<boolean>>;
   showGray: boolean;
   setShowGray: React.Dispatch<React.SetStateAction<boolean>>;
+  collapseBtnClassname?: string;
+  collapseBtnStyle?: React.CSSProperties;
+  threeDotPrimaryClass?: string;
+  threeDotSecondaryClass?: string;
+  clickableAreaClassName?: string;
+  selectedClickableAreaClassName?: string;
+  contextSelectedClickableAreaClassName?: string;
 }
 
 const Folder: React.FC<FolderProps> = ({
@@ -30,6 +37,13 @@ const Folder: React.FC<FolderProps> = ({
   setShowBlue,
   showGray,
   setShowGray,
+  collapseBtnClassname,
+  collapseBtnStyle,
+  threeDotPrimaryClass,
+  threeDotSecondaryClass,
+  clickableAreaClassName,
+  selectedClickableAreaClassName,
+  contextSelectedClickableAreaClassName,
 }) => {
   const dispatch = useTypedDispatch();
   const selected = useTypedSelector(selectedItem);
@@ -53,11 +67,11 @@ const Folder: React.FC<FolderProps> = ({
             <div
               id={item.id}
               typeof-item={item.type}
-              className={`mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-dark-hover justify-between  ${
+              className={`mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-dark-hover justify-between ${clickableAreaClassName} ${
                 selected === item.id && showBlue
-                  ? "bg-vscode-overlay hover:bg-vscode-blue"
+                  ? `bg-vscode-overlay hover:bg-vscode-blue ${selectedClickableAreaClassName}`
                   : contextSelected === item.id && showGray
-                  ? "bg-slate-700 hover:bg-slate-600"
+                  ? `bg-slate-700 hover:bg-slate-600 ${contextSelectedClickableAreaClassName}`
                   : ""
               }  ${
                 cutItem?.isCut && cutItem.id === item.id ? "opacity-50" : ""
@@ -85,6 +99,8 @@ const Folder: React.FC<FolderProps> = ({
               <ThreeDots
                 item={item}
                 selected={selected}
+                primaryClass={threeDotPrimaryClass}
+                secondaryClass={threeDotSecondaryClass}
                 showBlue={showBlue}
                 onClickE={(e) => {
                   e.stopPropagation();
@@ -106,6 +122,8 @@ const Folder: React.FC<FolderProps> = ({
                 <div className="flex flex-row sub-folder">
                   <CollapseBtn
                     item={item}
+                    className={collapseBtnClassname}
+                    style={collapseBtnStyle}
                     onClickE={(e) => {
                       e.stopPropagation();
                       setShowBlue(true);
@@ -130,6 +148,17 @@ const Folder: React.FC<FolderProps> = ({
                     setShowBlue={setShowBlue}
                     showGray={showGray}
                     setShowGray={setShowGray}
+                    collapseBtnClassname={collapseBtnClassname}
+                    collapseBtnStyle={collapseBtnStyle}
+                    threeDotPrimaryClass={threeDotPrimaryClass}
+                    threeDotSecondaryClass={threeDotSecondaryClass}
+                    clickableAreaClassName={clickableAreaClassName}
+                    selectedClickableAreaClassName={
+                      selectedClickableAreaClassName
+                    }
+                    contextSelectedClickableAreaClassName={
+                      contextSelectedClickableAreaClassName
+                    }
                   />
                 </div>
               )}

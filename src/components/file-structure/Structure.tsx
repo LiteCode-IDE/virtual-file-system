@@ -456,6 +456,13 @@ const Structure: React.FC = () => {
                     setShowBlue={setShowBlue}
                     showGray={showGray}
                     setShowGray={setShowGray}
+                    // collapseBtnClassname={'bg-red-300'}
+                    // collapseBtnStyle={{width: '10px'}}
+                    // threeDotPrimaryClass={'bg-blue-300 hover:bg-blue-800'}
+                    // threeDotSecondaryClass={'bg-gray-300 hover:bg-gray-800'}
+                    clickableAreaClassName={'text-white bg-slate-700 hover:bg-slate-900'}
+                    // selectedClickableAreaClassName={'text-black bg-yellow-300 hover:bg-yellow-500'}
+                    // contextSelectedClickableAreaClassName={'text-white bg-gray-700 hover:bg-gray-900'}
                   />
 
                   {allFileIds.length === 0 && allFolderIds.length === 1 && (
@@ -484,6 +491,7 @@ const Structure: React.FC = () => {
                 title={`Delete the ${selectedType} ${contextSelectedItemProps.wholeName}?`}
                 content={`Are you sure you want to delete the ${selectedType} /${contextSelectedItemProps.actualPath}? This action cannot be
             undone.`}
+                className="bg-slate-900 text-slate-200"
                 actionText={`Yes, delete ${selectedType}`}
                 close={setShowDialog}
                 action={async () => {

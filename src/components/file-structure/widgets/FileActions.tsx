@@ -5,7 +5,6 @@ import newFolderIcon from "../../../assets/new-folder.svg";
 import downloadIcon from "../../../assets/download.svg";
 
 import { Tooltip } from "react-tooltip";
-import SearchContainer from "../search/SearchContainer";
 
 interface FileActionProps {
   newFile: () => void;
@@ -14,9 +13,9 @@ interface FileActionProps {
   collapseArea: () => void;
   collapsed: boolean;
   projectName?: string;
+  btnClassName?: string;
   disableTooltip?: true;
   disableCollapse?: true;
-  btnClassName?: string;
   disableDownload?: true;
 }
 

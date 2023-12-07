@@ -59,7 +59,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               openAtLine={(l) => {
                 fileAtLineClick(matchingFile.id, l);
               }}
-              // highlightClass="bg-yellow-200 text-red-700"
+              highlightClass="bg-yellow-200 text-red-700"
             />
           ))}
         </div>

@@ -9,6 +9,7 @@ interface DialogProps {
   actionText: string;
   close: (show: boolean) => void;
   action: () => void;
+  className?: string;
 }
 
 const Dialog: React.FC<DialogProps> = ({
@@ -17,6 +18,7 @@ const Dialog: React.FC<DialogProps> = ({
   actionText,
   close,
   action,
+  className
 }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
   useOutsideAlerter(dialogRef, () => {
@@ -26,9 +28,9 @@ const Dialog: React.FC<DialogProps> = ({
     <div className="backdrop-brightness-50 absolute top-0 z-50 flex w-full h-full justify-center items-start pt-6 select-none">
       <div
         ref={dialogRef}
-        className="dialog-content bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96">
+        className={`bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96 ${className}`}>
         <div className="flex flex-row justify-between">
-          <span className="text-black text-2xl font-semibold">{title}</span>
+          <span className="text-2xl font-semibold">{title}</span>
           <span className="self-start">
             <img
               src={cross}
@@ -40,7 +42,7 @@ const Dialog: React.FC<DialogProps> = ({
             />
           </span>
         </div>
-        <div className="text-sm my-4 text-black">{content}</div>
+        <div className="text-sm my-4">{content}</div>
         <div className="flex justify-between my-2">
           <div className="w-32">&nbsp;</div>
           <div className="flex justify-between pl-12 w-full">
@@ -49,7 +51,7 @@ const Dialog: React.FC<DialogProps> = ({
               onClick={() => {
                 close(false);
               }}
-              className="text-sm text-black px-2 py-1 rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors">
+              className="text-sm px-2 py-1 rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors">
               Cancel
             </button>
             <button
@@ -57,7 +59,7 @@ const Dialog: React.FC<DialogProps> = ({
               onClick={() => {
                 action();
               }}
-              className="text-sm bg-red-700 hover:bg-red-500 text-black px-2 py-1 rounded-lg transition-colors flex flex-row items-center">
+              className="text-sm bg-red-700 hover:bg-red-500 px-2 py-1 rounded-lg transition-colors flex flex-row items-center">
               <img
                 alt={"delete"}
                 src={deleteLogo}
