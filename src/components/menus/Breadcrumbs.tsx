@@ -43,90 +43,98 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
 
   return (
     <>
-      <div
-        id={"breadcrumbs"}
-        ref={breadcrumbsRef}
-        className="select-none w-full"
-      >
-        <div className="breadcrumbs-container flex items-center justify-start m-2">
-          {editorObj.path.map((path, i) => (
-            <div
-              id={`${editorObj.path
-                .map((path) => path.replace(/[\.|\s]+/g, "-"))
-                .join("")}-${i}`}
-              key={`${editorObj.path
-                .map((path) => path.replace(/[\.|\s]+/g, "-"))
-                .join("")}-${i}`}
-            >
-              <div
-                className={`text-base text-zinc-300 flex flex-row ${containerClassName}`}
-              >
-                {i === editorObj.path.length - 1 && (
-                  <span
-                    className={`span-logo self-center w-4 h-4 ml-1 mr-[0.375rem] ${getLogo(
-                      path.split(".").reverse()[0]
-                    )}`}
-                  ></span>
-                )}
-                <span
-                  onClick={() => {
-                    setClickedIndex(i);
-                    setShowMiniStructure(true);
-                    dispatch(setMiniStructureAsync(editorObj.unmappedPath[i]));
-                  }}
-                  className={`cursor-pointer hover:underline hover:text-blue-400 ${textClassName}`}
-                >
-                  {path}
-                </span>
-                {i < editorObj.path.length - 1 && (
-                  <span className="text-base text-zinc-200 mx-2">{"/"}</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      {breadcrumbsRef.current && showMiniStructure && (
+      {editorObj !== null && (
         <>
-          {(() => {
-            const id = `${editorObj.path
-              .map((path) => path.replace(/[\.|\s]+/g, "-"))
-              .join("")}-${clickedIndex}`;
-
-            const element = breadcrumbsRef.current.querySelector(
-              `#${id}`
-            ) as HTMLElement;
-            if (element) {
-              return createPortal(
+          <div
+            id={"breadcrumbs"}
+            ref={breadcrumbsRef}
+            className="select-none w-full"
+          >
+            <div className="breadcrumbs-container flex items-center justify-start m-2">
+              {editorObj.path.map((path, i) => (
                 <div
-                  ref={miniStructurePortalRef}
-                  className="rounded-lg bg-slate-950 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3"
+                  id={`${editorObj.path
+                    .map((path) => path.replace(/[\.|\s]+/g, "-"))
+                    .join("")}-${i}`}
+                  key={`${editorObj.path
+                    .map((path) => path.replace(/[\.|\s]+/g, "-"))
+                    .join("")}-${i}`}
                 >
-                  <MiniFolder
-                    init={true}
-                    data={miniStructure}
-                    onClickItem={(item) => {
-                      if (item.type === "folder") {
-                        dispatch(collapseMiniStructure(item.id));
-                      } else {
-                        dispatch(setSelected({ id, type: "file" }));
-                        dispatch(setActiveTabAsync(item.id));
-                        setShowMiniStructure(false);
-                      }
-                    }}
-                    onCollapseMiniStructure={(id) => {
-                      dispatch(collapseMiniStructure(id));
-                    }}
-                    collapseBtnClassName={miniFolderCollapseBtnClassName}
-                    collapseBtnStyle={miniFolderCollapseBtnStyle}
-                    containerClassName={miniFolderContainerClassName}
-                    titleClassName={itemTitleClassName}
-                  />
-                </div>,
-                element
-              );
-            }
-          })()}
+                  <div
+                    className={`text-base text-zinc-300 flex flex-row ${containerClassName}`}
+                  >
+                    {i === editorObj.path.length - 1 && (
+                      <span
+                        className={`span-logo self-center w-4 h-4 ml-1 mr-[0.375rem] ${getLogo(
+                          path.split(".").reverse()[0]
+                        )}`}
+                      ></span>
+                    )}
+                    <span
+                      onClick={() => {
+                        setClickedIndex(i);
+                        setShowMiniStructure(true);
+                        dispatch(
+                          setMiniStructureAsync(editorObj.unmappedPath[i])
+                        );
+                      }}
+                      className={`cursor-pointer hover:underline hover:text-blue-400 ${textClassName}`}
+                    >
+                      {path}
+                    </span>
+                    {i < editorObj.path.length - 1 && (
+                      <span className="text-base text-zinc-200 mx-2">
+                        {"/"}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {breadcrumbsRef.current && showMiniStructure && (
+            <>
+              {(() => {
+                const id = `${editorObj.path
+                  .map((path) => path.replace(/[\.|\s]+/g, "-"))
+                  .join("")}-${clickedIndex}`;
+
+                const element = breadcrumbsRef.current.querySelector(
+                  `#${id}`
+                ) as HTMLElement;
+                if (element) {
+                  return createPortal(
+                    <div
+                      ref={miniStructurePortalRef}
+                      className="rounded-lg bg-slate-950 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3"
+                    >
+                      <MiniFolder
+                        init={true}
+                        data={miniStructure}
+                        onClickItem={(item) => {
+                          if (item.type === "folder") {
+                            dispatch(collapseMiniStructure(item.id));
+                          } else {
+                            dispatch(setSelected({ id, type: "file" }));
+                            dispatch(setActiveTabAsync(item.id));
+                            setShowMiniStructure(false);
+                          }
+                        }}
+                        onCollapseMiniStructure={(id) => {
+                          dispatch(collapseMiniStructure(id));
+                        }}
+                        collapseBtnClassName={miniFolderCollapseBtnClassName}
+                        collapseBtnStyle={miniFolderCollapseBtnStyle}
+                        containerClassName={miniFolderContainerClassName}
+                        titleClassName={itemTitleClassName}
+                      />
+                    </div>,
+                    element
+                  );
+                }
+              })()}
+            </>
+          )}
         </>
       )}
     </>

@@ -130,13 +130,17 @@ export const getBreadcrumbs = createSelector(
   (state: RootState) => state.structure.normalized,
   (state: RootState) => state.tabs.selected,
   (normalized: Normalized, selectedTab: string) => {
-    const file = normalized.files.byId[selectedTab];
-    const [unmappedPath, path] = getPaths(file, normalized);
-    return {
-      id: file.id,
-      path,
-      unmappedPath,
-    };
+    if (selectedTab && selectedTab !== "") {
+      const file = normalized.files.byId[selectedTab];
+      const [unmappedPath, path] = getPaths(file, normalized);
+      return {
+        id: file.id,
+        path,
+        unmappedPath,
+      };
+    } else {
+      return null;
+    }
   }
 );
 

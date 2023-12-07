@@ -14,6 +14,7 @@ interface SearchResultsProps {
   headerClassName?: string;
   headerStyle?: React.CSSProperties;
   titleClassName?: string;
+  highlightClass?: string;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({
@@ -22,6 +23,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   headerClassName,
   headerStyle,
   titleClassName,
+  highlightClass
 }) => {
   const [showResults, setShowResults] = useState(true);
   const searchTerm = useTypedSelector(getSearchTerm);
@@ -62,7 +64,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               openAtLine={(l) => {
                 fileAtLineClick(matchingFile.id, l);
               }}
-              highlightClass="bg-yellow-200 text-red-700"
+              highlightClass={highlightClass}
             />
           ))}
         </div>

@@ -64,6 +64,8 @@ interface StructureProps {
   folderSelectedClickableAreaClassName?: string;
   folderContextSelectedClickableAreaClassName?: string;
   itemTitleClassName?: string;
+  structureContainerClassName?: string;
+  containerHeight?: string;
 }
 
 const Structure: React.FC<StructureProps> = ({
@@ -88,6 +90,8 @@ const Structure: React.FC<StructureProps> = ({
   folderSelectedClickableAreaClassName,
   folderContextSelectedClickableAreaClassName,
   itemTitleClassName,
+  structureContainerClassName,
+  containerHeight,
 }) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);
@@ -374,9 +378,11 @@ const Structure: React.FC<StructureProps> = ({
     if (!fileSysRef.current || !elem) return;
     const type = elem.getAttribute("typeof-item") as "file" | "folder" | "";
     const parentId = elem.getAttribute("parent-id") as string;
-
     if (type === null || parentId === null) {
-      if (!elem.classList.contains("welcome")) {
+      if (
+        !elem.classList.contains("welcome") &&
+        !elem.classList.contains("clickable-padding")
+      ) {
         return;
       } else if (elem.classList.contains("file-sys-ref")) {
         clickedRef.current = elem;
@@ -456,7 +462,10 @@ const Structure: React.FC<StructureProps> = ({
           className={searchInputClassName}
         />
 
-        <div className="left-wrapper flex w-full flex-col justify-start">
+        <div
+          style={{ height: containerHeight }}
+          className="bg-red-300 flex w-full flex-col justify-start"
+        >
           <div className="my-2 flex flex-col items-start pl-2">
             <FileActions
               {...fileActions}
@@ -472,9 +481,9 @@ const Structure: React.FC<StructureProps> = ({
             id="structure-container"
             parent-id={"head"}
             typeof-item={"folder"}
-            className={`file-sys-container custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
+            className={`file-sys-container flex flex-col custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
               structureCollapsed ? "no-height" : ""
-            }`}
+            } ${structureContainerClassName}`}
             ref={fileSysRef}
             onClick={() => {
               dispatch(setSelected({ id: "head", type: "folder" }));
@@ -501,8 +510,12 @@ const Structure: React.FC<StructureProps> = ({
                 threeDotPrimaryClass={folderThreeDotPrimaryClass}
                 threeDotSecondaryClass={folderThreeDotSecondaryClass}
                 clickableAreaClassName={folderClickableAreaClassName}
-                selectedClickableAreaClassName={folderSelectedClickableAreaClassName}
-                contextSelectedClickableAreaClassName={folderContextSelectedClickableAreaClassName}
+                selectedClickableAreaClassName={
+                  folderSelectedClickableAreaClassName
+                }
+                contextSelectedClickableAreaClassName={
+                  folderContextSelectedClickableAreaClassName
+                }
                 itemTitleClassName={itemTitleClassName}
               />
 
@@ -518,10 +531,17 @@ const Structure: React.FC<StructureProps> = ({
                     typeof-item={"folder"}
                     className="select-none break-words rounded-lg border p-3 text-center text-base"
                   >
-                    Start developing with LiteCode...
+                    Create a File or Folder...
                   </span>
                 </div>
               )}
+            </div>
+            <div
+              parent-id={"head"}
+              typeof-item={"folder"}
+              className="min-h-[8rem] clickable-padding bg-blue-900"
+            >
+              &nbsp;
             </div>
           </div>
         </div>

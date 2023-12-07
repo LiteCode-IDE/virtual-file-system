@@ -141,20 +141,17 @@
   height: 0 !important;
 }
 
+
 .file-sys-container {
   display: flex;
   flex-direction: column;
 
   /* width: 100%; */
   overflow: auto;
-  height: 100vh;
+  height: 100%;
   /* text-wrap: nowrap; */
 
   /* background-color: orange; */
-}
-
-.left-wrapper {
-  height: 70vh;
 }
 
 .folder-container {

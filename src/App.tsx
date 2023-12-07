@@ -37,11 +37,15 @@ function App() {
           folderSelectedClickableAreaClassName={`hover:bg-slate-300 bg-slate-200 text-white`}
           folderContextSelectedClickableAreaClassName={`hover:bg-slate-300 bg-slate-200 text-white`}
           itemTitleClassName={`text-black hover:text-yellow`}
+          structureContainerClassName={``}
+          containerHeight={`calc(80vh - 4rem)`}
         />
         <Breadcrumbs
           containerClassName="bg-slate-600 py-2"
           textClassName="text-white"
-          miniFolderCollapseBtnClassName={"bg-blue-300 border-r-red-300 hover:border-r-violet-800 border-r-4"}
+          miniFolderCollapseBtnClassName={
+            "bg-blue-300 border-r-red-300 hover:border-r-violet-800 border-r-4"
+          }
           miniFolderCollapseBtnStyle={{ width: "1rem" }}
           miniFolderContainerClassName={"bg-red-200 hover:bg-red-300"}
           itemTitleClassName={
@@ -53,7 +57,12 @@ function App() {
           tabClassName={`hover:bg-slate-300 hover:text-white border-t border-t-white transition-colors p-2 mx-2`}
           selectedTabClassName={`bg-gray-500 border-t-blue-600 text-white`}
         />
-        <SearchContainer />
+        <SearchContainer
+          highlightedTextClassName={`bg-red-300 text-black`}
+          headerClassName={`bg-blue-300 text-black`}
+          // headerStyle={}
+          titleClassName={`bg-green-300 text-black`}
+        />
       </>
     </Provider>
   );
