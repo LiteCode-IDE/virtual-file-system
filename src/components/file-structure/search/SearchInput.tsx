@@ -50,7 +50,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           value={searchTerm}
           placeholder="Search"
           style={style}
-          className={`w-full self-center rounded-lg bg-dark-bg-2 p-2 hover:bg-dark-hover focus:bg-dark-hover focus:outline-none active:outline-none ${className}`}
+          className={`w-full self-center rounded-lg p-2 bg-slate-100 hover:bg-slate-300 focus:bg-slate-300 focus:outline-none active:outline-none text-black ${className}`}
         />
       </form>
     </div>

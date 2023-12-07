@@ -69,7 +69,7 @@ const FileActions: React.FC<FileActionProps> = ({
                 e.stopPropagation();
                 newFile();
               }}
-              className={`cursor-pointer rounded-sm hover:bg-dark-hover p-[2px] mr-[2px] ${btnClassName}`}
+              className={`cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mr-[2px] ${btnClassName}`}
             >
               <img
                 data-tooltip-id="new-file"
@@ -95,7 +95,7 @@ const FileActions: React.FC<FileActionProps> = ({
                 e.stopPropagation();
                 newFolder();
               }}
-              className={`cursor-pointer rounded-sm hover:bg-dark-hover p-[2px] mx-[2px] ${btnClassName}`}
+              className={`cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mx-[2px] ${btnClassName}`}
             >
               <img
                 data-tooltip-id="new-folder"
@@ -122,7 +122,7 @@ const FileActions: React.FC<FileActionProps> = ({
                   e.stopPropagation();
                   download();
                 }}
-                className={`cursor-pointer rounded-sm hover:bg-dark-hover p-[2px] ml-[2px] ${btnClassName}`}
+                className={`cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] ml-[2px] ${btnClassName}`}
               >
                 <img
                   data-tooltip-id="download-project"

@@ -10,7 +10,13 @@ import {
   selectedTab,
 } from "../../state/features/tabs/tabsSlice";
 
-const Tabs = () => {
+interface TabsProps {
+  containerClassName?: string;
+  tabClassName?: string;
+  selectedTabClassName?: string;
+}
+
+const Tabs: React.FC<TabsProps> = ({containerClassName, tabClassName, selectedTabClassName}) => {
   const dispatch = useTypedDispatch();
   const tabs = useTypedSelector(activeTabs);
   const selected = useTypedSelector(selectedTab);
@@ -29,7 +35,7 @@ const Tabs = () => {
   return (
     <div className="flex flex-row w-full">
       <div className={"file-tabs w-full py-1"}>
-        <div className="flex flex-row items-center w-full overflow-x-scroll custom-scrollbar">
+        <div className={`flex flex-row items-center w-full overflow-x-scroll custom-scrollbar ${containerClassName}`}>
           {tabs.map((item) => (
             <Tab
               key={item.id}
@@ -39,6 +45,8 @@ const Tabs = () => {
               selected={item.id === selected}
               onSelect={onSelect}
               onClose={onClose}
+              className={tabClassName}
+              selectedTabClassName={selectedTabClassName}
             />
           ))}
         </div>

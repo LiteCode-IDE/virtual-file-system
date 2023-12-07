@@ -29,6 +29,7 @@ interface FolderProps {
   clickableAreaClassName?: string;
   selectedClickableAreaClassName?: string;
   contextSelectedClickableAreaClassName?: string;
+  itemTitleClassName?: string;
 }
 
 const Folder: React.FC<FolderProps> = ({
@@ -44,6 +45,7 @@ const Folder: React.FC<FolderProps> = ({
   clickableAreaClassName,
   selectedClickableAreaClassName,
   contextSelectedClickableAreaClassName,
+  itemTitleClassName,
 }) => {
   const dispatch = useTypedDispatch();
   const selected = useTypedSelector(selectedItem);
@@ -67,11 +69,11 @@ const Folder: React.FC<FolderProps> = ({
             <div
               id={item.id}
               typeof-item={item.type}
-              className={`mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-dark-hover justify-between ${clickableAreaClassName} ${
+              className={`border border-transparent mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-slate-300 justify-between text-black ${clickableAreaClassName} ${
                 selected === item.id && showBlue
                   ? `bg-vscode-overlay hover:bg-vscode-blue ${selectedClickableAreaClassName}`
                   : contextSelected === item.id && showGray
-                  ? `bg-slate-700 hover:bg-slate-600 ${contextSelectedClickableAreaClassName}`
+                  ? `bg-slate-700 hover:bg-slate-600 text-white ${contextSelectedClickableAreaClassName}`
                   : ""
               }  ${
                 cutItem?.isCut && cutItem.id === item.id ? "opacity-50" : ""
@@ -95,6 +97,7 @@ const Folder: React.FC<FolderProps> = ({
                     );
                   }
                 }}
+                className={itemTitleClassName}
               />
               <ThreeDots
                 item={item}

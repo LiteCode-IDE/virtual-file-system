@@ -32,7 +32,7 @@ const MenuContext: React.FC<MenuContextProps> = ({
   actions,
   className,
   clickableAreaClassName,
-  hrColor
+  hrColor,
 }) => {
   const contextRef = useRef<HTMLDivElement>(null);
   useOutsideAlerter(contextRef, setShowContext);
@@ -47,7 +47,11 @@ const MenuContext: React.FC<MenuContextProps> = ({
         {actions.map((action, index) => {
           if (action.type === "hr") {
             return (
-              <hr key={index} style={{borderTopColor: hrColor}} className={`my-2 border-t border-t-zinc-600`} />
+              <hr
+                key={index}
+                style={{ borderTopColor: hrColor }}
+                className={`my-2 border-t border-t-zinc-600`}
+              />
             );
           } else {
             return (
@@ -61,7 +65,7 @@ const MenuContext: React.FC<MenuContextProps> = ({
                 }}
                 className={`rounded-md px-7 py-1 ${
                   !action.disabled
-                    ? `hover:bg-hover-blue cursor-pointer ${clickableAreaClassName}`
+                    ? `hover:bg-hover-blue cursor-pointer text-white ${clickableAreaClassName}`
                     : "text-zinc-500"
                 } `}
               >

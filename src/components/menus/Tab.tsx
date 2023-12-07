@@ -10,6 +10,8 @@ interface TabProps {
   selected: boolean;
   onSelect: (id: string) => void;
   onClose: (id: string) => void;
+  className?: string;
+  selectedTabClassName?: string;
 }
 
 const Tab: React.FC<TabProps> = ({
@@ -19,6 +21,8 @@ const Tab: React.FC<TabProps> = ({
   selected,
   onSelect,
   onClose,
+  className,
+  selectedTabClassName
 }) => {
   const fileType = name.substring(name.lastIndexOf(".") + 1);
   const [logo, setLogo] = React.useState<string>(getLogo(fileType));
@@ -32,10 +36,10 @@ const Tab: React.FC<TabProps> = ({
       onClick={() => {
         if (!selected) onSelect(id);
       }}
-      className={`hover-show border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${
+      className={`hover-show hover:bg-slate-700 border-t-dark-bg border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${className} ${
         selected
-          ? "bg-dark-hover border-t-slate-200"
-          : "hover:bg-slate-700 border-t-dark-bg"
+          ? `bg-dark-hover border-t-slate-200 ${selectedTabClassName}`
+          : ""
       }`}>
       <span className={`span-logo w-4 h-4 ${logo}`}>&nbsp;</span>
       <span className="text-lg mx-2">{name}</span>

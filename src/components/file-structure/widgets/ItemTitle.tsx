@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  type ItemType,
-} from "../../../state/features/structure/structureSlice";
+import { type ItemType } from "../../../state/features/structure/structureSlice";
 import { getLogo } from "../utils";
 
 interface ItemTitleProps {
@@ -14,9 +12,10 @@ interface ItemTitleProps {
     logo?: string;
   };
   onClickE: (e: React.MouseEvent<HTMLDivElement>) => void;
+  className?: string;
 }
 
-const ItemTitle: React.FC<ItemTitleProps> = ({ item, onClickE }) => {
+const ItemTitle: React.FC<ItemTitleProps> = ({ item, onClickE, className }) => {
   const findLogo = (item: {
     id: string;
     type: ItemType;
@@ -37,7 +36,7 @@ const ItemTitle: React.FC<ItemTitleProps> = ({ item, onClickE }) => {
       }}
       parent-id={item.id}
       typeof-item={item.type}
-      className="w-full py-[0.32rem] pl-3 flex flex-row justify-start items-center collapsable"
+      className={`w-full py-[0.32rem] pl-3 flex flex-row justify-start items-center collapsable ${className}`}
     >
       {
         <span

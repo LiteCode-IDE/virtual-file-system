@@ -3,10 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import {
   type ItemType,
   getInitialSet,
-  isResizeCollapsed,
   setContextSelectedForFileAction,
-  setResizeCollapsed,
-  setSearchFocused,
   setSelected,
 } from "../../state/features/structure/structureSlice";
 import Folder from "./Folder";
@@ -42,21 +39,62 @@ import { usePrependPortal } from "../../hooks/usePrependPortal";
 import FileActions from "./widgets/FileActions";
 import { useTypedDispatch, useTypedSelector } from "../../state/hooks";
 import { removeTabAsync } from "../../state/features/tabs/tabsSlice";
-import searchIcon from "../../assets/search-icon.svg";
-import fileExplorer from "../../assets/file-explorer.svg";
-import { Tooltip } from "react-tooltip";
 import downloadZip from "../../state/features/structure/utils/downloadZip";
 import SearchInput from "./search/SearchInput";
-import SearchContainer from "./search/SearchContainer";
 
-const Structure: React.FC = () => {
+interface StructureProps {
+  deleteConfirmationClassName?: string;
+  fileInputClassName?: string;
+  fileInputStyle?: React.CSSProperties;
+  contextMenuClassName?: string;
+  contextMenuHrColor?: string;
+  contextMenuClickableAreaClassName?: string;
+  searchInputClassName?: string;
+  searchInputStyle?: React.CSSProperties;
+  fileActionsBtnClassName?: string;
+  projectName?: string;
+  fileActionsDisableCollapse?: true;
+  fileActionsDisableTooltip?: true;
+  fileActionsDisableDownload?: true;
+  folderCollapseBtnClassname?: string;
+  folderCollapseBtnStyle?: React.CSSProperties;
+  folderThreeDotPrimaryClass?: string;
+  folderThreeDotSecondaryClass?: string;
+  folderClickableAreaClassName?: string;
+  folderSelectedClickableAreaClassName?: string;
+  folderContextSelectedClickableAreaClassName?: string;
+  itemTitleClassName?: string;
+}
+
+const Structure: React.FC<StructureProps> = ({
+  deleteConfirmationClassName,
+  fileInputClassName,
+  fileInputStyle,
+  contextMenuClassName,
+  contextMenuHrColor,
+  contextMenuClickableAreaClassName,
+  searchInputClassName,
+  searchInputStyle,
+  fileActionsBtnClassName,
+  projectName,
+  fileActionsDisableCollapse,
+  fileActionsDisableTooltip,
+  fileActionsDisableDownload,
+  folderCollapseBtnClassname,
+  folderCollapseBtnStyle,
+  folderThreeDotPrimaryClass,
+  folderThreeDotSecondaryClass,
+  folderClickableAreaClassName,
+  folderSelectedClickableAreaClassName,
+  folderContextSelectedClickableAreaClassName,
+  itemTitleClassName,
+}) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);
   const clickedRef = useRef<HTMLElement>();
   const [structureCollapsed, setStructureCollapsed] = useState(false);
 
   const dispatch = useTypedDispatch();
-  const isCollapsed = useTypedSelector(isResizeCollapsed);
   const structureData = useTypedSelector(getInitialSet);
   const contextSelectedE = useTypedSelector(contextSelectedEvent);
   const contextSelectedItemProps = useTypedSelector(contextSelectedObj);
@@ -354,18 +392,20 @@ const Structure: React.FC = () => {
     }
 
     clickedRef.current = item as HTMLElement;
+    let x = e.clientY,
+      y = e.clientX;
 
-    if (e.clientY > 335) {
-      setPoints({
-        x: e.clientY - 310,
-        y: e.clientX,
-      });
-    } else {
-      setPoints({
-        x: e.clientY - 70,
-        y: e.clientX,
-      });
+    if (e.clientY > window.innerHeight / 2) {
+      x = e.clientY - 245;
     }
+    if (e.clientX > window.innerWidth / 2) {
+      y = e.clientX - 192;
+    }
+
+    setPoints({
+      x,
+      y,
+    });
 
     setSelectedType(parentId === "head" ? "head" : type);
     setShowContext(true);
@@ -409,172 +449,121 @@ const Structure: React.FC = () => {
 
   return (
     <>
-      {!isCollapsed ? (
-        <div id="file-system" className="pr-2">
-          <SearchInput
-            style={{ height: "50px" }}
-            searchFiles={searchFiles}
-            className="w-fit self-center rounded-none bg-slate-200 p-2 hover:bg-slate-500 focus:bg-slate-500 focus:outline-none active:outline-none "
-          />
+      <div id="file-system" className="pr-2">
+        <SearchInput
+          style={searchInputStyle}
+          searchFiles={searchFiles}
+          className={searchInputClassName}
+        />
 
-          <div className="left-wrapper flex w-full flex-col justify-start">
-            <div className="my-2 flex flex-col items-start pl-2">
-              {isSearching && allFileIds.length > 0 ? (
-                <div className="custom-scrollbar-3 h-[70vh] w-full overflow-y-auto">
-                  <SearchContainer />
-                </div>
-              ) : (
-                <FileActions {...fileActions} collapsed={structureCollapsed} />
-              )}
-            </div>
-            {!isSearching && (
-              <div
-                id="structure-container"
-                parent-id={"head"}
-                typeof-item={"folder"}
-                className={`file-sys-container custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
-                  structureCollapsed ? "no-height" : ""
-                }`}
-                ref={fileSysRef}
-                onClick={(e) => {
-                  dispatch(setSelected({ id: "head", type: "folder" }));
-                }}
-                onContextMenu={(e) => {
-                  contextHandler(e);
-                }}
-                // onClick={(e) => fileStructureClickHandler(e, fileSysRef)}
-              >
+        <div className="left-wrapper flex w-full flex-col justify-start">
+          <div className="my-2 flex flex-col items-start pl-2">
+            <FileActions
+              {...fileActions}
+              collapsed={structureCollapsed}
+              btnClassName={fileActionsBtnClassName}
+              projectName={projectName}
+              disableCollapse={fileActionsDisableCollapse}
+              disableTooltip={fileActionsDisableTooltip}
+              disableDownload={fileActionsDisableDownload}
+            />
+          </div>
+          <div
+            id="structure-container"
+            parent-id={"head"}
+            typeof-item={"folder"}
+            className={`file-sys-container custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
+              structureCollapsed ? "no-height" : ""
+            }`}
+            ref={fileSysRef}
+            onClick={() => {
+              dispatch(setSelected({ id: "head", type: "folder" }));
+            }}
+            onContextMenu={(e) => {
+              contextHandler(e);
+            }}
+            // onClick={(e) => fileStructureClickHandler(e, fileSysRef)}
+          >
+            <div
+              parent-id={"head"}
+              typeof-item={"folder"}
+              ref={structureRef}
+              className="content flex items-center"
+            >
+              <Folder
+                data={structureData}
+                showBlue={showBlue}
+                setShowBlue={setShowBlue}
+                showGray={showGray}
+                setShowGray={setShowGray}
+                collapseBtnClassname={folderCollapseBtnClassname}
+                collapseBtnStyle={folderCollapseBtnStyle}
+                threeDotPrimaryClass={folderThreeDotPrimaryClass}
+                threeDotSecondaryClass={folderThreeDotSecondaryClass}
+                clickableAreaClassName={folderClickableAreaClassName}
+                selectedClickableAreaClassName={folderSelectedClickableAreaClassName}
+                contextSelectedClickableAreaClassName={folderContextSelectedClickableAreaClassName}
+                itemTitleClassName={itemTitleClassName}
+              />
+
+              {allFileIds.length === 0 && allFolderIds.length === 1 && (
                 <div
+                  id="welcome"
                   parent-id={"head"}
                   typeof-item={"folder"}
-                  ref={structureRef}
-                  className="content flex items-center"
+                  className="mx-auto flex h-[40vh] items-center px-4"
                 >
-                  <Folder
-                    data={structureData}
-                    showBlue={showBlue}
-                    setShowBlue={setShowBlue}
-                    showGray={showGray}
-                    setShowGray={setShowGray}
-                    // collapseBtnClassname={'bg-red-300'}
-                    // collapseBtnStyle={{width: '10px'}}
-                    // threeDotPrimaryClass={'bg-blue-300 hover:bg-blue-800'}
-                    // threeDotSecondaryClass={'bg-gray-300 hover:bg-gray-800'}
-                    clickableAreaClassName={'text-white bg-slate-700 hover:bg-slate-900'}
-                    // selectedClickableAreaClassName={'text-black bg-yellow-300 hover:bg-yellow-500'}
-                    // contextSelectedClickableAreaClassName={'text-white bg-gray-700 hover:bg-gray-900'}
-                  />
-
-                  {allFileIds.length === 0 && allFolderIds.length === 1 && (
-                    <div
-                      id="welcome"
-                      parent-id={"head"}
-                      typeof-item={"folder"}
-                      className="mx-auto flex h-[40vh] items-center px-4"
-                    >
-                      <span
-                        parent-id={"head"}
-                        typeof-item={"folder"}
-                        className="select-none break-words rounded-lg border p-3 text-center text-base"
-                      >
-                        Start developing with LiteCode...
-                      </span>
-                    </div>
-                  )}
+                  <span
+                    parent-id={"head"}
+                    typeof-item={"folder"}
+                    className="select-none break-words rounded-lg border p-3 text-center text-base"
+                  >
+                    Start developing with LiteCode...
+                  </span>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-          {showDialog &&
-            createPortal(
-              <Dialog
-                title={`Delete the ${selectedType} ${contextSelectedItemProps.wholeName}?`}
-                content={`Are you sure you want to delete the ${selectedType} /${contextSelectedItemProps.actualPath}? This action cannot be
+        </div>
+        {showDialog &&
+          createPortal(
+            <Dialog
+              title={`Delete the ${selectedType} ${contextSelectedItemProps.wholeName}?`}
+              content={`Are you sure you want to delete the ${selectedType} /${contextSelectedItemProps.actualPath}? This action cannot be
             undone.`}
-                className="bg-slate-900 text-slate-200"
-                actionText={`Yes, delete ${selectedType}`}
-                close={setShowDialog}
-                action={async () => {
-                  dispatch(removeNode({ id: null, type: null }));
-                  await dispatch(removeTabAsync());
-                  // await dispatch(setActiveEditorAsync({ id: '', line: 0 }));
-                  setShowDialog(false);
-                }}
-              />,
-              document.getElementById("root") as HTMLElement
-            )}
+              className={deleteConfirmationClassName}
+              actionText={`Yes, delete ${selectedType}`}
+              close={setShowDialog}
+              action={async () => {
+                dispatch(removeNode({ id: null, type: null }));
+                await dispatch(removeTabAsync());
+                // await dispatch(setActiveEditorAsync({ id: '', line: 0 }));
+                setShowDialog(false);
+              }}
+            />,
+            document.getElementById("root") as HTMLElement
+          )}
 
-          {showContext &&
-            createPortal(
-              <MenuContext
-                top={points.x}
-                left={points.y}
-                showContext={showContext}
-                setShowContext={setShowContext}
-                actions={actions}
-                className="bg-blue-900"
-                clickableAreaClassName="hover:bg-orange-500 text-white"
-                hrColor="green"
-              />,
-              document.getElementById("file-system") as HTMLElement
-            )}
-        </div>
-      ) : (
-        <div className="flex h-full w-20 select-none flex-col items-center justify-start px-2">
-          <Tooltip
-            place="right-end"
-            className="z-50"
-            id="search"
-            style={{ backgroundColor: "rgb(60 60 60)" }}
-          />
+        {showContext &&
+          createPortal(
+            <MenuContext
+              top={points.x}
+              left={points.y}
+              showContext={showContext}
+              setShowContext={setShowContext}
+              actions={actions}
+              className={contextMenuClassName}
+              clickableAreaClassName={contextMenuClickableAreaClassName}
+              hrColor={contextMenuHrColor}
+            />,
+            document.getElementById("root") as HTMLElement
+          )}
+      </div>
 
-          <button
-            onClick={() => {
-              dispatch(setResizeCollapsed(false));
-              dispatch(setSearchFocused(true));
-            }}
-            type="button"
-            className="mb-3"
-          >
-            <img
-              alt="search"
-              data-tooltip-id="search"
-              data-tooltip-content={"Search"}
-              src={searchIcon}
-              className="h-14 w-14 rounded-md p-2 hover:bg-dark-hover"
-            />
-          </button>
-          <hr className="w-5/6 border-t border-t-zinc-500" />
-          <Tooltip
-            place="right-start"
-            className="z-50"
-            id="file-explorer"
-            style={{ backgroundColor: "rgb(60 60 60)" }}
-          />
-
-          <button
-            onClick={() => {
-              dispatch(setResizeCollapsed(false));
-              dispatch(setSearchFocused(false));
-              // dispatch(search(""));
-              setIsSearching(false);
-            }}
-            type="button"
-            className="my-3"
-          >
-            <img
-              alt="file explorer"
-              data-tooltip-id="file-explorer"
-              data-tooltip-content={"File Explorer"}
-              src={fileExplorer}
-              className="h-14 w-14 rounded-md p-2 hover:bg-dark-hover"
-            />
-          </button>
-        </div>
-      )}
       {usePrependPortal(
         <CustomInput
-          className="bg-slate-200 text-black"
+          className={fileInputClassName}
+          style={fileInputStyle}
           closeCallback={() => {
             showInputHandler(false);
           }}

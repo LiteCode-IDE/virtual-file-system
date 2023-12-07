@@ -13,6 +13,7 @@ interface SearchResultsProps {
   fileAtLineClick: (id: string, lineNum: number) => void;
   headerClassName?: string;
   headerStyle?: React.CSSProperties;
+  titleClassName?: string;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({
@@ -20,6 +21,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   fileAtLineClick,
   headerClassName,
   headerStyle,
+  titleClassName,
 }) => {
   const [showResults, setShowResults] = useState(true);
   const searchTerm = useTypedSelector(getSearchTerm);
@@ -46,6 +48,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             logo: "typescript-logo",
           }}
           onClickE={() => {}}
+          className={titleClassName}
         />
       </div>
       {showResults && (

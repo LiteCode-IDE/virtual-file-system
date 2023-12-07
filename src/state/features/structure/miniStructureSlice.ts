@@ -2,11 +2,13 @@ import {
   type PayloadAction,
   createAsyncThunk,
   createSlice,
+  createSelector,
 } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { dfsCbOnEach, dfsNodeAction } from "./utils/traversal";
-import { type Directory } from "./structureSlice";
+import { Normalized, type Directory } from "./structureSlice";
 import cloneDeep from "lodash.clonedeep";
+import { getPaths } from "./utils/pathUtil";
 
 export interface MiniFile {
   id: string;
@@ -23,6 +25,12 @@ export interface MiniStructure {
   name: string;
   subFoldersAndFiles: Array<MiniStructure | MiniFile>;
   collapsed: boolean;
+}
+
+interface Breadcrumbs {
+  id: string;
+  path: string[];
+  unmappedPath: string[];
 }
 
 interface MiniStructureState {
@@ -55,11 +63,11 @@ export const setMiniStructureAsync = createAsyncThunk(
       selectedId,
       (item, parents) => {
         const structureCopy = cloneDeep(
-          parents[parents.length - 1],
+          parents[parents.length - 1]
         ) as MiniStructure;
         dfsCbOnEach(
           structureCopy.subFoldersAndFiles as Directory[],
-          item => {
+          (item) => {
             const copiedItem = item as MiniStructure | MiniFile;
             if (copiedItem.type === "folder") {
               copiedItem.name =
@@ -75,14 +83,14 @@ export const setMiniStructureAsync = createAsyncThunk(
             }
           },
           [],
-          [structureCopy.id],
+          [structureCopy.id]
         );
         mapped = structureCopy;
       },
-      [state.structure.initialFolder],
+      [state.structure.initialFolder]
     );
     return mapped;
-  },
+  }
 );
 
 export const miniStructureSlice = createSlice({
@@ -92,7 +100,7 @@ export const miniStructureSlice = createSlice({
     collapseMiniStructure: (state, action: PayloadAction<string>) => {
       const findAndCollapse = (
         structure: Array<MiniStructure | MiniFile>,
-        id: string,
+        id: string
       ) => {
         for (const item of structure) {
           if (item.id === id && item.type === "folder") {
@@ -106,7 +114,7 @@ export const miniStructureSlice = createSlice({
       findAndCollapse(state.miniStructure.subFoldersAndFiles, action.payload);
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(setMiniStructureAsync.fulfilled, (state, action) => {
       state.miniStructure = action.payload;
     });
@@ -117,5 +125,19 @@ export const { collapseMiniStructure } = miniStructureSlice.actions;
 
 export const selectMiniStructure = (state: RootState) =>
   state.miniStructure.miniStructure;
+
+export const getBreadcrumbs = createSelector(
+  (state: RootState) => state.structure.normalized,
+  (state: RootState) => state.tabs.selected,
+  (normalized: Normalized, selectedTab: string) => {
+    const file = normalized.files.byId[selectedTab];
+    const [unmappedPath, path] = getPaths(file, normalized);
+    return {
+      id: file.id,
+      path,
+      unmappedPath,
+    };
+  }
+);
 
 export default miniStructureSlice.reducer;
