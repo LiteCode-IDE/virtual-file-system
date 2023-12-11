@@ -5,6 +5,8 @@ import {
   getInitialSet,
   setContextSelectedForFileAction,
   setSelected,
+  getSearchTerm,
+  setProjectName,
 } from "../../state/features/structure/structureSlice";
 import Folder from "./Folder";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
@@ -41,6 +43,8 @@ import { useTypedDispatch, useTypedSelector } from "../../state/hooks";
 import { removeTabAsync } from "../../state/features/tabs/tabsSlice";
 import downloadZip from "../../state/features/structure/utils/downloadZip";
 import SearchInput from "./search/SearchInput";
+import { findParent } from "../../state/features/structure/utils/traversal";
+import { store } from "../../state/store";
 
 interface StructureProps {
   deleteConfirmationClassName?: string;
@@ -49,8 +53,6 @@ interface StructureProps {
   contextMenuClassName?: string;
   contextMenuHrColor?: string;
   contextMenuClickableAreaClassName?: string;
-  searchInputClassName?: string;
-  searchInputStyle?: React.CSSProperties;
   fileActionsBtnClassName?: string;
   projectName?: string;
   fileActionsDisableCollapse?: true;
@@ -66,6 +68,12 @@ interface StructureProps {
   itemTitleClassName?: string;
   structureContainerClassName?: string;
   containerHeight?: string;
+  onItemSelected?: (item: { id: string; type: ItemType }) => void;
+  onNewItemClick?: (parentFolderId: string, type: ItemType) => void;
+  onAreaCollapsed?: (collapsed: boolean) => void;
+  onItemContextSelected?: (item: { id: string; type: ItemType }) => void;
+  onNodeDeleted?: (id: string) => void;
+  onNewItemCreated?: (id: string) => void;
 }
 
 const Structure: React.FC<StructureProps> = ({
@@ -75,8 +83,6 @@ const Structure: React.FC<StructureProps> = ({
   contextMenuClassName,
   contextMenuHrColor,
   contextMenuClickableAreaClassName,
-  searchInputClassName,
-  searchInputStyle,
   fileActionsBtnClassName,
   projectName,
   fileActionsDisableCollapse,
@@ -92,6 +98,12 @@ const Structure: React.FC<StructureProps> = ({
   itemTitleClassName,
   structureContainerClassName,
   containerHeight,
+  onItemSelected = () => {},
+  onNewItemClick = () => {},
+  onAreaCollapsed = () => {},
+  onItemContextSelected = () => {},
+  onNodeDeleted = () => {},
+  onNewItemCreated = () => {},
 }) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);
@@ -113,8 +125,6 @@ const Structure: React.FC<StructureProps> = ({
 
   const [showBlue, setShowBlue] = useState(true);
   const [showGray, setShowGray] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
   const [showContext, setShowContext] = useState(false);
   const [selectedType, setSelectedType] = useState<
     "file" | "folder" | "head" | ""
@@ -220,36 +230,34 @@ const Structure: React.FC<StructureProps> = ({
     },
   ];
 
-  const setClickedCurrent = () => {
-    let elem = fileSysRef.current?.querySelector(`#${selectedI}`);
+  const setClickedCurrent = (selectedItem: string = selectedI) => {
+    let elem = fileSysRef.current?.querySelector(`#${selectedItem}`);
     if (!elem) {
       elem = fileSysRef.current;
     }
     clickedRef.current = elem as HTMLElement;
   };
 
-  const searchFiles = (searchTermNew: string) => {
-    if (searchTermNew !== searchTerm) {
-      setSearchTerm(searchTermNew);
-    } else if (!isSearching && searchTerm.length > 0) {
-      dispatch(search(searchTerm));
-      setIsSearching(true);
-    }
-  };
+
 
   const fileActions = {
     newFile: () => {
       setInputType("file");
-      dispatch(setContextSelectedForFileAction());
-      setClickedCurrent();
-      createFileInput();
+      const parentId = findParent(selectedI, allFileIds, structureData);
+
+      dispatch(setContextSelectedForFileAction(parentId));
+      setClickedCurrent(parentId);
+      createFileInput(parentId);
+      onNewItemClick(parentId, "file");
     },
 
     newFolder: () => {
       setInputType("folder");
-      dispatch(setContextSelectedForFileAction());
-      setClickedCurrent();
-      createFileInput();
+      const parentId = findParent(selectedI, allFileIds, structureData);
+      dispatch(setContextSelectedForFileAction(parentId));
+      setClickedCurrent(parentId);
+      createFileInput(parentId);
+      onNewItemClick(parentId, "folder");
     },
 
     download: () => {
@@ -263,25 +271,9 @@ const Structure: React.FC<StructureProps> = ({
         fileSysRef.current.classList.add("no-height");
       }
       setStructureCollapsed(!structureCollapsed);
+      onAreaCollapsed(!structureCollapsed);
     },
   };
-
-  useEffect(() => {
-    if (searchTerm.length > 0) {
-      const timer = setTimeout(() => {
-        dispatch(search(searchTerm));
-        setIsSearching(true);
-      }, 300);
-      return () => {
-        clearTimeout(timer);
-      };
-    } else {
-      if (isSearching) {
-        setIsSearching(false);
-        dispatch(search(""));
-      }
-    }
-  }, [searchTerm]);
 
   const prependForPortal = (isRename: boolean) => {
     if (!clickedRef.current) {
@@ -290,7 +282,10 @@ const Structure: React.FC<StructureProps> = ({
     if (!clickedRef.current) {
       return;
     }
-    if (clickedRef.current === fileSysRef.current) {
+    if (
+      clickedRef.current === fileSysRef.current ||
+      (clickedRef.current.id.includes("file") && !isRename)
+    ) {
       appendTo.current = fileSysRef.current as HTMLElement;
 
       setInputPadding(0);
@@ -317,6 +312,7 @@ const Structure: React.FC<StructureProps> = ({
     }
   };
 
+  
   const showInputHandler = (v: boolean) => {
     if (v === showInput) return;
     setShowInput(v);
@@ -330,13 +326,13 @@ const Structure: React.FC<StructureProps> = ({
     }
   };
 
-  const createFileInput = () => {
+  const createFileInput = (parentId: string = contextSelectedId) => {
     if (!fileSysRef.current) return;
     if (structureCollapsed) {
       fileSysRef.current.classList.remove("no-height");
       setStructureCollapsed(false);
     }
-    dispatch(setParentItemId(contextSelectedId));
+    dispatch(setParentItemId(parentId));
     prependForPortal(false);
     showInputHandler(true);
   };
@@ -362,7 +358,14 @@ const Structure: React.FC<StructureProps> = ({
     }
 
     showInputHandler(false);
+    const allFileIds = store.getState().structure.normalized.files.allIds;
+    onNewItemCreated(allFileIds[allFileIds.length - 1]);
   };
+
+  useEffect(() => {
+    if (projectName === undefined) return;
+    dispatch(setProjectName(projectName));
+  }, [projectName])
 
   useEffect(() => {
     if (isRename && !showInput) {
@@ -447,6 +450,8 @@ const Structure: React.FC<StructureProps> = ({
       setShowBlue(false);
       setShowGray(false);
     }
+    fileSysRef.current?.classList.add('border-transparent');
+    fileSysRef.current?.classList.remove('border-vscode-blue');
   });
 
   useEffect(() => {
@@ -456,15 +461,9 @@ const Structure: React.FC<StructureProps> = ({
   return (
     <>
       <div id="file-system" className="pr-2">
-        <SearchInput
-          style={searchInputStyle}
-          searchFiles={searchFiles}
-          className={searchInputClassName}
-        />
-
         <div
-          style={{ height: containerHeight }}
-          className="bg-red-300 flex w-full flex-col justify-start"
+          style={{ height: containerHeight ? containerHeight : "calc(80vh - 4rem)" }}
+          className="flex w-full flex-col justify-start"
         >
           <div className="my-2 flex flex-col items-start pl-2">
             <FileActions
@@ -481,12 +480,15 @@ const Structure: React.FC<StructureProps> = ({
             id="structure-container"
             parent-id={"head"}
             typeof-item={"folder"}
-            className={`file-sys-container flex flex-col custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
+            className={`border file-sys-container flex flex-col custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${
               structureCollapsed ? "no-height" : ""
-            } ${structureContainerClassName}`}
+            } ${structureContainerClassName} ${
+              selectedI === "head" ? "border-vscode-blue" : "border-transparent"
+            }`}
             ref={fileSysRef}
             onClick={() => {
               dispatch(setSelected({ id: "head", type: "folder" }));
+              onItemSelected({ id: "head", type: "folder" });
             }}
             onContextMenu={(e) => {
               contextHandler(e);
@@ -500,7 +502,7 @@ const Structure: React.FC<StructureProps> = ({
               className="content flex items-center"
             >
               <Folder
-                data={structureData}
+                data={structureData.subFoldersAndFiles}
                 showBlue={showBlue}
                 setShowBlue={setShowBlue}
                 showGray={showGray}
@@ -517,6 +519,8 @@ const Structure: React.FC<StructureProps> = ({
                   folderContextSelectedClickableAreaClassName
                 }
                 itemTitleClassName={itemTitleClassName}
+                onItemSelected={onItemSelected}
+                onItemContextSelected={onItemContextSelected}
               />
 
               {allFileIds.length === 0 && allFolderIds.length === 1 && (
@@ -524,22 +528,81 @@ const Structure: React.FC<StructureProps> = ({
                   id="welcome"
                   parent-id={"head"}
                   typeof-item={"folder"}
-                  className="mx-auto flex h-[40vh] items-center px-4"
+                  onClick={(e) => e.stopPropagation()}
+                  onContextMenu={(e) => {
+                    contextHandler(e);
+                    onItemContextSelected({ id: "head", type: "folder" });
+                  }}
+                  className="mx-auto flex h-[40vh] items-center pl-3 pr-4"
                 >
-                  <span
+                  <div
                     parent-id={"head"}
                     typeof-item={"folder"}
                     className="select-none break-words rounded-lg border p-3 text-center text-base"
                   >
-                    Create a File or Folder...
-                  </span>
+                    <div
+                      parent-id={"head"}
+                      typeof-item={"folder"}
+                      className="flex flex-col justify-center"
+                    >
+                      <div
+                        parent-id={"head"}
+                        typeof-item={"folder"}
+                        className="flex items-center"
+                      >
+                        Create a file or folder...
+                      </div>
+                      <div
+                        parent-id={"head"}
+                        typeof-item={"folder"}
+                        className="my-2 flex w-full flex-col items-center justify-between text-sm"
+                      >
+                        <button
+                          parent-id={"head"}
+                          typeof-item={"folder"}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            fileActions.newFile();
+                          }}
+                          className="new-btns bg-vscode-overlay my-1 w-full rounded-lg px-1 py-2 transition-colors hover:bg-vscode-blue"
+                        >
+                          <span
+                            parent-id={"head"}
+                            typeof-item={"folder"}
+                            className="relative text-white"
+                          >
+                            New File
+                          </span>
+                        </button>
+                        <button
+                          parent-id={"head"}
+                          typeof-item={"folder"}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            fileActions.newFolder();
+                          }}
+                          className="new-btns bg-vscode-overlay my-1 w-full rounded-lg  px-1 py-2 transition-colors hover:bg-vscode-blue"
+                        >
+                          <span
+                            parent-id={"head"}
+                            typeof-item={"folder"}
+                            className="relative text-white"
+                          >
+                            New Folder
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
             <div
               parent-id={"head"}
               typeof-item={"folder"}
-              className="min-h-[8rem] clickable-padding bg-blue-900"
+              className="min-h-[8rem] clickable-padding"
             >
               &nbsp;
             </div>
@@ -555,6 +618,7 @@ const Structure: React.FC<StructureProps> = ({
               actionText={`Yes, delete ${selectedType}`}
               close={setShowDialog}
               action={async () => {
+                onNodeDeleted(contextSelectedItemProps.id);
                 dispatch(removeNode({ id: null, type: null }));
                 await dispatch(removeTabAsync());
                 // await dispatch(setActiveEditorAsync({ id: '', line: 0 }));

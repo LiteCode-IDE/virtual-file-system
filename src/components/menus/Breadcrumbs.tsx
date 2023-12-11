@@ -20,6 +20,7 @@ interface BreadcrumbsProps {
   miniFolderCollapseBtnStyle?: React.CSSProperties;
   miniFolderContainerClassName?: string;
   itemTitleClassName?: string;
+  onBreadcrumbFileClick?: (id: string ) => void;
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
@@ -29,6 +30,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   miniFolderCollapseBtnStyle,
   miniFolderContainerClassName,
   itemTitleClassName,
+  onBreadcrumbFileClick = () => {},
 }) => {
   const [clickedIndex, setClickedIndex] = useState(0);
   const [showMiniStructure, setShowMiniStructure] = useState(false);
@@ -61,7 +63,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                     .join("")}-${i}`}
                 >
                   <div
-                    className={`text-base text-zinc-300 flex flex-row ${containerClassName}`}
+                    className={`text-base text-black flex flex-row ${containerClassName}`}
                   >
                     {i === editorObj.path.length - 1 && (
                       <span
@@ -83,7 +85,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                       {path}
                     </span>
                     {i < editorObj.path.length - 1 && (
-                      <span className="text-base text-zinc-200 mx-2">
+                      <span className="text-base text-black mx-2">
                         {"/"}
                       </span>
                     )}
@@ -106,7 +108,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                   return createPortal(
                     <div
                       ref={miniStructurePortalRef}
-                      className="rounded-lg bg-slate-950 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3"
+                      className="rounded-lg bg-dark-bg-2 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3"
                     >
                       <MiniFolder
                         init={true}
@@ -118,6 +120,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                             dispatch(setSelected({ id, type: "file" }));
                             dispatch(setActiveTabAsync(item.id));
                             setShowMiniStructure(false);
+                            onBreadcrumbFileClick({ id });
                           }
                         }}
                         onCollapseMiniStructure={(id) => {

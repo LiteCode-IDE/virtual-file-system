@@ -36,9 +36,9 @@ const Tab: React.FC<TabProps> = ({
       onClick={() => {
         if (!selected) onSelect(id);
       }}
-      className={`hover-show hover:bg-slate-700 border-t-dark-bg border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${className} ${
+      className={`hover-show hover:bg-slate-700 hover:text-white border-t-dark-bg border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${className} ${
         selected
-          ? `bg-dark-hover border-t-slate-200 ${selectedTabClassName}`
+          ? `bg-dark-hover text-white border-t-slate-200 ${selectedTabClassName}`
           : ""
       }`}>
       <span className={`span-logo w-4 h-4 ${logo}`}>&nbsp;</span>

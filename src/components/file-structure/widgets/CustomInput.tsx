@@ -168,7 +168,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         </span>
         <div className="flex mx-1 relative flex-col w-[80%] max-w-[10rem]">
           <input
-            className={`rounded-none border border-monaco-color outline-0 w-full bg-monaco-color text-black ${
+            className={`rounded-none border text-white border-monaco-color outline-0 w-full bg-monaco-color text-black ${
               error && errorMessage !== ""
                 ? "focus:border-red-500"
                 : "focus:border-cyan-500"

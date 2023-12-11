@@ -33,7 +33,7 @@ const MiniFolder: React.FC<MiniFolderProps> = ({
         return (
           <div key={`key-${item.id}`} className="flex flex-col select-none">
             <div
-              className={`transition-colors flex flex-row hover:cursor-pointer hover:bg-dark-hover justify-between ${
+              className={`transition-colors flex flex-row hover:cursor-pointer hover:bg-dark-hover justify-between text-white ${
                 init &&
                 (i === 0
                   ? "rounded-t-lg"

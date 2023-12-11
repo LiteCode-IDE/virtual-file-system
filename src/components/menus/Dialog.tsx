@@ -28,7 +28,7 @@ const Dialog: React.FC<DialogProps> = ({
     <div className="backdrop-brightness-50 absolute top-0 z-50 flex w-full h-full justify-center items-start pt-6 select-none">
       <div
         ref={dialogRef}
-        className={`bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96 ${className}`}>
+        className={`bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96 text-white ${className}`}>
         <div className="flex flex-row justify-between">
           <span className="text-2xl font-semibold">{title}</span>
           <span className="self-start">

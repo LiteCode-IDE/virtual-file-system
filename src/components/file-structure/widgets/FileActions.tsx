@@ -50,7 +50,7 @@ const FileActions: React.FC<FileActionProps> = ({
         alt="Down Arrow"
       />
       <span className="flex w-full flex-row justify-between">
-        <span className="text-black text-center overflow-x-clip">
+        <span className="text-black text-center overflow-x-clip mr-2">
           {projectName ? projectName : "Files"}
         </span>
         <span className="flex items-center">

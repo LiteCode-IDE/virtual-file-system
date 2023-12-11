@@ -1,36 +1,46 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTypedDispatch, useTypedSelector } from "../../../state/hooks";
 import {
-  getSearchTerm,
-  searchFocus,
-  setSearchFocused,
+  SearchResults,
+  getSearchResults,
+  search,
 } from "../../../state/features/structure/structureSlice";
 
 interface SearchInputProps {
-  searchFiles: (searchTerm: string) => void;
   className?: string;
   style?: React.CSSProperties;
+  onSearchFiles?: (searchTerm: string, searchResults: SearchResults) => void;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
-  searchFiles,
   className,
   style,
+  onSearchFiles = () => {},
 }) => {
-  const search = useTypedSelector(getSearchTerm);
-  const [searchTerm, setSearchTerm] = useState(search);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const searchInputRef = useRef<any>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const dispatch = useTypedDispatch();
-  const shouldSearchFocus = useTypedSelector(searchFocus);
+  const searchResults = useTypedSelector(getSearchResults);
+
+  const searchFiles = (searchTermNew: string) => {
+    if (searchTermNew.length > 0) {
+      const timer = setTimeout(() => {
+        dispatch(search(searchTermNew));
+      }, 300);
+      return () => {
+        clearTimeout(timer);
+      };
+    } else {
+      dispatch(search(""));
+    }
+  };
 
   useEffect(() => {
-    if (!searchInputRef.current) return;
-    if (shouldSearchFocus) {
-      searchInputRef.current.focus();
-      dispatch(setSearchFocused(false));
+    if (searchTerm.length > 0) {
+      onSearchFiles(searchTerm, searchResults);
     }
-  }, []);
+  }, [searchResults]);
 
   return (
     <div className="my-2 w-full px-2">

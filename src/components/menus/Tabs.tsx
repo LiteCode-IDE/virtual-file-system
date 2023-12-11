@@ -14,9 +14,17 @@ interface TabsProps {
   containerClassName?: string;
   tabClassName?: string;
   selectedTabClassName?: string;
+  onTabClick?: (id: string) => void;
+  onTabClose?: (id: string) => void;
 }
 
-const Tabs: React.FC<TabsProps> = ({containerClassName, tabClassName, selectedTabClassName}) => {
+const Tabs: React.FC<TabsProps> = ({
+  containerClassName,
+  tabClassName,
+  selectedTabClassName,
+  onTabClick = () => {},
+  onTabClose = () => {},
+}) => {
   const dispatch = useTypedDispatch();
   const tabs = useTypedSelector(activeTabs);
   const selected = useTypedSelector(selectedTab);
@@ -25,17 +33,21 @@ const Tabs: React.FC<TabsProps> = ({containerClassName, tabClassName, selectedTa
     // alert(`Tab ${i} selected`);
     if (selected !== id) {
       dispatch(selectTab(id));
+      onTabClick(id);
     }
   };
 
   const onClose = async (id: string) => {
     dispatch(closeTab(id));
+    onTabClose(id);
   };
 
   return (
     <div className="flex flex-row w-full">
       <div className={"file-tabs w-full py-1"}>
-        <div className={`flex flex-row items-center w-full overflow-x-scroll custom-scrollbar ${containerClassName}`}>
+        <div
+          className={`flex flex-row items-center w-full overflow-x-scroll custom-scrollbar ${containerClassName}`}
+        >
           {tabs.map((item) => (
             <Tab
               key={item.id}

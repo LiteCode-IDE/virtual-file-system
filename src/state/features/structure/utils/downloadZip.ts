@@ -10,6 +10,14 @@ const downloadZip = () => {
   const {
     structure: { normalized, initialFolder },
   } = state;
+  if (
+    normalized.files.allIds.length === 0 &&
+    normalized.folders.allIds.length === 1
+  ) {
+    alert("There is nothing to download, you haven't created any files yet.");
+    return;
+  }
+  const projectName = state.structure.projectName;
   const folderMap = {
     [initialFolder.id]: zip,
   };
@@ -27,14 +35,14 @@ const downloadZip = () => {
       }
     },
     [],
-    [initialFolder.id],
+    [initialFolder.id]
   );
   zip
     .generateAsync({
       type: "blob",
     })
-    .then(content => {
-      saveAs(content, "Project.zip");
+    .then((content) => {
+      saveAs(content, `${projectName}.zip`);
     });
 };
 

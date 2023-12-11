@@ -8,6 +8,7 @@ import {
   setSelected,
   type Directory,
   type FileInFolder,
+  ItemType,
 } from "../../state/features/structure/structureSlice";
 import { type RootState } from "../../state/store";
 import { useTypedDispatch, useTypedSelector } from "../../state/hooks";
@@ -30,6 +31,8 @@ interface FolderProps {
   selectedClickableAreaClassName?: string;
   contextSelectedClickableAreaClassName?: string;
   itemTitleClassName?: string;
+  onItemSelected?: (item: { id: string; type: ItemType }) => void;
+  onItemContextSelected?: (item: { id: string; type: ItemType }) => void;
 }
 
 const Folder: React.FC<FolderProps> = ({
@@ -46,6 +49,8 @@ const Folder: React.FC<FolderProps> = ({
   selectedClickableAreaClassName,
   contextSelectedClickableAreaClassName,
   itemTitleClassName,
+  onItemSelected = () => {},
+  onItemContextSelected = () => {},
 }) => {
   const dispatch = useTypedDispatch();
   const selected = useTypedSelector(selectedItem);
@@ -96,6 +101,7 @@ const Folder: React.FC<FolderProps> = ({
                       })
                     );
                   }
+                  onItemSelected({ id: item.id, type: item.type });
                 }}
                 className={itemTitleClassName}
               />
@@ -116,6 +122,7 @@ const Folder: React.FC<FolderProps> = ({
                       threeDot: { x: e.clientY, y: e.clientX },
                     })
                   );
+                  onItemContextSelected({ id: item.id, type: item.type });
                 }}
               />
             </div>
@@ -162,6 +169,9 @@ const Folder: React.FC<FolderProps> = ({
                     contextSelectedClickableAreaClassName={
                       contextSelectedClickableAreaClassName
                     }
+                    itemTitleClassName={itemTitleClassName}
+                    onItemSelected={onItemSelected}
+                    onItemContextSelected={onItemContextSelected}
                   />
                 </div>
               )}

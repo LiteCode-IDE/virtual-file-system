@@ -1,4 +1,4 @@
-import { type Directory, type FileInFolder } from "../structureSlice";
+import { type Directory, type FileInFolder } from '../structureSlice';
 
 const bfsNodeAction = (
   currentItem: Directory | FileInFolder,
@@ -11,7 +11,7 @@ const bfsNodeAction = (
     if (currentItem.id === id) {
       callback(currentItem);
       return;
-    } else if (currentItem.type === "folder") {
+    } else if (currentItem.type === 'folder') {
       queue.push(...currentItem.subFoldersAndFiles);
     }
   }
@@ -27,7 +27,7 @@ const dfsNodeAction = (
     if (item.id === id) {
       callback(item, parents);
       return;
-    } else if (item.type === "folder") {
+    } else if (item.type === 'folder') {
       parents.push(item);
       dfsNodeAction(
         item.subFoldersAndFiles as Directory[],
@@ -48,7 +48,7 @@ const dfsCbOnEach = (
 ) => {
   for (const item of node) {
     callback(item, parentIds);
-    if (item.type === "folder") {
+    if (item.type === 'folder') {
       const childIds = item.subFoldersAndFiles.map(({ id }) => id);
       childrenIds.push(...childIds);
       parentIds.push(item.id);
@@ -64,4 +64,28 @@ const dfsCbOnEach = (
   return { childrenIds, parentIds };
 };
 
-export { dfsNodeAction, bfsNodeAction, dfsCbOnEach };
+const findParent = (
+  selectedItem: string,
+  allFileIds: string[],
+  initialSet: Directory
+) => {
+  if (allFileIds.includes(selectedItem)) {
+    let parentId = '';
+    dfsNodeAction(
+      initialSet.subFoldersAndFiles as Directory[],
+      selectedItem,
+      (_, parents) => {
+        const parent = parents[parents.length - 1];
+        parentId = parent.id;
+      },
+      [initialSet],
+    );
+    return parentId;
+  } else if (selectedItem.includes('folder')) {
+    return selectedItem;
+  } else {
+    return 'head';
+  }
+};
+
+export { dfsNodeAction, bfsNodeAction, dfsCbOnEach, findParent };
