@@ -1,6 +1,6 @@
 {
   "name": "@litecode-ide/virtual-file-system",
-  "version": "0.0.3",
+  "version": "0.0.11",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,8 @@
     "jszip": "^3.10.1",
     "localforage": "^1.10.0",
     "lodash.clonedeep": "^4.5.0",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.2",
@@ -22,6 +24,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/path-browserify": "^1.0.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
@@ -37,11 +40,17 @@
     "vite": "^5.0.0"
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "source": "src/main.tsx",            
-  "main": "src/main.tsx",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LiteCode-IDE/virtual-file-system.git"
+  },
+  "main": "./dist/@litecode-ide/virtual-file-system.umd.js",
+  "module": "./dist/@litecode-ide/virtual-file-system.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/@litecode-ide/virtual-file-system.es.js",
+      "require": "./dist/@litecode-ide/virtual-file-system.umd.js"
+    }
   },
   "keywords": [
     "virtual",

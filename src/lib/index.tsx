@@ -1,8 +1,9 @@
 // import Structure from "./components/file-structure/Structure";
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
-import { persistor, store } from "./state/store";
+import { persistor, store } from "../state/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Structure from "../components/file-structure/Structure";
 // import Structure from "./components/file-structure/Structure";
 // import Tabs from "./components/menus/Tabs";
 // import SearchContainer from "./components/file-structure/search/SearchContainer";
@@ -17,7 +18,7 @@ function App() {
         loading={<>Loading...</>}
         persistor={persistor}
       ></PersistGate>
-      {/* <Structure validExtensions={["js"]} /> */}
+      <Structure validExtensions={["js", "jsx", "ts", "png"]} />
     </Provider>
   );
 }

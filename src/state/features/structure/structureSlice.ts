@@ -4,7 +4,6 @@ import type { RootState } from '../../store';
 import { v4 as uuidv4 } from 'uuid';
 import { bfsNodeAction, dfsCbOnEach, dfsNodeAction } from './utils/traversal';
 import { findSortable } from './utils/sorting';
-import getTree from './utils/getTree';
 
 // type NestedRecord<T extends any[]>
 //     = T extends [any, ...infer R]
