@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import useOutsideAlerter from "../../../hooks/useOutsideAlerter";
-import {
-  type ValidExtensions,
-  validExtensions,
-} from "../../../state/features/structure/structureSlice";
+
 import { getLogo, validate } from "../utils";
 
 const newFileIcon = "new-file-logo";
@@ -25,6 +22,7 @@ interface CustomInputProps {
       | undefined;
   };
   container: HTMLDivElement | null;
+  validExtensions: string[];
   existingItems: Array<{ wholeName: string; type: string }>;
   className?: string;
   style?: React.CSSProperties;
@@ -37,6 +35,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   show,
   item,
   container,
+  validExtensions,
   existingItems,
   className,
   style,
@@ -89,7 +88,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   const setValidationResult = (res: {
     error: boolean;
     errorMessage: string;
-    ext?: ValidExtensions;
+    ext?: string;
   }) => {
     if (res.error) {
       if (res.errorMessage !== "") {

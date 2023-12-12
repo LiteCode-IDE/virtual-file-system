@@ -1,5 +1,3 @@
-import { type ValidExtensions } from "../../../state/features/structure/structureSlice";
-
 const trimName = (
   item:
     | {
@@ -34,29 +32,30 @@ const trimName = (
 };
 
 const getLogo = (fileType: string) => {
-  let logo: string = "";
-  switch (fileType) {
-    case "js":
-      logo = "js-logo";
-      break;
-    case "jsx":
-      logo = "jsx-logo";
-      break;
-    case "css":
-      logo = "css-logo";
-      break;
-    case "md":
-      logo = "readme-logo";
-      break;
-    case "ts":
-    case "tsx":
-      logo = "typescript-logo";
-      break;
-    default:
-      logo = "file-logo";
-      break;
-  }
-  return logo;
+  return `${fileType}-logo`;
+  // let logo: string = "";
+  // switch (fileType) {
+  //   case "js":
+  //     logo = "js-logo";
+  //     break;
+  //   case "jsx":
+  //     logo = "jsx-logo";
+  //     break;
+  //   case "css":
+  //     logo = "css-logo";
+  //     break;
+  //   case "md":
+  //     logo = "md-logo";
+  //     break;
+  //   case "ts":
+  //   case "tsx":
+  //     logo = "typescript-logo";
+  //     break;
+  //   default:
+  //     logo = "file-logo";
+  //     break;
+  // }
+  // return logo;
 };
 
 const validateFile = (

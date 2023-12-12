@@ -13,15 +13,15 @@ import getTree from './utils/getTree';
 
 export type ItemType = 'file' | 'folder';
 
-export type ValidExtensions = 'js' | 'jsx' | 'css' | 'md' | 'ts' | 'tsx';
+// export type ValidExtensions = 'js' | 'jsx' | 'css' | 'md' | 'ts' | 'tsx';
 
-export const validExtensions = ['js', 'jsx', 'css', 'md', 'ts', 'tsx'];
+// export const validExtensions = ['js', 'jsx', 'css', 'md', 'ts', 'tsx'];
 export interface FileStructure {
   id: string;
   name: string;
   type: 'file';
   content: string;
-  extension: ValidExtensions;
+  extension: string;
   path: string[];
 }
 
@@ -42,7 +42,7 @@ interface FileOrFolder {
   collapsed?: boolean;
   childrenFlat?: Identifier[];
   content?: string;
-  extension?: ValidExtensions;
+  extension?: string;
   path?: string[] | undefined;
 }
 
@@ -101,7 +101,7 @@ interface MatchingLine {
 export interface MatchingFile {
   id: string;
   name: string;
-  extension: ValidExtensions;
+  extension: string;
   matches: MatchingLine[];
 }
 
@@ -192,7 +192,7 @@ export const structureSlice = createSlice({
         name: newName,
         type: inputType,
         extension:
-          inputType === 'file' ? (newExtension as ValidExtensions) : undefined,
+          inputType === 'file' ? (newExtension) : undefined,
         collapsed: inputType === 'folder' ? true : undefined,
         childrenFlat: inputType === 'folder' ? [] : undefined,
         content: inputType === 'file' ? '' : undefined,
@@ -357,7 +357,7 @@ export const structureSlice = createSlice({
 
       if (state.contextSelected.type === 'file') {
         state.normalized.files.byId[state.contextSelected.id].extension =
-          newExtension as ValidExtensions;
+          newExtension;
       }
 
       structureSlice.caseReducers.sortFolder(state, {
@@ -372,7 +372,7 @@ export const structureSlice = createSlice({
       //   ) {
       //     return {
       //       ...tab,
-      //       extension: newExtension as ValidExtensions,
+      //       extension: newExtension,
       //     };
       //   }
       //   return tab;
@@ -562,7 +562,7 @@ export const structureSlice = createSlice({
           id: newNode.id,
           name: newNode.name,
           type: 'file',
-          extension: newNode.extension as ValidExtensions,
+          extension: newNode.extension as string,
           content: newNode.content,
           path: [] as string[],
         };
@@ -916,6 +916,11 @@ export const structureSlice = createSlice({
     },
     setProjectName: (state, action: PayloadAction<string>) => {
       state.projectName = action.payload;
+    },
+    setValidExtensions: (state, action: PayloadAction<ValidExtensions[]>) => {
+      // validExtensions.length = 0;
+      // validExtensions.push(...action.payload);
+      state.validExtensions = [];
     }
   },
 });
@@ -1094,7 +1099,8 @@ export const {
   search,
   setResizeCollapsed,
   setSearchFocused,
-  setProjectName
+  setProjectName,
+  setValidExtensions
 } = structureSlice.actions;
 
 export default structureSlice.reducer;

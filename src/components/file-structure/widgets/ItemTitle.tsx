@@ -9,7 +9,6 @@ interface ItemTitleProps {
     type: ItemType;
     collapsed?: boolean;
     extension?: string;
-    logo?: string;
   };
   onClickE: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
@@ -42,9 +41,7 @@ const ItemTitle: React.FC<ItemTitleProps> = ({ item, onClickE, className }) => {
         <span
           typeof-item={item.type}
           parent-id={item.id}
-          className={`span-logo span-logo-width ${
-            item.logo ? item.logo : findLogo(item)
-          }`}
+          className={`span-logo span-logo-width ${findLogo(item)}`}
         >
           &nbsp;
         </span>

@@ -122,7 +122,7 @@
   background-image: url("./assets/error.png");
 }
 
-.readme-logo {
+.md-logo {
   background-image: url("./assets/readme.svg");
 }
 
@@ -130,7 +130,8 @@
   background-image: url("./assets/rename.svg");
 }
 
-.typescript-logo {
+.ts-logo,
+.tsx-logo {
   background-image: url("./assets/typescript.svg");
 }
 

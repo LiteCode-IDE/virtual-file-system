@@ -7,6 +7,7 @@ import {
   setSelected,
   getSearchTerm,
   setProjectName,
+  setValidExtensions,
 } from "../../state/features/structure/structureSlice";
 import Folder from "./Folder";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
@@ -74,6 +75,7 @@ interface StructureProps {
   onItemContextSelected?: (item: { id: string; type: ItemType }) => void;
   onNodeDeleted?: (id: string) => void;
   onNewItemCreated?: (id: string) => void;
+  validExtensions: string[];
 }
 
 const Structure: React.FC<StructureProps> = ({
@@ -104,6 +106,7 @@ const Structure: React.FC<StructureProps> = ({
   onItemContextSelected = () => {},
   onNodeDeleted = () => {},
   onNewItemCreated = () => {},
+  validExtensions,
 }) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);
@@ -238,8 +241,6 @@ const Structure: React.FC<StructureProps> = ({
     clickedRef.current = elem as HTMLElement;
   };
 
-
-
   const fileActions = {
     newFile: () => {
       setInputType("file");
@@ -312,7 +313,6 @@ const Structure: React.FC<StructureProps> = ({
     }
   };
 
-  
   const showInputHandler = (v: boolean) => {
     if (v === showInput) return;
     setShowInput(v);
@@ -365,7 +365,7 @@ const Structure: React.FC<StructureProps> = ({
   useEffect(() => {
     if (projectName === undefined) return;
     dispatch(setProjectName(projectName));
-  }, [projectName])
+  }, [projectName]);
 
   useEffect(() => {
     if (isRename && !showInput) {
@@ -450,19 +450,25 @@ const Structure: React.FC<StructureProps> = ({
       setShowBlue(false);
       setShowGray(false);
     }
-    fileSysRef.current?.classList.add('border-transparent');
-    fileSysRef.current?.classList.remove('border-vscode-blue');
+    fileSysRef.current?.classList.add("border-transparent");
+    fileSysRef.current?.classList.remove("border-vscode-blue");
   });
 
   useEffect(() => {
     setShowBlue(true);
   }, [selectedI]);
 
+  useEffect(() => {
+    dispatch(setValidExtensions(validExtensions));
+  }, [validExtensions]);
+
   return (
     <>
       <div id="file-system" className="pr-2">
         <div
-          style={{ height: containerHeight ? containerHeight : "calc(80vh - 4rem)" }}
+          style={{
+            height: containerHeight ? containerHeight : "calc(80vh - 4rem)",
+          }}
           className="flex w-full flex-col justify-start"
         >
           <div className="my-2 flex flex-col items-start pl-2">
@@ -654,6 +660,7 @@ const Structure: React.FC<StructureProps> = ({
           submit={(value) => {
             inputSubmit(value);
           }}
+          validExtensions={validExtensions}
           padding={inputPadding}
           show={clickedRef.current && showInput}
           item={{

@@ -1,11 +1,10 @@
 {
-  "name": "virtual-file-system",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@litecode-ide/virtual-file-system",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -36,5 +35,32 @@
     "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "source": "src/main.tsx",            
+  "main": "src/main.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiteCode-IDE/virtual-file-system.git"
+  },
+  "keywords": [
+    "virtual",
+    "file",
+    "system",
+    "file",
+    "system",
+    "file",
+    "explorer",
+    "file",
+    "tree",
+    "folder",
+    "tabs",
+    "searching"
+  ],
+  "author": "abel-tefera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiteCode-IDE/virtual-file-system/issues"
+  },
+  "homepage": "https://github.com/LiteCode-IDE/virtual-file-system#readme"
 }

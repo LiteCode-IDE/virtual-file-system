@@ -46,8 +46,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         <ItemTitle
           item={{
             ...matchingFile,
-            type: "file",
-            logo: "typescript-logo",
+            type: "file"
           }}
           onClickE={() => {}}
           className={titleClassName}

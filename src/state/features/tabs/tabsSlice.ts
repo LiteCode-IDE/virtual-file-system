@@ -7,12 +7,11 @@ import {
 import { type RootState } from '../../store';
 import {
   type Normalized,
-  type ValidExtensions,
 } from '../structure/structureSlice';
 
 export interface Tab {
   id: string;
-  extension: ValidExtensions;
+  extension: string;
 }
 
 interface TabSlice {
