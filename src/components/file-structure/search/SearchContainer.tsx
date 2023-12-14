@@ -7,7 +7,7 @@ import {
 } from "../../../state/features/structure/structureSlice";
 import { setActiveTabAsync } from "../../../state/features/tabs/tabsSlice";
 
-interface SearchContainerProps {
+export interface SearchContainerProps {
   highlightedTextClassName?: string;
   headerClassName?: string;
   headerStyle?: React.CSSProperties;

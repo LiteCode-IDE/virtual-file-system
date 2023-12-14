@@ -6,7 +6,7 @@ import {
   search,
 } from "../../../state/features/structure/structureSlice";
 
-interface SearchInputProps {
+export interface SearchInputProps {
   className?: string;
   style?: React.CSSProperties;
   onSearchFiles?: (searchTerm: string, searchResults: SearchResults) => void;

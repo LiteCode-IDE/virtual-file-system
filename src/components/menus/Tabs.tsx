@@ -10,7 +10,7 @@ import {
   selectedTab,
 } from "../../state/features/tabs/tabsSlice";
 
-interface TabsProps {
+export interface TabsProps {
   containerClassName?: string;
   tabClassName?: string;
   selectedTabClassName?: string;

@@ -1,6 +1,6 @@
 {
   "name": "@litecode-ide/virtual-file-system",
-  "version": "0.0.11",
+  "version": "0.0.17",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -50,6 +50,9 @@
     ".": {
       "import": "./dist/@litecode-ide/virtual-file-system.es.js",
       "require": "./dist/@litecode-ide/virtual-file-system.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css"
     }
   },
   "keywords": [

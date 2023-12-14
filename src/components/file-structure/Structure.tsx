@@ -47,7 +47,7 @@ import SearchInput from "./search/SearchInput";
 import { findParent } from "../../state/features/structure/utils/traversal";
 import { store } from "../../state/store";
 
-interface StructureProps {
+export interface StructureProps {
   deleteConfirmationClassName?: string;
   fileInputClassName?: string;
   fileInputStyle?: React.CSSProperties;
@@ -75,6 +75,7 @@ interface StructureProps {
   onItemContextSelected?: (item: { id: string; type: ItemType }) => void;
   onNodeDeleted?: (id: string) => void;
   onNewItemCreated?: (id: string) => void;
+  storeContext?: any;
   validExtensions: string[];
 }
 
@@ -107,6 +108,7 @@ const Structure: React.FC<StructureProps> = ({
   onNodeDeleted = () => {},
   onNewItemCreated = () => {},
   validExtensions,
+  storeContext
 }) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);

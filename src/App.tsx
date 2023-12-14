@@ -1,25 +1,47 @@
-// import Structure from "./components/file-structure/Structure";
-import React, { useEffect } from "react";
-import { Provider } from "react-redux";
-import { persistor, store } from "./state/store";
-import { PersistGate } from "redux-persist/integration/react";
-// import Structure from "./components/file-structure/Structure";
-// import Tabs from "./components/menus/Tabs";
-// import SearchContainer from "./components/file-structure/search/SearchContainer";
-// import Breadcrumbs from "./components/menus/Breadcrumbs";
-// import SearchInput from "./components/file-structure/search/SearchInput";
-const MyContext = React.createContext<any>(null);
+// import {
+//   Breadcrumbs,
+//   FileExplorer,
+//   SearchInput,
+//   SearchResults,
+//   TabsList,
+//   getFileTree,
+//   updateFile,
+// } from "./lib";
 
-function App() {
-  return (
-    <Provider context={MyContext} store={store}>
-      <PersistGate
-        loading={<>Loading...</>}
-        persistor={persistor}
-      ></PersistGate>
-      {/* <Structure validExtensions={["js"]} /> */}
-    </Provider>
-  );
-}
+// function App() {
+//   return (
+//     <div className="flex flex-row w-full h-full">
+//       <div className="flex flex-col w-1/4 h-full">
+//         <div className="flex flex-col">
+//           <button
+//             onClick={() => {
+//               const fileId = Object.values(getFileTree())[0].id;
+//               console.log("FILE ID", fileId);
+//               updateFile(fileId, "Hello World");
+//             }}
+//           >
+//             UPDATE FILE
+//           </button>
+//           <button
+//             onClick={() => {
+//               console.log("TREE", getFileTree());
+//             }}
+//           >
+//             SHOW FILE TREE
+//           </button>
+//         </div>
+//         <SearchInput />
+//         <FileExplorer validExtensions={["js"]} />
+//       </div>
+//       <div className="flex flex-col w-1/2 h-full">
+//         <TabsList />
+//         <Breadcrumbs />
+//       </div>
+//       <div className="overflow-clip w-1/2 h-full">
+//         <SearchResults />
+//       </div>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;

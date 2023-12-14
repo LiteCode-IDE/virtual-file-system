@@ -13,7 +13,7 @@ import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { setActiveTabAsync } from "../../state/features/tabs/tabsSlice";
 import { getLogo } from "../file-structure/utils";
 
-interface BreadcrumbsProps {
+export interface BreadcrumbsProps {
   containerClassName?: string;
   textClassName?: string;
   miniFolderCollapseBtnClassName?: string;
