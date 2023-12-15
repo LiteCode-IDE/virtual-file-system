@@ -44,4 +44,8 @@ const updateFileContents = (id: string, content: string) => {
   });
 };
 
-export { getFileTree, updateFileContents };
+const getSelectedFile = () => {
+  return store.getState().structure.selected;
+};
+
+export { getFileTree, updateFileContents, getSelectedFile };

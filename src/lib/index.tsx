@@ -18,6 +18,7 @@ import SI, {
 import {
   getFileTree,
   updateFileContents,
+  getSelectedFile,
 } from "../state/features/structure/utils/getFileTree";
 
 const FileExplorer: React.FC<StructureProps> = ({
@@ -176,4 +177,5 @@ export {
   SearchInput,
   getFileTree,
   updateFile,
+  getSelectedFile,
 };
