@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SearchResults from "./SearchResults";
-import { useTypedDispatch, useTypedSelector } from "../../../state/hooks";
+import { useTypedSelector } from "../../../state/hooks";
 import {
   getSearchResults,
-  setSelected,
 } from "../../../state/features/structure/structureSlice";
-import { setActiveTabAsync } from "../../../state/features/tabs/tabsSlice";
 
 export interface SearchContainerProps {
   highlightedTextClassName?: string;
@@ -32,6 +30,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
         <div className="w-full z-0" key={`search-results-${file.id}`}>
           <SearchResults
             matchingFile={file}
+            // @ts-ignore
             fileAtLineClick={(id, line) => {
               // TODO
               // File Clicked

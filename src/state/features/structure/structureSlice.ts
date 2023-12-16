@@ -915,11 +915,6 @@ export const structureSlice = createSlice({
     },
     setProjectName: (state, action: PayloadAction<string>) => {
       state.projectName = action.payload;
-    },
-    setValidExtensions: (state, action: PayloadAction<ValidExtensions[]>) => {
-      // validExtensions.length = 0;
-      // validExtensions.push(...action.payload);
-      state.validExtensions = [];
     }
   },
 });
@@ -1098,8 +1093,7 @@ export const {
   search,
   setResizeCollapsed,
   setSearchFocused,
-  setProjectName,
-  setValidExtensions
+  setProjectName
 } = structureSlice.actions;
 
 export default structureSlice.reducer;

@@ -5,9 +5,7 @@ import {
   getInitialSet,
   setContextSelectedForFileAction,
   setSelected,
-  getSearchTerm,
   setProjectName,
-  setValidExtensions,
 } from "../../state/features/structure/structureSlice";
 import Folder from "./Folder";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
@@ -36,14 +34,12 @@ import {
   selectedItem,
   setParentItemId,
   getCurrentItems,
-  search,
 } from "../../state/features/structure/structureSlice";
 import { usePrependPortal } from "../../hooks/usePrependPortal";
 import FileActions from "./widgets/FileActions";
 import { useTypedDispatch, useTypedSelector } from "../../state/hooks";
 import { removeTabAsync } from "../../state/features/tabs/tabsSlice";
 import downloadZip from "../../state/features/structure/utils/downloadZip";
-import SearchInput from "./search/SearchInput";
 import { findParent } from "../../state/features/structure/utils/traversal";
 import { store } from "../../state/store";
 
@@ -108,7 +104,6 @@ const Structure: React.FC<StructureProps> = ({
   onNodeDeleted = () => {},
   onNewItemCreated = () => {},
   validExtensions,
-  storeContext
 }) => {
   const fileSysRef = useRef<HTMLDivElement>(null);
   const structureRef = useRef<HTMLDivElement>(null);
@@ -459,10 +454,6 @@ const Structure: React.FC<StructureProps> = ({
   useEffect(() => {
     setShowBlue(true);
   }, [selectedI]);
-
-  useEffect(() => {
-    dispatch(setValidExtensions(validExtensions));
-  }, [validExtensions]);
 
   return (
     <>

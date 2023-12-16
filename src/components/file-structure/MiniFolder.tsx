@@ -44,7 +44,7 @@ const MiniFolder: React.FC<MiniFolderProps> = ({
             >
               <ItemTitle
                 item={item}
-                onClickE={(e) => {
+                onClickE={() => {
                   onClickItem({ id: item.id, type: item.type });
                 }}
                 className={titleClassName}

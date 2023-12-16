@@ -1,10 +1,10 @@
-import React from "react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 import { VFSContext } from "./context";
+import { PropsWithChildren } from "react";
 
-export function VFSProvider({ children }) {
+const VFSProvider: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Provider context={VFSContext} store={store}>
       <PersistGate
@@ -14,4 +14,6 @@ export function VFSProvider({ children }) {
       {children}
     </Provider>
   );
-}
+};
+
+export default VFSProvider;

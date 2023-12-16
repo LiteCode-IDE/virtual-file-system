@@ -7,7 +7,7 @@ const trimName = (
     | {
         name: string;
         type: "file";
-        extension: ValidExtensions;
+        extension: string;
       }
 ) => {
   let newName = "";

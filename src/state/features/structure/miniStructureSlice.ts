@@ -27,12 +27,6 @@ export interface MiniStructure {
   collapsed: boolean;
 }
 
-interface Breadcrumbs {
-  id: string;
-  path: string[];
-  unmappedPath: string[];
-}
-
 interface MiniStructureState {
   miniStructure: MiniStructure;
 }
@@ -61,7 +55,7 @@ export const setMiniStructureAsync = createAsyncThunk(
     dfsNodeAction(
       state.structure.initialFolder.subFoldersAndFiles as Directory[],
       selectedId,
-      (item, parents) => {
+      (_, parents) => {
         const structureCopy = cloneDeep(
           parents[parents.length - 1]
         ) as MiniStructure;

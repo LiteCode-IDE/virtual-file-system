@@ -4,9 +4,7 @@ import "../index.css";
 import Structure, {
   StructureProps,
 } from "../components/file-structure/Structure";
-import { VFSProvider } from "../state/provider";
-import { VFSContext } from "../state/context";
-import Test from "../components/Test";
+import VFSProvider from "../state/provider";
 import Tabs, { TabsProps } from "../components/menus/Tabs";
 import SearchContainer, {
   SearchContainerProps,
