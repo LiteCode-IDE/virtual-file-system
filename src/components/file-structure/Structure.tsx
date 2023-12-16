@@ -71,7 +71,6 @@ export interface StructureProps {
   onItemContextSelected?: (item: { id: string; type: ItemType }) => void;
   onNodeDeleted?: (id: string) => void;
   onNewItemCreated?: (id: string) => void;
-  storeContext?: any;
   validExtensions: string[];
 }
 
