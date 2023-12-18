@@ -600,7 +600,7 @@ const Structure: React.FC<StructureProps> = ({
             <div
               parent-id={"head"}
               typeof-item={"folder"}
-              className="min-h-[8rem] clickable-padding"
+              className="min-h-[8rem] clickable-padding select-none"
             >
               &nbsp;
             </div>
