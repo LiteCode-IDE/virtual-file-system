@@ -10,6 +10,7 @@ export interface SearchContainerProps {
   headerClassName?: string;
   headerStyle?: React.CSSProperties;
   titleClassName?: string;
+  searchResultClicked: (fileId: string, line: number) => void;
 }
 
 const SearchContainer: React.FC<SearchContainerProps> = ({
@@ -17,6 +18,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
   headerClassName,
   headerStyle,
   titleClassName,
+  searchResultClicked
 }) => {
   const searchData = useTypedSelector(getSearchResults);
 
@@ -30,11 +32,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
         <div className="w-full z-0" key={`search-results-${file.id}`}>
           <SearchResults
             matchingFile={file}
-            // @ts-ignore
-            fileAtLineClick={(id, line) => {
-              // TODO
-              // File Clicked
-            }}
+            fileAtLineClick={searchResultClicked}
             highlightClass={highlightedTextClassName}
             headerClassName={headerClassName}
             headerStyle={headerStyle}

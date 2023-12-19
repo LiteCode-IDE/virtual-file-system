@@ -21,8 +21,8 @@ var fn = { exports: {} }, er = {};
 var ai;
 function Gs() {
   return ai || (ai = 1, process.env.NODE_ENV !== "production" && function() {
-    var e = ht, t = Symbol.for("react.element"), r = Symbol.for("react.portal"), n = Symbol.for("react.fragment"), i = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), a = Symbol.for("react.context"), l = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), u = Symbol.for("react.suspense_list"), h = Symbol.for("react.memo"), v = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), b = Symbol.iterator, f = "@@iterator";
-    function g(A) {
+    var e = ht, t = Symbol.for("react.element"), r = Symbol.for("react.portal"), n = Symbol.for("react.fragment"), i = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), a = Symbol.for("react.context"), l = Symbol.for("react.forward_ref"), c = Symbol.for("react.suspense"), u = Symbol.for("react.suspense_list"), h = Symbol.for("react.memo"), g = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), b = Symbol.iterator, f = "@@iterator";
+    function v(A) {
       if (A === null || typeof A != "object")
         return null;
       var Y = b && A[b] || A[f];
@@ -49,7 +49,7 @@ function Gs() {
     var E = !1, k = !1, R = !1, T = !1, W = !1, j;
     j = Symbol.for("react.module.reference");
     function K(A) {
-      return !!(typeof A == "string" || typeof A == "function" || A === n || A === o || W || A === i || A === c || A === u || T || A === d || E || k || R || typeof A == "object" && A !== null && (A.$$typeof === v || A.$$typeof === h || A.$$typeof === s || A.$$typeof === a || A.$$typeof === l || // This needs to include all possible module reference object
+      return !!(typeof A == "string" || typeof A == "function" || A === n || A === o || W || A === i || A === c || A === u || T || A === d || E || k || R || typeof A == "object" && A !== null && (A.$$typeof === g || A.$$typeof === h || A.$$typeof === s || A.$$typeof === a || A.$$typeof === l || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -99,7 +99,7 @@ function Gs() {
           case h:
             var ye = A.displayName || null;
             return ye !== null ? ye : F(A.type) || "Memo";
-          case v: {
+          case g: {
             var Oe = A, Ce = Oe._payload, ke = Oe._init;
             try {
               return F(ke(Ce));
@@ -288,7 +288,7 @@ function Gs() {
             return Ue(A.render);
           case h:
             return U(A.type, Y, ie);
-          case v: {
+          case g: {
             var ye = A, Oe = ye._payload, Ce = ye._init;
             try {
               return U(Ce(Oe), Y, ie);
@@ -521,7 +521,7 @@ Check the top-level render call using <` + ie + ">.");
         else if (Fe(A))
           A._store && (A._store.validated = !0);
         else if (A) {
-          var Oe = g(A);
+          var Oe = v(A);
           if (typeof Oe == "function" && Oe !== A.entries)
             for (var Ce = Oe.call(A), ke; !(ke = Ce.next()).done; )
               Fe(ke.value) && le(ke.value, Y);
@@ -622,14 +622,14 @@ function Ks() {
   li = 1;
   var e = ht, t = Symbol.for("react.element"), r = Symbol.for("react.fragment"), n = Object.prototype.hasOwnProperty, i = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
   function s(a, l, c) {
-    var u, h = {}, v = null, d = null;
-    c !== void 0 && (v = "" + c), l.key !== void 0 && (v = "" + l.key), l.ref !== void 0 && (d = l.ref);
+    var u, h = {}, g = null, d = null;
+    c !== void 0 && (g = "" + c), l.key !== void 0 && (g = "" + l.key), l.ref !== void 0 && (d = l.ref);
     for (u in l)
       n.call(l, u) && !o.hasOwnProperty(u) && (h[u] = l[u]);
     if (a && a.defaultProps)
       for (u in l = a.defaultProps, l)
         h[u] === void 0 && (h[u] = l[u]);
-    return { $$typeof: t, type: a, key: v, ref: d, props: h, _owner: i.current };
+    return { $$typeof: t, type: a, key: g, ref: d, props: h, _owner: i.current };
   }
   return tr.Fragment = r, tr.jsx = s, tr.jsxs = s, tr;
 }
@@ -708,8 +708,8 @@ function Tn(e, t, r) {
   }
   let n = e, i = t, o = /* @__PURE__ */ new Map(), s = o, a = 0, l = !1;
   function c() {
-    s === o && (s = /* @__PURE__ */ new Map(), o.forEach((g, m) => {
-      s.set(m, g);
+    s === o && (s = /* @__PURE__ */ new Map(), o.forEach((v, m) => {
+      s.set(m, v);
     }));
   }
   function u() {
@@ -717,15 +717,15 @@ function Tn(e, t, r) {
       throw new Error(process.env.NODE_ENV === "production" ? st(3) : "You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.");
     return i;
   }
-  function h(g) {
-    if (typeof g != "function")
-      throw new Error(process.env.NODE_ENV === "production" ? st(4) : `Expected the listener to be a function. Instead, received: '${Tt(g)}'`);
+  function h(v) {
+    if (typeof v != "function")
+      throw new Error(process.env.NODE_ENV === "production" ? st(4) : `Expected the listener to be a function. Instead, received: '${Tt(v)}'`);
     if (l)
       throw new Error(process.env.NODE_ENV === "production" ? st(5) : "You may not call store.subscribe() while the reducer is executing. If you would like to be notified after the store has been updated, subscribe from a component and invoke store.getState() in the callback to access the latest state. See https://redux.js.org/api/store#subscribelistener for more details.");
     let m = !0;
     c();
     const w = a++;
-    return s.set(w, g), function() {
+    return s.set(w, v), function() {
       if (m) {
         if (l)
           throw new Error(process.env.NODE_ENV === "production" ? st(6) : "You may not unsubscribe from a store listener while the reducer is executing. See https://redux.js.org/api/store#subscribelistener for more details.");
@@ -733,33 +733,33 @@ function Tn(e, t, r) {
       }
     };
   }
-  function v(g) {
-    if (!cr(g))
-      throw new Error(process.env.NODE_ENV === "production" ? st(7) : `Actions must be plain objects. Instead, the actual type was: '${Tt(g)}'. You may need to add middleware to your store setup to handle dispatching other values, such as 'redux-thunk' to handle dispatching functions. See https://redux.js.org/tutorials/fundamentals/part-4-store#middleware and https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware for examples.`);
-    if (typeof g.type > "u")
+  function g(v) {
+    if (!cr(v))
+      throw new Error(process.env.NODE_ENV === "production" ? st(7) : `Actions must be plain objects. Instead, the actual type was: '${Tt(v)}'. You may need to add middleware to your store setup to handle dispatching other values, such as 'redux-thunk' to handle dispatching functions. See https://redux.js.org/tutorials/fundamentals/part-4-store#middleware and https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware for examples.`);
+    if (typeof v.type > "u")
       throw new Error(process.env.NODE_ENV === "production" ? st(8) : 'Actions may not have an undefined "type" property. You may have misspelled an action type string constant.');
-    if (typeof g.type != "string")
-      throw new Error(process.env.NODE_ENV === "production" ? st(17) : `Action "type" property must be a string. Instead, the actual type was: '${Tt(g.type)}'. Value was: '${g.type}' (stringified)`);
+    if (typeof v.type != "string")
+      throw new Error(process.env.NODE_ENV === "production" ? st(17) : `Action "type" property must be a string. Instead, the actual type was: '${Tt(v.type)}'. Value was: '${v.type}' (stringified)`);
     if (l)
       throw new Error(process.env.NODE_ENV === "production" ? st(9) : "Reducers may not dispatch actions.");
     try {
-      l = !0, i = n(i, g);
+      l = !0, i = n(i, v);
     } finally {
       l = !1;
     }
     return (o = s).forEach((w) => {
       w();
-    }), g;
+    }), v;
   }
-  function d(g) {
-    if (typeof g != "function")
-      throw new Error(process.env.NODE_ENV === "production" ? st(10) : `Expected the nextReducer to be a function. Instead, received: '${Tt(g)}`);
-    n = g, v({
+  function d(v) {
+    if (typeof v != "function")
+      throw new Error(process.env.NODE_ENV === "production" ? st(10) : `Expected the nextReducer to be a function. Instead, received: '${Tt(v)}`);
+    n = v, g({
       type: Bt.REPLACE
     });
   }
   function b() {
-    const g = h;
+    const v = h;
     return {
       /**
        * The minimal observable subscription method.
@@ -777,7 +777,7 @@ function Tn(e, t, r) {
           E.next && E.next(u());
         }
         return w(), {
-          unsubscribe: g(w)
+          unsubscribe: v(w)
         };
       },
       [ci]() {
@@ -785,10 +785,10 @@ function Tn(e, t, r) {
       }
     };
   }
-  return v({
+  return g({
     type: Bt.INIT
   }), {
-    dispatch: v,
+    dispatch: g,
     subscribe: h,
     getState: u,
     replaceReducer: d,
@@ -852,12 +852,12 @@ function Ji(e) {
     let c = !1;
     const u = {};
     for (let h = 0; h < n.length; h++) {
-      const v = n[h], d = r[v], b = a[v], f = d(b, l);
+      const g = n[h], d = r[g], b = a[g], f = d(b, l);
       if (typeof f > "u") {
-        const g = l && l.type;
-        throw new Error(process.env.NODE_ENV === "production" ? st(14) : `When called with an action of type ${g ? `"${String(g)}"` : "(unknown type)"}, the slice reducer for key "${v}" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.`);
+        const v = l && l.type;
+        throw new Error(process.env.NODE_ENV === "production" ? st(14) : `When called with an action of type ${v ? `"${String(v)}"` : "(unknown type)"}, the slice reducer for key "${g}" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.`);
       }
-      u[v] = f, c = c || f !== b;
+      u[g] = f, c = c || f !== b;
     }
     return c = c || n.length !== Object.keys(a).length, c ? u : a;
   };
@@ -1452,7 +1452,7 @@ function jn(e, t = {}) {
   function s() {
     let a = r;
     const { length: l } = arguments;
-    for (let h = 0, v = l; h < v; h++) {
+    for (let h = 0, g = l; h < g; h++) {
       const d = arguments[h];
       if (typeof d == "function" || typeof d == "object" && d !== null) {
         let b = a.o;
@@ -1496,16 +1496,16 @@ function lo(e, ...t) {
       ...l
     }, {
       memoize: h,
-      memoizeOptions: v = [],
+      memoizeOptions: g = [],
       argsMemoize: d = jn,
       argsMemoizeOptions: b = [],
       devModeChecks: f = {}
-    } = u, g = yi(v), m = yi(b), w = ba(i), x = h(function() {
+    } = u, v = yi(g), m = yi(b), w = ba(i), x = h(function() {
       return o++, c.apply(
         null,
         arguments
       );
-    }, ...g);
+    }, ...v);
     let E = !0;
     const k = d(function() {
       s++;
@@ -1524,7 +1524,7 @@ function lo(e, ...t) {
           );
           j.run(
             { inputSelectorResults: T, inputSelectorResultsCopy: K },
-            { memoize: h, memoizeOptions: g },
+            { memoize: h, memoizeOptions: v },
             arguments
           );
         }
@@ -1699,9 +1699,9 @@ function mo(e, t = [], r, n, i = !1, o = "") {
     const h = o ? o + "." + u : u;
     if (c && t.some((b) => b instanceof RegExp ? b.test(h) : h === b))
       continue;
-    const v = mo(e, t, r.children[u], n[u], a, h);
-    if (v.wasMutated)
-      return v;
+    const g = mo(e, t, r.children[u], n[u], a, h);
+    if (g.wasMutated)
+      return g;
   }
   return {
     wasMutated: !1
@@ -1715,15 +1715,15 @@ function ja(e = {}) {
       return JSON.stringify(a, r(l, u), c);
     }, r = function(a, l) {
       let c = [], u = [];
-      return l || (l = function(h, v) {
-        return c[0] === v ? "[Circular ~]" : "[Circular ~." + u.slice(0, c.indexOf(v)).join(".") + "]";
-      }), function(h, v) {
+      return l || (l = function(h, g) {
+        return c[0] === g ? "[Circular ~]" : "[Circular ~." + u.slice(0, c.indexOf(g)).join(".") + "]";
+      }), function(h, g) {
         if (c.length > 0) {
           var d = c.indexOf(this);
-          ~d ? c.splice(d + 1) : c.push(this), ~d ? u.splice(d, 1 / 0, h) : u.push(h), ~c.indexOf(v) && (v = l.call(this, h, v));
+          ~d ? c.splice(d + 1) : c.push(this), ~d ? u.splice(d, 1 / 0, h) : u.push(h), ~c.indexOf(g) && (g = l.call(this, h, g));
         } else
-          c.push(v);
-        return a == null ? v : a.call(this, h, v);
+          c.push(g);
+        return a == null ? g : a.call(this, h, g);
       };
     }, {
       isImmutable: n = Ra,
@@ -1735,16 +1735,16 @@ function ja(e = {}) {
       getState: a
     }) => {
       let l = a(), c = s(l), u;
-      return (h) => (v) => {
+      return (h) => (g) => {
         const d = fo(o, "ImmutableStateInvariantMiddleware");
         d.measureTime(() => {
           if (l = a(), u = c.detectMutations(), c = s(l), u.wasMutated)
             throw new Error(process.env.NODE_ENV === "production" ? $e(19) : `A state mutation was detected between dispatches, in the path '${u.path || ""}'.  This may cause incorrect behavior. (https://redux.js.org/style-guide/style-guide#do-not-mutate-state)`);
         });
-        const b = h(v);
+        const b = h(g);
         return d.measureTime(() => {
           if (l = a(), u = c.detectMutations(), c = s(l), u.wasMutated)
-            throw new Error(process.env.NODE_ENV === "production" ? $e(20) : `A state mutation was detected inside a dispatch, in the path: ${u.path || ""}. Take a look at the reducer(s) handling the action ${t(v)}. (https://redux.js.org/style-guide/style-guide#do-not-mutate-state)`);
+            throw new Error(process.env.NODE_ENV === "production" ? $e(20) : `A state mutation was detected inside a dispatch, in the path: ${u.path || ""}. Take a look at the reducer(s) handling the action ${t(g)}. (https://redux.js.org/style-guide/style-guide#do-not-mutate-state)`);
         }), d.warnIfExceeded(), b;
       };
     };
@@ -1801,24 +1801,24 @@ function Fa(e = {}) {
       ignoreActions: l = !1,
       disableCache: c = !1
     } = e, u = !c && WeakSet ? /* @__PURE__ */ new WeakSet() : void 0;
-    return (h) => (v) => (d) => {
+    return (h) => (g) => (d) => {
       if (!Qi(d))
-        return v(d);
-      const b = v(d), f = fo(s, "SerializableStateInvariantMiddleware");
+        return g(d);
+      const b = g(d), f = fo(s, "SerializableStateInvariantMiddleware");
       return !l && !(n.length && n.indexOf(d.type) !== -1) && f.measureTime(() => {
-        const g = bn(d, "", t, r, i, u);
-        if (g) {
+        const v = bn(d, "", t, r, i, u);
+        if (v) {
           const {
             keyPath: m,
             value: w
-          } = g;
+          } = v;
           console.error(`A non-serializable value was detected in an action, in the path: \`${m}\`. Value:`, w, `
 Take a look at the logic that dispatched this action: `, d, `
 (See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants)`, `
 (To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)`);
         }
       }), a || (f.measureTime(() => {
-        const g = h.getState(), m = bn(g, "", t, r, o, u);
+        const v = h.getState(), m = bn(v, "", t, r, o, u);
         if (m) {
           const {
             keyPath: w,
@@ -1872,9 +1872,9 @@ var za = () => function(t) {
     // Override the base `store.subscribe` method to keep original listeners
     // from running if we're delaying notifications
     subscribe(u) {
-      const h = () => i && u(), v = n.subscribe(h);
+      const h = () => i && u(), g = n.subscribe(h);
       return a.add(u), () => {
-        v(), a.delete(u);
+        g(), a.delete(u);
       };
     },
     // Override the base `store.dispatch` method so that we can check actions
@@ -1929,13 +1929,13 @@ function Ma(e) {
   const u = na(...l), h = $a(u);
   if (!Nt && s && typeof s != "function")
     throw new Error(process.env.NODE_ENV === "production" ? $e(5) : "`enhancers` field must be a callback");
-  let v = typeof s == "function" ? s(h) : h();
-  if (!Nt && !Array.isArray(v))
+  let g = typeof s == "function" ? s(h) : h();
+  if (!Nt && !Array.isArray(g))
     throw new Error(process.env.NODE_ENV === "production" ? $e(6) : "`enhancers` callback must return an array");
-  if (!Nt && v.some((b) => typeof b != "function"))
+  if (!Nt && g.some((b) => typeof b != "function"))
     throw new Error(process.env.NODE_ENV === "production" ? $e(7) : "each enhancer provided to configureStore must be a function");
-  !Nt && l.length && !v.includes(u) && console.error("middlewares were provided, but middleware enhancer was not included in final enhancers - make sure to call `getDefaultEnhancers`");
-  const d = c(...v);
+  !Nt && l.length && !g.includes(u) && console.error("middlewares were provided, but middleware enhancer was not included in final enhancers - make sure to call `getDefaultEnhancers`");
+  const d = c(...g);
   return Tn(a, o, d);
 }
 function bo(e) {
@@ -1998,15 +1998,15 @@ function Ua(e, t) {
           return d === void 0 ? u : d;
         } else {
           if (Ct(u))
-            return ao(u, (v) => h(v, l));
+            return ao(u, (g) => h(g, l));
           {
-            const v = h(u, l);
-            if (v === void 0) {
+            const g = h(u, l);
+            if (g === void 0) {
               if (u === null)
                 return u;
               throw new Error(process.env.NODE_ENV === "production" ? $e(9) : "A case reducer on a non-draftable value must not return undefined");
             }
-            return v;
+            return g;
           }
         }
       return u;
@@ -2069,11 +2069,11 @@ var Ga = ["name", "message", "stack", "code"], on = class {
         requestId: l,
         requestStatus: "pending"
       }
-    })), s = Rt(t + "/rejected", (l, c, u, h, v) => ({
+    })), s = Rt(t + "/rejected", (l, c, u, h, g) => ({
       payload: h,
       error: (n && n.serializeError || Ka)(l || "Rejected"),
       meta: {
-        ...v || {},
+        ...g || {},
         arg: u,
         requestId: c,
         rejectedWithValue: !!h,
@@ -2084,12 +2084,12 @@ var Ga = ["name", "message", "stack", "code"], on = class {
     }));
     function a(l) {
       return (c, u, h) => {
-        const v = n != null && n.idGenerator ? n.idGenerator(l) : Wa(), d = new AbortController();
+        const g = n != null && n.idGenerator ? n.idGenerator(l) : Wa(), d = new AbortController();
         let b;
         function f(m) {
           b = m, d.abort();
         }
-        const g = async function() {
+        const v = async function() {
           var x, E;
           let m;
           try {
@@ -2106,8 +2106,8 @@ var Ga = ["name", "message", "stack", "code"], on = class {
               name: "AbortError",
               message: b || "Aborted"
             })));
-            c(o(v, l, (E = n == null ? void 0 : n.getPendingMeta) == null ? void 0 : E.call(n, {
-              requestId: v,
+            c(o(g, l, (E = n == null ? void 0 : n.getPendingMeta) == null ? void 0 : E.call(n, {
+              requestId: g,
               arg: l
             }, {
               getState: u,
@@ -2116,7 +2116,7 @@ var Ga = ["name", "message", "stack", "code"], on = class {
               dispatch: c,
               getState: u,
               extra: h,
-              requestId: v,
+              requestId: g,
               signal: d.signal,
               abort: f,
               rejectWithValue: (T, W) => new on(T, W),
@@ -2124,19 +2124,19 @@ var Ga = ["name", "message", "stack", "code"], on = class {
             })).then((T) => {
               if (T instanceof on)
                 throw T;
-              return T instanceof _i ? i(T.payload, v, l, T.meta) : i(T, v, l);
+              return T instanceof _i ? i(T.payload, g, l, T.meta) : i(T, g, l);
             })]);
           } catch (k) {
-            m = k instanceof on ? s(null, v, l, k.payload, k.meta) : s(k, v, l);
+            m = k instanceof on ? s(null, g, l, k.payload, k.meta) : s(k, g, l);
           }
           return n && !n.dispatchConditionRejection && s.match(m) && m.meta.condition || c(m), m;
         }();
-        return Object.assign(g, {
+        return Object.assign(v, {
           abort: f,
-          requestId: v,
+          requestId: g,
           arg: l,
           unwrap() {
-            return g.then(Ya);
+            return v.then(Ya);
           }
         });
       };
@@ -2184,31 +2184,31 @@ function Qa({
       actionCreators: {},
       sliceMatchers: []
     }, u = {
-      addCase(g, m) {
-        const w = typeof g == "string" ? g : g.type;
+      addCase(v, m) {
+        const w = typeof v == "string" ? v : v.type;
         if (!w)
           throw new Error(process.env.NODE_ENV === "production" ? $e(12) : "`context.addCase` cannot be called with an empty action type");
         if (w in c.sliceCaseReducersByType)
           throw new Error(process.env.NODE_ENV === "production" ? $e(13) : "`context.addCase` cannot be called with two reducers for the same action type: " + w);
         return c.sliceCaseReducersByType[w] = m, u;
       },
-      addMatcher(g, m) {
+      addMatcher(v, m) {
         return c.sliceMatchers.push({
-          matcher: g,
+          matcher: v,
           reducer: m
         }), u;
       },
-      exposeAction(g, m) {
-        return c.actionCreators[g] = m, u;
+      exposeAction(v, m) {
+        return c.actionCreators[v] = m, u;
       },
-      exposeCaseReducer(g, m) {
-        return c.sliceCaseReducersByName[g] = m, u;
+      exposeCaseReducer(v, m) {
+        return c.sliceCaseReducersByName[v] = m, u;
       }
     };
-    l.forEach((g) => {
-      const m = a[g], w = {
-        reducerName: g,
-        type: Ja(o, g),
+    l.forEach((v) => {
+      const m = a[v], w = {
+        reducerName: v,
+        type: Ja(o, v),
         createNotation: typeof i.reducers == "function"
       };
       nl(m) ? ol(w, m, u, t) : rl(w, m, u);
@@ -2216,8 +2216,8 @@ function Qa({
     function h() {
       if (process.env.NODE_ENV !== "production" && typeof i.extraReducers == "object")
         throw new Error(process.env.NODE_ENV === "production" ? $e(14) : "The object notation for `createSlice.extraReducers` has been removed. Please use the 'builder callback' notation instead: https://redux-toolkit.js.org/api/createSlice");
-      const [g = {}, m = [], w = void 0] = typeof i.extraReducers == "function" ? bo(i.extraReducers) : [i.extraReducers], x = {
-        ...g,
+      const [v = {}, m = [], w = void 0] = typeof i.extraReducers == "function" ? bo(i.extraReducers) : [i.extraReducers], x = {
+        ...v,
         ...c.sliceCaseReducersByType
       };
       return Ua(i.initialState, (E) => {
@@ -2230,34 +2230,34 @@ function Qa({
         w && E.addDefaultCase(w);
       });
     }
-    const v = (g) => g, d = /* @__PURE__ */ new WeakMap();
+    const g = (v) => v, d = /* @__PURE__ */ new WeakMap();
     let b;
     const f = {
       name: o,
       reducerPath: s,
-      reducer(g, m) {
-        return b || (b = h()), b(g, m);
+      reducer(v, m) {
+        return b || (b = h()), b(v, m);
       },
       actions: c.actionCreators,
       caseReducers: c.sliceCaseReducersByName,
       getInitialState() {
         return b || (b = h()), b.getInitialState();
       },
-      getSelectors(g = v) {
+      getSelectors(v = g) {
         const m = wi(d, this, {
           insert: () => /* @__PURE__ */ new WeakMap()
         });
-        return wi(m, g, {
+        return wi(m, v, {
           insert: () => {
             const w = {};
             for (const [x, E] of Object.entries(i.selectors ?? {}))
-              w[x] = el(this, E, g, this !== f);
+              w[x] = el(this, E, v, this !== f);
             return w;
           }
         });
       },
-      selectSlice(g) {
-        let m = g[this.reducerPath];
+      selectSlice(v) {
+        let m = v[this.reducerPath];
         if (typeof m > "u") {
           if (this !== f)
             m = this.getInitialState();
@@ -2269,12 +2269,12 @@ function Qa({
       get selectors() {
         return this.getSelectors(this.selectSlice);
       },
-      injectInto(g, {
+      injectInto(v, {
         reducerPath: m,
         ...w
       } = {}) {
         const x = m ?? this.reducerPath;
-        return g.inject({
+        return v.inject({
           reducerPath: x,
           reducer: this.reducer
         }, w), {
@@ -2424,21 +2424,36 @@ const ul = (e, t, r) => {
       r(i, n);
       return;
     } else
-      i.type === "folder" && (n.push(i), St(i.subFoldersAndFiles, t, r, n));
+      i.type === "folder" && (n.push(i), St(
+        i.subFoldersAndFiles,
+        t,
+        r,
+        n
+      ));
   n.pop();
 }, Wr = (e, t, r = [], n) => {
   for (const i of e)
     if (t(i, n), i.type === "folder") {
       const o = i.subFoldersAndFiles.map(({ id: s }) => s);
-      r.push(...o), n.push(i.id), Wr(i.subFoldersAndFiles, t, r, n), n.pop();
+      r.push(...o), n.push(i.id), Wr(
+        i.subFoldersAndFiles,
+        t,
+        r,
+        n
+      ), n.pop();
     }
   return { childrenIds: r, parentIds: n };
 }, Si = (e, t, r) => {
   if (t.includes(e)) {
     let n = "";
-    return St(r.subFoldersAndFiles, e, (i, o) => {
-      n = o[o.length - 1].id;
-    }, [r]), n;
+    return St(
+      r.subFoldersAndFiles,
+      e,
+      (i, o) => {
+        n = o[o.length - 1].id;
+      },
+      [r]
+    ), n;
   } else
     return e.includes("folder") ? e : "head";
 }, wo = (e, t, r) => {
@@ -2542,19 +2557,28 @@ const ul = (e, t, r) => {
       const r = t.payload.id ? t.payload.id : (o = e.contextSelected) == null ? void 0 : o.id, n = t.payload.type ? t.payload.type : (s = e.contextSelected) == null ? void 0 : s.type;
       if (r === e.initialFolder.id)
         return;
-      St(e.initialFolder.subFoldersAndFiles, r, (a, l) => {
-        const c = l[l.length - 1];
-        c.subFoldersAndFiles = c.subFoldersAndFiles.filter(({ id: v }) => v !== a.id);
-        const u = c.id;
-        e.normalized.folders.byId[u].childrenFlat = e.normalized.folders.byId[u].childrenFlat.filter(({ id: v }) => v !== a.id);
-        const h = (v) => {
-          for (const d of v) {
-            const { id: b, type: f } = d;
-            e.normalized[f + "s"].allIds = e.normalized[f + "s"].allIds.filter((g) => g !== b), d.type === "folder" && h(d.subFoldersAndFiles);
-          }
-        };
-        a.type === "folder" && h(a.subFoldersAndFiles), c.subFoldersAndFiles.length === 0 && (e.normalized.folders.byId[u].collapsed = !0);
-      }, [e.initialFolder]), e.normalized[n + "s"].allIds = e.normalized[n + "s"].allIds.filter((a) => a !== r);
+      St(
+        e.initialFolder.subFoldersAndFiles,
+        r,
+        (a, l) => {
+          const c = l[l.length - 1];
+          c.subFoldersAndFiles = c.subFoldersAndFiles.filter(
+            ({ id: g }) => g !== a.id
+          );
+          const u = c.id;
+          e.normalized.folders.byId[u].childrenFlat = e.normalized.folders.byId[u].childrenFlat.filter(
+            ({ id: g }) => g !== a.id
+          );
+          const h = (g) => {
+            for (const d of g) {
+              const { id: b, type: f } = d;
+              e.normalized[f + "s"].allIds = e.normalized[f + "s"].allIds.filter((v) => v !== b), d.type === "folder" && h(d.subFoldersAndFiles);
+            }
+          };
+          a.type === "folder" && h(a.subFoldersAndFiles), c.subFoldersAndFiles.length === 0 && (e.normalized.folders.byId[u].collapsed = !0);
+        },
+        [e.initialFolder]
+      ), e.normalized[n + "s"].allIds = e.normalized[n + "s"].allIds.filter((a) => a !== r);
       const i = e.normalized[n + "s"].allIds;
       i.find((a) => a === e.contextSelected.id) === void 0 && (e.contextSelected = {
         id: e.initialFolder.id,
@@ -2564,9 +2588,19 @@ const ul = (e, t, r) => {
     },
     renameNode: (e, t) => {
       let r = "", n = t.payload.value, i = "";
-      e.contextSelected.type === "file" && (n = t.payload.value.substring(0, t.payload.value.lastIndexOf(".")), i = t.payload.value.substring(t.payload.value.lastIndexOf(".") + 1)), St(e.initialFolder.subFoldersAndFiles, e.contextSelected.id, (o, s) => {
-        r = s[s.length - 1].id;
-      }, [e.initialFolder]), e.normalized[e.contextSelected.type + "s"].byId[e.contextSelected.id].name = n, e.contextSelected.type === "file" && (e.normalized.files.byId[e.contextSelected.id].extension = i), Mt.caseReducers.sortFolder(e, {
+      e.contextSelected.type === "file" && (n = t.payload.value.substring(
+        0,
+        t.payload.value.lastIndexOf(".")
+      ), i = t.payload.value.substring(
+        t.payload.value.lastIndexOf(".") + 1
+      )), St(
+        e.initialFolder.subFoldersAndFiles,
+        e.contextSelected.id,
+        (o, s) => {
+          r = s[s.length - 1].id;
+        },
+        [e.initialFolder]
+      ), e.normalized[e.contextSelected.type + "s"].byId[e.contextSelected.id].name = n, e.contextSelected.type === "file" && (e.normalized.files.byId[e.contextSelected.id].extension = i), Mt.caseReducers.sortFolder(e, {
         payload: { id: r },
         type: ""
       });
@@ -2684,15 +2718,22 @@ const ul = (e, t, r) => {
         var u;
         if (((u = e.toCopy) == null ? void 0 : u.type) === "folder") {
           const h = e.normalized.folders.byId[c.id].path.slice(0, -1);
-          Wr(c.subFoldersAndFiles, (v, d) => {
-            const b = d[d.length - 1], f = {
-              ...e.normalized[`${v.type}s`].byId[v.id]
-            };
-            f.id = `${f.type}-${sn()}`, f.path = [...h, ...d, f.id], e.normalized[`${f.type}s`].byId[f.id] = f, e.normalized[`${f.type}s`].allIds = [
-              ...e.normalized[`${f.type}s`].allIds,
-              f.id
-            ], e.normalized.folders.byId[b].childrenFlat = e.normalized.folders.byId[b].childrenFlat.map((g) => g.id === v.id ? { ...g, id: f.id } : g), v.id = f.id;
-          }, [], [c.id]);
+          Wr(
+            c.subFoldersAndFiles,
+            (g, d) => {
+              const b = d[d.length - 1], f = {
+                ...e.normalized[`${g.type}s`].byId[g.id]
+              };
+              f.id = `${f.type}-${sn()}`, f.path = [...h, ...d, f.id], e.normalized[`${f.type}s`].byId[f.id] = f, e.normalized[`${f.type}s`].allIds = [
+                ...e.normalized[`${f.type}s`].allIds,
+                f.id
+              ], e.normalized.folders.byId[b].childrenFlat = e.normalized.folders.byId[b].childrenFlat.map(
+                (v) => v.id === g.id ? { ...v, id: f.id } : v
+              ), g.id = f.id;
+            },
+            [],
+            [c.id]
+          );
         }
         return c;
       }, l = `${s.type}s`;
@@ -2712,31 +2753,36 @@ const ul = (e, t, r) => {
           }
         ];
       } else
-        St(e.initialFolder.subFoldersAndFiles, e.contextSelected.id, (c, u) => {
-          const h = e.normalized.folders.byId[c.id].path, v = [
-            ...u.map(({ id: f }) => f),
-            c.id
-          ];
-          e.normalized[l].byId[s.id].path = [
-            "/",
-            ...v,
-            s.id
-          ];
-          const d = a(s);
-          c.subFoldersAndFiles = [
-            ...c.subFoldersAndFiles,
-            {
-              id: d.id,
-              type: d.type,
-              subFoldersAndFiles: d.subFoldersAndFiles
-            }
-          ];
-          const b = `${s.type}s`;
-          e.normalized[b].byId[s.id].path = [
-            ...h,
-            s.id
-          ];
-        }, [e.initialFolder]);
+        St(
+          e.initialFolder.subFoldersAndFiles,
+          e.contextSelected.id,
+          (c, u) => {
+            const h = e.normalized.folders.byId[c.id].path, g = [
+              ...u.map(({ id: f }) => f),
+              c.id
+            ];
+            e.normalized[l].byId[s.id].path = [
+              "/",
+              ...g,
+              s.id
+            ];
+            const d = a(s);
+            c.subFoldersAndFiles = [
+              ...c.subFoldersAndFiles,
+              {
+                id: d.id,
+                type: d.type,
+                subFoldersAndFiles: d.subFoldersAndFiles
+              }
+            ];
+            const b = `${s.type}s`;
+            e.normalized[b].byId[s.id].path = [
+              ...h,
+              s.id
+            ];
+          },
+          [e.initialFolder]
+        );
       Mt.caseReducers.sortFolder(e, {
         payload: { id: e.contextSelected.id },
         type: ""
@@ -2774,47 +2820,82 @@ const ul = (e, t, r) => {
         parentId: "",
         subFoldersAndFiles: r
       };
-      n.type === "folder" && St(e.initialFolder.subFoldersAndFiles, t.payload.id, (i, o) => {
-        const s = o[o.length - 1];
-        n.subFoldersAndFiles = i.subFoldersAndFiles, n.parentId = s.id;
-      }, [e.initialFolder]), e.toCopy = n;
+      n.type === "folder" && St(
+        e.initialFolder.subFoldersAndFiles,
+        t.payload.id,
+        (i, o) => {
+          const s = o[o.length - 1];
+          n.subFoldersAndFiles = i.subFoldersAndFiles, n.parentId = s.id;
+        },
+        [e.initialFolder]
+      ), e.toCopy = n;
     },
     setParentItemId: (e, t) => {
       if (t.payload !== "")
         if (t.payload.includes("file")) {
           let r = "";
-          St(e.initialFolder.subFoldersAndFiles, t.payload, (n, i) => {
-            r = i[i.length - 1].id;
-          }, [e.initialFolder]), e.parentItemId = r;
+          St(
+            e.initialFolder.subFoldersAndFiles,
+            t.payload,
+            (n, i) => {
+              r = i[i.length - 1].id;
+            },
+            [e.initialFolder]
+          ), e.parentItemId = r;
         } else
           e.parentItemId = t.payload;
       else {
         let r = "";
-        St(e.initialFolder.subFoldersAndFiles, e.contextSelected.id, (n, i) => {
-          r = i[i.length - 1].id;
-        }, [e.initialFolder]), e.parentItemId = r;
+        St(
+          e.initialFolder.subFoldersAndFiles,
+          e.contextSelected.id,
+          (n, i) => {
+            r = i[i.length - 1].id;
+          },
+          [e.initialFolder]
+        ), e.parentItemId = r;
       }
     },
     setPath: (e, t) => {
-      St(e.initialFolder.subFoldersAndFiles, t.payload, (r, n) => {
-        const i = `${r.type}s`, o = e.normalized[i].byId[r.id];
-        o.path = ["/", ...n.map(({ id: s }) => s), r.id];
-      }, [e.initialFolder]);
+      St(
+        e.initialFolder.subFoldersAndFiles,
+        t.payload,
+        (r, n) => {
+          const i = `${r.type}s`, o = e.normalized[i].byId[r.id];
+          o.path = ["/", ...n.map(({ id: s }) => s), r.id];
+        },
+        [e.initialFolder]
+      );
     },
     sortFolder: (e, t) => {
-      wo(e.initialFolder, (r) => {
-        if (!(t.payload.id !== null && t.payload.id !== r.id) && (t.payload.id === null || r.id === t.payload.id)) {
-          const n = r.subFoldersAndFiles.map((i) => e.normalized[`${i.type}s`].byId[i.id]);
-          n.sort((i, o) => i.type === "folder" && o.type === "file" ? -1 : i.type === "file" && o.type === "folder" ? 1 : i.name.localeCompare(o.name)), r.subFoldersAndFiles = n.map(({ id: i, type: o }) => {
-            var a;
-            const s = (a = r.subFoldersAndFiles.find(({ id: l }) => l === i)) == null ? void 0 : a.subFoldersAndFiles;
-            return { id: i, type: o, subFoldersAndFiles: s };
-          });
-        }
-      }, t.payload.id);
+      wo(
+        e.initialFolder,
+        (r) => {
+          if (!(t.payload.id !== null && t.payload.id !== r.id) && (t.payload.id === null || r.id === t.payload.id)) {
+            const n = r.subFoldersAndFiles.map(
+              (i) => e.normalized[`${i.type}s`].byId[i.id]
+            );
+            n.sort(
+              (i, o) => i.type === "folder" && o.type === "file" ? -1 : i.type === "file" && o.type === "folder" ? 1 : i.name.localeCompare(o.name)
+            ), r.subFoldersAndFiles = n.map(
+              ({ id: i, type: o }) => {
+                var a;
+                const s = (a = r.subFoldersAndFiles.find(
+                  ({ id: l }) => l === i
+                )) == null ? void 0 : a.subFoldersAndFiles;
+                return { id: i, type: o, subFoldersAndFiles: s };
+              }
+            );
+          }
+        },
+        t.payload.id
+      );
     },
     search: (e, t) => {
-      e.searchTerm = t.payload.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+      e.searchTerm = t.payload.replace(
+        /[-[\]{}()*+?.,\\^$|#\s]/g,
+        "\\$&"
+      );
     },
     setResizeCollapsed: (e, t) => {
       e.resizeCollapsed = t.payload;
@@ -2835,60 +2916,81 @@ const ul = (e, t, r) => {
 }, pl = (e) => {
   var t;
   return (t = e.structure.contextSelected) == null ? void 0 : t.type;
-}, ml = (e) => e.structure.normalized.files.allIds, yl = (e) => e.structure.normalized.folders.allIds, xo = (e) => e.structure.toCopy, gl = (e) => e.structure.searchTerm, So = Zt((e) => e.structure.selected, (e) => e), vl = Zt((e) => e.structure.contextSelected, (e) => e.structure.normalized, (e, t) => {
-  const r = t[`${e == null ? void 0 : e.type}s`].byId[e == null ? void 0 : e.id];
-  let n = r.name;
-  r.type === "file" && (n = `${r.name}.${r.extension}`);
-  const i = `${r.path.filter((o) => o !== "/" && o !== "head").map((o, s) => (e == null ? void 0 : e.type) === "file" ? s < r.path.length - 3 ? t.folders.byId[o].name : `${t.files.byId[o].name}.${t.files.byId[o].extension}` : (e == null ? void 0 : e.type) === "folder" ? t.folders.byId[o].name : "UNKNOWN").join("/")}`;
-  return {
-    id: r.id,
-    name: r.name,
-    type: r.type,
-    wholeName: n,
-    actualPath: i
-  };
-}), bl = Zt((e) => e.structure.contextSelected, (e) => e.structure.normalized, (e, t) => {
-  if (!e)
-    return { id: void 0, name: void 0 };
-  const r = t[`${e.type}s`].byId[e.id];
-  return r.type === "file" ? {
-    id: r.id,
-    name: r.name,
-    type: r.type,
-    extension: r.extension
-  } : {
-    id: r.id,
-    name: r.name,
-    type: r.type
-  };
-}), wl = Zt((e) => e.structure.normalized, (e) => e.structure.parentItemId, (e, t) => !e || !t ? [] : e.folders.byId[`${t}`].childrenFlat.map(({ id: r, type: n }) => e[`${n}s`].byId[r])), Eo = Zt((e) => e.structure.searchTerm, (e) => e.structure.normalized.files, (e, t) => {
-  const r = {
-    files: [],
-    numOfResults: 0,
-    numOfLines: 0
-  };
-  if (e.trim() === "")
-    return r;
-  const n = [];
-  return t.allIds.forEach((i) => {
-    const o = t.byId[i], s = o.content, a = new RegExp(e, "g"), l = s.match(a), c = [];
-    if (l) {
-      r.numOfResults += 1, r.numOfLines += l.length;
-      const u = s.split("\r");
-      for (let h = 0; h < u.length; h++)
-        u[h].includes(l[0]) && c.push({
-          line: h + 1,
-          content: u[h].trim()
+}, ml = (e) => e.structure.normalized.files.allIds, yl = (e) => e.structure.normalized.folders.allIds, xo = (e) => e.structure.toCopy, gl = (e) => e.structure.searchTerm, So = Zt(
+  (e) => e.structure.selected,
+  (e) => e
+), vl = Zt(
+  (e) => e.structure.contextSelected,
+  (e) => e.structure.normalized,
+  (e, t) => {
+    const r = t[`${e == null ? void 0 : e.type}s`].byId[e == null ? void 0 : e.id];
+    let n = r.name;
+    r.type === "file" && (n = `${r.name}.${r.extension}`);
+    const i = `${r.path.filter((o) => o !== "/" && o !== "head").map((o, s) => (e == null ? void 0 : e.type) === "file" ? s < r.path.length - 3 ? t.folders.byId[o].name : `${t.files.byId[o].name}.${t.files.byId[o].extension}` : (e == null ? void 0 : e.type) === "folder" ? t.folders.byId[o].name : "UNKNOWN").join("/")}`;
+    return {
+      id: r.id,
+      name: r.name,
+      type: r.type,
+      wholeName: n,
+      actualPath: i
+    };
+  }
+), bl = Zt(
+  (e) => e.structure.contextSelected,
+  (e) => e.structure.normalized,
+  (e, t) => {
+    if (!e)
+      return { id: void 0, name: void 0 };
+    const r = t[`${e.type}s`].byId[e.id];
+    return r.type === "file" ? {
+      id: r.id,
+      name: r.name,
+      type: r.type,
+      extension: r.extension
+    } : {
+      id: r.id,
+      name: r.name,
+      type: r.type
+    };
+  }
+), wl = Zt(
+  (e) => e.structure.normalized,
+  (e) => e.structure.parentItemId,
+  (e, t) => !e || !t ? [] : e.folders.byId[`${t}`].childrenFlat.map(
+    ({ id: r, type: n }) => e[`${n}s`].byId[r]
+  )
+), Eo = Zt(
+  (e) => e.structure.searchTerm,
+  (e) => e.structure.normalized.files,
+  (e, t) => {
+    const r = {
+      files: [],
+      numOfResults: 0,
+      numOfLines: 0
+    };
+    if (e.trim() === "")
+      return r;
+    const n = [];
+    return t.allIds.forEach((i) => {
+      const o = t.byId[i], s = o.content, a = new RegExp(e, "g"), l = s.match(a), c = [];
+      if (l) {
+        r.numOfResults += 1, r.numOfLines += l.length;
+        const u = s.split("\r");
+        for (let h = 0; h < u.length; h++)
+          u[h].includes(l[0]) && c.push({
+            line: h + 1,
+            content: u[h].trim()
+          });
+        n.push({
+          id: o.id,
+          name: o.name,
+          extension: o.extension,
+          matches: c
         });
-      n.push({
-        id: o.id,
-        name: o.name,
-        extension: o.extension,
-        matches: c
-      });
-    }
-  }), r.files = n, r;
-}), {
+      }
+    }), r.files = n, r;
+  }
+), {
   addNode: _l,
   removeNode: xl,
   renameNode: Sl,
@@ -2925,17 +3027,17 @@ function Ol() {
       return c === u && (c !== 0 || 1 / c === 1 / u) || c !== c && u !== u;
     }
     var r = typeof Object.is == "function" ? Object.is : t, n = e.useSyncExternalStore, i = e.useRef, o = e.useEffect, s = e.useMemo, a = e.useDebugValue;
-    function l(c, u, h, v, d) {
+    function l(c, u, h, g, d) {
       var b = i(null), f;
       b.current === null ? (f = {
         hasValue: !1,
         value: null
       }, b.current = f) : f = b.current;
-      var g = s(function() {
+      var v = s(function() {
         var E = !1, k, R, T = function(J) {
           if (!E) {
             E = !0, k = J;
-            var C = v(J);
+            var C = g(J);
             if (d !== void 0 && f.hasValue) {
               var F = f.value;
               if (d(F, C))
@@ -2946,7 +3048,7 @@ function Ol() {
           var y = k, P = R;
           if (r(y, J))
             return P;
-          var se = v(J);
+          var se = g(J);
           return d !== void 0 && d(P, se) ? P : (k = J, R = se, se);
         }, W = h === void 0 ? null : h, j = function() {
           return T(u());
@@ -2954,7 +3056,7 @@ function Ol() {
           return T(W());
         };
         return [j, K];
-      }, [u, h, v, d]), m = g[0], w = g[1], x = n(c, m, w);
+      }, [u, h, g, d]), m = v[0], w = v[1], x = n(c, m, w);
       return o(function() {
         f.hasValue = !0, f.value = x;
       }, [x]), a(x), x;
@@ -2982,7 +3084,7 @@ function Al() {
     return l === c && (l !== 0 || 1 / l === 1 / c) || l !== l && c !== c;
   }
   var r = typeof Object.is == "function" ? Object.is : t, n = e.useSyncExternalStore, i = e.useRef, o = e.useEffect, s = e.useMemo, a = e.useDebugValue;
-  return ln.useSyncExternalStoreWithSelector = function(l, c, u, h, v) {
+  return ln.useSyncExternalStoreWithSelector = function(l, c, u, h, g) {
     var d = i(null);
     if (d.current === null) {
       var b = { hasValue: !1, value: null };
@@ -2990,11 +3092,11 @@ function Al() {
     } else
       b = d.current;
     d = s(function() {
-      function g(k) {
+      function v(k) {
         if (!m) {
-          if (m = !0, w = k, k = h(k), v !== void 0 && b.hasValue) {
+          if (m = !0, w = k, k = h(k), g !== void 0 && b.hasValue) {
             var R = b.value;
-            if (v(R, k))
+            if (g(R, k))
               return x = R;
           }
           return x = k;
@@ -3002,15 +3104,15 @@ function Al() {
         if (R = x, r(w, k))
           return R;
         var T = h(k);
-        return v !== void 0 && v(R, T) ? R : (w = k, x = T);
+        return g !== void 0 && g(R, T) ? R : (w = k, x = T);
       }
       var m = !1, w, x, E = u === void 0 ? null : u;
       return [function() {
-        return g(c());
+        return v(c());
       }, E === null ? void 0 : function() {
-        return g(E());
+        return v(E());
       }];
-    }, [c, u, h, v]);
+    }, [c, u, h, g]);
     var f = n(l, d[0], d[1]);
     return o(function() {
       b.hasValue = !0, b.value = f;
@@ -3071,10 +3173,10 @@ function Fl(e = jt) {
       getServerState: c,
       stabilityCheck: u,
       identityFunctionCheck: h
-    } = t(), v = pt.useRef(!0), d = pt.useCallback(
+    } = t(), g = pt.useRef(!0), d = pt.useCallback(
       {
         [n.name](f) {
-          const g = n(f);
+          const v = n(f);
           if (process.env.NODE_ENV !== "production") {
             const {
               identityFunctionCheck: m,
@@ -3084,9 +3186,9 @@ function Fl(e = jt) {
               identityFunctionCheck: h,
               ...s
             };
-            if (w === "always" || w === "once" && v.current) {
+            if (w === "always" || w === "once" && g.current) {
               const x = n(f);
-              if (!o(g, x)) {
+              if (!o(v, x)) {
                 let E;
                 try {
                   throw new Error();
@@ -3098,14 +3200,14 @@ function Fl(e = jt) {
 Selectors that return a new reference (such as an object or an array) should be memoized: https://redux.js.org/usage/deriving-data-selectors#optimizing-selectors-with-memoization`,
                   {
                     state: f,
-                    selected: g,
+                    selected: v,
                     selected2: x,
                     stack: E
                   }
                 );
               }
             }
-            if ((m === "always" || m === "once" && v.current) && g === f) {
+            if ((m === "always" || m === "once" && g.current) && v === f) {
               let x;
               try {
                 throw new Error();
@@ -3118,9 +3220,9 @@ Selectors that return the entire state are almost certainly a mistake, as they w
                 { stack: x }
               );
             }
-            v.current && (v.current = !1);
+            g.current && (g.current = !1);
           }
-          return g;
+          return v;
         }
       }[n.name],
       [n, u, s.stabilityCheck]
@@ -3177,10 +3279,10 @@ function Pl(e, t) {
   let r, n = Ii, i = 0, o = !1;
   function s(f) {
     u();
-    const g = n.subscribe(f);
+    const v = n.subscribe(f);
     let m = !1;
     return () => {
-      m || (m = !0, g(), h());
+      m || (m = !0, v(), h());
     };
   }
   function a() {
@@ -3198,7 +3300,7 @@ function Pl(e, t) {
   function h() {
     i--, r && i === 0 && (r(), r = void 0, n.clear(), n = Ii);
   }
-  function v() {
+  function g() {
     o || (o = !0, u());
   }
   function d() {
@@ -3209,7 +3311,7 @@ function Pl(e, t) {
     notifyNestedSubs: a,
     handleChangeWrapper: l,
     isSubscribed: c,
-    trySubscribe: v,
+    trySubscribe: g,
     tryUnsubscribe: d,
     getListeners: () => n
   };
@@ -3272,10 +3374,16 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
   open: [],
   selected: "",
   selectionStack: []
-}, xn = Fn("removeTabAsync", async (e, { getState: t }) => t().structure.normalized), $n = Fn("setActiveTabAsync", async (e, { getState: t }) => {
-  const n = t().structure.normalized;
-  return { id: e, normalized: n };
-}), No = zn({
+}, xn = Fn(
+  "removeTabAsync",
+  async (e, { getState: t }) => t().structure.normalized
+), $n = Fn(
+  "setActiveTabAsync",
+  async (e, { getState: t }) => {
+    const n = t().structure.normalized;
+    return { id: e, normalized: n };
+  }
+), No = zn({
   name: "tabs",
   initialState: Zl,
   reducers: {
@@ -3283,8 +3391,12 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
       e.selected !== "" && e.selectionStack[e.selectionStack.length - 1] !== e.selected && (e.selectionStack = [...e.selectionStack, e.selected]), e.selected = t.payload;
     },
     closeTab: (e, t) => {
-      if (e.open = e.open.filter(({ id: r }) => r !== t.payload), e.selectionStack = e.selectionStack.filter((r) => r !== t.payload), e.selected === t.payload) {
-        const r = e.selectionStack.filter((i) => i !== t.payload), n = r.pop();
+      if (e.open = e.open.filter(({ id: r }) => r !== t.payload), e.selectionStack = e.selectionStack.filter(
+        (r) => r !== t.payload
+      ), e.selected === t.payload) {
+        const r = e.selectionStack.filter(
+          (i) => i !== t.payload
+        ), n = r.pop();
         e.selected = n || "", e.selectionStack = r;
       }
     },
@@ -3295,7 +3407,14 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
   extraReducers: (e) => {
     e.addCase(xn.fulfilled, (t, r) => {
       const n = r.payload;
-      t.open = t.open.filter((i) => n.files.allIds.find((o) => o === i.id) !== void 0), t.selectionStack = t.selectionStack.filter((i) => n.files.allIds.find((o) => o === i) !== void 0), t.open.find(({ id: i }) => i === t.selected) || (t.selected = t.selectionStack[t.selectionStack.length - 1], t.selectionStack = t.selectionStack.slice(0, t.selectionStack.length - 1));
+      t.open = t.open.filter(
+        (i) => n.files.allIds.find((o) => o === i.id) !== void 0
+      ), t.selectionStack = t.selectionStack.filter(
+        (i) => n.files.allIds.find((o) => o === i) !== void 0
+      ), t.open.find(({ id: i }) => i === t.selected) || (t.selected = t.selectionStack[t.selectionStack.length - 1], t.selectionStack = t.selectionStack.slice(
+        0,
+        t.selectionStack.length - 1
+      ));
     }).addCase($n.fulfilled, (t, r) => {
       const n = r.payload.normalized, i = r.payload.id, o = n.files.byId[i];
       t.open.filter(({ id: s }) => s === o.id).length === 0 && (t.open = [
@@ -3304,21 +3423,57 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
       ]), (t.selected !== "" && t.selectionStack[t.selectionStack.length - 1] !== t.selected || t.selectionStack.length === 0) && (t.selectionStack = [...t.selectionStack, t.selected]), t.selected = o.id;
     });
   }
-}), { closeTab: Gl, selectTab: Kl, closeAllTabs: cd } = No.actions, Yl = No.reducer, ql = (e) => e.tabs.selected, Xl = Zt((e) => e.structure.normalized, (e) => e.tabs.open, (e, t) => t.map((r) => {
-  const n = e.files.byId[r.id];
-  return {
-    ...r,
-    extension: n.extension,
-    wholeName: `${n.name}.${n.extension}`
-  };
-})), To = ({ item: e, onClickE: t, className: r, style: n }) => M.jsx("button", { type: "button", "parent-id": e.id, "typeof-item": e.type, onClick: (i) => {
-  t(i);
-}, style: n, className: `transition-colors w-[14px] border-r hover:border-vscode-blue border-monaco-color ${r}` }), Jl = ({ item: e, selected: t, showBlue: r, onClickE: n, primaryClass: i, secondaryClass: o }) => M.jsx("button", { type: "button", "typeof-item": e.type, "parent-id": e.id, onClick: (s) => {
-  n(s);
-}, className: `px-2 rounded-r-sm ${t === e.id && r ? `hover:bg-blue-400 ${i}` : `hover:bg-slate-500 ${o}`}`, children: M.jsx("span", { className: "three-dots transition-opacity", children: " " }) }), ar = (e) => `${e}-logo`, Ql = (e, t, r, n, i) => {
+}), { closeTab: Gl, selectTab: Kl, closeAllTabs: cd } = No.actions, Yl = No.reducer, ql = (e) => e.tabs.selected, Xl = Zt(
+  (e) => e.structure.normalized,
+  (e) => e.tabs.open,
+  (e, t) => t.map((r) => {
+    const n = e.files.byId[r.id];
+    return {
+      ...r,
+      extension: n.extension,
+      wholeName: `${n.name}.${n.extension}`
+    };
+  })
+), To = ({
+  item: e,
+  onClickE: t,
+  className: r,
+  style: n
+}) => /* @__PURE__ */ M.jsx(
+  "button",
+  {
+    type: "button",
+    "parent-id": e.id,
+    "typeof-item": e.type,
+    onClick: (i) => {
+      t(i);
+    },
+    style: n,
+    className: `transition-colors w-[14px] border-r hover:border-vscode-blue border-monaco-color ${r}`
+  }
+), Jl = ({
+  item: e,
+  selected: t,
+  showBlue: r,
+  onClickE: n,
+  primaryClass: i,
+  secondaryClass: o
+}) => /* @__PURE__ */ M.jsx(
+  "button",
+  {
+    type: "button",
+    "typeof-item": e.type,
+    "parent-id": e.id,
+    onClick: (s) => {
+      n(s);
+    },
+    className: `px-2 rounded-r-sm ${t === e.id && r ? `hover:bg-blue-400 ${i}` : `hover:bg-slate-500 ${o}`}`,
+    children: /* @__PURE__ */ M.jsx("span", { className: "three-dots transition-opacity", children: " " })
+  }
+), ar = (e) => `${e}-logo`, Ql = (e, t, r, n, i) => {
   const o = /^([^\\]*)\.(\w+)$/, s = /^[a-zA-Z0-9](?:[a-zA-Z0-9 ._-]*[a-zA-Z0-9])?\.[a-zA-Z0-9_-]+$/, a = /^[a-z0-9._]+$/i, l = t.match(s), c = t.match(o), u = t.match(a);
   if (c && u) {
-    const h = n, v = c[1], d = c[2];
+    const h = n, g = c[1], d = c[2];
     if (l && u && h.includes(d)) {
       for (const { wholeName: b, type: f } of r)
         if (b.toLowerCase() === t.toLowerCase() && f === i.type && b.split(".").reverse()[0] === d)
@@ -3332,7 +3487,7 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
         ext: d
       };
     } else if (d !== "" || !l)
-      return h.includes(d) ? v === "" ? {
+      return h.includes(d) ? g === "" ? {
         error: !0,
         errorMessage: "The file name cannot be empty. Please enter a valid file name."
       } : {
@@ -3376,7 +3531,13 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
       error: !0,
       errorMessage: "This name is not valid as a folder name. Please choose a different name."
     };
-}, ji = (e, t, r, n, i) => t.type === "file" ? Ql(e, r, n, i, t) : t.type === "folder" ? ec(r, n) : {
+}, ji = (e, t, r, n, i) => t.type === "file" ? Ql(
+  e,
+  r,
+  n,
+  i,
+  t
+) : t.type === "folder" ? ec(r, n) : {
   error: !0,
   errorMessage: ""
 }, Mn = ({ item: e, onClickE: t, className: r }) => {
@@ -3386,36 +3547,149 @@ const Ln = ht.createContext(null), Wl = Vl(Ln), Hl = Fl(Ln), ur = Wl, Ke = Hl, Z
     if (i.type === "file" && i.extension)
       return ar(i.extension);
   };
-  return M.jsxs("div", { onClick: (i) => {
-    t(i);
-  }, "parent-id": e.id, "typeof-item": e.type, className: `w-full py-[0.32rem] pl-3 flex flex-row justify-start items-center collapsable ${r}`, children: [M.jsx("span", { "typeof-item": e.type, "parent-id": e.id, className: `span-logo span-logo-width ${n(e)}`, children: " " }), M.jsx("span", { "typeof-item": e.type, "parent-id": e.id, className: "px-1 mx-1 ", children: (() => {
-    let i = "";
-    return e.type === "file" ? i = `${e.name}.${e.extension}` : e.type === "folder" && (i = e.name), i;
-  })() })] });
-}, Ro = ({ data: e, showBlue: t, setShowBlue: r, showGray: n, setShowGray: i, collapseBtnClassname: o, collapseBtnStyle: s, threeDotPrimaryClass: a, threeDotSecondaryClass: l, clickableAreaClassName: c, selectedClickableAreaClassName: u, contextSelectedClickableAreaClassName: h, itemTitleClassName: v, onItemSelected: d = () => {
-}, onItemContextSelected: b = () => {
-} }) => {
-  const f = ur(), g = Ke(So), m = Ke(_o), w = Ke(xo), x = Ke((E) => e.map(({ id: R, type: T }) => E.structure.normalized[`${T}s`].byId[R]));
-  return M.jsx("div", { className: `${x.length > 0 && "w-full"}`, children: x.map((E) => M.jsxs("div", { className: "flex flex-col select-none mr-1 w-full", children: [M.jsxs("div", { id: E.id, "typeof-item": E.type, className: `border border-transparent mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-slate-300 justify-between text-black ${c} ${g === E.id && t ? `bg-vscode-overlay hover:bg-vscode-blue ${u}` : m === E.id && n ? `bg-slate-700 hover:bg-slate-600 text-white ${h}` : ""}  ${w != null && w.isCut && w.id === E.id ? "opacity-50" : ""} }`, children: [M.jsx(Mn, { item: E, onClickE: (k) => {
-    k.stopPropagation(), f(zr({ id: E.id, type: E.type })), r(!0), i(!1), E.type === "file" ? f($n(E.id)) : f(wn({
-      item: { id: E.id, type: E.type },
-      collapse: !0
-    })), d({ id: E.id, type: E.type });
-  }, className: v }), M.jsx(Jl, { item: E, selected: g, primaryClass: a, secondaryClass: l, showBlue: t, onClickE: (k) => {
-    k.stopPropagation(), r(!1), i(!0), f(ko({
-      id: E.id,
-      type: E.type,
-      threeDot: { x: k.clientY, y: k.clientX }
-    })), b({ id: E.id, type: E.type });
-  } })] }), M.jsxs(M.Fragment, { children: [M.jsx("div", { id: `ghost-input-${E.id}` }), E.type === "folder" && !E.collapsed && M.jsxs("div", { className: "flex flex-row sub-folder", children: [M.jsx(To, { item: E, className: o, style: s, onClickE: (k) => {
-    k.stopPropagation(), r(!0), i(!1), f(zr({ id: E.id, type: E.type })), f(wn({
-      item: { id: E.id, type: E.type },
-      collapse: !0
-    }));
-  } }), M.jsx(Ro, { data: (() => {
-    const k = e.find((R) => R.id === E.id);
-    return k == null ? void 0 : k.subFoldersAndFiles;
-  })(), showBlue: t, setShowBlue: r, showGray: n, setShowGray: i, collapseBtnClassname: o, collapseBtnStyle: s, threeDotPrimaryClass: a, threeDotSecondaryClass: l, clickableAreaClassName: c, selectedClickableAreaClassName: u, contextSelectedClickableAreaClassName: h, itemTitleClassName: v, onItemSelected: d, onItemContextSelected: b })] })] })] }, E.id)) });
+  return /* @__PURE__ */ M.jsxs(
+    "div",
+    {
+      onClick: (i) => {
+        t(i);
+      },
+      "parent-id": e.id,
+      "typeof-item": e.type,
+      className: `w-full py-[0.32rem] pl-3 flex flex-row justify-start items-center collapsable ${r}`,
+      children: [
+        /* @__PURE__ */ M.jsx(
+          "span",
+          {
+            "typeof-item": e.type,
+            "parent-id": e.id,
+            className: `span-logo span-logo-width ${n(e)}`,
+            children: " "
+          }
+        ),
+        /* @__PURE__ */ M.jsx("span", { "typeof-item": e.type, "parent-id": e.id, className: "px-1 mx-1 ", children: (() => {
+          let i = "";
+          return e.type === "file" ? i = `${e.name}.${e.extension}` : e.type === "folder" && (i = e.name), i;
+        })() })
+      ]
+    }
+  );
+}, Ro = ({
+  data: e,
+  showBlue: t,
+  setShowBlue: r,
+  showGray: n,
+  setShowGray: i,
+  collapseBtnClassname: o,
+  collapseBtnStyle: s,
+  threeDotPrimaryClass: a,
+  threeDotSecondaryClass: l,
+  clickableAreaClassName: c,
+  selectedClickableAreaClassName: u,
+  contextSelectedClickableAreaClassName: h,
+  itemTitleClassName: g,
+  onItemSelected: d = () => {
+  },
+  onItemContextSelected: b = () => {
+  }
+}) => {
+  const f = ur(), v = Ke(So), m = Ke(_o), w = Ke(xo), x = Ke((E) => e.map(({ id: R, type: T }) => E.structure.normalized[`${T}s`].byId[R]));
+  return /* @__PURE__ */ M.jsx("div", { className: `${x.length > 0 && "w-full"}`, children: x.map((E) => /* @__PURE__ */ M.jsxs(
+    "div",
+    {
+      className: "flex flex-col select-none mr-1 w-full",
+      children: [
+        /* @__PURE__ */ M.jsxs(
+          "div",
+          {
+            id: E.id,
+            "typeof-item": E.type,
+            className: `border border-transparent mr-1 transition-colors flex flex-row hover:cursor-pointer rounded-r-sm clickable hover:bg-slate-300 justify-between text-black ${c} ${v === E.id && t ? `bg-vscode-overlay hover:bg-vscode-blue ${u}` : m === E.id && n ? `bg-slate-700 hover:bg-slate-600 text-white ${h}` : ""}  ${w != null && w.isCut && w.id === E.id ? "opacity-50" : ""} }`,
+            children: [
+              /* @__PURE__ */ M.jsx(
+                Mn,
+                {
+                  item: E,
+                  onClickE: (k) => {
+                    k.stopPropagation(), f(zr({ id: E.id, type: E.type })), r(!0), i(!1), E.type === "file" ? f($n(E.id)) : f(
+                      wn({
+                        item: { id: E.id, type: E.type },
+                        collapse: !0
+                      })
+                    ), d({ id: E.id, type: E.type });
+                  },
+                  className: g
+                }
+              ),
+              /* @__PURE__ */ M.jsx(
+                Jl,
+                {
+                  item: E,
+                  selected: v,
+                  primaryClass: a,
+                  secondaryClass: l,
+                  showBlue: t,
+                  onClickE: (k) => {
+                    k.stopPropagation(), r(!1), i(!0), f(
+                      ko({
+                        id: E.id,
+                        type: E.type,
+                        threeDot: { x: k.clientY, y: k.clientX }
+                      })
+                    ), b({ id: E.id, type: E.type });
+                  }
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ M.jsxs(M.Fragment, { children: [
+          /* @__PURE__ */ M.jsx("div", { id: `ghost-input-${E.id}` }),
+          E.type === "folder" && !E.collapsed && /* @__PURE__ */ M.jsxs("div", { className: "flex flex-row sub-folder", children: [
+            /* @__PURE__ */ M.jsx(
+              To,
+              {
+                item: E,
+                className: o,
+                style: s,
+                onClickE: (k) => {
+                  k.stopPropagation(), r(!0), i(!1), f(zr({ id: E.id, type: E.type })), f(
+                    wn({
+                      item: { id: E.id, type: E.type },
+                      collapse: !0
+                    })
+                  );
+                }
+              }
+            ),
+            /* @__PURE__ */ M.jsx(
+              Ro,
+              {
+                data: (() => {
+                  const k = e.find((R) => R.id === E.id);
+                  return k == null ? void 0 : k.subFoldersAndFiles;
+                })(),
+                showBlue: t,
+                setShowBlue: r,
+                showGray: n,
+                setShowGray: i,
+                collapseBtnClassname: o,
+                collapseBtnStyle: s,
+                threeDotPrimaryClass: a,
+                threeDotSecondaryClass: l,
+                clickableAreaClassName: c,
+                selectedClickableAreaClassName: u,
+                contextSelectedClickableAreaClassName: h,
+                itemTitleClassName: g,
+                onItemSelected: d,
+                onItemContextSelected: b
+              }
+            )
+          ] })
+        ] })
+      ]
+    },
+    E.id
+  )) });
 };
 function dr(e, t) {
   Ae(() => {
@@ -3427,27 +3701,71 @@ function dr(e, t) {
     };
   }, [e, t]);
 }
-const tc = ({ top: e, left: t, setShowContext: r, actions: n, className: i, clickableAreaClassName: o, hrColor: s }) => {
+const tc = ({
+  top: e,
+  left: t,
+  setShowContext: r,
+  actions: n,
+  className: i,
+  clickableAreaClassName: o,
+  hrColor: s
+}) => {
   const a = Ye(null);
-  return dr(a, r), M.jsx("div", { ref: a, className: `absolute bg-monaco-color rounded-md px-1 py-2 w-48 box-border text-sm z-50 ${i}`, style: { top: `${e}px`, left: `${t}px` }, children: M.jsx("ul", { className: "w-full", children: n.map((l, c) => l.type === "hr" ? M.jsx("hr", { style: { borderTopColor: s }, className: "my-2 border-t border-t-zinc-600" }, c) : M.jsx("li", { onClick: () => {
-    l.disabled || (l.handler(), r(!1));
-  }, className: `rounded-md px-7 py-1 ${l.disabled ? "text-zinc-500" : `hover:bg-hover-blue cursor-pointer text-white ${o}`} `, children: M.jsx("span", { className: "select-none", children: l.title }) }, c)) }) });
-}, rc = "new-file-logo", Fi = "error-logo", nc = "closed-folder", ic = "rename-logo", oc = ({ closeCallback: e, submit: t, padding: r, show: n, item: i, container: o, validExtensions: s, existingItems: a, className: l, style: c }) => {
+  return dr(a, r), /* @__PURE__ */ M.jsx(
+    "div",
+    {
+      ref: a,
+      className: `absolute bg-monaco-color rounded-md px-1 py-2 w-48 box-border text-sm z-50 ${i}`,
+      style: { top: `${e}px`, left: `${t}px` },
+      children: /* @__PURE__ */ M.jsx("ul", { className: "w-full", children: n.map((l, c) => l.type === "hr" ? /* @__PURE__ */ M.jsx(
+        "hr",
+        {
+          style: { borderTopColor: s },
+          className: "my-2 border-t border-t-zinc-600"
+        },
+        c
+      ) : /* @__PURE__ */ M.jsx(
+        "li",
+        {
+          onClick: () => {
+            l.disabled || (l.handler(), r(!1));
+          },
+          className: `rounded-md px-7 py-1 ${l.disabled ? "text-zinc-500" : `hover:bg-hover-blue cursor-pointer text-white ${o}`} `,
+          children: /* @__PURE__ */ M.jsx("span", { className: "select-none", children: l.title })
+        },
+        c
+      )) })
+    }
+  );
+}, rc = "new-file-logo", Fi = "error-logo", nc = "closed-folder", ic = "rename-logo", oc = ({
+  closeCallback: e,
+  submit: t,
+  padding: r,
+  show: n,
+  item: i,
+  container: o,
+  validExtensions: s,
+  existingItems: a,
+  className: l,
+  style: c
+}) => {
   var K;
-  const [u, h] = Ee((K = i.rename) != null && K.wholeName ? i.rename.wholeName : ""), v = Ye(null), d = Ye(null), b = Ye(null), [f, g] = Ee(!1), [m, w] = Ee(""), x = i.rename ? ic : i.type === "file" ? rc : nc, [E, k] = Ee(x), [R, T] = Ee("bottom"), W = (J) => {
-    if (!J || !v.current)
+  const [u, h] = Ee(
+    (K = i.rename) != null && K.wholeName ? i.rename.wholeName : ""
+  ), g = Ye(null), d = Ye(null), b = Ye(null), [f, v] = Ee(!1), [m, w] = Ee(""), x = i.rename ? ic : i.type === "file" ? rc : nc, [E, k] = Ee(x), [R, T] = Ee("bottom"), W = (J) => {
+    if (!J || !g.current)
       return "";
-    const C = J.offsetTop, F = J.scrollTop, P = v.current.offsetTop - C;
+    const C = J.offsetTop, F = J.scrollTop, P = g.current.offsetTop - C;
     return P - F < 393 && F < P ? P - F < 196 ? "bottom" : F - 196 < P ? "top" : "" : "";
   }, j = (J) => {
-    J.error ? J.errorMessage !== "" ? (g(!0), k(Fi), w(J.errorMessage)) : (g(!0), k(x), w("")) : (g(!1), i.type === "file" ? k(ar(J.ext)) : k(x), w(""));
+    J.error ? J.errorMessage !== "" ? (v(!0), k(Fi), w(J.errorMessage)) : (v(!0), k(x), w("")) : (v(!1), i.type === "file" ? k(ar(J.ext)) : k(x), w(""));
   };
   return Ae(() => {
     if (!b.current || !f || m === "" || !o)
       return;
     const J = W(o);
     J !== "" && J !== R && T(J);
-  }, [f, m, o, R]), dr(v, () => {
+  }, [f, m, o, R]), dr(g, () => {
     !f && u.length > 0 && t(u), e(!1);
   }), Ae(() => {
     d.current && setTimeout(() => {
@@ -3458,34 +3776,141 @@ const tc = ({ top: e, left: t, setShowContext: r, actions: n, className: i, clic
       }
     }, 0);
   }, [n, i.rename]), Ae(() => {
-    const J = ji(void 0, i, u, a, s);
+    const J = ji(
+      void 0,
+      i,
+      u,
+      a,
+      s
+    );
     j(J);
-  }, [u]), M.jsx("div", { className: `py-[0.32rem] ${n ? "block" : "hidden"} ${r === 0 ? "mx-1 pr-1 pl-[0.3rem]" : "pl-[1.3rem]"}`, ref: v, style: { wordWrap: "break-word" }, children: M.jsxs("div", { className: "flex flex-row", children: [M.jsx("span", { className: `span-logo ml-[3px] ${E} w-[14px] mr-[6px]`, children: " " }), M.jsxs("div", { className: "flex mx-1 relative flex-col w-[80%] max-w-[10rem]", children: [M.jsx("input", { className: `rounded-none border text-white border-monaco-color outline-0 w-full bg-monaco-color text-black ${f && m !== "" ? "focus:border-red-500" : "focus:border-cyan-500"} ${l}`, style: c, value: u, autoFocus: !0, onChange: (J) => {
-    h(J.target.value);
-  }, onKeyDown: (J) => {
-    if (J.key === "Enter")
-      if (!f && u.trim().length > 0)
-        t(u);
-      else if (u.trim().length === 0)
-        g(!0), k(Fi), w(`The ${i.type} name cannot be empty. Please enter a valid name.`);
-      else {
-        const C = ji(!0, i, u, a, s);
-        j(C);
-      }
-    else
-      J.key === "Escape" && t(!1);
-  }, ref: d }), f && m !== "" && M.jsx("div", { ref: b, className: `w-fit z-10 select-none absolute flex items-start p-1 border border-red-500 bg-red-900 text-sm text-white ${R !== "top" ? "top-7" : "bottom-7"}`, children: m })] })] }) });
-}, sc = "data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%23000000%23000000%23000000%23000000%23000000%20%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cpath%20d='M10%2011V17'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M14%2011V17'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M4%207H20'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M6%207H12H18V18C18%2019.6569%2016.6569%2021%2015%2021H9C7.34315%2021%206%2019.6569%206%2018V7Z'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M9%205C9%203.89543%209.89543%203%2011%203H13C14.1046%203%2015%203.89543%2015%205V7H9V5Z'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e", Io = "data:image/svg+xml,%3csvg%20class='svg-icon'%20style='width:%201em;%20height:%201em;vertical-align:%20middle;fill:%20white;overflow:%20hidden;'%20viewBox='0%200%201024%201024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M810.65984%20170.65984q18.3296%200%2030.49472%2012.16512t12.16512%2030.49472q0%2018.00192-12.32896%2030.33088l-268.67712%20268.32896%20268.67712%20268.32896q12.32896%2012.32896%2012.32896%2030.33088%200%2018.3296-12.16512%2030.49472t-30.49472%2012.16512q-18.00192%200-30.33088-12.32896l-268.32896-268.67712-268.32896%20268.67712q-12.32896%2012.32896-30.33088%2012.32896-18.3296%200-30.49472-12.16512t-12.16512-30.49472q0-18.00192%2012.32896-30.33088l268.67712-268.32896-268.67712-268.32896q-12.32896-12.32896-12.32896-30.33088%200-18.3296%2012.16512-30.49472t30.49472-12.16512q18.00192%200%2030.33088%2012.32896l268.32896%20268.67712%20268.32896-268.67712q12.32896-12.32896%2030.33088-12.32896z'%20/%3e%3c/svg%3e", ac = ({ title: e, content: t, actionText: r, close: n, action: i, className: o }) => {
+  }, [u]), /* @__PURE__ */ M.jsx(
+    "div",
+    {
+      className: `py-[0.32rem] ${n ? "block" : "hidden"} ${r === 0 ? "mx-1 pr-1 pl-[0.3rem]" : "pl-[1.3rem]"}`,
+      ref: g,
+      style: { wordWrap: "break-word" },
+      children: /* @__PURE__ */ M.jsxs("div", { className: "flex flex-row", children: [
+        /* @__PURE__ */ M.jsx("span", { className: `span-logo ml-[3px] ${E} w-[14px] mr-[6px]`, children: " " }),
+        /* @__PURE__ */ M.jsxs("div", { className: "flex mx-1 relative flex-col w-[80%] max-w-[10rem]", children: [
+          /* @__PURE__ */ M.jsx(
+            "input",
+            {
+              className: `rounded-none border text-white border-monaco-color outline-0 w-full bg-monaco-color text-black ${f && m !== "" ? "focus:border-red-500" : "focus:border-cyan-500"} ${l}`,
+              style: c,
+              value: u,
+              autoFocus: !0,
+              onChange: (J) => {
+                h(J.target.value);
+              },
+              onKeyDown: (J) => {
+                if (J.key === "Enter")
+                  if (!f && u.trim().length > 0)
+                    t(u);
+                  else if (u.trim().length === 0)
+                    v(!0), k(Fi), w(
+                      `The ${i.type} name cannot be empty. Please enter a valid name.`
+                    );
+                  else {
+                    const C = ji(
+                      !0,
+                      i,
+                      u,
+                      a,
+                      s
+                    );
+                    j(C);
+                  }
+                else
+                  J.key === "Escape" && t(!1);
+              },
+              ref: d
+            }
+          ),
+          f && m !== "" && /* @__PURE__ */ M.jsx(
+            "div",
+            {
+              ref: b,
+              className: `w-fit z-10 select-none absolute flex items-start p-1 border border-red-500 bg-red-900 text-sm text-white ${R !== "top" ? "top-7" : "bottom-7"}`,
+              children: m
+            }
+          )
+        ] })
+      ] })
+    }
+  );
+}, sc = "data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%23000000%23000000%23000000%23000000%23000000%20%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cpath%20d='M10%2011V17'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M14%2011V17'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M4%207H20'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M6%207H12H18V18C18%2019.6569%2016.6569%2021%2015%2021H9C7.34315%2021%206%2019.6569%206%2018V7Z'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M9%205C9%203.89543%209.89543%203%2011%203H13C14.1046%203%2015%203.89543%2015%205V7H9V5Z'%20stroke='%23ffffff'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e", Io = "data:image/svg+xml,%3csvg%20class='svg-icon'%20style='width:%201em;%20height:%201em;vertical-align:%20middle;fill:%20white;overflow:%20hidden;'%20viewBox='0%200%201024%201024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M810.65984%20170.65984q18.3296%200%2030.49472%2012.16512t12.16512%2030.49472q0%2018.00192-12.32896%2030.33088l-268.67712%20268.32896%20268.67712%20268.32896q12.32896%2012.32896%2012.32896%2030.33088%200%2018.3296-12.16512%2030.49472t-30.49472%2012.16512q-18.00192%200-30.33088-12.32896l-268.32896-268.67712-268.32896%20268.67712q-12.32896%2012.32896-30.33088%2012.32896-18.3296%200-30.49472-12.16512t-12.16512-30.49472q0-18.00192%2012.32896-30.33088l268.67712-268.32896-268.67712-268.32896q-12.32896-12.32896-12.32896-30.33088%200-18.3296%2012.16512-30.49472t30.49472-12.16512q18.00192%200%2030.33088%2012.32896l268.32896%20268.67712%20268.32896-268.67712q12.32896-12.32896%2030.33088-12.32896z'%20/%3e%3c/svg%3e", ac = ({
+  title: e,
+  content: t,
+  actionText: r,
+  close: n,
+  action: i,
+  className: o
+}) => {
   const s = Ye(null);
   return dr(s, () => {
     n(!1);
-  }), M.jsx("div", { className: "backdrop-brightness-50 absolute top-0 z-50 flex w-full h-full justify-center items-start pt-6 select-none", children: M.jsxs("div", { ref: s, className: `bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96 text-white ${o}`, children: [M.jsxs("div", { className: "flex flex-row justify-between", children: [M.jsx("span", { className: "text-2xl font-semibold", children: e }), M.jsx("span", { className: "self-start", children: M.jsx("img", { src: Io, onClick: () => {
-    n(!1);
-  }, alt: "close", className: "transition-colors p-1 h-5 w-5 cursor-pointer hover:bg-slate-500 rounded-md align-baseline" }) })] }), M.jsx("div", { className: "text-sm my-4", children: t }), M.jsxs("div", { className: "flex justify-between my-2", children: [M.jsx("div", { className: "w-32", children: " " }), M.jsxs("div", { className: "flex justify-between pl-12 w-full", children: [M.jsx("button", { type: "button", onClick: () => {
-    n(!1);
-  }, className: "text-sm px-2 py-1 rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors", children: "Cancel" }), M.jsxs("button", { type: "button", onClick: () => {
-    i();
-  }, className: "text-sm bg-red-700 hover:bg-red-500 px-2 py-1 rounded-lg transition-colors flex flex-row items-center", children: [M.jsx("img", { alt: "delete", src: sc, className: "w-4 h-4 mr-1" }), r] })] })] })] }) });
+  }), /* @__PURE__ */ M.jsx("div", { className: "backdrop-brightness-50 absolute top-0 z-50 flex w-full h-full justify-center items-start pt-6 select-none", children: /* @__PURE__ */ M.jsxs(
+    "div",
+    {
+      ref: s,
+      className: `bg-dark-hover border border-slate-600 shadow-sm p-4 rounded-lg flex flex-col my-2 h-fit w-96 text-white ${o}`,
+      children: [
+        /* @__PURE__ */ M.jsxs("div", { className: "flex flex-row justify-between", children: [
+          /* @__PURE__ */ M.jsx("span", { className: "text-2xl font-semibold", children: e }),
+          /* @__PURE__ */ M.jsx("span", { className: "self-start", children: /* @__PURE__ */ M.jsx(
+            "img",
+            {
+              src: Io,
+              onClick: () => {
+                n(!1);
+              },
+              alt: "close",
+              className: "transition-colors p-1 h-5 w-5 cursor-pointer hover:bg-slate-500 rounded-md align-baseline"
+            }
+          ) })
+        ] }),
+        /* @__PURE__ */ M.jsx("div", { className: "text-sm my-4", children: t }),
+        /* @__PURE__ */ M.jsxs("div", { className: "flex justify-between my-2", children: [
+          /* @__PURE__ */ M.jsx("div", { className: "w-32", children: " " }),
+          /* @__PURE__ */ M.jsxs("div", { className: "flex justify-between pl-12 w-full", children: [
+            /* @__PURE__ */ M.jsx(
+              "button",
+              {
+                type: "button",
+                onClick: () => {
+                  n(!1);
+                },
+                className: "text-sm px-2 py-1 border rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors",
+                children: "Cancel"
+              }
+            ),
+            /* @__PURE__ */ M.jsxs(
+              "button",
+              {
+                type: "button",
+                onClick: () => {
+                  i();
+                },
+                className: "text-sm bg-red-700 border  hover:bg-red-500 px-2 py-1 rounded-lg transition-colors flex flex-row items-center",
+                children: [
+                  /* @__PURE__ */ M.jsx(
+                    "img",
+                    {
+                      alt: "delete",
+                      src: sc,
+                      className: "w-4 h-4 mr-1"
+                    }
+                  ),
+                  r
+                ]
+              }
+            )
+          ] })
+        ] })
+      ]
+    }
+  ) });
 }, lc = (e, t) => {
   const r = document.createElement("div");
   return Ae(() => {
@@ -3595,7 +4020,7 @@ function zi(e, t, r) {
     reference: n,
     floating: i
   } = e;
-  const o = Hr(t), s = Un(t), a = Bn(s), l = Wt(t), c = o === "y", u = n.x + n.width / 2 - i.width / 2, h = n.y + n.height / 2 - i.height / 2, v = n[a] / 2 - i[a] / 2;
+  const o = Hr(t), s = Un(t), a = Bn(s), l = Wt(t), c = o === "y", u = n.x + n.width / 2 - i.width / 2, h = n.y + n.height / 2 - i.height / 2, g = n[a] / 2 - i[a] / 2;
   let d;
   switch (l) {
     case "top":
@@ -3630,10 +4055,10 @@ function zi(e, t, r) {
   }
   switch (hr(t)) {
     case "start":
-      d[s] -= v * (r && c ? -1 : 1);
+      d[s] -= g * (r && c ? -1 : 1);
       break;
     case "end":
-      d[s] += v * (r && c ? -1 : 1);
+      d[s] += g * (r && c ? -1 : 1);
       break;
   }
   return d;
@@ -3652,10 +4077,10 @@ const bc = async (e, t, r) => {
   }), {
     x: u,
     y: h
-  } = zi(c, n, l), v = n, d = {}, b = 0;
+  } = zi(c, n, l), g = n, d = {}, b = 0;
   for (let f = 0; f < a.length; f++) {
     const {
-      name: g,
+      name: v,
       fn: m
     } = a[f], {
       x: w,
@@ -3666,7 +4091,7 @@ const bc = async (e, t, r) => {
       x: u,
       y: h,
       initialPlacement: n,
-      placement: v,
+      placement: g,
       strategy: i,
       middlewareData: d,
       rects: c,
@@ -3678,26 +4103,26 @@ const bc = async (e, t, r) => {
     });
     if (u = w ?? u, h = x ?? h, d = {
       ...d,
-      [g]: {
-        ...d[g],
+      [v]: {
+        ...d[v],
         ...E
       }
     }, k && b <= 50) {
-      b++, typeof k == "object" && (k.placement && (v = k.placement), k.rects && (c = k.rects === !0 ? await s.getElementRects({
+      b++, typeof k == "object" && (k.placement && (g = k.placement), k.rects && (c = k.rects === !0 ? await s.getElementRects({
         reference: e,
         floating: t,
         strategy: i
       }) : k.rects), {
         x: u,
         y: h
-      } = zi(c, v, l)), f = -1;
+      } = zi(c, g, l)), f = -1;
       continue;
     }
   }
   return {
     x: u,
     y: h,
-    placement: v,
+    placement: g,
     strategy: i,
     middlewareData: d
   };
@@ -3716,10 +4141,10 @@ async function Do(e, t) {
     boundary: c = "clippingAncestors",
     rootBoundary: u = "viewport",
     elementContext: h = "floating",
-    altBoundary: v = !1,
+    altBoundary: g = !1,
     padding: d = 0
-  } = fr(t, e), b = zo(d), g = a[v ? h === "floating" ? "reference" : "floating" : h], m = Lr(await o.getClippingRect({
-    element: (r = await (o.isElement == null ? void 0 : o.isElement(g))) == null || r ? g : g.contextElement || await (o.getDocumentElement == null ? void 0 : o.getDocumentElement(a.floating)),
+  } = fr(t, e), b = zo(d), v = a[g ? h === "floating" ? "reference" : "floating" : h], m = Lr(await o.getClippingRect({
+    element: (r = await (o.isElement == null ? void 0 : o.isElement(v))) == null || r ? v : v.contextElement || await (o.getDocumentElement == null ? void 0 : o.getDocumentElement(a.floating)),
     boundary: c,
     rootBoundary: u,
     strategy: l
@@ -3763,15 +4188,15 @@ const wc = (e) => ({
     } = fr(e, t) || {};
     if (c == null)
       return {};
-    const h = zo(u), v = {
+    const h = zo(u), g = {
       x: r,
       y: n
-    }, d = Un(i), b = Bn(d), f = await s.getDimensions(c), g = d === "y", m = g ? "top" : "left", w = g ? "bottom" : "right", x = g ? "clientHeight" : "clientWidth", E = o.reference[b] + o.reference[d] - v[d] - o.floating[b], k = v[d] - o.reference[d], R = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(c));
+    }, d = Un(i), b = Bn(d), f = await s.getDimensions(c), v = d === "y", m = v ? "top" : "left", w = v ? "bottom" : "right", x = v ? "clientHeight" : "clientWidth", E = o.reference[b] + o.reference[d] - g[d] - o.floating[b], k = g[d] - o.reference[d], R = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(c));
     let T = R ? R[x] : 0;
     (!T || !await (s.isElement == null ? void 0 : s.isElement(R))) && (T = a.floating[x] || o.floating[b]);
     const W = E / 2 - k / 2, j = T / 2 - f[b] / 2 - 1, K = Jt(h[m], j), J = Jt(h[w], j), C = K, F = T - f[b] - J, y = T / 2 - f[b] / 2 + W, P = Sn(C, y, F), se = !l.arrow && hr(i) != null && y != P && o.reference[b] / 2 - (y < C ? K : J) - f[b] / 2 < 0, V = se ? y < C ? y - C : y - F : 0;
     return {
-      [d]: v[d] + V,
+      [d]: g[d] + V,
       data: {
         [d]: P,
         centerOffset: y - P - V,
@@ -3798,17 +4223,17 @@ const wc = (e) => ({
       } = t, {
         mainAxis: u = !0,
         crossAxis: h = !0,
-        fallbackPlacements: v,
+        fallbackPlacements: g,
         fallbackStrategy: d = "bestFit",
         fallbackAxisSideDirection: b = "none",
         flipAlignment: f = !0,
-        ...g
+        ...v
       } = fr(e, t);
       if ((r = o.arrow) != null && r.alignmentOffset)
         return {};
-      const m = Wt(i), w = Wt(a) === a, x = await (l.isRTL == null ? void 0 : l.isRTL(c.floating)), E = v || (w || !f ? [Pr(a)] : mc(a));
-      !v && b !== "none" && E.push(...gc(a, f, b, x));
-      const k = [a, ...E], R = await Do(t, g), T = [];
+      const m = Wt(i), w = Wt(a) === a, x = await (l.isRTL == null ? void 0 : l.isRTL(c.floating)), E = g || (w || !f ? [Pr(a)] : mc(a));
+      !g && b !== "none" && E.push(...gc(a, f, b, x));
+      const k = [a, ...E], R = await Do(t, v), T = [];
       let W = ((n = o.flip) == null ? void 0 : n.overflows) || [];
       if (u && T.push(R[m]), h) {
         const C = pc(i, s, x);
@@ -3861,7 +4286,7 @@ async function xc(e, t) {
     elements: i
   } = e, o = await (n.isRTL == null ? void 0 : n.isRTL(i.floating)), s = Wt(r), a = hr(r), l = Hr(r) === "y", c = ["left", "top"].includes(s) ? -1 : 1, u = o && l ? -1 : 1, h = fr(t, e);
   let {
-    mainAxis: v,
+    mainAxis: g,
     crossAxis: d,
     alignmentAxis: b
   } = typeof h == "number" ? {
@@ -3876,9 +4301,9 @@ async function xc(e, t) {
   };
   return a && typeof b == "number" && (d = a === "end" ? b * -1 : b), l ? {
     x: d * u,
-    y: v * c
+    y: g * c
   } : {
-    x: v * c,
+    x: g * c,
     y: d * u
   };
 }
@@ -3917,11 +4342,11 @@ const Sc = function(e) {
         mainAxis: o = !0,
         crossAxis: s = !1,
         limiter: a = {
-          fn: (g) => {
+          fn: (v) => {
             let {
               x: m,
               y: w
-            } = g;
+            } = v;
             return {
               x: m,
               y: w
@@ -3932,19 +4357,19 @@ const Sc = function(e) {
       } = fr(e, t), c = {
         x: r,
         y: n
-      }, u = await Do(t, l), h = Hr(Wt(i)), v = Fo(h);
-      let d = c[v], b = c[h];
+      }, u = await Do(t, l), h = Hr(Wt(i)), g = Fo(h);
+      let d = c[g], b = c[h];
       if (o) {
-        const g = v === "y" ? "top" : "left", m = v === "y" ? "bottom" : "right", w = d + u[g], x = d - u[m];
+        const v = g === "y" ? "top" : "left", m = g === "y" ? "bottom" : "right", w = d + u[v], x = d - u[m];
         d = Sn(w, d, x);
       }
       if (s) {
-        const g = h === "y" ? "top" : "left", m = h === "y" ? "bottom" : "right", w = b + u[g], x = b - u[m];
+        const v = h === "y" ? "top" : "left", m = h === "y" ? "bottom" : "right", w = b + u[v], x = b - u[m];
         b = Sn(w, b, x);
       }
       const f = a.fn({
         ...t,
-        [v]: d,
+        [g]: d,
         [h]: b
       });
       return {
@@ -4092,10 +4517,10 @@ function Ht(e, t, r, n) {
   const a = Ac(o, r, n) ? Mo(o) : Ft(0);
   let l = (i.left + a.x) / s.x, c = (i.top + a.y) / s.y, u = i.width / s.x, h = i.height / s.y;
   if (o) {
-    const v = mt(o), d = n && Ot(n) ? mt(n) : n;
-    let b = v.frameElement;
-    for (; b && n && d !== v; ) {
-      const f = qt(b), g = b.getBoundingClientRect(), m = wt(b), w = g.left + (b.clientLeft + parseFloat(m.paddingLeft)) * f.x, x = g.top + (b.clientTop + parseFloat(m.paddingTop)) * f.y;
+    const g = mt(o), d = n && Ot(n) ? mt(n) : n;
+    let b = g.frameElement;
+    for (; b && n && d !== g; ) {
+      const f = qt(b), v = b.getBoundingClientRect(), m = wt(b), w = v.left + (b.clientLeft + parseFloat(m.paddingLeft)) * f.x, x = v.top + (b.clientTop + parseFloat(m.paddingTop)) * f.y;
       l *= f.x, c *= f.y, u *= f.x, h *= f.y, l += w, c += x, b = mt(b).frameElement;
     }
   }
@@ -4303,12 +4728,12 @@ function Bc(e, t) {
       left: c,
       top: u,
       width: h,
-      height: v
+      height: g
     } = e.getBoundingClientRect();
-    if (a || t(), !h || !v)
+    if (a || t(), !h || !g)
       return;
-    const d = kr(u), b = kr(i.clientWidth - (c + h)), f = kr(i.clientHeight - (u + v)), g = kr(c), w = {
-      rootMargin: -d + "px " + -b + "px " + -f + "px " + -g + "px",
+    const d = kr(u), b = kr(i.clientWidth - (c + h)), f = kr(i.clientHeight - (u + g)), v = kr(c), w = {
+      rootMargin: -d + "px " + -b + "px " + -f + "px " + -v + "px",
       threshold: Ut(0, Jt(1, l)) || 1
     };
     let x = !0;
@@ -4351,18 +4776,18 @@ function Uc(e, t, r, n) {
     }), o && m.addEventListener("resize", r);
   });
   const h = c && a ? Bc(c, r) : null;
-  let v = -1, d = null;
+  let g = -1, d = null;
   s && (d = new ResizeObserver((m) => {
     let [w] = m;
-    w && w.target === c && d && (d.unobserve(t), cancelAnimationFrame(v), v = requestAnimationFrame(() => {
+    w && w.target === c && d && (d.unobserve(t), cancelAnimationFrame(g), g = requestAnimationFrame(() => {
       d && d.observe(t);
     })), r();
   }), c && !l && d.observe(c), d.observe(t));
   let b, f = l ? Ht(e) : null;
-  l && g();
-  function g() {
+  l && v();
+  function v() {
     const m = Ht(e);
-    f && (m.x !== f.x || m.y !== f.y || m.width !== f.width || m.height !== f.height) && r(), f = m, b = requestAnimationFrame(g);
+    f && (m.x !== f.x || m.y !== f.y || m.width !== f.width || m.height !== f.height) && r(), f = m, b = requestAnimationFrame(v);
   }
   return r(), () => {
     u.forEach((m) => {
@@ -4478,19 +4903,19 @@ const Yc = typeof window < "u" ? Hs : Ae, qc = (e) => {
   if (t === null)
     return { tooltipStyles: {}, tooltipArrowStyles: {}, place: n };
   const l = s;
-  return r ? (l.push(wc({ element: r, padding: 5 })), $i(e, t, { placement: n, strategy: o, middleware: l }).then(({ x: c, y: u, placement: h, middlewareData: v }) => {
+  return r ? (l.push(wc({ element: r, padding: 5 })), $i(e, t, { placement: n, strategy: o, middleware: l }).then(({ x: c, y: u, placement: h, middlewareData: g }) => {
     var d, b;
-    const f = { left: `${c}px`, top: `${u}px`, border: a }, { x: g, y: m } = (d = v.arrow) !== null && d !== void 0 ? d : { x: 0, y: 0 }, w = (b = { top: "bottom", right: "left", bottom: "top", left: "right" }[h.split("-")[0]]) !== null && b !== void 0 ? b : "bottom", x = a && { borderBottom: a, borderRight: a };
+    const f = { left: `${c}px`, top: `${u}px`, border: a }, { x: v, y: m } = (d = g.arrow) !== null && d !== void 0 ? d : { x: 0, y: 0 }, w = (b = { top: "bottom", right: "left", bottom: "top", left: "right" }[h.split("-")[0]]) !== null && b !== void 0 ? b : "bottom", x = a && { borderBottom: a, borderRight: a };
     let E = 0;
     if (a) {
       const k = `${a}`.match(/(\d+)px/);
       E = k != null && k[1] ? Number(k[1]) : 1;
     }
-    return { tooltipStyles: f, tooltipArrowStyles: { left: g != null ? `${g}px` : "", top: m != null ? `${m}px` : "", right: "", bottom: "", ...x, [w]: `-${4 + E}px` }, place: h };
+    return { tooltipStyles: f, tooltipArrowStyles: { left: v != null ? `${v}px` : "", top: m != null ? `${m}px` : "", right: "", bottom: "", ...x, [w]: `-${4 + E}px` }, place: h };
   })) : $i(e, t, { placement: "bottom", strategy: o, middleware: l }).then(({ x: c, y: u, placement: h }) => ({ tooltipStyles: { left: `${c}px`, top: `${u}px` }, tooltipArrowStyles: {}, place: h }));
 };
 var Yt = { tooltip: "core-styles-module_tooltip__3vRRp", fixed: "core-styles-module_fixed__pcSol", arrow: "core-styles-module_arrow__cvMwQ", noArrow: "core-styles-module_noArrow__xock6", clickable: "core-styles-module_clickable__ZuTTB", show: "core-styles-module_show__Nt9eE", closing: "core-styles-module_closing__sGnxF" }, cn = { tooltip: "styles-module_tooltip__mnnfp", arrow: "styles-module_arrow__K0L3T", dark: "styles-module_dark__xNqje", light: "styles-module_light__Z6W-X", success: "styles-module_success__A2AKt", warning: "styles-module_warning__SCK0X", error: "styles-module_error__JvumD", info: "styles-module_info__BWdHW" };
-const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i = "dark", anchorId: o, anchorSelect: s, place: a = "top", offset: l = 10, events: c = ["hover"], openOnClick: u = !1, positionStrategy: h = "absolute", middlewares: v, wrapper: d, delayShow: b = 0, delayHide: f = 0, float: g = !1, hidden: m = !1, noArrow: w = !1, clickable: x = !1, closeOnEsc: E = !1, closeOnScroll: k = !1, closeOnResize: R = !1, openEvents: T, closeEvents: W, globalCloseEvents: j, imperativeModeOnly: K, style: J, position: C, afterShow: F, afterHide: y, content: P, contentWrapperRef: se, isOpen: V, setIsOpen: pe, activeAnchor: H, setActiveAnchor: ee, border: L, opacity: z, arrowColor: oe, role: re = "tooltip" }) => {
+const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i = "dark", anchorId: o, anchorSelect: s, place: a = "top", offset: l = 10, events: c = ["hover"], openOnClick: u = !1, positionStrategy: h = "absolute", middlewares: g, wrapper: d, delayShow: b = 0, delayHide: f = 0, float: v = !1, hidden: m = !1, noArrow: w = !1, clickable: x = !1, closeOnEsc: E = !1, closeOnScroll: k = !1, closeOnResize: R = !1, openEvents: T, closeEvents: W, globalCloseEvents: j, imperativeModeOnly: K, style: J, position: C, afterShow: F, afterHide: y, content: P, contentWrapperRef: se, isOpen: V, setIsOpen: pe, activeAnchor: H, setActiveAnchor: ee, border: L, opacity: z, arrowColor: oe, role: re = "tooltip" }) => {
   var Q;
   const ge = Ye(null), Ie = Ye(null), fe = Ye(null), me = Ye(null), [Ne, Te] = Ee(a), [He, Ue] = Ee({}), [p, U] = Ee({}), [D, O] = Ee(!1), [S, N] = Ee(!1), [B, Z] = Ee(null), I = Ye(!1), X = Ye(null), { anchorRefs: te, setActiveAnchor: q } = Ho(t), ae = Ye(!1), [be, xe] = Ee([]), je = Ye(!1), et = u || c.includes("click"), Me = et || (T == null ? void 0 : T.click) || (T == null ? void 0 : T.dblclick) || (T == null ? void 0 : T.mousedown), Ze = T ? { ...T } : { mouseenter: !0, focus: !0, click: !1, dblclick: !1, mousedown: !1 };
   !T && et && Object.assign(Ze, { mouseenter: !1, focus: !1, click: !0 });
@@ -4539,7 +4964,7 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
   }, ne = ({ x: le, y: _e }) => {
     var ve;
     const Ve = { getBoundingClientRect: () => ({ x: le, y: _e, width: 0, height: 0, top: _e, left: le, right: le, bottom: _e }) };
-    Wi({ place: (ve = B == null ? void 0 : B.place) !== null && ve !== void 0 ? ve : a, offset: l, elementReference: Ve, tooltipReference: ge.current, tooltipArrowReference: Ie.current, strategy: h, middlewares: v, border: L }).then((Ge) => {
+    Wi({ place: (ve = B == null ? void 0 : B.place) !== null && ve !== void 0 ? ve : a, offset: l, elementReference: Ve, tooltipReference: ge.current, tooltipArrowReference: Ie.current, strategy: h, middlewares: g, border: L }).then((Ge) => {
       Object.keys(Ge.tooltipStyles).length && Ue(Ge.tooltipStyles), Object.keys(Ge.tooltipArrowStyles).length && U(Ge.tooltipArrowStyles), Te(Ge.place);
     });
   }, ue = (le) => {
@@ -4556,10 +4981,10 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
   }, Fe = Ui(tt, 50, !0), he = Ui(Xe, 50, !0), Se = Vs(() => {
     var le, _e;
     const ve = (le = B == null ? void 0 : B.position) !== null && le !== void 0 ? le : C;
-    ve ? ne(ve) : g ? X.current && ne(X.current) : H != null && H.isConnected && Wi({ place: (_e = B == null ? void 0 : B.place) !== null && _e !== void 0 ? _e : a, offset: l, elementReference: H, tooltipReference: ge.current, tooltipArrowReference: Ie.current, strategy: h, middlewares: v, border: L }).then((Ve) => {
+    ve ? ne(ve) : v ? X.current && ne(X.current) : H != null && H.isConnected && Wi({ place: (_e = B == null ? void 0 : B.place) !== null && _e !== void 0 ? _e : a, offset: l, elementReference: H, tooltipReference: ge.current, tooltipArrowReference: Ie.current, strategy: h, middlewares: g, border: L }).then((Ve) => {
       je.current && (Object.keys(Ve.tooltipStyles).length && Ue(Ve.tooltipStyles), Object.keys(Ve.tooltipArrowStyles).length && U(Ve.tooltipArrowStyles), Te(Ve.place));
     });
-  }, [D, H, P, J, a, B == null ? void 0 : B.place, l, h, C, B == null ? void 0 : B.position, g]);
+  }, [D, H, P, J, a, B == null ? void 0 : B.place, l, h, C, B == null ? void 0 : B.position, v]);
   Ae(() => {
     var le, _e;
     const ve = new Set(te);
@@ -4587,7 +5012,7 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
       Pe && (ye.includes(de) ? A.push({ event: de, listener: Fe }) : Oe.includes(de) && A.push({ event: de, listener: Y }));
     }), Object.entries(Re).forEach(([de, Pe]) => {
       Pe && (ye.includes(de) ? A.push({ event: de, listener: he }) : Oe.includes(de) && A.push({ event: de, listener: ie }));
-    }), g && A.push({ event: "mousemove", listener: ue });
+    }), v && A.push({ event: "mousemove", listener: ue });
     const Ce = () => {
       ae.current = !0;
     }, ke = () => {
@@ -4681,7 +5106,7 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
   }, activeAnchor: H, place: Ne, isOpen: !!(S && !m && Je && _t) })), S && !m && Je ? ht.createElement(d, { id: t, role: re, className: kn("react-tooltip", Yt.tooltip, cn.tooltip, cn[i], r, `react-tooltip__place-${Ne}`, Yt[_t ? "show" : "closing"], _t ? "react-tooltip__show" : "react-tooltip__closing", h === "fixed" && Yt.fixed, x && Yt.clickable), onTransitionEnd: (le) => {
     D || le.propertyName !== "opacity" || (N(!1), Z(null), y == null || y());
   }, style: { ...J, ...He, opacity: z !== void 0 && _t ? z : void 0 }, ref: ge }, Je, ht.createElement(d, { className: kn("react-tooltip-arrow", Yt.arrow, cn.arrow, n, w && Yt.noArrow), style: { ...p, background: oe ? `linear-gradient(to right bottom, transparent 50%, ${oe} 50%)` : void 0 }, ref: Ie })) : null;
-}, Jc = ({ content: e }) => ht.createElement("span", { dangerouslySetInnerHTML: { __html: e } }), Hi = (e, t) => !("CSS" in window && "supports" in window.CSS) || window.CSS.supports(e, t), un = ht.forwardRef(({ id: e, anchorId: t, anchorSelect: r, content: n, html: i, render: o, className: s, classNameArrow: a, variant: l = "dark", place: c = "top", offset: u = 10, wrapper: h = "div", children: v = null, events: d = ["hover"], openOnClick: b = !1, positionStrategy: f = "absolute", middlewares: g, delayShow: m = 0, delayHide: w = 0, float: x = !1, hidden: E = !1, noArrow: k = !1, clickable: R = !1, closeOnEsc: T = !1, closeOnScroll: W = !1, closeOnResize: j = !1, openEvents: K, closeEvents: J, globalCloseEvents: C, imperativeModeOnly: F = !1, style: y, position: P, isOpen: se, disableStyleInjection: V = !1, border: pe, opacity: H, arrowColor: ee, setIsOpen: L, afterShow: z, afterHide: oe, role: re = "tooltip" }, Q) => {
+}, Jc = ({ content: e }) => ht.createElement("span", { dangerouslySetInnerHTML: { __html: e } }), Hi = (e, t) => !("CSS" in window && "supports" in window.CSS) || window.CSS.supports(e, t), un = ht.forwardRef(({ id: e, anchorId: t, anchorSelect: r, content: n, html: i, render: o, className: s, classNameArrow: a, variant: l = "dark", place: c = "top", offset: u = 10, wrapper: h = "div", children: g = null, events: d = ["hover"], openOnClick: b = !1, positionStrategy: f = "absolute", middlewares: v, delayShow: m = 0, delayHide: w = 0, float: x = !1, hidden: E = !1, noArrow: k = !1, clickable: R = !1, closeOnEsc: T = !1, closeOnScroll: W = !1, closeOnResize: j = !1, openEvents: K, closeEvents: J, globalCloseEvents: C, imperativeModeOnly: F = !1, style: y, position: P, isOpen: se, disableStyleInjection: V = !1, border: pe, opacity: H, arrowColor: ee, setIsOpen: L, afterShow: z, afterHide: oe, role: re = "tooltip" }, Q) => {
   const [ge, Ie] = Ee(n), [fe, me] = Ee(i), [Ne, Te] = Ee(c), [He, Ue] = Ee(l), [p, U] = Ee(u), [D, O] = Ee(m), [S, N] = Ee(w), [B, Z] = Ee(x), [I, X] = Ee(E), [te, q] = Ee(h), [ae, be] = Ee(d), [xe, je] = Ee(f), [et, Me] = Ee(null), [Ze, Re] = Ee(null), De = Ye(V), { anchorRefs: Be, activeAnchor: qe } = Ho(e), nt = (we) => we == null ? void 0 : we.getAttributeNames().reduce((Fe, he) => {
     var Se;
     return he.startsWith("data-tooltip-") && (Fe[he.replace(/^data-tooltip-/, "")] = (Se = we == null ? void 0 : we.getAttribute(he)) !== null && Se !== void 0 ? Se : null), Fe;
@@ -4781,7 +5206,7 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
   }, [Be, qe, Ze, t, r]), Ae(() => {
     y != null && y.border && console.warn("[react-tooltip] Do not set `style.border`. Use `border` prop instead."), pe && !Hi("border", `${pe}`) && console.warn(`[react-tooltip] "${pe}" is not a valid \`border\`.`), y != null && y.opacity && console.warn("[react-tooltip] Do not set `style.opacity`. Use `opacity` prop instead."), H && !Hi("opacity", `${H}`) && console.warn(`[react-tooltip] "${H}" is not a valid \`opacity\`.`);
   }, []);
-  let Xe = v;
+  let Xe = g;
   const ne = Ye(null);
   if (o) {
     const we = o({ content: ge ?? null, activeAnchor: Ze });
@@ -4789,22 +5214,138 @@ const Xc = ({ forwardRef: e, id: t, className: r, classNameArrow: n, variant: i 
   } else
     ge && (Xe = ge);
   fe && (Xe = ht.createElement(Jc, { content: fe }));
-  const ue = { forwardRef: Q, id: e, anchorId: t, anchorSelect: r, className: kn(s, et), classNameArrow: a, content: Xe, contentWrapperRef: ne, place: Ne, variant: He, offset: p, wrapper: te, events: ae, openOnClick: b, positionStrategy: xe, middlewares: g, delayShow: D, delayHide: S, float: B, hidden: I, noArrow: k, clickable: R, closeOnEsc: T, closeOnScroll: W, closeOnResize: j, openEvents: K, closeEvents: J, globalCloseEvents: C, imperativeModeOnly: F, style: y, position: P, isOpen: se, border: pe, opacity: H, arrowColor: ee, setIsOpen: L, afterShow: z, afterHide: oe, activeAnchor: Ze, setActiveAnchor: (we) => Re(we), role: re };
+  const ue = { forwardRef: Q, id: e, anchorId: t, anchorSelect: r, className: kn(s, et), classNameArrow: a, content: Xe, contentWrapperRef: ne, place: Ne, variant: He, offset: p, wrapper: te, events: ae, openOnClick: b, positionStrategy: xe, middlewares: v, delayShow: D, delayHide: S, float: B, hidden: I, noArrow: k, clickable: R, closeOnEsc: T, closeOnScroll: W, closeOnResize: j, openEvents: K, closeEvents: J, globalCloseEvents: C, imperativeModeOnly: F, style: y, position: P, isOpen: se, border: pe, opacity: H, arrowColor: ee, setIsOpen: L, afterShow: z, afterHide: oe, activeAnchor: Ze, setActiveAnchor: (we) => Re(we), role: re };
   return ht.createElement(Xc, { ...ue });
 });
 typeof window < "u" && window.addEventListener("react-tooltip-inject-styles", (e) => {
   e.detail.disableCore || Bi({ css: ":root{--rt-color-white:#fff;--rt-color-dark:#222;--rt-color-success:#8dc572;--rt-color-error:#be6464;--rt-color-warning:#f0ad4e;--rt-color-info:#337ab7;--rt-opacity:0.9;--rt-transition-show-delay:0.15s;--rt-transition-closing-delay:0.15s}.core-styles-module_tooltip__3vRRp{position:absolute;top:0;left:0;pointer-events:none;opacity:0;will-change:opacity}.core-styles-module_fixed__pcSol{position:fixed}.core-styles-module_arrow__cvMwQ{position:absolute;background:inherit}.core-styles-module_noArrow__xock6{display:none}.core-styles-module_clickable__ZuTTB{pointer-events:auto}.core-styles-module_show__Nt9eE{opacity:var(--rt-opacity);transition:opacity var(--rt-transition-show-delay)ease-out}.core-styles-module_closing__sGnxF{opacity:0;transition:opacity var(--rt-transition-closing-delay)ease-in}", type: "core" }), e.detail.disableBase || Bi({ css: `
 .styles-module_tooltip__mnnfp{padding:8px 16px;border-radius:3px;font-size:90%;width:max-content}.styles-module_arrow__K0L3T{width:8px;height:8px}[class*='react-tooltip__place-top']>.styles-module_arrow__K0L3T{transform:rotate(45deg)}[class*='react-tooltip__place-right']>.styles-module_arrow__K0L3T{transform:rotate(135deg)}[class*='react-tooltip__place-bottom']>.styles-module_arrow__K0L3T{transform:rotate(225deg)}[class*='react-tooltip__place-left']>.styles-module_arrow__K0L3T{transform:rotate(315deg)}.styles-module_dark__xNqje{background:var(--rt-color-dark);color:var(--rt-color-white)}.styles-module_light__Z6W-X{background-color:var(--rt-color-white);color:var(--rt-color-dark)}.styles-module_success__A2AKt{background-color:var(--rt-color-success);color:var(--rt-color-white)}.styles-module_warning__SCK0X{background-color:var(--rt-color-warning);color:var(--rt-color-white)}.styles-module_error__JvumD{background-color:var(--rt-color-error);color:var(--rt-color-white)}.styles-module_info__BWdHW{background-color:var(--rt-color-info);color:var(--rt-color-white)}`, type: "base" });
 });
-const Qc = ({ newFile: e, newFolder: t, download: r, collapseArea: n, collapsed: i, btnClassName: o, projectName: s, disableCollapse: a, disableTooltip: l, disableDownload: c }) => M.jsxs("div", { onClick: () => {
-  a || n();
-}, className: `flex w-full select-none flex-row items-center ${a ? "cursor-default" : "cursor-pointer"}`, children: [M.jsx("img", { src: jo, className: `${i ? "rotate-180" : "rotate-[270deg]"} mr-2 mb-1 h-3 w-3 self-center transition-transform`, alt: "Down Arrow" }), M.jsxs("span", { className: "flex w-full flex-row justify-between", children: [M.jsx("span", { className: "text-black text-center overflow-x-clip mr-2", children: s || "Files" }), M.jsxs("span", { className: "flex items-center", children: [M.jsxs("span", { className: "text-black", children: [!l && M.jsx(un, { className: "z-50", id: "new-file", style: { backgroundColor: "rgb(60 60 60)" } }), M.jsx("button", { type: "button", onClick: (u) => {
-  u.stopPropagation(), e();
-}, className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mr-[2px] ${o}`, children: M.jsx("img", { "data-tooltip-id": "new-file", "data-tooltip-content": "New File", src: cc, className: "h-5 w-5", alt: "New File" }) })] }), M.jsxs("span", { className: "text-black", children: [!l && M.jsx(un, { className: "z-50", id: "new-folder", style: { backgroundColor: "rgb(60 60 60)" } }), M.jsx("button", { type: "button", onClick: (u) => {
-  u.stopPropagation(), t();
-}, className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mx-[2px] ${o}`, children: M.jsx("img", { "data-tooltip-id": "new-folder", "data-tooltip-content": "New Folder", src: uc, className: "h-5 w-5", alt: "New Folder" }) })] }), !c && M.jsxs("span", { className: "text-black", children: [!l && M.jsx(un, { className: "z-50", id: "download-project", style: { backgroundColor: "rgb(60 60 60)" } }), M.jsx("button", { type: "button", onClick: (u) => {
-  u.stopPropagation(), r();
-}, className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] ml-[2px] ${o}`, children: M.jsx("img", { "data-tooltip-id": "download-project", "data-tooltip-content": "Download Project", src: dc, className: "h-5 w-5", alt: "Download Project" }) })] })] })] })] });
+const Qc = ({
+  newFile: e,
+  newFolder: t,
+  download: r,
+  collapseArea: n,
+  collapsed: i,
+  btnClassName: o,
+  projectName: s,
+  disableCollapse: a,
+  disableTooltip: l,
+  disableDownload: c
+}) => /* @__PURE__ */ M.jsxs(
+  "div",
+  {
+    onClick: () => {
+      a || n();
+    },
+    className: `flex w-full select-none flex-row items-center ${a ? "cursor-default" : "cursor-pointer"}`,
+    children: [
+      /* @__PURE__ */ M.jsx(
+        "img",
+        {
+          src: jo,
+          className: `${i ? "rotate-180" : "rotate-[270deg]"} mr-2 mb-1 h-3 w-3 self-center transition-transform`,
+          alt: "Down Arrow"
+        }
+      ),
+      /* @__PURE__ */ M.jsxs("span", { className: "flex w-full flex-row justify-between", children: [
+        /* @__PURE__ */ M.jsx("span", { className: "text-black text-center overflow-x-clip mr-2", children: s || "Files" }),
+        /* @__PURE__ */ M.jsxs("span", { className: "flex items-center", children: [
+          /* @__PURE__ */ M.jsxs("span", { className: "text-black", children: [
+            !l && /* @__PURE__ */ M.jsx(
+              un,
+              {
+                className: "z-50",
+                id: "new-file",
+                style: { backgroundColor: "rgb(60 60 60)" }
+              }
+            ),
+            /* @__PURE__ */ M.jsx(
+              "button",
+              {
+                type: "button",
+                onClick: (u) => {
+                  u.stopPropagation(), e();
+                },
+                className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mr-[2px] ${o}`,
+                children: /* @__PURE__ */ M.jsx(
+                  "img",
+                  {
+                    "data-tooltip-id": "new-file",
+                    "data-tooltip-content": "New File",
+                    src: cc,
+                    className: "h-5 w-5",
+                    alt: "New File"
+                  }
+                )
+              }
+            )
+          ] }),
+          /* @__PURE__ */ M.jsxs("span", { className: "text-black", children: [
+            !l && /* @__PURE__ */ M.jsx(
+              un,
+              {
+                className: "z-50",
+                id: "new-folder",
+                style: { backgroundColor: "rgb(60 60 60)" }
+              }
+            ),
+            /* @__PURE__ */ M.jsx(
+              "button",
+              {
+                type: "button",
+                onClick: (u) => {
+                  u.stopPropagation(), t();
+                },
+                className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] mx-[2px] ${o}`,
+                children: /* @__PURE__ */ M.jsx(
+                  "img",
+                  {
+                    "data-tooltip-id": "new-folder",
+                    "data-tooltip-content": "New Folder",
+                    src: uc,
+                    className: "h-5 w-5",
+                    alt: "New Folder"
+                  }
+                )
+              }
+            )
+          ] }),
+          !c && /* @__PURE__ */ M.jsxs("span", { className: "text-black", children: [
+            !l && /* @__PURE__ */ M.jsx(
+              un,
+              {
+                className: "z-50",
+                id: "download-project",
+                style: { backgroundColor: "rgb(60 60 60)" }
+              }
+            ),
+            /* @__PURE__ */ M.jsx(
+              "button",
+              {
+                type: "button",
+                onClick: (u) => {
+                  u.stopPropagation(), r();
+                },
+                className: `cursor-pointer rounded-sm hover:bg-slate-300 p-[2px] ml-[2px] ${o}`,
+                children: /* @__PURE__ */ M.jsx(
+                  "img",
+                  {
+                    "data-tooltip-id": "download-project",
+                    "data-tooltip-content": "Download Project",
+                    src: dc,
+                    className: "h-5 w-5",
+                    alt: "Download Project"
+                  }
+                )
+              }
+            )
+          ] })
+        ] })
+      ] })
+    ]
+  }
+);
 var Zn = {}, Gn = {};
 Gn.__esModule = !0;
 Gn.default = ru;
@@ -4918,16 +5459,16 @@ function hu(e) {
   e.serialize === !1 ? a = function(k) {
     return k;
   } : typeof e.serialize == "function" ? a = e.serialize : a = pu;
-  var l = e.writeFailHandler || null, c = {}, u = {}, h = [], v = null, d = null, b = function(k) {
+  var l = e.writeFailHandler || null, c = {}, u = {}, h = [], g = null, d = null, b = function(k) {
     Object.keys(k).forEach(function(R) {
       m(R) && c[R] !== k[R] && h.indexOf(R) === -1 && h.push(R);
     }), Object.keys(c).forEach(function(R) {
       k[R] === void 0 && m(R) && h.indexOf(R) === -1 && c[R] !== void 0 && h.push(R);
-    }), v === null && (v = setInterval(f, i)), c = k;
+    }), g === null && (g = setInterval(f, i)), c = k;
   };
   function f() {
     if (h.length === 0) {
-      v && clearInterval(v), v = null;
+      g && clearInterval(g), g = null;
       return;
     }
     var E = h.shift(), k = n.reduce(function(R, T) {
@@ -4941,9 +5482,9 @@ function hu(e) {
       }
     else
       delete u[E];
-    h.length === 0 && g();
+    h.length === 0 && v();
   }
-  function g() {
+  function v() {
     Object.keys(u).forEach(function(E) {
       c[E] === void 0 && delete u[E];
     }), d = s.setItem(o, a(u)).catch(w);
@@ -5056,13 +5597,13 @@ function Su(e, t) {
     return h._persist.rehydrated && s && !l && s.update(h), h;
   };
   return function(u, h) {
-    var v = u || {}, d = v._persist, b = wu(v, ["_persist"]), f = b;
+    var g = u || {}, d = g._persist, b = wu(g, ["_persist"]), f = b;
     if (h.type === Yo) {
-      var g = !1, m = function(W, j) {
-        process.env.NODE_ENV !== "production" && g && console.error('redux-persist: rehydrate for "'.concat(e.key, '" called after timeout.'), W, j), g || (h.rehydrate(e.key, W, j), g = !0);
+      var v = !1, m = function(W, j) {
+        process.env.NODE_ENV !== "production" && v && console.error('redux-persist: rehydrate for "'.concat(e.key, '" called after timeout.'), W, j), v || (h.rehydrate(e.key, W, j), v = !0);
       };
       if (o && setTimeout(function() {
-        !g && m(void 0, new Error('redux-persist: persist timed out for persist key "'.concat(e.key, '"')));
+        !v && m(void 0, new Error('redux-persist: persist timed out for persist key "'.concat(e.key, '"')));
       }, o), l = !1, s || (s = hu(e)), d)
         return kt({}, t(f, h), {
           _persist: d
@@ -5196,10 +5737,10 @@ function Nu(e, t, r) {
       type: Xo,
       key: h
     });
-  }, l = function(h, v, d) {
+  }, l = function(h, g, d) {
     var b = {
       type: Yn,
-      payload: v,
+      payload: g,
       err: d,
       key: h
       // dispatch to `store` to rehydrate and `persistor` to track result
@@ -5242,8 +5783,8 @@ function Nu(e, t, r) {
 var $r = { exports: {} };
 $r.exports;
 (function(e, t) {
-  var r = 200, n = "__lodash_hash_undefined__", i = 9007199254740991, o = "[object Arguments]", s = "[object Array]", a = "[object Boolean]", l = "[object Date]", c = "[object Error]", u = "[object Function]", h = "[object GeneratorFunction]", v = "[object Map]", d = "[object Number]", b = "[object Object]", f = "[object Promise]", g = "[object RegExp]", m = "[object Set]", w = "[object String]", x = "[object Symbol]", E = "[object WeakMap]", k = "[object ArrayBuffer]", R = "[object DataView]", T = "[object Float32Array]", W = "[object Float64Array]", j = "[object Int8Array]", K = "[object Int16Array]", J = "[object Int32Array]", C = "[object Uint8Array]", F = "[object Uint8ClampedArray]", y = "[object Uint16Array]", P = "[object Uint32Array]", se = /[\\^$.*+?()[\]{}|]/g, V = /\w*$/, pe = /^\[object .+?Constructor\]$/, H = /^(?:0|[1-9]\d*)$/, ee = {};
-  ee[o] = ee[s] = ee[k] = ee[R] = ee[a] = ee[l] = ee[T] = ee[W] = ee[j] = ee[K] = ee[J] = ee[v] = ee[d] = ee[b] = ee[g] = ee[m] = ee[w] = ee[x] = ee[C] = ee[F] = ee[y] = ee[P] = !0, ee[c] = ee[u] = ee[E] = !1;
+  var r = 200, n = "__lodash_hash_undefined__", i = 9007199254740991, o = "[object Arguments]", s = "[object Array]", a = "[object Boolean]", l = "[object Date]", c = "[object Error]", u = "[object Function]", h = "[object GeneratorFunction]", g = "[object Map]", d = "[object Number]", b = "[object Object]", f = "[object Promise]", v = "[object RegExp]", m = "[object Set]", w = "[object String]", x = "[object Symbol]", E = "[object WeakMap]", k = "[object ArrayBuffer]", R = "[object DataView]", T = "[object Float32Array]", W = "[object Float64Array]", j = "[object Int8Array]", K = "[object Int16Array]", J = "[object Int32Array]", C = "[object Uint8Array]", F = "[object Uint8ClampedArray]", y = "[object Uint16Array]", P = "[object Uint32Array]", se = /[\\^$.*+?()[\]{}|]/g, V = /\w*$/, pe = /^\[object .+?Constructor\]$/, H = /^(?:0|[1-9]\d*)$/, ee = {};
+  ee[o] = ee[s] = ee[k] = ee[R] = ee[a] = ee[l] = ee[T] = ee[W] = ee[j] = ee[K] = ee[J] = ee[g] = ee[d] = ee[b] = ee[v] = ee[m] = ee[w] = ee[x] = ee[C] = ee[F] = ee[y] = ee[P] = !0, ee[c] = ee[u] = ee[E] = !1;
   var L = typeof ft == "object" && ft && ft.Object === Object && ft, z = typeof self == "object" && self && self.Object === Object && self, oe = L || z || Function("return this")(), re = t && !t.nodeType && t, Q = re && !0 && e && !e.nodeType && e, ge = Q && Q.exports === re;
   function Ie(_, $) {
     return _.set($[0], $[1]), _;
@@ -5559,14 +6100,14 @@ $r.exports;
     return hs(G) ? G : void 0;
   }
   var Jn = De ? D(De, Object) : Ps, Pt = fs;
-  (nt && Pt(new nt(new ArrayBuffer(1))) != R || tt && Pt(new tt()) != v || Xe && Pt(Xe.resolve()) != f || ne && Pt(new ne()) != m || ue && Pt(new ue()) != E) && (Pt = function(_) {
+  (nt && Pt(new nt(new ArrayBuffer(1))) != R || tt && Pt(new tt()) != g || Xe && Pt(Xe.resolve()) != f || ne && Pt(new ne()) != m || ue && Pt(new ue()) != E) && (Pt = function(_) {
     var $ = q.call(_), G = $ == b ? _.constructor : void 0, ce = G ? Lt(G) : void 0;
     if (ce)
       switch (ce) {
         case Fe:
           return R;
         case he:
-          return v;
+          return g;
         case Se:
           return f;
         case Je:
@@ -5603,12 +6144,12 @@ $r.exports;
       case y:
       case P:
         return _s(_, ce);
-      case v:
+      case g:
         return gs(_, ce, G);
       case d:
       case w:
         return new rt(_);
-      case g:
+      case v:
         return vs(_);
       case m:
         return bs(_, ce, G);
@@ -5704,28 +6245,43 @@ const Ru = /* @__PURE__ */ Nn(Tu), Qo = (e, t) => {
     collapsed: !1,
     subFoldersAndFiles: []
   }
-}, es = Fn("setMiniStructureAsync", async (e, { getState: t }) => {
-  const r = t();
-  let n = {
-    id: "head",
-    type: "folder",
-    name: "head",
-    collapsed: !1,
-    subFoldersAndFiles: []
-  };
-  return St(r.structure.initialFolder.subFoldersAndFiles, e, (i, o) => {
-    const s = Ru(o[o.length - 1]);
-    Wr(s.subFoldersAndFiles, (a) => {
-      const l = a;
-      if (l.type === "folder")
-        l.name = r.structure.normalized.folders.byId[a.id].name, l.collapsed = !0;
-      else if (l.type === "file") {
-        const c = r.structure.normalized.files.byId[a.id];
-        l.wholeName = `${c.name}.${c.extension}`, l.name = c.name, l.extension = c.extension, l.subFoldersAndFiles = null;
-      }
-    }, [], [s.id]), n = s;
-  }, [r.structure.initialFolder]), n;
-}), ts = zn({
+}, es = Fn(
+  "setMiniStructureAsync",
+  async (e, { getState: t }) => {
+    const r = t();
+    let n = {
+      id: "head",
+      type: "folder",
+      name: "head",
+      collapsed: !1,
+      subFoldersAndFiles: []
+    };
+    return St(
+      r.structure.initialFolder.subFoldersAndFiles,
+      e,
+      (i, o) => {
+        const s = Ru(
+          o[o.length - 1]
+        );
+        Wr(
+          s.subFoldersAndFiles,
+          (a) => {
+            const l = a;
+            if (l.type === "folder")
+              l.name = r.structure.normalized.folders.byId[a.id].name, l.collapsed = !0;
+            else if (l.type === "file") {
+              const c = r.structure.normalized.files.byId[a.id];
+              l.wholeName = `${c.name}.${c.extension}`, l.name = c.name, l.extension = c.extension, l.subFoldersAndFiles = null;
+            }
+          },
+          [],
+          [s.id]
+        ), n = s;
+      },
+      [r.structure.initialFolder]
+    ), n;
+  }
+), ts = zn({
   name: "miniStructure",
   initialState: Iu,
   reducers: {
@@ -5746,17 +6302,21 @@ const Ru = /* @__PURE__ */ Nn(Tu), Qo = (e, t) => {
       t.miniStructure = r.payload;
     });
   }
-}), { collapseMiniStructure: qi } = ts.actions, ju = (e) => e.miniStructure.miniStructure, Fu = Zt((e) => e.structure.normalized, (e) => e.tabs.selected, (e, t) => {
-  if (t && t !== "") {
-    const r = e.files.byId[t], [n, i] = Qo(r, e);
-    return {
-      id: r.id,
-      path: i,
-      unmappedPath: n
-    };
-  } else
-    return null;
-}), zu = ts.reducer, Du = {
+}), { collapseMiniStructure: qi } = ts.actions, ju = (e) => e.miniStructure.miniStructure, Fu = Zt(
+  (e) => e.structure.normalized,
+  (e) => e.tabs.selected,
+  (e, t) => {
+    if (t && t !== "") {
+      const r = e.files.byId[t], [n, i] = Qo(r, e);
+      return {
+        id: r.id,
+        path: i,
+        unmappedPath: n
+      };
+    } else
+      return null;
+  }
+), zu = ts.reducer, Du = {
   key: "project",
   storage: Zo,
   whitelist: ["structure", "editor", "tabs"]
@@ -5796,8 +6356,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               return h(c, !0);
             if (a)
               return a(c, !0);
-            var v = new Error("Cannot find module '" + c + "'");
-            throw v.code = "MODULE_NOT_FOUND", v;
+            var g = new Error("Cannot find module '" + c + "'");
+            throw g.code = "MODULE_NOT_FOUND", g;
           }
           var d = i[c] = { exports: {} };
           n[c][0].call(d.exports, function(b) {
@@ -5813,24 +6373,24 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     }({ 1: [function(r, n, i) {
       var o = r("./utils"), s = r("./support"), a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
       i.encode = function(l) {
-        for (var c, u, h, v, d, b, f, g = [], m = 0, w = l.length, x = w, E = o.getTypeOf(l) !== "string"; m < l.length; )
-          x = w - m, h = E ? (c = l[m++], u = m < w ? l[m++] : 0, m < w ? l[m++] : 0) : (c = l.charCodeAt(m++), u = m < w ? l.charCodeAt(m++) : 0, m < w ? l.charCodeAt(m++) : 0), v = c >> 2, d = (3 & c) << 4 | u >> 4, b = 1 < x ? (15 & u) << 2 | h >> 6 : 64, f = 2 < x ? 63 & h : 64, g.push(a.charAt(v) + a.charAt(d) + a.charAt(b) + a.charAt(f));
-        return g.join("");
+        for (var c, u, h, g, d, b, f, v = [], m = 0, w = l.length, x = w, E = o.getTypeOf(l) !== "string"; m < l.length; )
+          x = w - m, h = E ? (c = l[m++], u = m < w ? l[m++] : 0, m < w ? l[m++] : 0) : (c = l.charCodeAt(m++), u = m < w ? l.charCodeAt(m++) : 0, m < w ? l.charCodeAt(m++) : 0), g = c >> 2, d = (3 & c) << 4 | u >> 4, b = 1 < x ? (15 & u) << 2 | h >> 6 : 64, f = 2 < x ? 63 & h : 64, v.push(a.charAt(g) + a.charAt(d) + a.charAt(b) + a.charAt(f));
+        return v.join("");
       }, i.decode = function(l) {
-        var c, u, h, v, d, b, f = 0, g = 0, m = "data:";
+        var c, u, h, g, d, b, f = 0, v = 0, m = "data:";
         if (l.substr(0, m.length) === m)
           throw new Error("Invalid base64 input, it looks like a data url.");
         var w, x = 3 * (l = l.replace(/[^A-Za-z0-9+/=]/g, "")).length / 4;
         if (l.charAt(l.length - 1) === a.charAt(64) && x--, l.charAt(l.length - 2) === a.charAt(64) && x--, x % 1 != 0)
           throw new Error("Invalid base64 input, bad content length.");
         for (w = s.uint8array ? new Uint8Array(0 | x) : new Array(0 | x); f < l.length; )
-          c = a.indexOf(l.charAt(f++)) << 2 | (v = a.indexOf(l.charAt(f++))) >> 4, u = (15 & v) << 4 | (d = a.indexOf(l.charAt(f++))) >> 2, h = (3 & d) << 6 | (b = a.indexOf(l.charAt(f++))), w[g++] = c, d !== 64 && (w[g++] = u), b !== 64 && (w[g++] = h);
+          c = a.indexOf(l.charAt(f++)) << 2 | (g = a.indexOf(l.charAt(f++))) >> 4, u = (15 & g) << 4 | (d = a.indexOf(l.charAt(f++))) >> 2, h = (3 & d) << 6 | (b = a.indexOf(l.charAt(f++))), w[v++] = c, d !== 64 && (w[v++] = u), b !== 64 && (w[v++] = h);
         return w;
       };
     }, { "./support": 30, "./utils": 32 }], 2: [function(r, n, i) {
       var o = r("./external"), s = r("./stream/DataWorker"), a = r("./stream/Crc32Probe"), l = r("./stream/DataLengthProbe");
-      function c(u, h, v, d, b) {
-        this.compressedSize = u, this.uncompressedSize = h, this.crc32 = v, this.compression = d, this.compressedContent = b;
+      function c(u, h, g, d, b) {
+        this.compressedSize = u, this.uncompressedSize = h, this.crc32 = g, this.compression = d, this.compressedContent = b;
       }
       c.prototype = { getContentWorker: function() {
         var u = new s(o.Promise.resolve(this.compressedContent)).pipe(this.compression.uncompressWorker()).pipe(new l("data_length")), h = this;
@@ -5840,8 +6400,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         }), u;
       }, getCompressedWorker: function() {
         return new s(o.Promise.resolve(this.compressedContent)).withStreamInfo("compressedSize", this.compressedSize).withStreamInfo("uncompressedSize", this.uncompressedSize).withStreamInfo("crc32", this.crc32).withStreamInfo("compression", this.compression);
-      } }, c.createWorkerFrom = function(u, h, v) {
-        return u.pipe(new a()).pipe(new l("uncompressedSize")).pipe(h.compressWorker(v)).pipe(new l("compressedSize")).withStreamInfo("compression", h);
+      } }, c.createWorkerFrom = function(u, h, g) {
+        return u.pipe(new a()).pipe(new l("uncompressedSize")).pipe(h.compressWorker(g)).pipe(new l("compressedSize")).withStreamInfo("compression", h);
       }, n.exports = c;
     }, { "./external": 6, "./stream/Crc32Probe": 25, "./stream/DataLengthProbe": 26, "./stream/DataWorker": 27 }], 3: [function(r, n, i) {
       var o = r("./stream/GenericWorker");
@@ -5861,16 +6421,16 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         return l;
       }();
       n.exports = function(a, l) {
-        return a !== void 0 && a.length ? o.getTypeOf(a) !== "string" ? function(c, u, h, v) {
-          var d = s, b = v + h;
+        return a !== void 0 && a.length ? o.getTypeOf(a) !== "string" ? function(c, u, h, g) {
+          var d = s, b = g + h;
           c ^= -1;
-          for (var f = v; f < b; f++)
+          for (var f = g; f < b; f++)
             c = c >>> 8 ^ d[255 & (c ^ u[f])];
           return -1 ^ c;
-        }(0 | l, a, a.length, 0) : function(c, u, h, v) {
-          var d = s, b = v + h;
+        }(0 | l, a, a.length, 0) : function(c, u, h, g) {
+          var d = s, b = g + h;
           c ^= -1;
-          for (var f = v; f < b; f++)
+          for (var f = g; f < b; f++)
             c = c >>> 8 ^ d[255 & (c ^ u.charCodeAt(f))];
           return -1 ^ c;
         }(0 | l, a, a.length, 0) : 0;
@@ -5882,8 +6442,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       o = typeof Promise < "u" ? Promise : r("lie"), n.exports = { Promise: o };
     }, { lie: 37 }], 7: [function(r, n, i) {
       var o = typeof Uint8Array < "u" && typeof Uint16Array < "u" && typeof Uint32Array < "u", s = r("pako"), a = r("./utils"), l = r("./stream/GenericWorker"), c = o ? "uint8array" : "array";
-      function u(h, v) {
-        l.call(this, "FlateWorker/" + h), this._pako = null, this._pakoAction = h, this._pakoOptions = v, this.meta = {};
+      function u(h, g) {
+        l.call(this, "FlateWorker/" + h), this._pako = null, this._pakoAction = h, this._pakoOptions = g, this.meta = {};
       }
       i.magic = "\b\0", a.inherits(u, l), u.prototype.processChunk = function(h) {
         this.meta = h.meta, this._pako === null && this._createPako(), this._pako.push(a.transformTo(c, h.data), !1);
@@ -5894,8 +6454,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }, u.prototype._createPako = function() {
         this._pako = new s[this._pakoAction]({ raw: !0, level: this._pakoOptions.level || -1 });
         var h = this;
-        this._pako.onData = function(v) {
-          h.push({ data: v, meta: h.meta });
+        this._pako.onData = function(g) {
+          h.push({ data: g, meta: h.meta });
         };
       }, i.compressWorker = function(h) {
         return new u("Deflate", h);
@@ -5904,12 +6464,12 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       };
     }, { "./stream/GenericWorker": 28, "./utils": 32, pako: 38 }], 8: [function(r, n, i) {
       function o(d, b) {
-        var f, g = "";
+        var f, v = "";
         for (f = 0; f < b; f++)
-          g += String.fromCharCode(255 & d), d >>>= 8;
-        return g;
+          v += String.fromCharCode(255 & d), d >>>= 8;
+        return v;
       }
-      function s(d, b, f, g, m, w) {
+      function s(d, b, f, v, m, w) {
         var x, E, k = d.file, R = d.compression, T = w !== c.utf8encode, W = a.transformTo("string", w(k.name)), j = a.transformTo("string", c.utf8encode(k.name)), K = k.comment, J = a.transformTo("string", w(K)), C = a.transformTo("string", c.utf8encode(K)), F = j.length !== k.name.length, y = C.length !== K.length, P = "", se = "", V = "", pe = k.dir, H = k.date, ee = { crc32: 0, compressedSize: 0, uncompressedSize: 0 };
         b && !f || (ee.crc32 = d.crc32, ee.compressedSize = d.compressedSize, ee.uncompressedSize = d.uncompressedSize);
         var L = 0;
@@ -5923,16 +6483,16 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         }(k.dosPermissions)), x = H.getUTCHours(), x <<= 6, x |= H.getUTCMinutes(), x <<= 5, x |= H.getUTCSeconds() / 2, E = H.getUTCFullYear() - 1980, E <<= 4, E |= H.getUTCMonth() + 1, E <<= 5, E |= H.getUTCDate(), F && (se = o(1, 1) + o(u(W), 4) + j, P += "up" + o(se.length, 2) + se), y && (V = o(1, 1) + o(u(J), 4) + C, P += "uc" + o(V.length, 2) + V);
         var re = "";
         return re += `
-\0`, re += o(L, 2), re += R.magic, re += o(x, 2), re += o(E, 2), re += o(ee.crc32, 4), re += o(ee.compressedSize, 4), re += o(ee.uncompressedSize, 4), re += o(W.length, 2), re += o(P.length, 2), { fileRecord: h.LOCAL_FILE_HEADER + re + W + P, dirRecord: h.CENTRAL_FILE_HEADER + o(oe, 2) + re + o(J.length, 2) + "\0\0\0\0" + o(z, 4) + o(g, 4) + W + P + J };
+\0`, re += o(L, 2), re += R.magic, re += o(x, 2), re += o(E, 2), re += o(ee.crc32, 4), re += o(ee.compressedSize, 4), re += o(ee.uncompressedSize, 4), re += o(W.length, 2), re += o(P.length, 2), { fileRecord: h.LOCAL_FILE_HEADER + re + W + P, dirRecord: h.CENTRAL_FILE_HEADER + o(oe, 2) + re + o(J.length, 2) + "\0\0\0\0" + o(z, 4) + o(v, 4) + W + P + J };
       }
       var a = r("../utils"), l = r("../stream/GenericWorker"), c = r("../utf8"), u = r("../crc32"), h = r("../signature");
-      function v(d, b, f, g) {
-        l.call(this, "ZipFileWorker"), this.bytesWritten = 0, this.zipComment = b, this.zipPlatform = f, this.encodeFileName = g, this.streamFiles = d, this.accumulate = !1, this.contentBuffer = [], this.dirRecords = [], this.currentSourceOffset = 0, this.entriesCount = 0, this.currentFile = null, this._sources = [];
+      function g(d, b, f, v) {
+        l.call(this, "ZipFileWorker"), this.bytesWritten = 0, this.zipComment = b, this.zipPlatform = f, this.encodeFileName = v, this.streamFiles = d, this.accumulate = !1, this.contentBuffer = [], this.dirRecords = [], this.currentSourceOffset = 0, this.entriesCount = 0, this.currentFile = null, this._sources = [];
       }
-      a.inherits(v, l), v.prototype.push = function(d) {
-        var b = d.meta.percent || 0, f = this.entriesCount, g = this._sources.length;
-        this.accumulate ? this.contentBuffer.push(d) : (this.bytesWritten += d.data.length, l.prototype.push.call(this, { data: d.data, meta: { currentFile: this.currentFile, percent: f ? (b + 100 * (f - g - 1)) / f : 100 } }));
-      }, v.prototype.openedSource = function(d) {
+      a.inherits(g, l), g.prototype.push = function(d) {
+        var b = d.meta.percent || 0, f = this.entriesCount, v = this._sources.length;
+        this.accumulate ? this.contentBuffer.push(d) : (this.bytesWritten += d.data.length, l.prototype.push.call(this, { data: d.data, meta: { currentFile: this.currentFile, percent: f ? (b + 100 * (f - v - 1)) / f : 100 } }));
+      }, g.prototype.openedSource = function(d) {
         this.currentSourceOffset = this.bytesWritten, this.currentFile = d.file.name;
         var b = this.streamFiles && !d.file.dir;
         if (b) {
@@ -5940,28 +6500,28 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           this.push({ data: f.fileRecord, meta: { percent: 0 } });
         } else
           this.accumulate = !0;
-      }, v.prototype.closedSource = function(d) {
+      }, g.prototype.closedSource = function(d) {
         this.accumulate = !1;
         var b = this.streamFiles && !d.file.dir, f = s(d, b, !0, this.currentSourceOffset, this.zipPlatform, this.encodeFileName);
         if (this.dirRecords.push(f.dirRecord), b)
-          this.push({ data: function(g) {
-            return h.DATA_DESCRIPTOR + o(g.crc32, 4) + o(g.compressedSize, 4) + o(g.uncompressedSize, 4);
+          this.push({ data: function(v) {
+            return h.DATA_DESCRIPTOR + o(v.crc32, 4) + o(v.compressedSize, 4) + o(v.uncompressedSize, 4);
           }(d), meta: { percent: 100 } });
         else
           for (this.push({ data: f.fileRecord, meta: { percent: 0 } }); this.contentBuffer.length; )
             this.push(this.contentBuffer.shift());
         this.currentFile = null;
-      }, v.prototype.flush = function() {
+      }, g.prototype.flush = function() {
         for (var d = this.bytesWritten, b = 0; b < this.dirRecords.length; b++)
           this.push({ data: this.dirRecords[b], meta: { percent: 100 } });
-        var f = this.bytesWritten - d, g = function(m, w, x, E, k) {
+        var f = this.bytesWritten - d, v = function(m, w, x, E, k) {
           var R = a.transformTo("string", k(E));
           return h.CENTRAL_DIRECTORY_END + "\0\0\0\0" + o(m, 2) + o(m, 2) + o(w, 4) + o(x, 4) + o(R.length, 2) + R;
         }(this.dirRecords.length, f, d, this.zipComment, this.encodeFileName);
-        this.push({ data: g, meta: { percent: 100 } });
-      }, v.prototype.prepareNextSource = function() {
+        this.push({ data: v, meta: { percent: 100 } });
+      }, g.prototype.prepareNextSource = function() {
         this.previous = this._sources.shift(), this.openedSource(this.previous.streamInfo), this.isPaused ? this.previous.pause() : this.previous.resume();
-      }, v.prototype.registerPrevious = function(d) {
+      }, g.prototype.registerPrevious = function(d) {
         this._sources.push(d);
         var b = this;
         return d.on("data", function(f) {
@@ -5971,9 +6531,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         }), d.on("error", function(f) {
           b.error(f);
         }), this;
-      }, v.prototype.resume = function() {
+      }, g.prototype.resume = function() {
         return !!l.prototype.resume.call(this) && (!this.previous && this._sources.length ? (this.prepareNextSource(), !0) : this.previous || this._sources.length || this.generatedError ? void 0 : (this.end(), !0));
-      }, v.prototype.error = function(d) {
+      }, g.prototype.error = function(d) {
         var b = this._sources;
         if (!l.prototype.error.call(this, d))
           return !1;
@@ -5983,28 +6543,28 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           } catch {
           }
         return !0;
-      }, v.prototype.lock = function() {
+      }, g.prototype.lock = function() {
         l.prototype.lock.call(this);
         for (var d = this._sources, b = 0; b < d.length; b++)
           d[b].lock();
-      }, n.exports = v;
+      }, n.exports = g;
     }, { "../crc32": 4, "../signature": 23, "../stream/GenericWorker": 28, "../utf8": 31, "../utils": 32 }], 9: [function(r, n, i) {
       var o = r("../compressions"), s = r("./ZipFileWorker");
       i.generateWorker = function(a, l, c) {
         var u = new s(l.streamFiles, c, l.platform, l.encodeFileName), h = 0;
         try {
-          a.forEach(function(v, d) {
+          a.forEach(function(g, d) {
             h++;
             var b = function(w, x) {
               var E = w || x, k = o[E];
               if (!k)
                 throw new Error(E + " is not a valid compression method !");
               return k;
-            }(d.options.compression, l.compression), f = d.options.compressionOptions || l.compressionOptions || {}, g = d.dir, m = d.date;
-            d._compressWorker(b, f).withStreamInfo("file", { name: v, dir: g, date: m, comment: d.comment || "", unixPermissions: d.unixPermissions, dosPermissions: d.dosPermissions }).pipe(u);
+            }(d.options.compression, l.compression), f = d.options.compressionOptions || l.compressionOptions || {}, v = d.dir, m = d.date;
+            d._compressWorker(b, f).withStreamInfo("file", { name: g, dir: v, date: m, comment: d.comment || "", unixPermissions: d.unixPermissions, dosPermissions: d.dosPermissions }).pipe(u);
           }), u.entriesCount = h;
-        } catch (v) {
-          u.error(v);
+        } catch (g) {
+          u.error(g);
         }
         return u;
       };
@@ -6026,33 +6586,33 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }, o.external = r("./external"), n.exports = o;
     }, { "./defaults": 5, "./external": 6, "./load": 11, "./object": 15, "./support": 30 }], 11: [function(r, n, i) {
       var o = r("./utils"), s = r("./external"), a = r("./utf8"), l = r("./zipEntries"), c = r("./stream/Crc32Probe"), u = r("./nodejsUtils");
-      function h(v) {
+      function h(g) {
         return new s.Promise(function(d, b) {
-          var f = v.decompressed.getContentWorker().pipe(new c());
-          f.on("error", function(g) {
-            b(g);
+          var f = g.decompressed.getContentWorker().pipe(new c());
+          f.on("error", function(v) {
+            b(v);
           }).on("end", function() {
-            f.streamInfo.crc32 !== v.decompressed.crc32 ? b(new Error("Corrupted zip : CRC32 mismatch")) : d();
+            f.streamInfo.crc32 !== g.decompressed.crc32 ? b(new Error("Corrupted zip : CRC32 mismatch")) : d();
           }).resume();
         });
       }
-      n.exports = function(v, d) {
+      n.exports = function(g, d) {
         var b = this;
-        return d = o.extend(d || {}, { base64: !1, checkCRC32: !1, optimizedBinaryString: !1, createFolders: !1, decodeFileName: a.utf8decode }), u.isNode && u.isStream(v) ? s.Promise.reject(new Error("JSZip can't accept a stream when loading a zip file.")) : o.prepareContent("the loaded zip file", v, !0, d.optimizedBinaryString, d.base64).then(function(f) {
-          var g = new l(d);
-          return g.load(f), g;
+        return d = o.extend(d || {}, { base64: !1, checkCRC32: !1, optimizedBinaryString: !1, createFolders: !1, decodeFileName: a.utf8decode }), u.isNode && u.isStream(g) ? s.Promise.reject(new Error("JSZip can't accept a stream when loading a zip file.")) : o.prepareContent("the loaded zip file", g, !0, d.optimizedBinaryString, d.base64).then(function(f) {
+          var v = new l(d);
+          return v.load(f), v;
         }).then(function(f) {
-          var g = [s.Promise.resolve(f)], m = f.files;
+          var v = [s.Promise.resolve(f)], m = f.files;
           if (d.checkCRC32)
             for (var w = 0; w < m.length; w++)
-              g.push(h(m[w]));
-          return s.Promise.all(g);
+              v.push(h(m[w]));
+          return s.Promise.all(v);
         }).then(function(f) {
-          for (var g = f.shift(), m = g.files, w = 0; w < m.length; w++) {
+          for (var v = f.shift(), m = v.files, w = 0; w < m.length; w++) {
             var x = m[w], E = x.fileNameStr, k = o.resolve(x.fileNameStr);
             b.file(k, x.decompressed, { binary: !0, optimizedBinaryString: !0, date: x.date, dir: x.dir, comment: x.fileCommentStr.length ? x.fileCommentStr : null, unixPermissions: x.unixPermissions, dosPermissions: x.dosPermissions, createFolders: d.createFolders }), x.dir || (b.file(k).unsafeOriginalName = E);
           }
-          return g.zipComment.length && (b.comment = g.zipComment), b;
+          return v.zipComment.length && (b.comment = v.zipComment), b;
         });
       };
     }, { "./external": 6, "./nodejsUtils": 14, "./stream/Crc32Probe": 25, "./utf8": 31, "./utils": 32, "./zipEntries": 33 }], 12: [function(r, n, i) {
@@ -6079,8 +6639,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       function s(a, l, c) {
         o.call(this, l), this._helper = a;
         var u = this;
-        a.on("data", function(h, v) {
-          u.push(h) || u._helper.pause(), c && c(v);
+        a.on("data", function(h, g) {
+          u.push(h) || u._helper.pause(), c && c(g);
         }).on("error", function(h) {
           u.emit("error", h);
         }).on("end", function() {
@@ -6110,15 +6670,15 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     }, {}], 15: [function(r, n, i) {
       function o(k, R, T) {
         var W, j = a.getTypeOf(R), K = a.extend(T || {}, u);
-        K.date = K.date || /* @__PURE__ */ new Date(), K.compression !== null && (K.compression = K.compression.toUpperCase()), typeof K.unixPermissions == "string" && (K.unixPermissions = parseInt(K.unixPermissions, 8)), K.unixPermissions && 16384 & K.unixPermissions && (K.dir = !0), K.dosPermissions && 16 & K.dosPermissions && (K.dir = !0), K.dir && (k = m(k)), K.createFolders && (W = g(k)) && w.call(this, W, !0);
+        K.date = K.date || /* @__PURE__ */ new Date(), K.compression !== null && (K.compression = K.compression.toUpperCase()), typeof K.unixPermissions == "string" && (K.unixPermissions = parseInt(K.unixPermissions, 8)), K.unixPermissions && 16384 & K.unixPermissions && (K.dir = !0), K.dosPermissions && 16 & K.dosPermissions && (K.dir = !0), K.dir && (k = m(k)), K.createFolders && (W = v(k)) && w.call(this, W, !0);
         var J = j === "string" && K.binary === !1 && K.base64 === !1;
         T && T.binary !== void 0 || (K.binary = !J), (R instanceof h && R.uncompressedSize === 0 || K.dir || !R || R.length === 0) && (K.base64 = !1, K.binary = !0, R = "", K.compression = "STORE", j = "string");
         var C = null;
         C = R instanceof h || R instanceof l ? R : b.isNode && b.isStream(R) ? new f(k, R) : a.prepareContent(k, R, K.binary, K.optimizedBinaryString, K.base64);
-        var F = new v(k, C, K);
+        var F = new g(k, C, K);
         this.files[k] = F;
       }
-      var s = r("./utf8"), a = r("./utils"), l = r("./stream/GenericWorker"), c = r("./stream/StreamHelper"), u = r("./defaults"), h = r("./compressedObject"), v = r("./zipObject"), d = r("./generate"), b = r("./nodejsUtils"), f = r("./nodejs/NodejsStreamInputAdapter"), g = function(k) {
+      var s = r("./utf8"), a = r("./utils"), l = r("./stream/GenericWorker"), c = r("./stream/StreamHelper"), u = r("./defaults"), h = r("./compressedObject"), g = r("./zipObject"), d = r("./generate"), b = r("./nodejsUtils"), f = r("./nodejs/NodejsStreamInputAdapter"), v = function(k) {
         k.slice(-1) === "/" && (k = k.substring(0, k.length - 1));
         var R = k.lastIndexOf("/");
         return 0 < R ? k.substring(0, R) : "";
@@ -6204,13 +6764,13 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       r("../utils").inherits(s, o), s.prototype.byteAt = function(a) {
         return this.data[this.zero + a];
       }, s.prototype.lastIndexOfSignature = function(a) {
-        for (var l = a.charCodeAt(0), c = a.charCodeAt(1), u = a.charCodeAt(2), h = a.charCodeAt(3), v = this.length - 4; 0 <= v; --v)
-          if (this.data[v] === l && this.data[v + 1] === c && this.data[v + 2] === u && this.data[v + 3] === h)
-            return v - this.zero;
+        for (var l = a.charCodeAt(0), c = a.charCodeAt(1), u = a.charCodeAt(2), h = a.charCodeAt(3), g = this.length - 4; 0 <= g; --g)
+          if (this.data[g] === l && this.data[g + 1] === c && this.data[g + 2] === u && this.data[g + 3] === h)
+            return g - this.zero;
         return -1;
       }, s.prototype.readAndCheckSignature = function(a) {
-        var l = a.charCodeAt(0), c = a.charCodeAt(1), u = a.charCodeAt(2), h = a.charCodeAt(3), v = this.readData(4);
-        return l === v[0] && c === v[1] && u === v[2] && h === v[3];
+        var l = a.charCodeAt(0), c = a.charCodeAt(1), u = a.charCodeAt(2), h = a.charCodeAt(3), g = this.readData(4);
+        return l === g[0] && c === g[1] && u === g[2] && h === g[3];
       }, s.prototype.readData = function(a) {
         if (this.checkOffset(a), a === 0)
           return [];
@@ -6286,8 +6846,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
     }, { "../utils": 32, "./ArrayReader": 17 }], 22: [function(r, n, i) {
       var o = r("../utils"), s = r("../support"), a = r("./ArrayReader"), l = r("./StringReader"), c = r("./NodeBufferReader"), u = r("./Uint8ArrayReader");
       n.exports = function(h) {
-        var v = o.getTypeOf(h);
-        return o.checkSupport(v), v !== "string" || s.uint8array ? v === "nodebuffer" ? new c(h) : s.uint8array ? new u(o.transformTo("uint8array", h)) : new a(o.transformTo("array", h)) : new l(h);
+        var g = o.getTypeOf(h);
+        return o.checkSupport(g), g !== "string" || s.uint8array ? g === "nodebuffer" ? new c(h) : s.uint8array ? new u(o.transformTo("uint8array", h)) : new a(o.transformTo("array", h)) : new l(h);
       };
     }, { "../support": 30, "../utils": 32, "./ArrayReader": 17, "./NodeBufferReader": 19, "./StringReader": 20, "./Uint8ArrayReader": 21 }], 23: [function(r, n, i) {
       i.LOCAL_FILE_HEADER = "PK", i.CENTRAL_FILE_HEADER = "PK", i.CENTRAL_DIRECTORY_END = "PK", i.ZIP64_CENTRAL_DIRECTORY_LOCATOR = "PK\x07", i.ZIP64_CENTRAL_DIRECTORY_END = "PK", i.DATA_DESCRIPTOR = "PK\x07\b";
@@ -6425,8 +6985,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           h = r("../nodejs/NodejsStreamOutputAdapter");
         } catch {
         }
-      function v(b, f) {
-        return new u.Promise(function(g, m) {
+      function g(b, f) {
+        return new u.Promise(function(v, m) {
           var w = [], x = b._internalType, E = b._outputType, k = b._mimeType;
           b.on("data", function(R, T) {
             w.push(R), f && f(T);
@@ -6462,7 +7022,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                     throw new Error("concat : unsupported type '" + T + "'");
                 }
               }(x, w), k);
-              g(R);
+              v(R);
             } catch (T) {
               m(T);
             }
@@ -6470,7 +7030,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           }).resume();
         });
       }
-      function d(b, f, g) {
+      function d(b, f, v) {
         var m = f;
         switch (f) {
           case "blob":
@@ -6481,19 +7041,19 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             m = "string";
         }
         try {
-          this._internalType = m, this._outputType = f, this._mimeType = g, o.checkSupport(m), this._worker = b.pipe(new s(m)), b.lock();
+          this._internalType = m, this._outputType = f, this._mimeType = v, o.checkSupport(m), this._worker = b.pipe(new s(m)), b.lock();
         } catch (w) {
           this._worker = new a("error"), this._worker.error(w);
         }
       }
       d.prototype = { accumulate: function(b) {
-        return v(this, b);
+        return g(this, b);
       }, on: function(b, f) {
-        var g = this;
+        var v = this;
         return b === "data" ? this._worker.on(b, function(m) {
-          f.call(g, m.data, m.meta);
+          f.call(v, m.data, m.meta);
         }) : this._worker.on(b, function() {
-          o.delay(f, arguments, g);
+          o.delay(f, arguments, v);
         }), this;
       }, resume: function() {
         return o.delay(this._worker.resume, [], this._worker), this;
@@ -6532,32 +7092,32 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       function h() {
         l.call(this, "utf-8 decode"), this.leftOver = null;
       }
-      function v() {
+      function g() {
         l.call(this, "utf-8 encode");
       }
       i.utf8encode = function(d) {
         return s.nodebuffer ? a.newBufferFrom(d, "utf-8") : function(b) {
-          var f, g, m, w, x, E = b.length, k = 0;
+          var f, v, m, w, x, E = b.length, k = 0;
           for (w = 0; w < E; w++)
-            (64512 & (g = b.charCodeAt(w))) == 55296 && w + 1 < E && (64512 & (m = b.charCodeAt(w + 1))) == 56320 && (g = 65536 + (g - 55296 << 10) + (m - 56320), w++), k += g < 128 ? 1 : g < 2048 ? 2 : g < 65536 ? 3 : 4;
+            (64512 & (v = b.charCodeAt(w))) == 55296 && w + 1 < E && (64512 & (m = b.charCodeAt(w + 1))) == 56320 && (v = 65536 + (v - 55296 << 10) + (m - 56320), w++), k += v < 128 ? 1 : v < 2048 ? 2 : v < 65536 ? 3 : 4;
           for (f = s.uint8array ? new Uint8Array(k) : new Array(k), w = x = 0; x < k; w++)
-            (64512 & (g = b.charCodeAt(w))) == 55296 && w + 1 < E && (64512 & (m = b.charCodeAt(w + 1))) == 56320 && (g = 65536 + (g - 55296 << 10) + (m - 56320), w++), g < 128 ? f[x++] = g : (g < 2048 ? f[x++] = 192 | g >>> 6 : (g < 65536 ? f[x++] = 224 | g >>> 12 : (f[x++] = 240 | g >>> 18, f[x++] = 128 | g >>> 12 & 63), f[x++] = 128 | g >>> 6 & 63), f[x++] = 128 | 63 & g);
+            (64512 & (v = b.charCodeAt(w))) == 55296 && w + 1 < E && (64512 & (m = b.charCodeAt(w + 1))) == 56320 && (v = 65536 + (v - 55296 << 10) + (m - 56320), w++), v < 128 ? f[x++] = v : (v < 2048 ? f[x++] = 192 | v >>> 6 : (v < 65536 ? f[x++] = 224 | v >>> 12 : (f[x++] = 240 | v >>> 18, f[x++] = 128 | v >>> 12 & 63), f[x++] = 128 | v >>> 6 & 63), f[x++] = 128 | 63 & v);
           return f;
         }(d);
       }, i.utf8decode = function(d) {
         return s.nodebuffer ? o.transformTo("nodebuffer", d).toString("utf-8") : function(b) {
-          var f, g, m, w, x = b.length, E = new Array(2 * x);
-          for (f = g = 0; f < x; )
+          var f, v, m, w, x = b.length, E = new Array(2 * x);
+          for (f = v = 0; f < x; )
             if ((m = b[f++]) < 128)
-              E[g++] = m;
+              E[v++] = m;
             else if (4 < (w = c[m]))
-              E[g++] = 65533, f += w - 1;
+              E[v++] = 65533, f += w - 1;
             else {
               for (m &= w === 2 ? 31 : w === 3 ? 15 : 7; 1 < w && f < x; )
                 m = m << 6 | 63 & b[f++], w--;
-              1 < w ? E[g++] = 65533 : m < 65536 ? E[g++] = m : (m -= 65536, E[g++] = 55296 | m >> 10 & 1023, E[g++] = 56320 | 1023 & m);
+              1 < w ? E[v++] = 65533 : m < 65536 ? E[v++] = m : (m -= 65536, E[v++] = 55296 | m >> 10 & 1023, E[v++] = 56320 | 1023 & m);
             }
-          return E.length !== g && (E.subarray ? E = E.subarray(0, g) : E.length = g), o.applyFromCharCode(E);
+          return E.length !== v && (E.subarray ? E = E.subarray(0, v) : E.length = v), o.applyFromCharCode(E);
         }(d = o.transformTo(s.uint8array ? "uint8array" : "array", d));
       }, o.inherits(h, l), h.prototype.processChunk = function(d) {
         var b = o.transformTo(s.uint8array ? "uint8array" : "array", d.data);
@@ -6569,52 +7129,52 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             b = this.leftOver.concat(b);
           this.leftOver = null;
         }
-        var g = function(w, x) {
+        var v = function(w, x) {
           var E;
           for ((x = x || w.length) > w.length && (x = w.length), E = x - 1; 0 <= E && (192 & w[E]) == 128; )
             E--;
           return E < 0 || E === 0 ? x : E + c[w[E]] > x ? E : x;
         }(b), m = b;
-        g !== b.length && (s.uint8array ? (m = b.subarray(0, g), this.leftOver = b.subarray(g, b.length)) : (m = b.slice(0, g), this.leftOver = b.slice(g, b.length))), this.push({ data: i.utf8decode(m), meta: d.meta });
+        v !== b.length && (s.uint8array ? (m = b.subarray(0, v), this.leftOver = b.subarray(v, b.length)) : (m = b.slice(0, v), this.leftOver = b.slice(v, b.length))), this.push({ data: i.utf8decode(m), meta: d.meta });
       }, h.prototype.flush = function() {
         this.leftOver && this.leftOver.length && (this.push({ data: i.utf8decode(this.leftOver), meta: {} }), this.leftOver = null);
-      }, i.Utf8DecodeWorker = h, o.inherits(v, l), v.prototype.processChunk = function(d) {
+      }, i.Utf8DecodeWorker = h, o.inherits(g, l), g.prototype.processChunk = function(d) {
         this.push({ data: i.utf8encode(d.data), meta: d.meta });
-      }, i.Utf8EncodeWorker = v;
+      }, i.Utf8EncodeWorker = g;
     }, { "./nodejsUtils": 14, "./stream/GenericWorker": 28, "./support": 30, "./utils": 32 }], 32: [function(r, n, i) {
       var o = r("./support"), s = r("./base64"), a = r("./nodejsUtils"), l = r("./external");
       function c(f) {
         return f;
       }
-      function u(f, g) {
+      function u(f, v) {
         for (var m = 0; m < f.length; ++m)
-          g[m] = 255 & f.charCodeAt(m);
-        return g;
+          v[m] = 255 & f.charCodeAt(m);
+        return v;
       }
-      r("setimmediate"), i.newBlob = function(f, g) {
+      r("setimmediate"), i.newBlob = function(f, v) {
         i.checkSupport("blob");
         try {
-          return new Blob([f], { type: g });
+          return new Blob([f], { type: v });
         } catch {
           try {
             var m = new (self.BlobBuilder || self.WebKitBlobBuilder || self.MozBlobBuilder || self.MSBlobBuilder)();
-            return m.append(f), m.getBlob(g);
+            return m.append(f), m.getBlob(v);
           } catch {
             throw new Error("Bug : can't construct the Blob.");
           }
         }
       };
-      var h = { stringifyByChunk: function(f, g, m) {
+      var h = { stringifyByChunk: function(f, v, m) {
         var w = [], x = 0, E = f.length;
         if (E <= m)
           return String.fromCharCode.apply(null, f);
         for (; x < E; )
-          g === "array" || g === "nodebuffer" ? w.push(String.fromCharCode.apply(null, f.slice(x, Math.min(x + m, E)))) : w.push(String.fromCharCode.apply(null, f.subarray(x, Math.min(x + m, E)))), x += m;
+          v === "array" || v === "nodebuffer" ? w.push(String.fromCharCode.apply(null, f.slice(x, Math.min(x + m, E)))) : w.push(String.fromCharCode.apply(null, f.subarray(x, Math.min(x + m, E)))), x += m;
         return w.join("");
       }, stringifyByChar: function(f) {
-        for (var g = "", m = 0; m < f.length; m++)
-          g += String.fromCharCode(f[m]);
-        return g;
+        for (var v = "", m = 0; m < f.length; m++)
+          v += String.fromCharCode(f[m]);
+        return v;
       }, applyCanBeUsed: { uint8array: function() {
         try {
           return o.uint8array && String.fromCharCode.apply(null, new Uint8Array(1)).length === 1;
@@ -6628,23 +7188,23 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           return !1;
         }
       }() } };
-      function v(f) {
-        var g = 65536, m = i.getTypeOf(f), w = !0;
+      function g(f) {
+        var v = 65536, m = i.getTypeOf(f), w = !0;
         if (m === "uint8array" ? w = h.applyCanBeUsed.uint8array : m === "nodebuffer" && (w = h.applyCanBeUsed.nodebuffer), w)
-          for (; 1 < g; )
+          for (; 1 < v; )
             try {
-              return h.stringifyByChunk(f, m, g);
+              return h.stringifyByChunk(f, m, v);
             } catch {
-              g = Math.floor(g / 2);
+              v = Math.floor(v / 2);
             }
         return h.stringifyByChar(f);
       }
-      function d(f, g) {
+      function d(f, v) {
         for (var m = 0; m < f.length; m++)
-          g[m] = f[m];
-        return g;
+          v[m] = f[m];
+        return v;
       }
-      i.applyFromCharCode = v;
+      i.applyFromCharCode = g;
       var b = {};
       b.string = { string: c, array: function(f) {
         return u(f, new Array(f.length));
@@ -6654,42 +7214,42 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         return u(f, new Uint8Array(f.length));
       }, nodebuffer: function(f) {
         return u(f, a.allocBuffer(f.length));
-      } }, b.array = { string: v, array: c, arraybuffer: function(f) {
+      } }, b.array = { string: g, array: c, arraybuffer: function(f) {
         return new Uint8Array(f).buffer;
       }, uint8array: function(f) {
         return new Uint8Array(f);
       }, nodebuffer: function(f) {
         return a.newBufferFrom(f);
       } }, b.arraybuffer = { string: function(f) {
-        return v(new Uint8Array(f));
+        return g(new Uint8Array(f));
       }, array: function(f) {
         return d(new Uint8Array(f), new Array(f.byteLength));
       }, arraybuffer: c, uint8array: function(f) {
         return new Uint8Array(f);
       }, nodebuffer: function(f) {
         return a.newBufferFrom(new Uint8Array(f));
-      } }, b.uint8array = { string: v, array: function(f) {
+      } }, b.uint8array = { string: g, array: function(f) {
         return d(f, new Array(f.length));
       }, arraybuffer: function(f) {
         return f.buffer;
       }, uint8array: c, nodebuffer: function(f) {
         return a.newBufferFrom(f);
-      } }, b.nodebuffer = { string: v, array: function(f) {
+      } }, b.nodebuffer = { string: g, array: function(f) {
         return d(f, new Array(f.length));
       }, arraybuffer: function(f) {
         return b.nodebuffer.uint8array(f).buffer;
       }, uint8array: function(f) {
         return d(f, new Uint8Array(f.length));
-      }, nodebuffer: c }, i.transformTo = function(f, g) {
-        if (g = g || "", !f)
-          return g;
+      }, nodebuffer: c }, i.transformTo = function(f, v) {
+        if (v = v || "", !f)
+          return v;
         i.checkSupport(f);
-        var m = i.getTypeOf(g);
-        return b[m][f](g);
+        var m = i.getTypeOf(v);
+        return b[m][f](v);
       }, i.resolve = function(f) {
-        for (var g = f.split("/"), m = [], w = 0; w < g.length; w++) {
-          var x = g[w];
-          x === "." || x === "" && w !== 0 && w !== g.length - 1 || (x === ".." ? m.pop() : m.push(x));
+        for (var v = f.split("/"), m = [], w = 0; w < v.length; w++) {
+          var x = v[w];
+          x === "." || x === "" && w !== 0 && w !== v.length - 1 || (x === ".." ? m.pop() : m.push(x));
         }
         return m.join("/");
       }, i.getTypeOf = function(f) {
@@ -6698,26 +7258,26 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         if (!o[f.toLowerCase()])
           throw new Error(f + " is not supported by this platform");
       }, i.MAX_VALUE_16BITS = 65535, i.MAX_VALUE_32BITS = -1, i.pretty = function(f) {
-        var g, m, w = "";
+        var v, m, w = "";
         for (m = 0; m < (f || "").length; m++)
-          w += "\\x" + ((g = f.charCodeAt(m)) < 16 ? "0" : "") + g.toString(16).toUpperCase();
+          w += "\\x" + ((v = f.charCodeAt(m)) < 16 ? "0" : "") + v.toString(16).toUpperCase();
         return w;
-      }, i.delay = function(f, g, m) {
+      }, i.delay = function(f, v, m) {
         setImmediate(function() {
-          f.apply(m || null, g || []);
+          f.apply(m || null, v || []);
         });
-      }, i.inherits = function(f, g) {
+      }, i.inherits = function(f, v) {
         function m() {
         }
-        m.prototype = g.prototype, f.prototype = new m();
+        m.prototype = v.prototype, f.prototype = new m();
       }, i.extend = function() {
-        var f, g, m = {};
+        var f, v, m = {};
         for (f = 0; f < arguments.length; f++)
-          for (g in arguments[f])
-            Object.prototype.hasOwnProperty.call(arguments[f], g) && m[g] === void 0 && (m[g] = arguments[f][g]);
+          for (v in arguments[f])
+            Object.prototype.hasOwnProperty.call(arguments[f], v) && m[v] === void 0 && (m[v] = arguments[f][v]);
         return m;
-      }, i.prepareContent = function(f, g, m, w, x) {
-        return l.Promise.resolve(g).then(function(E) {
+      }, i.prepareContent = function(f, v, m, w, x) {
+        return l.Promise.resolve(v).then(function(E) {
           return o.blob && (E instanceof Blob || ["[object File]", "[object Blob]"].indexOf(Object.prototype.toString.call(E)) !== -1) && typeof FileReader < "u" ? new l.Promise(function(k, R) {
             var T = new FileReader();
             T.onload = function(W) {
@@ -6741,29 +7301,29 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       u.prototype = { checkSignature: function(h) {
         if (!this.reader.readAndCheckSignature(h)) {
           this.reader.index -= 4;
-          var v = this.reader.readString(4);
-          throw new Error("Corrupted zip or bug: unexpected signature (" + s.pretty(v) + ", expected " + s.pretty(h) + ")");
+          var g = this.reader.readString(4);
+          throw new Error("Corrupted zip or bug: unexpected signature (" + s.pretty(g) + ", expected " + s.pretty(h) + ")");
         }
-      }, isSignature: function(h, v) {
+      }, isSignature: function(h, g) {
         var d = this.reader.index;
         this.reader.setIndex(h);
-        var b = this.reader.readString(4) === v;
+        var b = this.reader.readString(4) === g;
         return this.reader.setIndex(d), b;
       }, readBlockEndOfCentral: function() {
         this.diskNumber = this.reader.readInt(2), this.diskWithCentralDirStart = this.reader.readInt(2), this.centralDirRecordsOnThisDisk = this.reader.readInt(2), this.centralDirRecords = this.reader.readInt(2), this.centralDirSize = this.reader.readInt(4), this.centralDirOffset = this.reader.readInt(4), this.zipCommentLength = this.reader.readInt(2);
-        var h = this.reader.readData(this.zipCommentLength), v = c.uint8array ? "uint8array" : "array", d = s.transformTo(v, h);
+        var h = this.reader.readData(this.zipCommentLength), g = c.uint8array ? "uint8array" : "array", d = s.transformTo(g, h);
         this.zipComment = this.loadOptions.decodeFileName(d);
       }, readBlockZip64EndOfCentral: function() {
         this.zip64EndOfCentralSize = this.reader.readInt(8), this.reader.skip(4), this.diskNumber = this.reader.readInt(4), this.diskWithCentralDirStart = this.reader.readInt(4), this.centralDirRecordsOnThisDisk = this.reader.readInt(8), this.centralDirRecords = this.reader.readInt(8), this.centralDirSize = this.reader.readInt(8), this.centralDirOffset = this.reader.readInt(8), this.zip64ExtensibleData = {};
-        for (var h, v, d, b = this.zip64EndOfCentralSize - 44; 0 < b; )
-          h = this.reader.readInt(2), v = this.reader.readInt(4), d = this.reader.readData(v), this.zip64ExtensibleData[h] = { id: h, length: v, value: d };
+        for (var h, g, d, b = this.zip64EndOfCentralSize - 44; 0 < b; )
+          h = this.reader.readInt(2), g = this.reader.readInt(4), d = this.reader.readData(g), this.zip64ExtensibleData[h] = { id: h, length: g, value: d };
       }, readBlockZip64EndOfCentralLocator: function() {
         if (this.diskWithZip64CentralDirStart = this.reader.readInt(4), this.relativeOffsetEndOfZip64CentralDir = this.reader.readInt(8), this.disksCount = this.reader.readInt(4), 1 < this.disksCount)
           throw new Error("Multi-volumes zip are not supported");
       }, readLocalFiles: function() {
-        var h, v;
+        var h, g;
         for (h = 0; h < this.files.length; h++)
-          v = this.files[h], this.reader.setIndex(v.localHeaderOffset), this.checkSignature(a.LOCAL_FILE_HEADER), v.readLocalPart(this.reader), v.handleUTF8(), v.processAttributes();
+          g = this.files[h], this.reader.setIndex(g.localHeaderOffset), this.checkSignature(a.LOCAL_FILE_HEADER), g.readLocalPart(this.reader), g.handleUTF8(), g.processAttributes();
       }, readCentralDir: function() {
         var h;
         for (this.reader.setIndex(this.centralDirOffset); this.reader.readAndCheckSignature(a.CENTRAL_FILE_HEADER); )
@@ -6775,7 +7335,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         if (h < 0)
           throw this.isSignature(0, a.LOCAL_FILE_HEADER) ? new Error("Corrupted zip: can't find end of central directory") : new Error("Can't find end of central directory : is this a zip file ? If it is, see https://stuk.github.io/jszip/documentation/howto/read_zip.html");
         this.reader.setIndex(h);
-        var v = h;
+        var g = h;
         if (this.checkSignature(a.CENTRAL_DIRECTORY_END), this.readBlockEndOfCentral(), this.diskNumber === s.MAX_VALUE_16BITS || this.diskWithCentralDirStart === s.MAX_VALUE_16BITS || this.centralDirRecordsOnThisDisk === s.MAX_VALUE_16BITS || this.centralDirRecords === s.MAX_VALUE_16BITS || this.centralDirSize === s.MAX_VALUE_32BITS || this.centralDirOffset === s.MAX_VALUE_32BITS) {
           if (this.zip64 = !0, (h = this.reader.lastIndexOfSignature(a.ZIP64_CENTRAL_DIRECTORY_LOCATOR)) < 0)
             throw new Error("Corrupted zip: can't find the ZIP64 end of central directory locator");
@@ -6785,9 +7345,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         }
         var d = this.centralDirOffset + this.centralDirSize;
         this.zip64 && (d += 20, d += 12 + this.zip64EndOfCentralSize);
-        var b = v - d;
+        var b = g - d;
         if (0 < b)
-          this.isSignature(v, a.CENTRAL_FILE_HEADER) || (this.reader.zero = b);
+          this.isSignature(g, a.CENTRAL_FILE_HEADER) || (this.reader.zero = b);
         else if (b < 0)
           throw new Error("Corrupted zip: missing " + Math.abs(b) + " bytes.");
       }, prepareReader: function(h) {
@@ -6797,10 +7357,10 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       } }, n.exports = u;
     }, { "./reader/readerFor": 22, "./signature": 23, "./support": 30, "./utils": 32, "./zipEntry": 34 }], 34: [function(r, n, i) {
       var o = r("./reader/readerFor"), s = r("./utils"), a = r("./compressedObject"), l = r("./crc32"), c = r("./utf8"), u = r("./compressions"), h = r("./support");
-      function v(d, b) {
+      function g(d, b) {
         this.options = d, this.loadOptions = b;
       }
-      v.prototype = { isEncrypted: function() {
+      g.prototype = { isEncrypted: function() {
         return (1 & this.bitFlag) == 1;
       }, useUTF8: function() {
         return (2048 & this.bitFlag) == 2048;
@@ -6808,9 +7368,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         var b, f;
         if (d.skip(22), this.fileNameLength = d.readInt(2), f = d.readInt(2), this.fileName = d.readData(this.fileNameLength), d.skip(f), this.compressedSize === -1 || this.uncompressedSize === -1)
           throw new Error("Bug or corrupted zip : didn't get enough information from the central directory (compressedSize === -1 || uncompressedSize === -1)");
-        if ((b = function(g) {
+        if ((b = function(v) {
           for (var m in u)
-            if (Object.prototype.hasOwnProperty.call(u, m) && u[m].magic === g)
+            if (Object.prototype.hasOwnProperty.call(u, m) && u[m].magic === v)
               return u[m];
           return null;
         }(this.compressionMethod)) === null)
@@ -6832,9 +7392,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           this.uncompressedSize === s.MAX_VALUE_32BITS && (this.uncompressedSize = d.readInt(8)), this.compressedSize === s.MAX_VALUE_32BITS && (this.compressedSize = d.readInt(8)), this.localHeaderOffset === s.MAX_VALUE_32BITS && (this.localHeaderOffset = d.readInt(8)), this.diskNumberStart === s.MAX_VALUE_32BITS && (this.diskNumberStart = d.readInt(4));
         }
       }, readExtraFields: function(d) {
-        var b, f, g, m = d.index + this.extraFieldsLength;
+        var b, f, v, m = d.index + this.extraFieldsLength;
         for (this.extraFields || (this.extraFields = {}); d.index + 4 < m; )
-          b = d.readInt(2), f = d.readInt(2), g = d.readData(f), this.extraFields[b] = { id: b, length: f, value: g };
+          b = d.readInt(2), f = d.readInt(2), v = d.readData(f), this.extraFields[b] = { id: b, length: f, value: v };
         d.setIndex(m);
       }, handleUTF8: function() {
         var d = h.uint8array ? "uint8array" : "array";
@@ -6848,9 +7408,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             var f = s.transformTo(d, this.fileName);
             this.fileNameStr = this.loadOptions.decodeFileName(f);
           }
-          var g = this.findExtraFieldUnicodeComment();
-          if (g !== null)
-            this.fileCommentStr = g;
+          var v = this.findExtraFieldUnicodeComment();
+          if (v !== null)
+            this.fileCommentStr = v;
           else {
             var m = s.transformTo(d, this.fileComment);
             this.fileCommentStr = this.loadOptions.decodeFileName(m);
@@ -6870,25 +7430,25 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           return b.readInt(1) !== 1 || l(this.fileComment) !== b.readInt(4) ? null : c.utf8decode(b.readData(d.length - 5));
         }
         return null;
-      } }, n.exports = v;
+      } }, n.exports = g;
     }, { "./compressedObject": 2, "./compressions": 3, "./crc32": 4, "./reader/readerFor": 22, "./support": 30, "./utf8": 31, "./utils": 32 }], 35: [function(r, n, i) {
-      function o(b, f, g) {
-        this.name = b, this.dir = g.dir, this.date = g.date, this.comment = g.comment, this.unixPermissions = g.unixPermissions, this.dosPermissions = g.dosPermissions, this._data = f, this._dataBinary = g.binary, this.options = { compression: g.compression, compressionOptions: g.compressionOptions };
+      function o(b, f, v) {
+        this.name = b, this.dir = v.dir, this.date = v.date, this.comment = v.comment, this.unixPermissions = v.unixPermissions, this.dosPermissions = v.dosPermissions, this._data = f, this._dataBinary = v.binary, this.options = { compression: v.compression, compressionOptions: v.compressionOptions };
       }
       var s = r("./stream/StreamHelper"), a = r("./stream/DataWorker"), l = r("./utf8"), c = r("./compressedObject"), u = r("./stream/GenericWorker");
       o.prototype = { internalStream: function(b) {
-        var f = null, g = "string";
+        var f = null, v = "string";
         try {
           if (!b)
             throw new Error("No output type specified.");
-          var m = (g = b.toLowerCase()) === "string" || g === "text";
-          g !== "binarystring" && g !== "text" || (g = "string"), f = this._decompressWorker();
+          var m = (v = b.toLowerCase()) === "string" || v === "text";
+          v !== "binarystring" && v !== "text" || (v = "string"), f = this._decompressWorker();
           var w = !this._dataBinary;
           w && !m && (f = f.pipe(new l.Utf8EncodeWorker())), !w && m && (f = f.pipe(new l.Utf8DecodeWorker()));
         } catch (x) {
           (f = new u("error")).error(x);
         }
-        return new s(f, g, "");
+        return new s(f, v, "");
       }, async: function(b, f) {
         return this.internalStream(b).accumulate(f);
       }, nodeStream: function(b, f) {
@@ -6896,15 +7456,15 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }, _compressWorker: function(b, f) {
         if (this._data instanceof c && this._data.compression.magic === b.magic)
           return this._data.getCompressedWorker();
-        var g = this._decompressWorker();
-        return this._dataBinary || (g = g.pipe(new l.Utf8EncodeWorker())), c.createWorkerFrom(g, b, f);
+        var v = this._decompressWorker();
+        return this._dataBinary || (v = v.pipe(new l.Utf8EncodeWorker())), c.createWorkerFrom(v, b, f);
       }, _decompressWorker: function() {
         return this._data instanceof c ? this._data.getContentWorker() : this._data instanceof u ? this._data : new a(this._data);
       } };
-      for (var h = ["asText", "asBinary", "asNodeBuffer", "asUint8Array", "asArrayBuffer"], v = function() {
+      for (var h = ["asText", "asBinary", "asNodeBuffer", "asUint8Array", "asArrayBuffer"], g = function() {
         throw new Error("This method has been removed in JSZip 3.0, please check the upgrade guide.");
       }, d = 0; d < h.length; d++)
-        o.prototype[h[d]] = v;
+        o.prototype[h[d]] = g;
       n.exports = o;
     }, { "./compressedObject": 2, "./stream/DataWorker": 27, "./stream/GenericWorker": 28, "./stream/StreamHelper": 29, "./utf8": 31 }], 36: [function(r, n, i) {
       (function(o) {
@@ -6924,18 +7484,18 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             setTimeout(b, 0);
           };
         else {
-          var v = new o.MessageChannel();
-          v.port1.onmessage = b, s = function() {
-            v.port2.postMessage(0);
+          var g = new o.MessageChannel();
+          g.port1.onmessage = b, s = function() {
+            g.port2.postMessage(0);
           };
         }
         var d = [];
         function b() {
-          var f, g;
+          var f, v;
           a = !0;
           for (var m = d.length; m; ) {
-            for (g = d, d = [], f = -1; ++f < m; )
-              g[f]();
+            for (v = d, d = [], f = -1; ++f < m; )
+              v[f]();
             m = d.length;
           }
           a = !1;
@@ -6954,7 +7514,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           throw new TypeError("resolver must be a function");
         this.state = u, this.queue = [], this.outcome = void 0, m !== s && f(this, m);
       }
-      function v(m, w, x) {
+      function g(m, w, x) {
         this.promise = m, typeof w == "function" && (this.onFulfilled = w, this.callFulfilled = this.otherCallFulfilled), typeof x == "function" && (this.onRejected = x, this.callRejected = this.otherCallRejected);
       }
       function d(m, w, x) {
@@ -6983,12 +7543,12 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         function k(T) {
           x || (x = !0, a.resolve(m, T));
         }
-        var R = g(function() {
+        var R = v(function() {
           w(k, E);
         });
         R.status === "error" && E(R.value);
       }
-      function g(m, w) {
+      function v(m, w) {
         var x = {};
         try {
           x.value = m(w), x.status = "success";
@@ -7016,17 +7576,17 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         if (typeof m != "function" && this.state === c || typeof w != "function" && this.state === l)
           return this;
         var x = new this.constructor(s);
-        return this.state !== u ? d(x, this.state === c ? m : w, this.outcome) : this.queue.push(new v(x, m, w)), x;
-      }, v.prototype.callFulfilled = function(m) {
+        return this.state !== u ? d(x, this.state === c ? m : w, this.outcome) : this.queue.push(new g(x, m, w)), x;
+      }, g.prototype.callFulfilled = function(m) {
         a.resolve(this.promise, m);
-      }, v.prototype.otherCallFulfilled = function(m) {
+      }, g.prototype.otherCallFulfilled = function(m) {
         d(this.promise, this.onFulfilled, m);
-      }, v.prototype.callRejected = function(m) {
+      }, g.prototype.callRejected = function(m) {
         a.reject(this.promise, m);
-      }, v.prototype.otherCallRejected = function(m) {
+      }, g.prototype.otherCallRejected = function(m) {
         d(this.promise, this.onRejected, m);
       }, a.resolve = function(m, w) {
-        var x = g(b, w);
+        var x = v(b, w);
         if (x.status === "error")
           return a.reject(m, x.value);
         var E = x.value;
@@ -7085,11 +7645,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       var o = {};
       (0, r("./lib/utils/common").assign)(o, r("./lib/deflate"), r("./lib/inflate"), r("./lib/zlib/constants")), n.exports = o;
     }, { "./lib/deflate": 39, "./lib/inflate": 40, "./lib/utils/common": 41, "./lib/zlib/constants": 44 }], 39: [function(r, n, i) {
-      var o = r("./zlib/deflate"), s = r("./utils/common"), a = r("./utils/strings"), l = r("./zlib/messages"), c = r("./zlib/zstream"), u = Object.prototype.toString, h = 0, v = -1, d = 0, b = 8;
+      var o = r("./zlib/deflate"), s = r("./utils/common"), a = r("./utils/strings"), l = r("./zlib/messages"), c = r("./zlib/zstream"), u = Object.prototype.toString, h = 0, g = -1, d = 0, b = 8;
       function f(m) {
         if (!(this instanceof f))
           return new f(m);
-        this.options = s.assign({ level: v, method: b, chunkSize: 16384, windowBits: 15, memLevel: 8, strategy: d, to: "" }, m || {});
+        this.options = s.assign({ level: g, method: b, chunkSize: 16384, windowBits: 15, memLevel: 8, strategy: d, to: "" }, m || {});
         var w = this.options;
         w.raw && 0 < w.windowBits ? w.windowBits = -w.windowBits : w.gzip && 0 < w.windowBits && w.windowBits < 16 && (w.windowBits += 16), this.err = 0, this.msg = "", this.ended = !1, this.chunks = [], this.strm = new c(), this.strm.avail_out = 0;
         var x = o.deflateInit2(this.strm, w.level, w.method, w.windowBits, w.memLevel, w.strategy);
@@ -7102,7 +7662,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           this._dict_set = !0;
         }
       }
-      function g(m, w) {
+      function v(m, w) {
         var x = new f(w);
         if (x.push(m, !0), x.err)
           throw x.msg || l[x.err];
@@ -7123,37 +7683,37 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         this.chunks.push(m);
       }, f.prototype.onEnd = function(m) {
         m === h && (this.options.to === "string" ? this.result = this.chunks.join("") : this.result = s.flattenChunks(this.chunks)), this.chunks = [], this.err = m, this.msg = this.strm.msg;
-      }, i.Deflate = f, i.deflate = g, i.deflateRaw = function(m, w) {
-        return (w = w || {}).raw = !0, g(m, w);
+      }, i.Deflate = f, i.deflate = v, i.deflateRaw = function(m, w) {
+        return (w = w || {}).raw = !0, v(m, w);
       }, i.gzip = function(m, w) {
-        return (w = w || {}).gzip = !0, g(m, w);
+        return (w = w || {}).gzip = !0, v(m, w);
       };
     }, { "./utils/common": 41, "./utils/strings": 42, "./zlib/deflate": 46, "./zlib/messages": 51, "./zlib/zstream": 53 }], 40: [function(r, n, i) {
-      var o = r("./zlib/inflate"), s = r("./utils/common"), a = r("./utils/strings"), l = r("./zlib/constants"), c = r("./zlib/messages"), u = r("./zlib/zstream"), h = r("./zlib/gzheader"), v = Object.prototype.toString;
+      var o = r("./zlib/inflate"), s = r("./utils/common"), a = r("./utils/strings"), l = r("./zlib/constants"), c = r("./zlib/messages"), u = r("./zlib/zstream"), h = r("./zlib/gzheader"), g = Object.prototype.toString;
       function d(f) {
         if (!(this instanceof d))
           return new d(f);
         this.options = s.assign({ chunkSize: 16384, windowBits: 0, to: "" }, f || {});
-        var g = this.options;
-        g.raw && 0 <= g.windowBits && g.windowBits < 16 && (g.windowBits = -g.windowBits, g.windowBits === 0 && (g.windowBits = -15)), !(0 <= g.windowBits && g.windowBits < 16) || f && f.windowBits || (g.windowBits += 32), 15 < g.windowBits && g.windowBits < 48 && !(15 & g.windowBits) && (g.windowBits |= 15), this.err = 0, this.msg = "", this.ended = !1, this.chunks = [], this.strm = new u(), this.strm.avail_out = 0;
-        var m = o.inflateInit2(this.strm, g.windowBits);
+        var v = this.options;
+        v.raw && 0 <= v.windowBits && v.windowBits < 16 && (v.windowBits = -v.windowBits, v.windowBits === 0 && (v.windowBits = -15)), !(0 <= v.windowBits && v.windowBits < 16) || f && f.windowBits || (v.windowBits += 32), 15 < v.windowBits && v.windowBits < 48 && !(15 & v.windowBits) && (v.windowBits |= 15), this.err = 0, this.msg = "", this.ended = !1, this.chunks = [], this.strm = new u(), this.strm.avail_out = 0;
+        var m = o.inflateInit2(this.strm, v.windowBits);
         if (m !== l.Z_OK)
           throw new Error(c[m]);
         this.header = new h(), o.inflateGetHeader(this.strm, this.header);
       }
-      function b(f, g) {
-        var m = new d(g);
+      function b(f, v) {
+        var m = new d(v);
         if (m.push(f, !0), m.err)
           throw m.msg || c[m.err];
         return m.result;
       }
-      d.prototype.push = function(f, g) {
+      d.prototype.push = function(f, v) {
         var m, w, x, E, k, R, T = this.strm, W = this.options.chunkSize, j = this.options.dictionary, K = !1;
         if (this.ended)
           return !1;
-        w = g === ~~g ? g : g === !0 ? l.Z_FINISH : l.Z_NO_FLUSH, typeof f == "string" ? T.input = a.binstring2buf(f) : v.call(f) === "[object ArrayBuffer]" ? T.input = new Uint8Array(f) : T.input = f, T.next_in = 0, T.avail_in = T.input.length;
+        w = v === ~~v ? v : v === !0 ? l.Z_FINISH : l.Z_NO_FLUSH, typeof f == "string" ? T.input = a.binstring2buf(f) : g.call(f) === "[object ArrayBuffer]" ? T.input = new Uint8Array(f) : T.input = f, T.next_in = 0, T.avail_in = T.input.length;
         do {
-          if (T.avail_out === 0 && (T.output = new s.Buf8(W), T.next_out = 0, T.avail_out = W), (m = o.inflate(T, l.Z_NO_FLUSH)) === l.Z_NEED_DICT && j && (R = typeof j == "string" ? a.string2buf(j) : v.call(j) === "[object ArrayBuffer]" ? new Uint8Array(j) : j, m = o.inflateSetDictionary(this.strm, R)), m === l.Z_BUF_ERROR && K === !0 && (m = l.Z_OK, K = !1), m !== l.Z_STREAM_END && m !== l.Z_OK)
+          if (T.avail_out === 0 && (T.output = new s.Buf8(W), T.next_out = 0, T.avail_out = W), (m = o.inflate(T, l.Z_NO_FLUSH)) === l.Z_NEED_DICT && j && (R = typeof j == "string" ? a.string2buf(j) : g.call(j) === "[object ArrayBuffer]" ? new Uint8Array(j) : j, m = o.inflateSetDictionary(this.strm, R)), m === l.Z_BUF_ERROR && K === !0 && (m = l.Z_OK, K = !1), m !== l.Z_STREAM_END && m !== l.Z_OK)
             return this.onEnd(m), !(this.ended = !0);
           T.next_out && (T.avail_out !== 0 && m !== l.Z_STREAM_END && (T.avail_in !== 0 || w !== l.Z_FINISH && w !== l.Z_SYNC_FLUSH) || (this.options.to === "string" ? (x = a.utf8border(T.output, T.next_out), E = T.next_out - x, k = a.buf2string(T.output, x), T.next_out = E, T.avail_out = W - E, E && s.arraySet(T.output, T.output, x, E, 0), this.onData(k)) : this.onData(s.shrinkBuf(T.output, T.next_out)))), T.avail_in === 0 && T.avail_out === 0 && (K = !0);
         } while ((0 < T.avail_in || T.avail_out === 0) && m !== l.Z_STREAM_END);
@@ -7162,8 +7722,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         this.chunks.push(f);
       }, d.prototype.onEnd = function(f) {
         f === l.Z_OK && (this.options.to === "string" ? this.result = this.chunks.join("") : this.result = s.flattenChunks(this.chunks)), this.chunks = [], this.err = f, this.msg = this.strm.msg;
-      }, i.Inflate = d, i.inflate = b, i.inflateRaw = function(f, g) {
-        return (g = g || {}).raw = !0, b(f, g);
+      }, i.Inflate = d, i.inflate = b, i.inflateRaw = function(f, v) {
+        return (v = v || {}).raw = !0, b(f, v);
       }, i.ungzip = b;
     }, { "./utils/common": 41, "./utils/strings": 42, "./zlib/constants": 44, "./zlib/gzheader": 47, "./zlib/inflate": 49, "./zlib/messages": 51, "./zlib/zstream": 53 }], 41: [function(r, n, i) {
       var o = typeof Uint8Array < "u" && typeof Uint16Array < "u" && typeof Int32Array < "u";
@@ -7181,22 +7741,22 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }, i.shrinkBuf = function(l, c) {
         return l.length === c ? l : l.subarray ? l.subarray(0, c) : (l.length = c, l);
       };
-      var s = { arraySet: function(l, c, u, h, v) {
+      var s = { arraySet: function(l, c, u, h, g) {
         if (c.subarray && l.subarray)
-          l.set(c.subarray(u, u + h), v);
+          l.set(c.subarray(u, u + h), g);
         else
           for (var d = 0; d < h; d++)
-            l[v + d] = c[u + d];
+            l[g + d] = c[u + d];
       }, flattenChunks: function(l) {
-        var c, u, h, v, d, b;
+        var c, u, h, g, d, b;
         for (c = h = 0, u = l.length; c < u; c++)
           h += l[c].length;
-        for (b = new Uint8Array(h), c = v = 0, u = l.length; c < u; c++)
-          d = l[c], b.set(d, v), v += d.length;
+        for (b = new Uint8Array(h), c = g = 0, u = l.length; c < u; c++)
+          d = l[c], b.set(d, g), g += d.length;
         return b;
-      } }, a = { arraySet: function(l, c, u, h, v) {
+      } }, a = { arraySet: function(l, c, u, h, g) {
         for (var d = 0; d < h; d++)
-          l[v + d] = c[u + d];
+          l[g + d] = c[u + d];
       }, flattenChunks: function(l) {
         return [].concat.apply([], l);
       } };
@@ -7217,44 +7777,44 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }
       for (var l = new o.Buf8(256), c = 0; c < 256; c++)
         l[c] = 252 <= c ? 6 : 248 <= c ? 5 : 240 <= c ? 4 : 224 <= c ? 3 : 192 <= c ? 2 : 1;
-      function u(h, v) {
-        if (v < 65537 && (h.subarray && a || !h.subarray && s))
-          return String.fromCharCode.apply(null, o.shrinkBuf(h, v));
-        for (var d = "", b = 0; b < v; b++)
+      function u(h, g) {
+        if (g < 65537 && (h.subarray && a || !h.subarray && s))
+          return String.fromCharCode.apply(null, o.shrinkBuf(h, g));
+        for (var d = "", b = 0; b < g; b++)
           d += String.fromCharCode(h[b]);
         return d;
       }
       l[254] = l[254] = 1, i.string2buf = function(h) {
-        var v, d, b, f, g, m = h.length, w = 0;
+        var g, d, b, f, v, m = h.length, w = 0;
         for (f = 0; f < m; f++)
           (64512 & (d = h.charCodeAt(f))) == 55296 && f + 1 < m && (64512 & (b = h.charCodeAt(f + 1))) == 56320 && (d = 65536 + (d - 55296 << 10) + (b - 56320), f++), w += d < 128 ? 1 : d < 2048 ? 2 : d < 65536 ? 3 : 4;
-        for (v = new o.Buf8(w), f = g = 0; g < w; f++)
-          (64512 & (d = h.charCodeAt(f))) == 55296 && f + 1 < m && (64512 & (b = h.charCodeAt(f + 1))) == 56320 && (d = 65536 + (d - 55296 << 10) + (b - 56320), f++), d < 128 ? v[g++] = d : (d < 2048 ? v[g++] = 192 | d >>> 6 : (d < 65536 ? v[g++] = 224 | d >>> 12 : (v[g++] = 240 | d >>> 18, v[g++] = 128 | d >>> 12 & 63), v[g++] = 128 | d >>> 6 & 63), v[g++] = 128 | 63 & d);
-        return v;
+        for (g = new o.Buf8(w), f = v = 0; v < w; f++)
+          (64512 & (d = h.charCodeAt(f))) == 55296 && f + 1 < m && (64512 & (b = h.charCodeAt(f + 1))) == 56320 && (d = 65536 + (d - 55296 << 10) + (b - 56320), f++), d < 128 ? g[v++] = d : (d < 2048 ? g[v++] = 192 | d >>> 6 : (d < 65536 ? g[v++] = 224 | d >>> 12 : (g[v++] = 240 | d >>> 18, g[v++] = 128 | d >>> 12 & 63), g[v++] = 128 | d >>> 6 & 63), g[v++] = 128 | 63 & d);
+        return g;
       }, i.buf2binstring = function(h) {
         return u(h, h.length);
       }, i.binstring2buf = function(h) {
-        for (var v = new o.Buf8(h.length), d = 0, b = v.length; d < b; d++)
-          v[d] = h.charCodeAt(d);
-        return v;
-      }, i.buf2string = function(h, v) {
-        var d, b, f, g, m = v || h.length, w = new Array(2 * m);
+        for (var g = new o.Buf8(h.length), d = 0, b = g.length; d < b; d++)
+          g[d] = h.charCodeAt(d);
+        return g;
+      }, i.buf2string = function(h, g) {
+        var d, b, f, v, m = g || h.length, w = new Array(2 * m);
         for (d = b = 0; d < m; )
           if ((f = h[d++]) < 128)
             w[b++] = f;
-          else if (4 < (g = l[f]))
-            w[b++] = 65533, d += g - 1;
+          else if (4 < (v = l[f]))
+            w[b++] = 65533, d += v - 1;
           else {
-            for (f &= g === 2 ? 31 : g === 3 ? 15 : 7; 1 < g && d < m; )
-              f = f << 6 | 63 & h[d++], g--;
-            1 < g ? w[b++] = 65533 : f < 65536 ? w[b++] = f : (f -= 65536, w[b++] = 55296 | f >> 10 & 1023, w[b++] = 56320 | 1023 & f);
+            for (f &= v === 2 ? 31 : v === 3 ? 15 : 7; 1 < v && d < m; )
+              f = f << 6 | 63 & h[d++], v--;
+            1 < v ? w[b++] = 65533 : f < 65536 ? w[b++] = f : (f -= 65536, w[b++] = 55296 | f >> 10 & 1023, w[b++] = 56320 | 1023 & f);
           }
         return u(w, b);
-      }, i.utf8border = function(h, v) {
+      }, i.utf8border = function(h, g) {
         var d;
-        for ((v = v || h.length) > h.length && (v = h.length), d = v - 1; 0 <= d && (192 & h[d]) == 128; )
+        for ((g = g || h.length) > h.length && (g = h.length), d = g - 1; 0 <= d && (192 & h[d]) == 128; )
           d--;
-        return d < 0 || d === 0 ? v : d + l[h[d]] > v ? d : v;
+        return d < 0 || d === 0 ? g : d + l[h[d]] > g ? d : g;
       };
     }, { "./common": 41 }], 43: [function(r, n, i) {
       n.exports = function(o, s, a, l) {
@@ -7280,12 +7840,12 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       n.exports = function(s, a, l, c) {
         var u = o, h = c + l;
         s ^= -1;
-        for (var v = c; v < h; v++)
-          s = s >>> 8 ^ u[255 & (s ^ a[v])];
+        for (var g = c; g < h; g++)
+          s = s >>> 8 ^ u[255 & (s ^ a[g])];
         return -1 ^ s;
       };
     }, {}], 46: [function(r, n, i) {
-      var o, s = r("../utils/common"), a = r("./trees"), l = r("./adler32"), c = r("./crc32"), u = r("./messages"), h = 0, v = 4, d = 0, b = -2, f = -1, g = 4, m = 2, w = 8, x = 9, E = 286, k = 30, R = 19, T = 2 * E + 1, W = 15, j = 3, K = 258, J = K + j + 1, C = 42, F = 113, y = 1, P = 2, se = 3, V = 4;
+      var o, s = r("../utils/common"), a = r("./trees"), l = r("./adler32"), c = r("./crc32"), u = r("./messages"), h = 0, g = 4, d = 0, b = -2, f = -1, v = 4, m = 2, w = 8, x = 9, E = 286, k = 30, R = 19, T = 2 * E + 1, W = 15, j = 3, K = 258, J = K + j + 1, C = 42, F = 113, y = 1, P = 2, se = 3, V = 4;
       function pe(p, U) {
         return p.msg = u[U], U;
       }
@@ -7364,7 +7924,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           if (O && (z(p, !1), p.strm.avail_out === 0))
             return y;
         }
-        return p.insert = p.strstart < j - 1 ? p.strstart : j - 1, U === v ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : p.last_lit && (z(p, !1), p.strm.avail_out === 0) ? y : P;
+        return p.insert = p.strstart < j - 1 ? p.strstart : j - 1, U === g ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : p.last_lit && (z(p, !1), p.strm.avail_out === 0) ? y : P;
       }
       function fe(p, U) {
         for (var D, O, S; ; ) {
@@ -7385,7 +7945,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           } else
             p.match_available = 1, p.strstart++, p.lookahead--;
         }
-        return p.match_available && (O = a._tr_tally(p, 0, p.window[p.strstart - 1]), p.match_available = 0), p.insert = p.strstart < j - 1 ? p.strstart : j - 1, U === v ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : p.last_lit && (z(p, !1), p.strm.avail_out === 0) ? y : P;
+        return p.match_available && (O = a._tr_tally(p, 0, p.window[p.strstart - 1]), p.match_available = 0), p.insert = p.strstart < j - 1 ? p.strstart : j - 1, U === g ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : p.last_lit && (z(p, !1), p.strm.avail_out === 0) ? y : P;
       }
       function me(p, U, D, O, S) {
         this.good_length = p, this.max_lazy = U, this.nice_length = D, this.max_chain = O, this.func = S;
@@ -7407,7 +7967,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         if (!p)
           return b;
         var B = 1;
-        if (U === f && (U = 6), O < 0 ? (B = 0, O = -O) : 15 < O && (B = 2, O -= 16), S < 1 || x < S || D !== w || O < 8 || 15 < O || U < 0 || 9 < U || N < 0 || g < N)
+        if (U === f && (U = 6), O < 0 ? (B = 0, O = -O) : 15 < O && (B = 2, O -= 16), S < 1 || x < S || D !== w || O < 8 || 15 < O || U < 0 || 9 < U || N < 0 || v < N)
           return pe(p, b);
         O === 8 && (O = 9);
         var Z = new Ne();
@@ -7427,7 +7987,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           if ((p.strstart === 0 || p.strstart >= O) && (p.lookahead = p.strstart - O, p.strstart = O, z(p, !1), p.strm.avail_out === 0) || p.strstart - p.block_start >= p.w_size - J && (z(p, !1), p.strm.avail_out === 0))
             return y;
         }
-        return p.insert = 0, U === v ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : (p.strstart > p.block_start && (z(p, !1), p.strm.avail_out), y);
+        return p.insert = 0, U === g ? (z(p, !0), p.strm.avail_out === 0 ? se : V) : (p.strstart > p.block_start && (z(p, !1), p.strm.avail_out), y);
       }), new me(4, 4, 8, 4, Ie), new me(4, 5, 16, 8, Ie), new me(4, 6, 32, 32, Ie), new me(4, 4, 16, 16, fe), new me(8, 16, 32, 32, fe), new me(8, 16, 128, 128, fe), new me(8, 32, 128, 256, fe), new me(32, 128, 258, 1024, fe), new me(32, 258, 258, 4096, fe)], i.deflateInit = function(p, U) {
         return Ue(p, U, w, 15, 8, 0);
       }, i.deflateInit2 = Ue, i.deflateReset = He, i.deflateResetKeep = Te, i.deflateSetHeader = function(p, U) {
@@ -7436,7 +7996,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         var D, O, S, N;
         if (!p || !p.state || 5 < U || U < 0)
           return p ? pe(p, b) : b;
-        if (O = p.state, !p.output || !p.input && p.avail_in !== 0 || O.status === 666 && U !== v)
+        if (O = p.state, !p.output || !p.input && p.avail_in !== 0 || O.status === 666 && U !== g)
           return pe(p, p.avail_out === 0 ? -5 : b);
         if (O.strm = p, D = O.last_flush, O.last_flush = U, O.status === C)
           if (O.wrap === 2)
@@ -7481,7 +8041,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         if (O.status === 103 && (O.gzhead.hcrc ? (O.pending + 2 > O.pending_buf_size && L(p), O.pending + 2 <= O.pending_buf_size && (oe(O, 255 & p.adler), oe(O, p.adler >> 8 & 255), p.adler = 0, O.status = F)) : O.status = F), O.pending !== 0) {
           if (L(p), p.avail_out === 0)
             return O.last_flush = -1, d;
-        } else if (p.avail_in === 0 && H(U) <= H(D) && U !== v)
+        } else if (p.avail_in === 0 && H(U) <= H(D) && U !== g)
           return pe(p, -5);
         if (O.status === 666 && p.avail_in !== 0)
           return pe(p, -5);
@@ -7496,7 +8056,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               if (I.match_length = 0, te = a._tr_tally(I, 0, I.window[I.strstart]), I.lookahead--, I.strstart++, te && (z(I, !1), I.strm.avail_out === 0))
                 return y;
             }
-            return I.insert = 0, X === v ? (z(I, !0), I.strm.avail_out === 0 ? se : V) : I.last_lit && (z(I, !1), I.strm.avail_out === 0) ? y : P;
+            return I.insert = 0, X === g ? (z(I, !0), I.strm.avail_out === 0 ? se : V) : I.last_lit && (z(I, !1), I.strm.avail_out === 0) ? y : P;
           }(O, U) : O.strategy === 3 ? function(I, X) {
             for (var te, q, ae, be, xe = I.window; ; ) {
               if (I.lookahead <= K) {
@@ -7515,14 +8075,14 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               if (I.match_length >= j ? (te = a._tr_tally(I, 1, I.match_length - j), I.lookahead -= I.match_length, I.strstart += I.match_length, I.match_length = 0) : (te = a._tr_tally(I, 0, I.window[I.strstart]), I.lookahead--, I.strstart++), te && (z(I, !1), I.strm.avail_out === 0))
                 return y;
             }
-            return I.insert = 0, X === v ? (z(I, !0), I.strm.avail_out === 0 ? se : V) : I.last_lit && (z(I, !1), I.strm.avail_out === 0) ? y : P;
+            return I.insert = 0, X === g ? (z(I, !0), I.strm.avail_out === 0 ? se : V) : I.last_lit && (z(I, !1), I.strm.avail_out === 0) ? y : P;
           }(O, U) : o[O.level].func(O, U);
           if (Z !== se && Z !== V || (O.status = 666), Z === y || Z === se)
             return p.avail_out === 0 && (O.last_flush = -1), d;
           if (Z === P && (U === 1 ? a._tr_align(O) : U !== 5 && (a._tr_stored_block(O, 0, 0, !1), U === 3 && (ee(O.head), O.lookahead === 0 && (O.strstart = 0, O.block_start = 0, O.insert = 0))), L(p), p.avail_out === 0))
             return O.last_flush = -1, d;
         }
-        return U !== v ? d : O.wrap <= 0 ? 1 : (O.wrap === 2 ? (oe(O, 255 & p.adler), oe(O, p.adler >> 8 & 255), oe(O, p.adler >> 16 & 255), oe(O, p.adler >> 24 & 255), oe(O, 255 & p.total_in), oe(O, p.total_in >> 8 & 255), oe(O, p.total_in >> 16 & 255), oe(O, p.total_in >> 24 & 255)) : (re(O, p.adler >>> 16), re(O, 65535 & p.adler)), L(p), 0 < O.wrap && (O.wrap = -O.wrap), O.pending !== 0 ? d : 1);
+        return U !== g ? d : O.wrap <= 0 ? 1 : (O.wrap === 2 ? (oe(O, 255 & p.adler), oe(O, p.adler >> 8 & 255), oe(O, p.adler >> 16 & 255), oe(O, p.adler >> 24 & 255), oe(O, 255 & p.total_in), oe(O, p.total_in >> 8 & 255), oe(O, p.total_in >> 16 & 255), oe(O, p.total_in >> 24 & 255)) : (re(O, p.adler >>> 16), re(O, 65535 & p.adler)), L(p), 0 < O.wrap && (O.wrap = -O.wrap), O.pending !== 0 ? d : 1);
       }, i.deflateEnd = function(p) {
         var U;
         return p && p.state ? (U = p.state.status) !== C && U !== 69 && U !== 73 && U !== 91 && U !== 103 && U !== F && U !== 666 ? pe(p, b) : (p.state = null, U === F ? pe(p, -3) : d) : b;
@@ -7543,8 +8103,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       };
     }, {}], 48: [function(r, n, i) {
       n.exports = function(o, s) {
-        var a, l, c, u, h, v, d, b, f, g, m, w, x, E, k, R, T, W, j, K, J, C, F, y, P;
-        a = o.state, l = o.next_in, y = o.input, c = l + (o.avail_in - 5), u = o.next_out, P = o.output, h = u - (s - o.avail_out), v = u + (o.avail_out - 257), d = a.dmax, b = a.wsize, f = a.whave, g = a.wnext, m = a.window, w = a.hold, x = a.bits, E = a.lencode, k = a.distcode, R = (1 << a.lenbits) - 1, T = (1 << a.distbits) - 1;
+        var a, l, c, u, h, g, d, b, f, v, m, w, x, E, k, R, T, W, j, K, J, C, F, y, P;
+        a = o.state, l = o.next_in, y = o.input, c = l + (o.avail_in - 5), u = o.next_out, P = o.output, h = u - (s - o.avail_out), g = u + (o.avail_out - 257), d = a.dmax, b = a.wsize, f = a.whave, v = a.wnext, m = a.window, w = a.hold, x = a.bits, E = a.lencode, k = a.distcode, R = (1 << a.lenbits) - 1, T = (1 << a.distbits) - 1;
         e:
           do {
             x < 15 && (w += y[l++] << x, x += 8, w += y[l++] << x, x += 8), W = E[w & R];
@@ -7585,23 +8145,23 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                           o.msg = "invalid distance too far back", a.mode = 30;
                           break e;
                         }
-                        if (F = m, (C = 0) === g) {
+                        if (F = m, (C = 0) === v) {
                           if (C += b - j, j < K) {
                             for (K -= j; P[u++] = m[C++], --j; )
                               ;
                             C = u - J, F = P;
                           }
-                        } else if (g < j) {
-                          if (C += b + g - j, (j -= g) < K) {
+                        } else if (v < j) {
+                          if (C += b + v - j, (j -= v) < K) {
                             for (K -= j; P[u++] = m[C++], --j; )
                               ;
-                            if (C = 0, g < K) {
-                              for (K -= j = g; P[u++] = m[C++], --j; )
+                            if (C = 0, v < K) {
+                              for (K -= j = v; P[u++] = m[C++], --j; )
                                 ;
                               C = u - J, F = P;
                             }
                           }
-                        } else if (C += g - j, j < K) {
+                        } else if (C += v - j, j < K) {
                           for (K -= j; P[u++] = m[C++], --j; )
                             ;
                           C = u - J, F = P;
@@ -7619,11 +8179,11 @@ https://github.com/nodeca/pako/blob/main/LICENSE
                 }
                 break;
               }
-          } while (l < c && u < v);
-        l -= K = x >> 3, w &= (1 << (x -= K << 3)) - 1, o.next_in = l, o.next_out = u, o.avail_in = l < c ? c - l + 5 : 5 - (l - c), o.avail_out = u < v ? v - u + 257 : 257 - (u - v), a.hold = w, a.bits = x;
+          } while (l < c && u < g);
+        l -= K = x >> 3, w &= (1 << (x -= K << 3)) - 1, o.next_in = l, o.next_out = u, o.avail_in = l < c ? c - l + 5 : 5 - (l - c), o.avail_out = u < g ? g - u + 257 : 257 - (u - g), a.hold = w, a.bits = x;
       };
     }, {}], 49: [function(r, n, i) {
-      var o = r("../utils/common"), s = r("./adler32"), a = r("./crc32"), l = r("./inffast"), c = r("./inftrees"), u = 1, h = 2, v = 0, d = -2, b = 1, f = 852, g = 592;
+      var o = r("../utils/common"), s = r("./adler32"), a = r("./crc32"), l = r("./inffast"), c = r("./inftrees"), u = 1, h = 2, g = 0, d = -2, b = 1, f = 852, v = 592;
       function m(C) {
         return (C >>> 24 & 255) + (C >>> 8 & 65280) + ((65280 & C) << 8) + ((255 & C) << 24);
       }
@@ -7632,7 +8192,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }
       function x(C) {
         var F;
-        return C && C.state ? (F = C.state, C.total_in = C.total_out = F.total = 0, C.msg = "", F.wrap && (C.adler = 1 & F.wrap), F.mode = b, F.last = 0, F.havedict = 0, F.dmax = 32768, F.head = null, F.hold = 0, F.bits = 0, F.lencode = F.lendyn = new o.Buf32(f), F.distcode = F.distdyn = new o.Buf32(g), F.sane = 1, F.back = -1, v) : d;
+        return C && C.state ? (F = C.state, C.total_in = C.total_out = F.total = 0, C.msg = "", F.wrap && (C.adler = 1 & F.wrap), F.mode = b, F.last = 0, F.havedict = 0, F.dmax = 32768, F.head = null, F.hold = 0, F.bits = 0, F.lencode = F.lendyn = new o.Buf32(f), F.distcode = F.distdyn = new o.Buf32(v), F.sane = 1, F.back = -1, g) : d;
       }
       function E(C) {
         var F;
@@ -7644,7 +8204,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }
       function R(C, F) {
         var y, P;
-        return C ? (P = new w(), (C.state = P).window = null, (y = k(C, F)) !== v && (C.state = null), y) : d;
+        return C ? (P = new w(), (C.state = P).window = null, (y = k(C, F)) !== g && (C.state = null), y) : d;
       }
       var T, W, j = !0;
       function K(C) {
@@ -7674,7 +8234,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         var y, P, se, V, pe, H, ee, L, z, oe, re, Q, ge, Ie, fe, me, Ne, Te, He, Ue, p, U, D, O, S = 0, N = new o.Buf8(4), B = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
         if (!C || !C.state || !C.output || !C.input && C.avail_in !== 0)
           return d;
-        (y = C.state).mode === 12 && (y.mode = 13), pe = C.next_out, se = C.output, ee = C.avail_out, V = C.next_in, P = C.input, H = C.avail_in, L = y.hold, z = y.bits, oe = H, re = ee, U = v;
+        (y = C.state).mode === 12 && (y.mode = 13), pe = C.next_out, se = C.output, ee = C.avail_out, V = C.next_in, P = C.input, H = C.avail_in, L = y.hold, z = y.bits, oe = H, re = ee, U = g;
         e:
           for (; ; )
             switch (y.mode) {
@@ -8076,27 +8636,27 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               default:
                 return d;
             }
-        return C.next_out = pe, C.avail_out = ee, C.next_in = V, C.avail_in = H, y.hold = L, y.bits = z, (y.wsize || re !== C.avail_out && y.mode < 30 && (y.mode < 27 || F !== 4)) && J(C, C.output, C.next_out, re - C.avail_out) ? (y.mode = 31, -4) : (oe -= C.avail_in, re -= C.avail_out, C.total_in += oe, C.total_out += re, y.total += re, y.wrap && re && (C.adler = y.check = y.flags ? a(y.check, se, re, C.next_out - re) : s(y.check, se, re, C.next_out - re)), C.data_type = y.bits + (y.last ? 64 : 0) + (y.mode === 12 ? 128 : 0) + (y.mode === 20 || y.mode === 15 ? 256 : 0), (oe == 0 && re === 0 || F === 4) && U === v && (U = -5), U);
+        return C.next_out = pe, C.avail_out = ee, C.next_in = V, C.avail_in = H, y.hold = L, y.bits = z, (y.wsize || re !== C.avail_out && y.mode < 30 && (y.mode < 27 || F !== 4)) && J(C, C.output, C.next_out, re - C.avail_out) ? (y.mode = 31, -4) : (oe -= C.avail_in, re -= C.avail_out, C.total_in += oe, C.total_out += re, y.total += re, y.wrap && re && (C.adler = y.check = y.flags ? a(y.check, se, re, C.next_out - re) : s(y.check, se, re, C.next_out - re)), C.data_type = y.bits + (y.last ? 64 : 0) + (y.mode === 12 ? 128 : 0) + (y.mode === 20 || y.mode === 15 ? 256 : 0), (oe == 0 && re === 0 || F === 4) && U === g && (U = -5), U);
       }, i.inflateEnd = function(C) {
         if (!C || !C.state)
           return d;
         var F = C.state;
-        return F.window && (F.window = null), C.state = null, v;
+        return F.window && (F.window = null), C.state = null, g;
       }, i.inflateGetHeader = function(C, F) {
         var y;
-        return C && C.state && 2 & (y = C.state).wrap ? ((y.head = F).done = !1, v) : d;
+        return C && C.state && 2 & (y = C.state).wrap ? ((y.head = F).done = !1, g) : d;
       }, i.inflateSetDictionary = function(C, F) {
         var y, P = F.length;
-        return C && C.state ? (y = C.state).wrap !== 0 && y.mode !== 11 ? d : y.mode === 11 && s(1, F, P, 0) !== y.check ? -3 : J(C, F, P, P) ? (y.mode = 31, -4) : (y.havedict = 1, v) : d;
+        return C && C.state ? (y = C.state).wrap !== 0 && y.mode !== 11 ? d : y.mode === 11 && s(1, F, P, 0) !== y.check ? -3 : J(C, F, P, P) ? (y.mode = 31, -4) : (y.havedict = 1, g) : d;
       }, i.inflateInfo = "pako inflate (from Nodeca project)";
     }, { "../utils/common": 41, "./adler32": 43, "./crc32": 45, "./inffast": 48, "./inftrees": 50 }], 50: [function(r, n, i) {
       var o = r("../utils/common"), s = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], a = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], l = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], c = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
-      n.exports = function(u, h, v, d, b, f, g, m) {
+      n.exports = function(u, h, g, d, b, f, v, m) {
         var w, x, E, k, R, T, W, j, K, J = m.bits, C = 0, F = 0, y = 0, P = 0, se = 0, V = 0, pe = 0, H = 0, ee = 0, L = 0, z = null, oe = 0, re = new o.Buf16(16), Q = new o.Buf16(16), ge = null, Ie = 0;
         for (C = 0; C <= 15; C++)
           re[C] = 0;
         for (F = 0; F < d; F++)
-          re[h[v + F]]++;
+          re[h[g + F]]++;
         for (se = J, P = 15; 1 <= P && re[P] === 0; P--)
           ;
         if (P < se && (se = P), P === 0)
@@ -8111,18 +8671,18 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         for (Q[1] = 0, C = 1; C < 15; C++)
           Q[C + 1] = Q[C] + re[C];
         for (F = 0; F < d; F++)
-          h[v + F] !== 0 && (g[Q[h[v + F]]++] = F);
-        if (T = u === 0 ? (z = ge = g, 19) : u === 1 ? (z = s, oe -= 257, ge = a, Ie -= 257, 256) : (z = l, ge = c, -1), C = y, R = f, pe = F = L = 0, E = -1, k = (ee = 1 << (V = se)) - 1, u === 1 && 852 < ee || u === 2 && 592 < ee)
+          h[g + F] !== 0 && (v[Q[h[g + F]]++] = F);
+        if (T = u === 0 ? (z = ge = v, 19) : u === 1 ? (z = s, oe -= 257, ge = a, Ie -= 257, 256) : (z = l, ge = c, -1), C = y, R = f, pe = F = L = 0, E = -1, k = (ee = 1 << (V = se)) - 1, u === 1 && 852 < ee || u === 2 && 592 < ee)
           return 1;
         for (; ; ) {
-          for (W = C - pe, K = g[F] < T ? (j = 0, g[F]) : g[F] > T ? (j = ge[Ie + g[F]], z[oe + g[F]]) : (j = 96, 0), w = 1 << C - pe, y = x = 1 << V; b[R + (L >> pe) + (x -= w)] = W << 24 | j << 16 | K | 0, x !== 0; )
+          for (W = C - pe, K = v[F] < T ? (j = 0, v[F]) : v[F] > T ? (j = ge[Ie + v[F]], z[oe + v[F]]) : (j = 96, 0), w = 1 << C - pe, y = x = 1 << V; b[R + (L >> pe) + (x -= w)] = W << 24 | j << 16 | K | 0, x !== 0; )
             ;
           for (w = 1 << C - 1; L & w; )
             w >>= 1;
           if (w !== 0 ? (L &= w - 1, L += w) : L = 0, F++, --re[C] == 0) {
             if (C === P)
               break;
-            C = h[v + g[F]];
+            C = h[g + v[F]];
           }
           if (se < C && (L & k) !== E) {
             for (pe === 0 && (pe = se), R += y, H = 1 << (V = C - pe); V + pe < P && !((H -= re[V + pe]) <= 0); )
@@ -8142,7 +8702,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         for (var N = S.length; 0 <= --N; )
           S[N] = 0;
       }
-      var c = 0, u = 29, h = 256, v = h + 1 + u, d = 30, b = 19, f = 2 * v + 1, g = 15, m = 16, w = 7, x = 256, E = 16, k = 17, R = 18, T = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0], W = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13], j = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7], K = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15], J = new Array(2 * (v + 2));
+      var c = 0, u = 29, h = 256, g = h + 1 + u, d = 30, b = 19, f = 2 * g + 1, v = 15, m = 16, w = 7, x = 256, E = 16, k = 17, R = 18, T = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0], W = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13], j = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7], K = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15], J = new Array(2 * (g + 2));
       l(J);
       var C = new Array(2 * d);
       l(C);
@@ -8177,8 +8737,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         return B >>> 1;
       }
       function Ie(S, N, B) {
-        var Z, I, X = new Array(g + 1), te = 0;
-        for (Z = 1; Z <= g; Z++)
+        var Z, I, X = new Array(v + 1), te = 0;
+        for (Z = 1; Z <= v; Z++)
           X[Z] = te = te + B[Z - 1] << 1;
         for (I = 0; I <= N; I++) {
           var q = S[2 * I + 1];
@@ -8187,7 +8747,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }
       function fe(S) {
         var N;
-        for (N = 0; N < v; N++)
+        for (N = 0; N < g; N++)
           S.dyn_ltree[2 * N] = 0;
         for (N = 0; N < d; N++)
           S.dyn_dtree[2 * N] = 0;
@@ -8226,7 +8786,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           ;
         S.heap[--S.heap_max] = S.heap[1], function(xe, je) {
           var et, Me, Ze, Re, De, Be, qe = je.dyn_tree, nt = je.max_code, tt = je.stat_desc.static_tree, Xe = je.stat_desc.has_stree, ne = je.stat_desc.extra_bits, ue = je.stat_desc.extra_base, we = je.stat_desc.max_length, Fe = 0;
-          for (Re = 0; Re <= g; Re++)
+          for (Re = 0; Re <= v; Re++)
             xe.bl_count[Re] = 0;
           for (qe[2 * xe.heap[xe.heap_max] + 1] = 0, et = xe.heap_max + 1; et < f; et++)
             we < (Re = qe[2 * qe[2 * (Me = xe.heap[et]) + 1] + 1] + 1) && (Re = we, Fe++), qe[2 * Me + 1] = Re, nt < Me || (xe.bl_count[Re]++, De = 0, ue <= Me && (De = ne[Me - ue]), Be = qe[2 * Me], xe.opt_len += Be * (Re + De), Xe && (xe.static_len += Be * (tt[2 * Me + 1] + De)));
@@ -8268,7 +8828,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       }
       i._tr_init = function(S) {
         D || (function() {
-          var N, B, Z, I, X, te = new Array(g + 1);
+          var N, B, Z, I, X, te = new Array(v + 1);
           for (I = Z = 0; I < u - 1; I++)
             for (P[I] = Z, N = 0; N < 1 << T[I]; N++)
               y[Z++] = I;
@@ -8278,7 +8838,7 @@ https://github.com/nodeca/pako/blob/main/LICENSE
           for (X >>= 7; I < d; I++)
             for (H[I] = X << 7, N = 0; N < 1 << W[I] - 7; N++)
               F[256 + X++] = I;
-          for (B = 0; B <= g; B++)
+          for (B = 0; B <= v; B++)
             te[B] = 0;
           for (N = 0; N <= 143; )
             J[2 * N + 1] = 8, N++, te[8]++;
@@ -8288,9 +8848,9 @@ https://github.com/nodeca/pako/blob/main/LICENSE
             J[2 * N + 1] = 7, N++, te[7]++;
           for (; N <= 287; )
             J[2 * N + 1] = 8, N++, te[8]++;
-          for (Ie(J, v + 1, te), N = 0; N < d; N++)
+          for (Ie(J, g + 1, te), N = 0; N < d; N++)
             C[2 * N + 1] = 5, C[2 * N] = ge(N, 5);
-          se = new ee(J, T, h + 1, v, g), V = new ee(C, W, 0, d, g), pe = new ee(new Array(0), j, 0, b, w);
+          se = new ee(J, T, h + 1, g, v), V = new ee(C, W, 0, d, v), pe = new ee(new Array(0), j, 0, b, w);
         }(), D = !0), S.l_desc = new L(S.dyn_ltree, se), S.d_desc = new L(S.dyn_dtree, V), S.bl_desc = new L(S.bl_tree, pe), S.bi_buf = 0, S.bi_valid = 0, fe(S);
       }, i._tr_stored_block = O, i._tr_flush_block = function(S, N, B, Z) {
         var I, X, te = 0;
@@ -8331,8 +8891,8 @@ https://github.com/nodeca/pako/blob/main/LICENSE
       (function(o) {
         (function(s, a) {
           if (!s.setImmediate) {
-            var l, c, u, h, v = 1, d = {}, b = !1, f = s.document, g = Object.getPrototypeOf && Object.getPrototypeOf(s);
-            g = g && g.setTimeout ? g : s, l = {}.toString.call(s.process) === "[object process]" ? function(E) {
+            var l, c, u, h, g = 1, d = {}, b = !1, f = s.document, v = Object.getPrototypeOf && Object.getPrototypeOf(s);
+            v = v && v.setTimeout ? v : s, l = {}.toString.call(s.process) === "[object process]" ? function(E) {
               process.nextTick(function() {
                 w(E);
               });
@@ -8356,13 +8916,13 @@ https://github.com/nodeca/pako/blob/main/LICENSE
               }, c.appendChild(k);
             }) : function(E) {
               setTimeout(w, 0, E);
-            }, g.setImmediate = function(E) {
+            }, v.setImmediate = function(E) {
               typeof E != "function" && (E = new Function("" + E));
               for (var k = new Array(arguments.length - 1), R = 0; R < k.length; R++)
                 k[R] = arguments[R + 1];
               var T = { callback: E, args: k };
-              return d[v] = T, l(v), v++;
-            }, g.clearImmediate = m;
+              return d[g] = T, l(g), g++;
+            }, v.clearImmediate = m;
           }
           function m(E) {
             delete d[E];
@@ -8419,12 +8979,12 @@ var ns = { exports: {} };
       return typeof u > "u" ? u = { autoBom: !1 } : typeof u != "object" && (console.warn("Deprecated: Expected third argument to be a object"), u = { autoBom: !u }), u.autoBom && /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(c.type) ? new Blob(["\uFEFF", c], { type: c.type }) : c;
     }
     function n(c, u, h) {
-      var v = new XMLHttpRequest();
-      v.open("GET", c), v.responseType = "blob", v.onload = function() {
-        l(v.response, u, h);
-      }, v.onerror = function() {
+      var g = new XMLHttpRequest();
+      g.open("GET", c), g.responseType = "blob", g.onload = function() {
+        l(g.response, u, h);
+      }, g.onerror = function() {
         console.error("could not download file");
-      }, v.send();
+      }, g.send();
     }
     function i(c) {
       var u = new XMLHttpRequest();
@@ -8445,9 +9005,9 @@ var ns = { exports: {} };
     }
     var s = typeof window == "object" && window.window === window ? window : typeof self == "object" && self.self === self ? self : typeof ft == "object" && ft.global === ft ? ft : void 0, a = s.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent), l = s.saveAs || (typeof window != "object" || window !== s ? function() {
     } : "download" in HTMLAnchorElement.prototype && !a ? function(c, u, h) {
-      var v = s.URL || s.webkitURL, d = document.createElement("a");
-      u = u || c.name || "download", d.download = u, d.rel = "noopener", typeof c == "string" ? (d.href = c, d.origin === location.origin ? o(d) : i(d.href) ? n(c, u, h) : o(d, d.target = "_blank")) : (d.href = v.createObjectURL(c), setTimeout(function() {
-        v.revokeObjectURL(d.href);
+      var g = s.URL || s.webkitURL, d = document.createElement("a");
+      u = u || c.name || "download", d.download = u, d.rel = "noopener", typeof c == "string" ? (d.href = c, d.origin === location.origin ? o(d) : i(d.href) ? n(c, u, h) : o(d, d.target = "_blank")) : (d.href = g.createObjectURL(c), setTimeout(function() {
+        g.revokeObjectURL(d.href);
       }, 4e4), setTimeout(function() {
         o(d);
       }, 0));
@@ -8457,24 +9017,24 @@ var ns = { exports: {} };
       else if (i(c))
         n(c, u, h);
       else {
-        var v = document.createElement("a");
-        v.href = c, v.target = "_blank", setTimeout(function() {
-          o(v);
+        var g = document.createElement("a");
+        g.href = c, g.target = "_blank", setTimeout(function() {
+          o(g);
         });
       }
-    } : function(c, u, h, v) {
-      if (v = v || open("", "_blank"), v && (v.document.title = v.document.body.innerText = "downloading..."), typeof c == "string")
+    } : function(c, u, h, g) {
+      if (g = g || open("", "_blank"), g && (g.document.title = g.document.body.innerText = "downloading..."), typeof c == "string")
         return n(c, u, h);
       var d = c.type === "application/octet-stream", b = /constructor/i.test(s.HTMLElement) || s.safari, f = /CriOS\/[\d]+/.test(navigator.userAgent);
       if ((f || d && b || a) && typeof FileReader < "u") {
-        var g = new FileReader();
-        g.onloadend = function() {
-          var x = g.result;
-          x = f ? x : x.replace(/^data:[^;]*;/, "data:attachment/file;"), v ? v.location.href = x : location = x, v = null;
-        }, g.readAsDataURL(c);
+        var v = new FileReader();
+        v.onloadend = function() {
+          var x = v.result;
+          x = f ? x : x.replace(/^data:[^;]*;/, "data:attachment/file;"), g ? g.location.href = x : location = x, g = null;
+        }, v.readAsDataURL(c);
       } else {
         var m = s.URL || s.webkitURL, w = m.createObjectURL(c);
-        v ? v.location = w : location.href = w, v = null, setTimeout(function() {
+        g ? g.location = w : location.href = w, g = null, setTimeout(function() {
           m.revokeObjectURL(w);
         }, 4e4);
       }
@@ -8484,7 +9044,9 @@ var ns = { exports: {} };
 })(ns);
 var Uu = ns.exports;
 const Vu = () => {
-  const e = Dt.getState(), t = new Bu(), { structure: { normalized: r, initialFolder: n } } = e;
+  const e = Dt.getState(), t = new Bu(), {
+    structure: { normalized: r, initialFolder: n }
+  } = e;
   if (r.files.allIds.length === 0 && r.folders.allIds.length === 1) {
     alert("There is nothing to download, you haven't created any files yet.");
     return;
@@ -8492,26 +9054,60 @@ const Vu = () => {
   const i = e.structure.projectName, o = {
     [n.id]: t
   };
-  Wr(n.subFoldersAndFiles, (s, a) => {
-    const l = r[`${s.type}s`].byId[s.id], c = a[a.length - 1], u = o[c];
-    if (l.type === "file")
-      u.file(`${l.name}.${l.extension}`, l.content);
-    else {
-      const h = u.folder(l.name);
-      o[l.id] = h;
-    }
-  }, [], [n.id]), t.generateAsync({
+  Wr(
+    n.subFoldersAndFiles,
+    (s, a) => {
+      const l = r[`${s.type}s`].byId[s.id], c = a[a.length - 1], u = o[c];
+      if (l.type === "file")
+        u.file(`${l.name}.${l.extension}`, l.content);
+      else {
+        const h = u.folder(l.name);
+        o[l.id] = h;
+      }
+    },
+    [],
+    [n.id]
+  ), t.generateAsync({
     type: "blob"
   }).then((s) => {
     Uu.saveAs(s, `${i}.zip`);
   });
-}, Wu = ({ deleteConfirmationClassName: e, fileInputClassName: t, fileInputStyle: r, contextMenuClassName: n, contextMenuHrColor: i, contextMenuClickableAreaClassName: o, fileActionsBtnClassName: s, projectName: a, fileActionsDisableCollapse: l, fileActionsDisableTooltip: c, fileActionsDisableDownload: u, folderCollapseBtnClassname: h, folderCollapseBtnStyle: v, folderThreeDotPrimaryClass: d, folderThreeDotSecondaryClass: b, folderClickableAreaClassName: f, folderSelectedClickableAreaClassName: g, folderContextSelectedClickableAreaClassName: m, itemTitleClassName: w, structureContainerClassName: x, containerHeight: E, onItemSelected: k = () => {
-}, onNewItemClick: R = () => {
-}, onAreaCollapsed: T = () => {
-}, onItemContextSelected: W = () => {
-}, onNodeDeleted: j = () => {
-}, onNewItemCreated: K = () => {
-}, validExtensions: J }) => {
+}, Wu = ({
+  deleteConfirmationClassName: e,
+  fileInputClassName: t,
+  fileInputStyle: r,
+  contextMenuClassName: n,
+  contextMenuHrColor: i,
+  contextMenuClickableAreaClassName: o,
+  fileActionsBtnClassName: s,
+  projectName: a,
+  fileActionsDisableCollapse: l,
+  fileActionsDisableTooltip: c,
+  fileActionsDisableDownload: u,
+  folderCollapseBtnClassname: h,
+  folderCollapseBtnStyle: g,
+  folderThreeDotPrimaryClass: d,
+  folderThreeDotSecondaryClass: b,
+  folderClickableAreaClassName: f,
+  folderSelectedClickableAreaClassName: v,
+  folderContextSelectedClickableAreaClassName: m,
+  itemTitleClassName: w,
+  structureContainerClassName: x,
+  containerHeight: E,
+  onItemSelected: k = () => {
+  },
+  onNewItemClick: R = () => {
+  },
+  onAreaCollapsed: T = () => {
+  },
+  onItemContextSelected: W = () => {
+  },
+  onNodeDeleted: j = () => {
+  },
+  onNewItemCreated: K = () => {
+  },
+  validExtensions: J
+}) => {
   const C = Ye(null), F = Ye(null), y = Ye(), [P, se] = Ee(!1), V = ur(), pe = Ke(fl), H = Ke(hl), ee = Ke(vl), L = Ke(_o), z = Ke(pl), oe = Ke(So), re = Ke(bl), Q = Ke(xo), ge = Ke(ml), Ie = Ke(yl), fe = Ke(wl), [me, Ne] = Ee(!0), [Te, He] = Ee(!0), [Ue, p] = Ee(!1), [U, D] = Ee(""), [O, S] = Ee({
     x: 0,
     y: 0
@@ -8538,22 +9134,26 @@ const Vu = () => {
     {
       title: "Cut",
       handler: () => {
-        V(Ei({
-          id: L,
-          type: z,
-          isCut: !0
-        }));
+        V(
+          Ei({
+            id: L,
+            type: z,
+            isCut: !0
+          })
+        );
       },
       disabled: U === "head"
     },
     {
       title: "Copy",
       handler: () => {
-        V(Ei({
-          id: L,
-          type: z,
-          isCut: !1
-        }));
+        V(
+          Ei({
+            id: L,
+            type: z,
+            isCut: !1
+          })
+        );
       },
       disabled: U === "head"
     },
@@ -8573,7 +9173,9 @@ const Vu = () => {
       title: "Rename",
       handler: () => {
         var ne;
-        q((ne = y.current) == null ? void 0 : ne.getAttribute("typeof-item")), qe(), be(!0);
+        q(
+          (ne = y.current) == null ? void 0 : ne.getAttribute("typeof-item")
+        ), qe(), be(!0);
       },
       disabled: U === "head"
     },
@@ -8607,10 +9209,14 @@ const Vu = () => {
     }
   }, Re = (ne) => {
     var ue;
-    y.current || Me(), y.current && (y.current === C.current || y.current.id.includes("file") && !ne ? (N.current = C.current, X(0)) : (ne || V(wn({
-      item: { id: y.current.id, type: "folder" },
-      collapse: !1
-    })), ne ? (N.current = y.current.parentElement, y.current.classList.add("hide-input"), X(0)) : (N.current = (ue = F.current) == null ? void 0 : ue.querySelector("#ghost-input-" + y.current.id), X(1))));
+    y.current || Me(), y.current && (y.current === C.current || y.current.id.includes("file") && !ne ? (N.current = C.current, X(0)) : (ne || V(
+      wn({
+        item: { id: y.current.id, type: "folder" },
+        collapse: !1
+      })
+    ), ne ? (N.current = y.current.parentElement, y.current.classList.add("hide-input"), X(0)) : (N.current = (ue = F.current) == null ? void 0 : ue.querySelector(
+      "#ghost-input-" + y.current.id
+    ), X(1))));
   }, De = (ne) => {
     if (ne !== B && (Z(ne), ge.length === 0 && Ie.length === 1)) {
       const ue = document.getElementById("welcome");
@@ -8668,44 +9274,259 @@ const Vu = () => {
     if (!H)
       return;
     let ne;
-    L === "head" ? ne = document.querySelector(".main-nav") : ne = (we = (ue = C.current) == null ? void 0 : ue.querySelector(`#${L}`)) == null ? void 0 : we.childNodes[0], tt({ clientY: H.x, clientX: H.y }, ne);
+    L === "head" ? ne = document.querySelector(".main-nav") : ne = (we = (ue = C.current) == null ? void 0 : ue.querySelector(`#${L}`)) == null ? void 0 : we.childNodes[0], tt(
+      { clientY: H.x, clientX: H.y },
+      ne
+    );
   }, [H]), dr(F, () => {
     var ne, ue;
     oe !== "head" && (Ne(!1), He(!1)), (ne = C.current) == null || ne.classList.add("border-transparent"), (ue = C.current) == null || ue.classList.remove("border-vscode-blue");
   }), Ae(() => {
     Ne(!0);
-  }, [oe]), M.jsxs(M.Fragment, { children: [M.jsxs("div", { id: "file-system", className: "pr-2", children: [M.jsxs("div", { style: {
-    height: E || "calc(80vh - 4rem)"
-  }, className: "flex w-full flex-col justify-start", children: [M.jsx("div", { className: "my-2 flex flex-col items-start pl-2", children: M.jsx(Qc, { ...Ze, collapsed: P, btnClassName: s, projectName: a, disableCollapse: l, disableTooltip: c, disableDownload: u }) }), M.jsxs("div", { id: "structure-container", "parent-id": "head", "typeof-item": "folder", className: `border file-sys-container flex flex-col custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${P ? "no-height" : ""} ${x} ${oe === "head" ? "border-vscode-blue" : "border-transparent"}`, ref: C, onClick: () => {
-    V(zr({ id: "head", type: "folder" })), k({ id: "head", type: "folder" });
-  }, onContextMenu: (ne) => {
-    Xe(ne);
-  }, children: [M.jsxs("div", { "parent-id": "head", "typeof-item": "folder", ref: F, className: "content flex items-center", children: [M.jsx(Ro, { data: pe.subFoldersAndFiles, showBlue: me, setShowBlue: Ne, showGray: Te, setShowGray: He, collapseBtnClassname: h, collapseBtnStyle: v, threeDotPrimaryClass: d, threeDotSecondaryClass: b, clickableAreaClassName: f, selectedClickableAreaClassName: g, contextSelectedClickableAreaClassName: m, itemTitleClassName: w, onItemSelected: k, onItemContextSelected: W }), ge.length === 0 && Ie.length === 1 && M.jsx("div", { id: "welcome", "parent-id": "head", "typeof-item": "folder", onClick: (ne) => ne.stopPropagation(), onContextMenu: (ne) => {
-    Xe(ne), W({ id: "head", type: "folder" });
-  }, className: "mx-auto flex h-[40vh] items-center pl-3 pr-4", children: M.jsx("div", { "parent-id": "head", "typeof-item": "folder", className: "select-none break-words rounded-lg border p-3 text-center text-base", children: M.jsxs("div", { "parent-id": "head", "typeof-item": "folder", className: "flex flex-col justify-center", children: [M.jsx("div", { "parent-id": "head", "typeof-item": "folder", className: "flex items-center", children: "Create a file or folder..." }), M.jsxs("div", { "parent-id": "head", "typeof-item": "folder", className: "my-2 flex w-full flex-col items-center justify-between text-sm", children: [M.jsx("button", { "parent-id": "head", "typeof-item": "folder", type: "button", onClick: (ne) => {
-    ne.stopPropagation(), Ze.newFile();
-  }, className: "new-btns bg-vscode-overlay my-1 w-full rounded-lg px-1 py-2 transition-colors hover:bg-vscode-blue", children: M.jsx("span", { "parent-id": "head", "typeof-item": "folder", className: "relative text-white", children: "New File" }) }), M.jsx("button", { "parent-id": "head", "typeof-item": "folder", type: "button", onClick: (ne) => {
-    ne.stopPropagation(), Ze.newFolder();
-  }, className: "new-btns bg-vscode-overlay my-1 w-full rounded-lg  px-1 py-2 transition-colors hover:bg-vscode-blue", children: M.jsx("span", { "parent-id": "head", "typeof-item": "folder", className: "relative text-white", children: "New Folder" }) })] })] }) }) })] }), M.jsx("div", { "parent-id": "head", "typeof-item": "folder", className: "min-h-[8rem] clickable-padding", children: " " })] })] }), xe && Rr(M.jsx(ac, { title: `Delete the ${U} ${ee.wholeName}?`, content: `Are you sure you want to delete the ${U} /${ee.actualPath}? This action cannot be
-            undone.`, className: e, actionText: `Yes, delete ${U}`, close: je, action: async () => {
-    j(ee.id), V(xl({ id: null, type: null })), await V(xn()), je(!1);
-  } }), document.getElementById("root")), Ue && Rr(M.jsx(tc, { top: O.x, left: O.y, showContext: Ue, setShowContext: p, actions: et, className: n, clickableAreaClassName: o, hrColor: i }), document.getElementById("root"))] }), lc(M.jsx(oc, { className: t, style: r, closeCallback: () => {
-    De(!1);
-  }, submit: (ne) => {
-    nt(ne);
-  }, validExtensions: J, padding: I, show: y.current && B, item: {
-    type: te,
-    rename: ae ? {
-      wholeName: re.type === "file" ? `${re.name}.${re.extension}` : re.name
-    } : void 0
-  }, container: C.current, existingItems: (() => {
-    const ne = fe.map((ue) => ({
-      id: ue.id,
-      type: ue.type,
-      wholeName: ue.type === "file" ? `${ue.name}.${ue.extension}` : ue.name
-    }));
-    return ae ? ne.filter(({ id: ue }) => ue !== (re == null ? void 0 : re.id)) : ne;
-  })() }), N.current)] });
+  }, [oe]), /* @__PURE__ */ M.jsxs(M.Fragment, { children: [
+    /* @__PURE__ */ M.jsxs("div", { id: "file-system", className: "pr-2", children: [
+      /* @__PURE__ */ M.jsxs(
+        "div",
+        {
+          style: {
+            height: E || "calc(80vh - 4rem)"
+          },
+          className: "flex w-full flex-col justify-start",
+          children: [
+            /* @__PURE__ */ M.jsx("div", { className: "my-2 flex flex-col items-start pl-2", children: /* @__PURE__ */ M.jsx(
+              Qc,
+              {
+                ...Ze,
+                collapsed: P,
+                btnClassName: s,
+                projectName: a,
+                disableCollapse: l,
+                disableTooltip: c,
+                disableDownload: u
+              }
+            ) }),
+            /* @__PURE__ */ M.jsxs(
+              "div",
+              {
+                id: "structure-container",
+                "parent-id": "head",
+                "typeof-item": "folder",
+                className: `border file-sys-container flex flex-col custom-scrollbar-2 pl-1 transition-[height] duration-300 ease-out ${P ? "no-height" : ""} ${x} ${oe === "head" ? "border-vscode-blue" : "border-transparent"}`,
+                ref: C,
+                onClick: () => {
+                  V(zr({ id: "head", type: "folder" })), k({ id: "head", type: "folder" });
+                },
+                onContextMenu: (ne) => {
+                  Xe(ne);
+                },
+                children: [
+                  /* @__PURE__ */ M.jsxs(
+                    "div",
+                    {
+                      "parent-id": "head",
+                      "typeof-item": "folder",
+                      ref: F,
+                      className: "content flex items-center",
+                      children: [
+                        /* @__PURE__ */ M.jsx(
+                          Ro,
+                          {
+                            data: pe.subFoldersAndFiles,
+                            showBlue: me,
+                            setShowBlue: Ne,
+                            showGray: Te,
+                            setShowGray: He,
+                            collapseBtnClassname: h,
+                            collapseBtnStyle: g,
+                            threeDotPrimaryClass: d,
+                            threeDotSecondaryClass: b,
+                            clickableAreaClassName: f,
+                            selectedClickableAreaClassName: v,
+                            contextSelectedClickableAreaClassName: m,
+                            itemTitleClassName: w,
+                            onItemSelected: k,
+                            onItemContextSelected: W
+                          }
+                        ),
+                        ge.length === 0 && Ie.length === 1 && /* @__PURE__ */ M.jsx(
+                          "div",
+                          {
+                            id: "welcome",
+                            "parent-id": "head",
+                            "typeof-item": "folder",
+                            onClick: (ne) => ne.stopPropagation(),
+                            onContextMenu: (ne) => {
+                              Xe(ne), W({ id: "head", type: "folder" });
+                            },
+                            className: "mx-auto flex h-[40vh] items-center pl-3 pr-4",
+                            children: /* @__PURE__ */ M.jsx(
+                              "div",
+                              {
+                                "parent-id": "head",
+                                "typeof-item": "folder",
+                                className: "select-none break-words rounded-lg border p-3 text-center text-base",
+                                children: /* @__PURE__ */ M.jsxs(
+                                  "div",
+                                  {
+                                    "parent-id": "head",
+                                    "typeof-item": "folder",
+                                    className: "flex flex-col justify-center",
+                                    children: [
+                                      /* @__PURE__ */ M.jsx(
+                                        "div",
+                                        {
+                                          "parent-id": "head",
+                                          "typeof-item": "folder",
+                                          className: "flex items-center",
+                                          children: "Create a file or folder..."
+                                        }
+                                      ),
+                                      /* @__PURE__ */ M.jsxs(
+                                        "div",
+                                        {
+                                          "parent-id": "head",
+                                          "typeof-item": "folder",
+                                          className: "my-2 flex w-full flex-col items-center justify-between text-sm",
+                                          children: [
+                                            /* @__PURE__ */ M.jsx(
+                                              "button",
+                                              {
+                                                "parent-id": "head",
+                                                "typeof-item": "folder",
+                                                type: "button",
+                                                onClick: (ne) => {
+                                                  ne.stopPropagation(), Ze.newFile();
+                                                },
+                                                className: "new-btns text-black hover:text-white border my-1 w-full rounded-lg px-1 py-2 transition-colors hover:bg-vscode-blue hover:border-vscode-blue ",
+                                                children: /* @__PURE__ */ M.jsx(
+                                                  "span",
+                                                  {
+                                                    "parent-id": "head",
+                                                    "typeof-item": "folder",
+                                                    className: "relative",
+                                                    children: "New File"
+                                                  }
+                                                )
+                                              }
+                                            ),
+                                            /* @__PURE__ */ M.jsx(
+                                              "button",
+                                              {
+                                                "parent-id": "head",
+                                                "typeof-item": "folder",
+                                                type: "button",
+                                                onClick: (ne) => {
+                                                  ne.stopPropagation(), Ze.newFolder();
+                                                },
+                                                className: "new-btns text-black hover:text-white border my-1 w-full rounded-lg  px-1 py-2 transition-colors hover:bg-vscode-blue hover:border-vscode-blue ",
+                                                children: /* @__PURE__ */ M.jsx(
+                                                  "span",
+                                                  {
+                                                    "parent-id": "head",
+                                                    "typeof-item": "folder",
+                                                    className: "relative",
+                                                    children: "New Folder"
+                                                  }
+                                                )
+                                              }
+                                            )
+                                          ]
+                                        }
+                                      )
+                                    ]
+                                  }
+                                )
+                              }
+                            )
+                          }
+                        )
+                      ]
+                    }
+                  ),
+                  /* @__PURE__ */ M.jsx(
+                    "div",
+                    {
+                      "parent-id": "head",
+                      "typeof-item": "folder",
+                      className: "min-h-[8rem] clickable-padding select-none",
+                      children: " "
+                    }
+                  )
+                ]
+              }
+            )
+          ]
+        }
+      ),
+      xe && Rr(
+        /* @__PURE__ */ M.jsx(
+          ac,
+          {
+            title: `Delete the ${U} ${ee.wholeName}?`,
+            content: `Are you sure you want to delete the ${U} /${ee.actualPath}? This action cannot be
+            undone.`,
+            className: e,
+            actionText: `Yes, delete ${U}`,
+            close: je,
+            action: async () => {
+              j(ee.id), V(xl({ id: null, type: null })), await V(xn()), je(!1);
+            }
+          }
+        ),
+        document.getElementById("root")
+      ),
+      Ue && Rr(
+        /* @__PURE__ */ M.jsx(
+          tc,
+          {
+            top: O.x,
+            left: O.y,
+            showContext: Ue,
+            setShowContext: p,
+            actions: et,
+            className: n,
+            clickableAreaClassName: o,
+            hrColor: i
+          }
+        ),
+        document.getElementById("root")
+      )
+    ] }),
+    lc(
+      /* @__PURE__ */ M.jsx(
+        oc,
+        {
+          className: t,
+          style: r,
+          closeCallback: () => {
+            De(!1);
+          },
+          submit: (ne) => {
+            nt(ne);
+          },
+          validExtensions: J,
+          padding: I,
+          show: y.current && B,
+          item: {
+            type: te,
+            rename: ae ? {
+              wholeName: re.type === "file" ? `${re.name}.${re.extension}` : re.name
+            } : void 0
+          },
+          container: C.current,
+          existingItems: (() => {
+            const ne = fe.map((ue) => ({
+              id: ue.id,
+              type: ue.type,
+              wholeName: ue.type === "file" ? `${ue.name}.${ue.extension}` : ue.name
+            }));
+            return ae ? ne.filter(({ id: ue }) => ue !== (re == null ? void 0 : re.id)) : ne;
+          })()
+        }
+      ),
+      N.current
+    )
+  ] });
 };
 function Ar(e) {
   return typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Ar = function(r) {
@@ -8794,81 +9615,350 @@ Tr(is, "defaultProps", {
   children: null,
   loading: null
 });
-const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [M.jsx(is, { loading: M.jsx(M.Fragment, { children: "Loading..." }), persistor: $u }), e] }), Yu = ({ id: e, name: t, type: r, selected: n, onSelect: i, onClose: o, className: s, selectedTabClassName: a }) => {
+const mr = ({ children: e }) => /* @__PURE__ */ M.jsxs(Bl, { context: Ln, store: Dt, children: [
+  /* @__PURE__ */ M.jsx(
+    is,
+    {
+      loading: /* @__PURE__ */ M.jsx(M.Fragment, { children: "Loading..." }),
+      persistor: $u
+    }
+  ),
+  e
+] }), Yu = ({
+  id: e,
+  name: t,
+  type: r,
+  selected: n,
+  onSelect: i,
+  onClose: o,
+  className: s,
+  selectedTabClassName: a
+}) => {
   const l = t.substring(t.lastIndexOf(".") + 1), [c, u] = ht.useState(ar(l));
   return Ae(() => {
     u(ar(r));
-  }, [r]), M.jsxs("div", { onClick: () => {
-    n || i(e);
-  }, className: `hover-show hover:bg-slate-700 hover:text-white border-t-dark-bg border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${s} ${n ? `bg-dark-hover text-white border-t-slate-200 ${a}` : ""}`, children: [M.jsx("span", { className: `span-logo w-4 h-4 ${c}`, children: " " }), M.jsx("span", { className: "text-lg mx-2", children: t }), M.jsx("span", { className: "self-start", children: M.jsx("button", { type: "button", className: "show-on-hover transition-opacity", onClick: (h) => {
-    h.stopPropagation(), o(e);
-  }, children: M.jsx("img", {
-    // data-tooltip-id="close-tab"
-    // data-tooltip-content={"Close tab"}
-    src: Io,
-    alt: "close",
-    className: "transition-colors p-1 h-5 w-5 cursor-pointer hover:bg-slate-500 rounded-md align-baseline"
-  }) }) })] });
-}, qu = ({ containerClassName: e, tabClassName: t, selectedTabClassName: r, onTabClick: n = () => {
-}, onTabClose: i = () => {
-} }) => {
+  }, [r]), /* @__PURE__ */ M.jsxs(
+    "div",
+    {
+      onClick: () => {
+        n || i(e);
+      },
+      className: `hover-show hover:bg-slate-700 hover:text-white border-t-dark-bg border-t transition-colors py-2 pl-3 pr-2 flex flex-row flex-shrink-0 cursor-pointer select-none items-center rounded-sm mx-[1px] ${s} ${n ? `bg-dark-hover text-white border-t-slate-200 ${a}` : ""}`,
+      children: [
+        /* @__PURE__ */ M.jsx("span", { className: `span-logo w-4 h-4 ${c}`, children: " " }),
+        /* @__PURE__ */ M.jsx("span", { className: "text-lg mx-2", children: t }),
+        /* @__PURE__ */ M.jsx("span", { className: "self-start", children: /* @__PURE__ */ M.jsx(
+          "button",
+          {
+            type: "button",
+            className: "show-on-hover transition-opacity",
+            onClick: (h) => {
+              h.stopPropagation(), o(e);
+            },
+            children: /* @__PURE__ */ M.jsx(
+              "img",
+              {
+                src: Io,
+                alt: "close",
+                className: "transition-colors p-1 h-5 w-5 cursor-pointer hover:bg-slate-500 rounded-md align-baseline"
+              }
+            )
+          }
+        ) })
+      ]
+    }
+  );
+}, qu = ({
+  containerClassName: e,
+  tabClassName: t,
+  selectedTabClassName: r,
+  onTabClick: n = () => {
+  },
+  onTabClose: i = () => {
+  }
+}) => {
   const o = ur(), s = Ke(Xl), a = Ke(ql), l = (u) => {
     a !== u && (o(Kl(u)), n(u));
   }, c = async (u) => {
     o(Gl(u)), i(u);
   };
-  return M.jsx("div", { className: "flex flex-row w-full", children: M.jsx("div", { className: "file-tabs w-full py-1", children: M.jsx("div", { className: `flex flex-row items-center w-full overflow-x-scroll custom-scrollbar ${e}`, children: s.map((u) => M.jsx(Yu, { id: u.id, name: u.wholeName, type: u.extension, selected: u.id === a, onSelect: l, onClose: c, className: t, selectedTabClassName: r }, u.id)) }) }) });
-}, Xu = ({ hightlight: e, lineOfText: t, lineNum: r, openAtLine: n, highlightClass: i }) => {
+  return /* @__PURE__ */ M.jsx("div", { className: "flex flex-row w-full", children: /* @__PURE__ */ M.jsx("div", { className: "file-tabs w-full py-1", children: /* @__PURE__ */ M.jsx(
+    "div",
+    {
+      className: `flex flex-row items-center w-full overflow-x-scroll custom-scrollbar ${e}`,
+      children: s.map((u) => /* @__PURE__ */ M.jsx(
+        Yu,
+        {
+          id: u.id,
+          name: u.wholeName,
+          type: u.extension,
+          selected: u.id === a,
+          onSelect: l,
+          onClose: c,
+          className: t,
+          selectedTabClassName: r
+        },
+        u.id
+      ))
+    }
+  ) }) });
+}, Xu = ({
+  hightlight: e,
+  lineOfText: t,
+  lineNum: r,
+  openAtLine: n,
+  highlightClass: i
+}) => {
   const o = t.split(new RegExp(`(${e})`, "gi"));
-  return M.jsx("div", { onClick: () => {
-    n(r);
-  }, className: "whitespace-nowrap my-1 ml-3 pl-1 cursor-pointer hover:bg-dark-hover", children: o.map((s) => s === e ? M.jsx("span", { className: `bg-orange-400 text-black ${i}`, children: s }) : s) });
-}, Ju = ({ matchingFile: e, fileAtLineClick: t, headerClassName: r, headerStyle: n, titleClassName: i, highlightClass: o }) => {
+  return /* @__PURE__ */ M.jsx(
+    "div",
+    {
+      onClick: () => {
+        n(r);
+      },
+      className: "whitespace-nowrap my-1 ml-3 pl-1 cursor-pointer hover:bg-dark-hover",
+      children: o.map(
+        (s) => s === e ? /* @__PURE__ */ M.jsx("span", { className: `bg-orange-400 text-black ${i}`, children: s }) : s
+      )
+    }
+  );
+}, Ju = ({
+  matchingFile: e,
+  fileAtLineClick: t,
+  headerClassName: r,
+  headerStyle: n,
+  titleClassName: i,
+  highlightClass: o
+}) => {
   const [s, a] = Ee(!0), l = Ke(gl);
-  return M.jsxs("div", { className: "flex flex-col w-full", children: [M.jsxs("div", { onClick: () => {
-    a(!s);
-  }, style: n, className: `flex items-center w-full cursor-pointer hover:bg-dark-hover ${r}`, children: [M.jsx("img", { src: jo, className: `${s ? "rotate-[270deg]" : "rotate-180"} transition-transform w-3 h-3 ml-2 self-center`, alt: "Right Arrow" }), M.jsx(Mn, { item: {
-    ...e,
-    type: "file"
-  }, onClickE: () => {
-  }, className: i })] }), s && M.jsx("div", { className: "overflow-x-hidden", children: e.matches.map(({ line: c, content: u }, h) => M.jsx(Xu, { hightlight: l, lineOfText: u, lineNum: c, openAtLine: (v) => {
-    t(e.id, v);
-  }, highlightClass: o }, `${e.id}-${c}-${h}`)) })] });
-}, Qu = ({ highlightedTextClassName: e, headerClassName: t, headerStyle: r, titleClassName: n }) => {
-  const i = Ke(Eo);
-  return M.jsxs("div", { className: "select-none w-full h-fit pr-1", children: [M.jsxs("div", { className: "m-2", children: [i.numOfLines, " result", i.numOfLines !== 1 && "s", " in", " ", i.numOfResults, " file", i.numOfResults !== 1 && "s"] }), i.files.map((o) => M.jsx("div", { className: "w-full z-0", children: M.jsx(Ju, {
-    matchingFile: o,
-    // @ts-ignore
-    fileAtLineClick: (s, a) => {
-    },
-    highlightClass: e,
-    headerClassName: t,
-    headerStyle: r,
-    titleClassName: n
-  }) }, `search-results-${o.id}`))] });
-}, os = ({ init: e, data: t, onClickItem: r, onCollapseMiniStructure: n, collapseBtnClassName: i, collapseBtnStyle: o, containerClassName: s, titleClassName: a }) => {
+  return /* @__PURE__ */ M.jsxs("div", { className: "flex flex-col w-full", children: [
+    /* @__PURE__ */ M.jsxs(
+      "div",
+      {
+        onClick: () => {
+          a(!s);
+        },
+        style: n,
+        className: `flex items-center w-full cursor-pointer hover:bg-dark-hover ${r}`,
+        children: [
+          /* @__PURE__ */ M.jsx(
+            "img",
+            {
+              src: jo,
+              className: `${s ? "rotate-[270deg]" : "rotate-180"} transition-transform w-3 h-3 ml-2 self-center`,
+              alt: "Right Arrow"
+            }
+          ),
+          /* @__PURE__ */ M.jsx(
+            Mn,
+            {
+              item: {
+                ...e,
+                type: "file"
+              },
+              onClickE: () => {
+              },
+              className: i
+            }
+          )
+        ]
+      }
+    ),
+    s && /* @__PURE__ */ M.jsx("div", { className: "overflow-x-hidden", children: e.matches.map(({ line: c, content: u }, h) => /* @__PURE__ */ M.jsx(
+      Xu,
+      {
+        hightlight: l,
+        lineOfText: u,
+        lineNum: c,
+        openAtLine: (g) => {
+          t(e.id, g);
+        },
+        highlightClass: o
+      },
+      `${e.id}-${c}-${h}`
+    )) })
+  ] });
+}, Qu = ({
+  highlightedTextClassName: e,
+  headerClassName: t,
+  headerStyle: r,
+  titleClassName: n,
+  searchResultClicked: i
+}) => {
+  const o = Ke(Eo);
+  return /* @__PURE__ */ M.jsxs("div", { className: "select-none w-full h-fit pr-1", children: [
+    /* @__PURE__ */ M.jsxs("div", { className: "m-2", children: [
+      o.numOfLines,
+      " result",
+      o.numOfLines !== 1 && "s",
+      " in",
+      " ",
+      o.numOfResults,
+      " file",
+      o.numOfResults !== 1 && "s"
+    ] }),
+    o.files.map((s) => /* @__PURE__ */ M.jsx("div", { className: "w-full z-0", children: /* @__PURE__ */ M.jsx(
+      Ju,
+      {
+        matchingFile: s,
+        fileAtLineClick: i,
+        highlightClass: e,
+        headerClassName: t,
+        headerStyle: r,
+        titleClassName: n
+      }
+    ) }, `search-results-${s.id}`))
+  ] });
+}, os = ({
+  init: e,
+  data: t,
+  onClickItem: r,
+  onCollapseMiniStructure: n,
+  collapseBtnClassName: i,
+  collapseBtnStyle: o,
+  containerClassName: s,
+  titleClassName: a
+}) => {
   const l = t.subFoldersAndFiles;
-  return M.jsx("div", { className: "w-full h-fit", children: l.map((c, u) => M.jsxs("div", { className: "flex flex-col select-none", children: [M.jsx("div", { className: `transition-colors flex flex-row hover:cursor-pointer hover:bg-dark-hover justify-between text-white ${e && (u === 0 ? "rounded-t-lg" : u === l.length - 1 ? "rounded-b-lg" : "")} ${s}`, children: M.jsx(Mn, { item: c, onClickE: () => {
-    r({ id: c.id, type: c.type });
-  }, className: a }) }), M.jsx(M.Fragment, { children: c.type === "folder" && !c.collapsed && M.jsxs("div", { className: "flex flex-row sub-folder", children: [M.jsx(To, { item: c, className: i, style: o, onClickE: () => {
-    n(c.id);
-  } }), M.jsx(os, { init: !1, data: c, onClickItem: r, onCollapseMiniStructure: n, collapseBtnClassName: i, collapseBtnStyle: o, titleClassName: a })] }) })] }, `key-${c.id}`)) });
-}, ed = ({ containerClassName: e, textClassName: t, miniFolderCollapseBtnClassName: r, miniFolderCollapseBtnStyle: n, miniFolderContainerClassName: i, itemTitleClassName: o, onBreadcrumbFileClick: s = () => {
-} }) => {
-  const [a, l] = Ee(0), [c, u] = Ee(!1), h = Ke(ju), v = Ye(null), d = Ye(null), b = Ke(Fu), f = ur();
-  return dr(d, u), M.jsx(M.Fragment, { children: b !== null && M.jsxs(M.Fragment, { children: [M.jsx("div", { id: "breadcrumbs", ref: v, className: "select-none w-full", children: M.jsx("div", { className: "breadcrumbs-container flex items-center justify-start m-2", children: b.path.map((g, m) => M.jsx("div", { id: `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`, children: M.jsxs("div", { className: `text-base text-black flex flex-row ${e}`, children: [m === b.path.length - 1 && M.jsx("span", { className: `span-logo self-center w-4 h-4 ml-1 mr-[0.375rem] ${ar(g.split(".").reverse()[0])}` }), M.jsx("span", { onClick: () => {
-    l(m), u(!0), f(es(b.unmappedPath[m]));
-  }, className: `cursor-pointer hover:underline hover:text-blue-400 ${t}`, children: g }), m < b.path.length - 1 && M.jsx("span", { className: "text-base text-black mx-2", children: "/" })] }) }, `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`)) }) }), v.current && c && M.jsx(M.Fragment, { children: (() => {
-    const g = `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${a}`, m = v.current.querySelector(`#${g}`);
-    if (m)
-      return Rr(M.jsx("div", { ref: d, className: "rounded-lg bg-dark-bg-2 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3", children: M.jsx(os, { init: !0, data: h, onClickItem: (w) => {
-        w.type === "folder" ? f(qi(w.id)) : (f(zr({ id: g, type: "file" })), f($n(w.id)), u(!1), s(g));
-      }, onCollapseMiniStructure: (w) => {
-        f(qi(w));
-      }, collapseBtnClassName: r, collapseBtnStyle: n, containerClassName: i, titleClassName: o }) }), m);
-  })() })] }) });
-}, td = ({ className: e, style: t, onSearchFiles: r = () => {
-} }) => {
+  return /* @__PURE__ */ M.jsx("div", { className: "w-full h-fit", children: l.map((c, u) => /* @__PURE__ */ M.jsxs("div", { className: "flex flex-col select-none", children: [
+    /* @__PURE__ */ M.jsx(
+      "div",
+      {
+        className: `transition-colors flex flex-row hover:cursor-pointer hover:bg-dark-hover justify-between text-white ${e && (u === 0 ? "rounded-t-lg" : u === l.length - 1 ? "rounded-b-lg" : "")} ${s}`,
+        children: /* @__PURE__ */ M.jsx(
+          Mn,
+          {
+            item: c,
+            onClickE: () => {
+              r({ id: c.id, type: c.type });
+            },
+            className: a
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ M.jsx(M.Fragment, { children: c.type === "folder" && !c.collapsed && /* @__PURE__ */ M.jsxs("div", { className: "flex flex-row sub-folder", children: [
+      /* @__PURE__ */ M.jsx(
+        To,
+        {
+          item: c,
+          className: i,
+          style: o,
+          onClickE: () => {
+            n(c.id);
+          }
+        }
+      ),
+      /* @__PURE__ */ M.jsx(
+        os,
+        {
+          init: !1,
+          data: c,
+          onClickItem: r,
+          onCollapseMiniStructure: n,
+          collapseBtnClassName: i,
+          collapseBtnStyle: o,
+          titleClassName: a
+        }
+      )
+    ] }) })
+  ] }, `key-${c.id}`)) });
+}, ed = ({
+  containerClassName: e,
+  textClassName: t,
+  miniFolderCollapseBtnClassName: r,
+  miniFolderCollapseBtnStyle: n,
+  miniFolderContainerClassName: i,
+  itemTitleClassName: o,
+  onBreadcrumbFileClick: s = () => {
+  }
+}) => {
+  const [a, l] = Ee(0), [c, u] = Ee(!1), h = Ke(ju), g = Ye(null), d = Ye(null), b = Ke(Fu), f = ur();
+  return dr(d, u), /* @__PURE__ */ M.jsx(M.Fragment, { children: b !== null && /* @__PURE__ */ M.jsxs(M.Fragment, { children: [
+    /* @__PURE__ */ M.jsx(
+      "div",
+      {
+        id: "breadcrumbs",
+        ref: g,
+        className: "select-none w-full",
+        children: /* @__PURE__ */ M.jsx("div", { className: "breadcrumbs-container flex items-center justify-start m-2", children: b.path.map((v, m) => /* @__PURE__ */ M.jsx(
+          "div",
+          {
+            id: `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`,
+            children: /* @__PURE__ */ M.jsxs(
+              "div",
+              {
+                className: `text-base text-black flex flex-row ${e}`,
+                children: [
+                  m === b.path.length - 1 && /* @__PURE__ */ M.jsx(
+                    "span",
+                    {
+                      className: `span-logo self-center w-4 h-4 ml-1 mr-[0.375rem] ${ar(
+                        v.split(".").reverse()[0]
+                      )}`
+                    }
+                  ),
+                  /* @__PURE__ */ M.jsx(
+                    "span",
+                    {
+                      onClick: () => {
+                        l(m), u(!0), f(
+                          es(b.unmappedPath[m])
+                        );
+                      },
+                      className: `cursor-pointer hover:underline hover:text-blue-400 ${t}`,
+                      children: v
+                    }
+                  ),
+                  m < b.path.length - 1 && /* @__PURE__ */ M.jsx("span", { className: "text-base text-black mx-2", children: "/" })
+                ]
+              }
+            )
+          },
+          `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`
+        )) })
+      }
+    ),
+    g.current && c && /* @__PURE__ */ M.jsx(M.Fragment, { children: (() => {
+      const v = `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${a}`, m = g.current.querySelector(
+        `#${v}`
+      );
+      if (m)
+        return Rr(
+          /* @__PURE__ */ M.jsx(
+            "div",
+            {
+              ref: d,
+              className: "rounded-lg bg-dark-bg-2 border border-slate-600 absolute w-52 z-10 mt-2 max-h-60 overflow-y-auto custom-scrollbar-3",
+              children: /* @__PURE__ */ M.jsx(
+                os,
+                {
+                  init: !0,
+                  data: h,
+                  onClickItem: (w) => {
+                    w.type === "folder" ? f(qi(w.id)) : (f(zr({ id: v, type: "file" })), f($n(w.id)), u(!1), s(w.id));
+                  },
+                  onCollapseMiniStructure: (w) => {
+                    f(qi(w));
+                  },
+                  collapseBtnClassName: r,
+                  collapseBtnStyle: n,
+                  containerClassName: i,
+                  titleClassName: o
+                }
+              )
+            }
+          ),
+          m
+        );
+    })() })
+  ] }) });
+}, td = ({
+  className: e,
+  style: t,
+  onSearchFiles: r = () => {
+  }
+}) => {
   const [n, i] = Ee(""), o = Ye(null), s = ur(), a = Ke(Eo), l = (c) => {
     if (c.length > 0) {
       const u = setTimeout(() => {
@@ -8882,12 +9972,28 @@ const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [
   };
   return Ae(() => {
     n.length > 0 && r(n, a);
-  }, [a]), M.jsx("div", { className: "my-2 w-full px-2", children: M.jsx("form", { onSubmit: (c) => {
-    c.preventDefault(), l(n);
-  }, children: M.jsx("input", { ref: o, onInput: (c) => {
-    const u = c.currentTarget.value;
-    i(u), l(u);
-  }, value: n, placeholder: "Search", style: t, className: `w-full self-center rounded-lg p-2 bg-slate-100 hover:bg-slate-300 focus:bg-slate-300 focus:outline-none active:outline-none text-black ${e}` }) }) });
+  }, [a]), /* @__PURE__ */ M.jsx("div", { className: "my-2 w-full px-2", children: /* @__PURE__ */ M.jsx(
+    "form",
+    {
+      onSubmit: (c) => {
+        c.preventDefault(), l(n);
+      },
+      children: /* @__PURE__ */ M.jsx(
+        "input",
+        {
+          ref: o,
+          onInput: (c) => {
+            const u = c.currentTarget.value;
+            i(u), l(u);
+          },
+          value: n,
+          placeholder: "Search",
+          style: t,
+          className: `w-full self-center rounded-lg p-2 bg-slate-100 hover:bg-slate-300 focus:bg-slate-300 focus:outline-none active:outline-none text-black ${e}`
+        }
+      )
+    }
+  ) });
 }, ud = (e = Dt.getState().structure.normalized.files.allIds, t = Dt.getState().structure.normalized) => e.map((i) => {
   const o = t.files.byId[i], [s, a] = Qo(o, t);
   return {
@@ -8895,14 +10001,17 @@ const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [
     content: t.files.byId[i].content,
     path: a
   };
-}).reduce((i, o) => {
-  var s;
-  if (o.path) {
-    const a = `/${(s = o.path) == null ? void 0 : s.join("/")}`;
-    i[a] = { id: o.id, content: o.content };
-  }
-  return i;
-}, {}), rd = (e, t) => {
+}).reduce(
+  (i, o) => {
+    var s;
+    if (o.path) {
+      const a = `/${(s = o.path) == null ? void 0 : s.join("/")}`;
+      i[a] = { id: o.id, content: o.content };
+    }
+    return i;
+  },
+  {}
+), rd = (e, t) => {
   Dt.dispatch({
     type: "structure/updateFileContents",
     payload: { id: e, value: t }
@@ -8920,11 +10029,11 @@ const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [
   fileActionsDisableTooltip: c,
   fileActionsDisableDownload: u,
   folderCollapseBtnClassname: h,
-  folderCollapseBtnStyle: v,
+  folderCollapseBtnStyle: g,
   folderThreeDotPrimaryClass: d,
   folderThreeDotSecondaryClass: b,
   folderClickableAreaClassName: f,
-  folderSelectedClickableAreaClassName: g,
+  folderSelectedClickableAreaClassName: v,
   folderContextSelectedClickableAreaClassName: m,
   itemTitleClassName: w,
   structureContainerClassName: x,
@@ -8957,11 +10066,11 @@ const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [
     fileActionsDisableTooltip: c,
     fileActionsDisableDownload: u,
     folderCollapseBtnClassname: h,
-    folderCollapseBtnStyle: v,
+    folderCollapseBtnStyle: g,
     folderThreeDotPrimaryClass: d,
     folderThreeDotSecondaryClass: b,
     folderClickableAreaClassName: f,
-    folderSelectedClickableAreaClassName: g,
+    folderSelectedClickableAreaClassName: v,
     folderContextSelectedClickableAreaClassName: m,
     itemTitleClassName: w,
     structureContainerClassName: x,
@@ -9020,14 +10129,16 @@ const mr = ({ children: e }) => M.jsxs(Bl, { context: Ln, store: Dt, children: [
   highlightedTextClassName: e,
   headerClassName: t,
   headerStyle: r,
-  titleClassName: n
+  titleClassName: n,
+  searchResultClicked: i
 }) => /* @__PURE__ */ M.jsx(mr, { children: /* @__PURE__ */ M.jsx(
   Qu,
   {
     highlightedTextClassName: e,
     headerClassName: t,
     headerStyle: r,
-    titleClassName: n
+    titleClassName: n,
+    searchResultClicked: i
   }
 ) }), gd = (e, t) => {
   rd(e, t);

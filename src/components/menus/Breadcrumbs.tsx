@@ -120,7 +120,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                             dispatch(setSelected({ id, type: "file" }));
                             dispatch(setActiveTabAsync(item.id));
                             setShowMiniStructure(false);
-                            onBreadcrumbFileClick(id);
+                            onBreadcrumbFileClick(item.id);
                           }
                         }}
                         onCollapseMiniStructure={(id) => {

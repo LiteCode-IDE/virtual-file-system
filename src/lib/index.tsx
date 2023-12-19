@@ -150,6 +150,7 @@ const SearchResults: React.FC<SearchContainerProps> = ({
   headerClassName,
   headerStyle,
   titleClassName,
+  searchResultClicked
 }) => {
   return (
     <VFSProvider>
@@ -158,6 +159,7 @@ const SearchResults: React.FC<SearchContainerProps> = ({
         headerClassName={headerClassName}
         headerStyle={headerStyle}
         titleClassName={titleClassName}
+        searchResultClicked={searchResultClicked}
       />
     </VFSProvider>
   );

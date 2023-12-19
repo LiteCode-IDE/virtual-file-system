@@ -563,12 +563,12 @@ const Structure: React.FC<StructureProps> = ({
                             e.stopPropagation();
                             fileActions.newFile();
                           }}
-                          className="new-btns bg-vscode-overlay my-1 w-full rounded-lg px-1 py-2 transition-colors hover:bg-vscode-blue"
+                          className="new-btns text-black hover:text-white border my-1 w-full rounded-lg px-1 py-2 transition-colors hover:bg-vscode-blue hover:border-vscode-blue "
                         >
                           <span
                             parent-id={"head"}
                             typeof-item={"folder"}
-                            className="relative text-white"
+                            className="relative"
                           >
                             New File
                           </span>
@@ -581,12 +581,12 @@ const Structure: React.FC<StructureProps> = ({
                             e.stopPropagation();
                             fileActions.newFolder();
                           }}
-                          className="new-btns bg-vscode-overlay my-1 w-full rounded-lg  px-1 py-2 transition-colors hover:bg-vscode-blue"
+                          className="new-btns text-black hover:text-white border my-1 w-full rounded-lg  px-1 py-2 transition-colors hover:bg-vscode-blue hover:border-vscode-blue "
                         >
                           <span
                             parent-id={"head"}
                             typeof-item={"folder"}
-                            className="relative text-white"
+                            className="relative"
                           >
                             New Folder
                           </span>

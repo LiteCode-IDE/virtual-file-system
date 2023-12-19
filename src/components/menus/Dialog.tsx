@@ -51,7 +51,7 @@ const Dialog: React.FC<DialogProps> = ({
               onClick={() => {
                 close(false);
               }}
-              className="text-sm px-2 py-1 rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors">
+              className="text-sm px-2 py-1 border rounded-lg bg-slate-600 hover:bg-slate-500 transition-colors">
               Cancel
             </button>
             <button
@@ -59,7 +59,7 @@ const Dialog: React.FC<DialogProps> = ({
               onClick={() => {
                 action();
               }}
-              className="text-sm bg-red-700 hover:bg-red-500 px-2 py-1 rounded-lg transition-colors flex flex-row items-center">
+              className="text-sm bg-red-700 border  hover:bg-red-500 px-2 py-1 rounded-lg transition-colors flex flex-row items-center">
               <img
                 alt={"delete"}
                 src={deleteLogo}
