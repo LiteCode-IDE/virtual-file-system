@@ -22,7 +22,7 @@ const HighlightedText: React.FC<HighlightedTextProps> = ({
       onClick={() => {
         openAtLine(lineNum);
       }}
-      className="whitespace-nowrap my-1 ml-3 pl-1 cursor-pointer hover:bg-dark-hover">
+      className="whitespace-nowrap my-1 ml-3 pl-1 cursor-pointer hover:bg-slate-200">
       {parts.map((part) =>
         (() => {
           if (part === hightlight) {

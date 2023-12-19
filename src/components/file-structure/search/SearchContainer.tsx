@@ -1,9 +1,14 @@
 import React from "react";
 import SearchResults from "./SearchResults";
-import { useTypedSelector } from "../../../state/hooks";
+import { useTypedDispatch, useTypedSelector } from "../../../state/hooks";
 import {
   getSearchResults,
+  setSelected,
 } from "../../../state/features/structure/structureSlice";
+import {
+  selectedTab,
+  setActiveTabAsync,
+} from "../../../state/features/tabs/tabsSlice";
 
 export interface SearchContainerProps {
   highlightedTextClassName?: string;
@@ -18,9 +23,19 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
   headerClassName,
   headerStyle,
   titleClassName,
-  searchResultClicked
+  searchResultClicked,
 }) => {
+  const dispatch = useTypedDispatch();
   const searchData = useTypedSelector(getSearchResults);
+  const selected = useTypedSelector(selectedTab);
+
+  const openResult = (id: string, line: number) => {
+    if (selected !== id) {
+      dispatch(setSelected({ id, type: "file" }));
+      dispatch(setActiveTabAsync(id));
+    }
+    searchResultClicked(id, line);
+  };
 
   return (
     <div className="select-none w-full h-fit pr-1">
@@ -32,7 +47,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
         <div className="w-full z-0" key={`search-results-${file.id}`}>
           <SearchResults
             matchingFile={file}
-            fileAtLineClick={searchResultClicked}
+            fileAtLineClick={openResult}
             highlightClass={highlightedTextClassName}
             headerClassName={headerClassName}
             headerStyle={headerStyle}

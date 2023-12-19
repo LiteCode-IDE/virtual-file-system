@@ -34,7 +34,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           setShowResults(!showResults);
         }}
         style={headerStyle}
-        className={`flex items-center w-full cursor-pointer hover:bg-dark-hover ${headerClassName}`}
+        className={`flex items-center w-full cursor-pointer hover:bg-slate-200 ${headerClassName}`}
       >
         <img
           src={downArrowLogo}

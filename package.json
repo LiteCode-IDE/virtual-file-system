@@ -1,6 +1,6 @@
 {
   "name": "@litecode-ide/virtual-file-system",
-  "version": "0.0.23",
+  "version": "0.0.26",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,7 +15,6 @@
     "localforage": "^1.10.0",
     "lodash.clonedeep": "^4.5.0",
     "path": "^0.12.7",
-    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.2",
@@ -26,7 +25,6 @@
   "devDependencies": {
     "@types/file-saver": "^2.0.7",
     "@types/lodash.clonedeep": "^4.5.9",
-    "@types/path-browserify": "^1.0.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@types/uuid": "^9.0.7",
@@ -51,6 +49,7 @@
   "module": "./dist/@litecode-ide/virtual-file-system.es.js",
   "exports": {
     ".": {
+      "types": "./dist/@litecode-ide/index.d.ts",
       "import": "./dist/@litecode-ide/virtual-file-system.es.js",
       "require": "./dist/@litecode-ide/virtual-file-system.umd.js"
     },

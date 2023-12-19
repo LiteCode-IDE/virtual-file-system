@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "dist/@litecode-ide/index.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
