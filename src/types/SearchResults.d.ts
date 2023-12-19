@@ -1,5 +1,4 @@
-import React from "react";
-import { type MatchingFile } from "../../../state/features/structure/structureSlice";
+import { type MatchingFile } from "../state/features/structure/structureSlice";
 interface SearchResultsProps {
     matchingFile: MatchingFile;
     fileAtLineClick: (id: string, lineNum: number) => void;

@@ -1,5 +1,5 @@
 import React from "react";
-import { type ItemType } from "../../state/features/structure/structureSlice";
+import { type ItemType } from "../state/features/structure/structureSlice";
 export interface StructureProps {
     deleteConfirmationClassName?: string;
     fileInputClassName?: string;

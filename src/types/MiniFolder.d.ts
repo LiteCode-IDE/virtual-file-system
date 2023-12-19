@@ -1,6 +1,5 @@
-import React from "react";
-import { type MiniStructure } from "../../state/features/structure/miniStructureSlice";
-import { type Identifier } from "../../state/features/structure/structureSlice";
+import { type MiniStructure } from "../state/features/structure/miniStructureSlice";
+import { type Identifier } from "../state/features/structure/structureSlice";
 interface MiniFolderProps {
     data: MiniStructure;
     init: boolean;

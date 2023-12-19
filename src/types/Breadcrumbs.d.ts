@@ -1,4 +1,3 @@
-import React from "react";
 export interface BreadcrumbsProps {
     containerClassName?: string;
     textClassName?: string;

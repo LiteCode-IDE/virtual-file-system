@@ -1,5 +1,4 @@
-import React from "react";
-import { type Directory, type FileInFolder, ItemType } from "../../state/features/structure/structureSlice";
+import { type Directory, type FileInFolder, ItemType } from "../state/features/structure/structureSlice";
 interface FolderProps {
     data: Array<Directory | FileInFolder>;
     showBlue: boolean;

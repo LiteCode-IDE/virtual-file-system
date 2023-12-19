@@ -1,5 +1,4 @@
-import React from "react";
-import { type ItemType } from "../../../state/features/structure/structureSlice";
+import { type ItemType } from "../state/features/structure/structureSlice";
 interface ThreeDotsProp {
     item: {
         id: string;

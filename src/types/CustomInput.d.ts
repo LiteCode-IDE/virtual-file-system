@@ -1,4 +1,3 @@
-import React from "react";
 interface CustomInputProps {
     closeCallback: React.Dispatch<React.SetStateAction<boolean>>;
     submit: (value: string | false) => void;

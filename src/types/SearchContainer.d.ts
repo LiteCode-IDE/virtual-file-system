@@ -1,4 +1,3 @@
-import React from "react";
 export interface SearchContainerProps {
     highlightedTextClassName?: string;
     headerClassName?: string;

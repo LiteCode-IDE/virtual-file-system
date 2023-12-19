@@ -1,4 +1,3 @@
-import React from "react";
 interface HighlightedTextProps {
     hightlight: string;
     highlightClass?: string;

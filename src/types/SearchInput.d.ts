@@ -1,5 +1,4 @@
-import React from "react";
-import { SearchResults } from "../../../state/features/structure/structureSlice";
+import { SearchResults } from "../state/features/structure/structureSlice";
 export interface SearchInputProps {
     className?: string;
     style?: React.CSSProperties;
