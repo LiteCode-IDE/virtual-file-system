@@ -1,6 +1,6 @@
 {
   "name": "@litecode-ide/virtual-file-system",
-  "version": "0.0.26",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
