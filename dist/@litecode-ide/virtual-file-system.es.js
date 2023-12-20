@@ -9358,13 +9358,13 @@ const Vu = () => {
                             onContextMenu: (ne) => {
                               Xe(ne), W({ id: "head", type: "folder" });
                             },
-                            className: "mx-auto flex h-[40vh] items-center pl-3 pr-4",
+                            className: "mx-auto flex items-center pl-3 pr-4",
                             children: /* @__PURE__ */ M.jsx(
                               "div",
                               {
                                 "parent-id": "head",
                                 "typeof-item": "folder",
-                                className: "select-none break-words rounded-lg border p-3 text-center text-base",
+                                className: "select-none break-words rounded-lg p-3 text-center text-base",
                                 children: /* @__PURE__ */ M.jsxs(
                                   "div",
                                   {
