@@ -531,12 +531,12 @@ const Structure: React.FC<StructureProps> = ({
                     contextHandler(e);
                     onItemContextSelected({ id: "head", type: "folder" });
                   }}
-                  className="mx-auto flex h-[40vh] items-center pl-3 pr-4"
+                  className="mx-auto flex items-center pl-3 pr-4"
                 >
                   <div
                     parent-id={"head"}
                     typeof-item={"folder"}
-                    className="select-none break-words rounded-lg border p-3 text-center text-base"
+                    className="select-none break-words rounded-lg p-3 text-center text-base"
                   >
                     <div
                       parent-id={"head"}

@@ -71,7 +71,7 @@
 }
 
 .display-none-c {
-  display: none;
+  display: none !important;
 }
 
 .span-logo {
