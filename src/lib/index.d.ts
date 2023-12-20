@@ -62,7 +62,7 @@ declare module "@litecode-ide/virtual-file-system" {
     content: string;
   }
 
-  interface SearchResults {
+  interface SearchResultsType {
     files: MatchingFile[];
     numOfResults: number;
     numOfLines: number;
@@ -71,7 +71,7 @@ declare module "@litecode-ide/virtual-file-system" {
   interface SearchInputProps {
     className?: string;
     style?: React.CSSProperties;
-    onSearchFiles?: (searchTerm: string, searchResults: SearchResults) => void;
+    onSearchFiles?: (searchTerm: string, searchResults: SearchResultsType) => void;
   }
 
   interface SearchContainerProps {
