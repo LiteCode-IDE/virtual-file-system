@@ -4,7 +4,7 @@
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install VFS.
+Use the package manager npm to install VFS.
 
 ```bash
 npm install @litecode-ide/virtual-file-system
