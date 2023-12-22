@@ -45,11 +45,7 @@ const updateFileContents = (id: string, content: string) => {
 };
 
 const getSelectedFile = () => {
-  const selectedTab = store.getState().tabs.selected;
-  if (selectedTab === "") {
-    return store.getState().structure.selected;
-  }
-  return selectedTab;
+  return store.getState().tabs.selected;
 };
 
 export { getFileTree, updateFileContents, getSelectedFile };
