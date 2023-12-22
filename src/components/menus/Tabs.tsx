@@ -37,7 +37,7 @@ const Tabs: React.FC<TabsProps> = ({
     }
   };
 
-  const onClose = async (id: string) => {
+  const onClose = (id: string) => {
     dispatch(closeTab(id));
     onTabClose(id);
   };

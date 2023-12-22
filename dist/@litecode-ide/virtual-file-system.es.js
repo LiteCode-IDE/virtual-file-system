@@ -9679,7 +9679,7 @@ const yr = ({ children: e }) => /* @__PURE__ */ M.jsxs(Ul, { context: $n, store:
 }) => {
   const o = er(), s = Ke(Xl), a = Ke(To), l = (u) => {
     a !== u && (o(Yl(u)), n(u));
-  }, c = async (u) => {
+  }, c = (u) => {
     o(Kl(u)), i(u);
   };
   return /* @__PURE__ */ M.jsx("div", { className: "flex flex-row w-full", children: /* @__PURE__ */ M.jsx("div", { className: "file-tabs w-full py-1", children: /* @__PURE__ */ M.jsx(
@@ -10018,7 +10018,7 @@ const yr = ({ children: e }) => /* @__PURE__ */ M.jsxs(Ul, { context: $n, store:
     type: "structure/updateFileContents",
     payload: { id: e, value: t }
   });
-}, dd = () => Dt.getState().structure.selected, fd = ({
+}, dd = () => Dt.getState().tabs.selected, fd = ({
   deleteConfirmationClassName: e,
   fileInputClassName: t,
   fileInputStyle: r,
