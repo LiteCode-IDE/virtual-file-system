@@ -77,7 +77,7 @@ const validateFile = (
   const regexFileName =
     /^[a-zA-Z0-9](?:[a-zA-Z0-9 ._-]*[a-zA-Z0-9])?\.[a-zA-Z0-9_-]+$/;
 
-  const lettersNumbersSymbols = /^[a-z0-9._]+$/i;
+  const lettersNumbersSymbols = /^[a-z0-9._-]+$/i;
 
   const isValid = value.match(regexFileName);
   const matches = value.match(regex);
@@ -187,7 +187,7 @@ const validateFolder = (
   value: string,
   existingItems: Array<{ wholeName: string; type: string }>
 ): { error: boolean; errorMessage: string } => {
-  const regex = /^[a-zA-Z0-9_-\s]+$/;
+  const regex = /^[a-zA-Z0-9_[\]-\s]+$/;
   const isValid = value.match(regex);
 
   if (isValid || value === "") {

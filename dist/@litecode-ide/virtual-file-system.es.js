@@ -3471,7 +3471,7 @@ const $n = ht.createContext(null), Hl = Wl($n), Zl = zl($n), er = Hl, Ke = Zl, G
     children: /* @__PURE__ */ M.jsx("span", { className: "three-dots transition-opacity", children: " " })
   }
 ), cr = (e) => `${e}-logo`, Ql = (e, t, r, n, i) => {
-  const o = /^([^\\]*)\.(\w+)$/, s = /^[a-zA-Z0-9](?:[a-zA-Z0-9 ._-]*[a-zA-Z0-9])?\.[a-zA-Z0-9_-]+$/, a = /^[a-z0-9._]+$/i, l = t.match(s), c = t.match(o), u = t.match(a);
+  const o = /^([^\\]*)\.(\w+)$/, s = /^[a-zA-Z0-9](?:[a-zA-Z0-9 ._-]*[a-zA-Z0-9])?\.[a-zA-Z0-9_-]+$/, a = /^[a-z0-9._-]+$/i, l = t.match(s), c = t.match(o), u = t.match(a);
   if (c && u) {
     const h = n, g = c[1], d = c[2];
     if (l && u && h.includes(d)) {
@@ -3514,7 +3514,7 @@ const $n = ht.createContext(null), Hl = Wl($n), Zl = zl($n), er = Hl, Ke = Zl, G
     errorMessage: ""
   };
 }, ec = (e, t) => {
-  const r = /^[a-zA-Z0-9_-\s]+$/;
+  const r = /^[a-zA-Z0-9_[\]-\s]+$/;
   if (e.match(r) || e === "") {
     for (const { wholeName: i, type: o } of t)
       if (i.toLowerCase() === e.toLowerCase() && o === "folder")
@@ -9886,7 +9886,7 @@ const yr = ({ children: e }) => /* @__PURE__ */ M.jsxs(Ul, { context: $n, store:
         children: /* @__PURE__ */ M.jsx("div", { className: "breadcrumbs-container flex items-center justify-start m-2", children: b.path.map((v, m) => /* @__PURE__ */ M.jsx(
           "div",
           {
-            id: `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`,
+            id: `${b.path.map((w) => w.replace(/[.[\]|\s]+/g, "-")).join("")}-${m}`,
             children: /* @__PURE__ */ M.jsxs(
               "div",
               {
@@ -9917,12 +9917,12 @@ const yr = ({ children: e }) => /* @__PURE__ */ M.jsxs(Ul, { context: $n, store:
               }
             )
           },
-          `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${m}`
+          `${b.path.map((w) => w.replace(/[.[\]|\s]+/g, "-")).join("")}-${m}`
         )) })
       }
     ),
     g.current && c && /* @__PURE__ */ M.jsx(M.Fragment, { children: (() => {
-      const v = `${b.path.map((w) => w.replace(/[\.|\s]+/g, "-")).join("")}-${a}`, m = g.current.querySelector(
+      const v = `${b.path.map((w) => w.replace(/[.[\]|\s]+/g, "-")).join("")}-${a}`, m = g.current.querySelector(
         `#${v}`
       );
       if (m)
