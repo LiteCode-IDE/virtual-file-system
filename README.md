@@ -1,6 +1,6 @@
 # @litecode-ide/virtual-file-system
 
-**@litecode-ide/virtual-file-system** (from here onwards referred to as **_VFS_**) is an customizable, browser-based file system.
+**@litecode-ide/virtual-file-system** (from here onwards referred to as **_VFS_**) is a customizable, browser-based file system.
 
 ## Installation
 
